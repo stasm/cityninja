@@ -2,13 +2,13 @@
   <div id="add-modal" class="modal">
     <div class="modal-content">
       <form>
-        <label for="nameInput"> Report Type: </label>
+        <label for="nameInput">Co się dzieje: </label>
         <select id="nameInput">
           {{#each reportTypes}}
             <option value="{{name}}">{{name}}</option>
           {{/each}}
         </select>
-        <label for="locationInput"> Location: </label>
+        <label for="locationInput"> Miejsce: </label>
         <select id="locationInput">
           {{#each stations}}
             <option value="{{name}}">{{name}}</option>
@@ -17,7 +17,7 @@
       </form>
     </div>
     <div class="modal-footer">
-      <a href="#" class="waves-effect waves-green btn btn-flat blue white-text modal-action modal-close submit">Submit</a>
+      <a href="#" class="waves-effect waves-green btn btn-flat blue white-text modal-action modal-close submit">Zgłoś</a>
     </div>
   </div>
 </template>
