@@ -10,7 +10,7 @@ Strona WWW: [warszawski.ninja][]
 Facebook: [facebook.com/warszawski.ninja][]
 
 [warszawski.ninja]: http://warszawski.ninja
-[facebook.com/warszawski.ninja]: https://facebook.com/warszawski.ninja
+[facebook.com/warszawski.ninja]: https://www.facebook.com/pages/Warszawski-Ninja/385388668332002
 
 
 Inspiracja
