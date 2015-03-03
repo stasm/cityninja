@@ -75,6 +75,11 @@ img.top-panel-ninja {
   font-size: 16px;
 }
 
+#at {
+  float: right;
+  font-size: 80%;
+}
+
 .main-content {
   margin-top: 20px;
 }
@@ -155,16 +160,14 @@ select {
 
 .logo {
   overflow: hidden;
-  width: 250px;
   margin: 0 auto;
-  text-align: left;
+  text-align: center;
 }
 
 .ninja-logo {
   height: 64px;
   width: 64px;
   margin: 0 auto 10px auto;
-  float: left;
 }
 
 h1.app-title {

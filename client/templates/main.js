@@ -39,7 +39,7 @@ Template.main.rendered = function() {
   $('.modal-trigger').leanModal();
 
   setInterval(function(){
-    var currentTime = moment().format("hh:mm:ss");
+    var currentTime = moment().tz("Europe/Warsaw").format("h:mm");
     $('#current-time').text(currentTime);
   }, 1000);
 };
