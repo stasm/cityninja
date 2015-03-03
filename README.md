@@ -1,18 +1,40 @@
-# MBTA Ninja
-MBTA Ninja is "Waze for the T": a crowdsourced alerting system for public transit in Boston.
+warszawski.ninja
+================
 
-View the site: [mbta.ninja](http://mbta.ninja)
-Follow us on Twitter: [@mbta_ninja](https://twitter.com/mbta_ninja)
+warszawski.ninja jest platformą wymiany informacji o bieżącym stanie 
+komunikacji miejskiej w Warszawie.  Doniesienia o opóźnieniach i kłopotach na 
+trasie są pojawią się w czasie rzeczywistym na telefonach wszystkich 
+użytkowników.
 
-The project started as a weekend hack by [David Lago](https://twitter.com/dave_lago), [Geoffrey Litt](https://twitter.com/geoffreylitt), and [Radhika Malik](https://twitter.com/radhika1990) for [CodeAcross Boston 2015](http://www.eventbrite.com/e/codeacross-boston-2015-tickets-15442437747).
-The site is built using Meteor.js and Materialize.css, and deployed on Heroku.
+Strona WWW: [warszawski.ninja][]
+Facebook: [facebook.com/warszawski.ninja][]
 
-## Contributing
+[warszawski.ninja]: http://warszawski.ninja
+[facebook.com/warszawski.ninja]: https://facebook.com/warszawski.ninja
 
-We welcome contributions that would make this tool more useful for the Boston community -- whether it's adding support for more MBTA lines, or entire new features.
 
-Please create a GitHub issue if you have an idea. And if you're able to code a solution and open a pull request, even better!
+Inspiracja
+----------
 
-# License
+Projekt warszawski.ninja zainspirowany został konkursem [Dane po warszawsku][].
 
-MBTA Ninja is released under the [MIT License](http://www.opensource.org/licenses/MIT)
+[Dane po warszawsku]: http://konkurs.danepowarszawsku.pl/
+
+Powstał w oparciu o podobną platformę dostępną w Bostonie: [mbta.ninja][].  Jej 
+autorami są [David Lago][], [Geoffrey Litt][] i [Radhika Malik][].
+
+[mbta.ninja]: http://mbta.ninja
+[David Lago]: https://twitter.com/dave_lago
+[Geoffrey Litt]: https://twitter.com/geoffreylitt
+[Radhika Malik]: https://twitter.com/radhika1990
+
+
+Licencja i kod źródłowy
+-----------------------
+
+Platforma warszawski.ninja jest dostępna na licencji [MIT][].  Jeśli masz 
+pomysł na usprawnienie działania albo nową funkcję, [zgłoś go][] albo wyślij 
+pull requesta!
+
+[MIT]: http://www.opensource.org/licenses/MIT
+[zgłoś go][]: https://github.com/stasm/warszawski.ninja/issues
