@@ -6,8 +6,8 @@ komunikacji miejskiej w Warszawie.  Doniesienia o opóźnieniach i kłopotach na
 trasie są pojawią się w czasie rzeczywistym na telefonach wszystkich 
 użytkowników.
 
-Strona WWW: [warszawski.ninja][]
-Facebook: [facebook.com/warszawski.ninja][]
+  - Strona WWW: [warszawski.ninja][]
+  - Facebook: [facebook.com/warszawski.ninja][]
 
 [warszawski.ninja]: http://warszawski.ninja
 [facebook.com/warszawski.ninja]: https://www.facebook.com/pages/Warszawski-Ninja/385388668332002
@@ -37,4 +37,4 @@ pomysł na usprawnienie działania albo nową funkcję, [zgłoś go][] albo wyś
 pull requesta!
 
 [MIT]: http://www.opensource.org/licenses/MIT
-[zgłoś go][]: https://github.com/stasm/warszawski.ninja/issues
+[zgłoś go]: https://github.com/stasm/warszawski.ninja/issues
