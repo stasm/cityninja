@@ -15,22 +15,14 @@ Template.main.helpers({
   },
   lineColor: function() {
     var line = currentLine();
-    var lineColor = ""
 
-    if(line.indexOf("Red") > -1) {
-      lineColor = "red-line";
-    }
-    else if(line.indexOf("Green") > -1) {
-      lineColor = "green-line";
-    }
-    else if(line.indexOf("Orange") > -1) {
-      lineColor = "orange-line";
-    }
-    else if(line.indexOf("Blue") > -1) {
-      lineColor = "blue-line";
+    if (line.indexOf("Metro 1") > -1) {
+      return "blue-line";
     }
 
-    return lineColor;
+    if (line.indexOf("Metro 2") > -1) {
+      return "red-line";
+    }
   }
 });
 
