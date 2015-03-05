@@ -16,11 +16,11 @@ Template.main.helpers({
   lineColor: function() {
     var line = currentLine();
 
-    if (line.indexOf("Metro 1") > -1) {
+    if (line.indexOf("M1") > -1) {
       return "blue-line";
     }
 
-    if (line.indexOf("Metro 2") > -1) {
+    if (line.indexOf("M2") > -1) {
       return "red-line";
     }
   }
