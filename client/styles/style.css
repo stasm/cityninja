@@ -259,16 +259,16 @@ div.lines {
   margin-bottom: 25px;
 }
 
-.share-buttons {
-  margin-bottom: 20px;
-}
-
-.credits {
+.aux {
   font-size: 0.8em;
 }
 
 .footer {
   margin-bottom: 20px;
+}
+
+.credits {
+  color: #999;
 }
 
 iframe#twitter-widget-0 {
