@@ -7,10 +7,10 @@ trasie są pojawią się w czasie rzeczywistym na telefonach wszystkich
 użytkowników.
 
   - Strona WWW: [warszawski.ninja][]
-  - Facebook: [facebook.com/warszawski.ninja][]
+  - Twitter: [twitter.com/warszawskininja][]
 
 [warszawski.ninja]: http://warszawski.ninja
-[facebook.com/warszawski.ninja]: https://www.facebook.com/pages/Warszawski-Ninja/385388668332002
+[twitter.com/warszawskininja]: https://www.twitter.com/warszawskininja
 
 
 Inspiracja
