@@ -62,7 +62,29 @@
   background-color: #801174;
 }
 
+.silver-line {
+  background-color: #949494;
+}
+
+h1.transport-type {
+  text-align: left;
+  font-size: 14px;
+  line-height: 1em;
+  margin: 0;
+  text-transform: uppercase;
+  color: #B3B3B3;
+}
+
+ul.slogans {
+  margin-top: 0;
+}
+
 /* Collapsible menu styling */
+
+ul.collapsible {
+  margin-bottom: 30px;
+}
+
 .collapsible-body {
   padding: 10px;
   text-align: left;
@@ -243,7 +265,7 @@ select {
 
 h1.app-title {
   font-size: 32px;
-  margin: 0 0 5px 0;
+  margin: 15px 0 5px 0;
   line-height: 1.2em;
 }
 

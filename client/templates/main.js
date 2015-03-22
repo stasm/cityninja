@@ -1,4 +1,4 @@
-Meteor.subscribe("reports");
+Meteor.subscribe('reports');
 
 Template.main.helpers({
   stations: function () {

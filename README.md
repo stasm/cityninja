@@ -37,4 +37,3 @@ pomysł na usprawnienie działania albo nową funkcję, [zgłoś go][] albo wyś
 pull requesta!
 
 [MIT]: http://www.opensource.org/licenses/MIT
-[zgłoś go]: https://github.com/stasm/warszawski.ninja/issues

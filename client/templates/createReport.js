@@ -4,7 +4,9 @@ Template.createReport.helpers({
   stations: function () {
     return currentStations();
   },
-  reportTypes: reportTypes
+  reportTypes: function() {
+    return reportTypes[currentTransitType()];
+  }
 });
 
 Template.createReport.events({
@@ -36,5 +38,6 @@ Template.createReport.events({
         Session.setPersistent(report, 'created');
       });
     }
+    toast("Thanks for your report!", 2000);
   }
 });

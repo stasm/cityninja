@@ -7,32 +7,16 @@
         <h1 class="app-title">
           warszawski.ninja
         </h1>
-        <h2 class="app-subtitle">
-        </h2>
+        <h2 class="app-subtitle"></h2>
       </div>
 
+      <!--<h1 class="transport-type">Metro</h1>-->
       <ul class="collapsible" data-collapsible="accordion">
-        <li class="line">
-          <div class="collapsible-header"><i class="mdi-maps-directions-subway subway-icon blue-line"></i>Metro M1<span class="secondary-content"><i class="mdi-navigation-expand-more grey-text lighten-2"></i></span>
-          </div>
-          <div class="collapsible-body">
-            <a href="{{pathFor 'line.show' line='Metro M1 (kierunek Kabaty)'}}">Kierunek Kabaty<span class="secondary-content"><i class="mdi-navigation-chevron-right black-text"></i></span></a>
-          </div>
-          <div class="collapsible-body">
-            <a href="{{pathFor 'line.show' line='Metro M1 (kierunek Młociny)'}}">Kierunek Młociny<span class="secondary-content"><i class="mdi-navigation-chevron-right black-text"></i></span></a>
-          </div>
-        </li>
-        <li class="line">
-          <div class="collapsible-header"><i class="mdi-maps-directions-subway subway-icon red-line"></i>Metro M2<span class="secondary-content"><i class="mdi-navigation-expand-more grey-text lighten-2"></i></span>
-          </div>
-          <div class="collapsible-body">
-            <a href="{{pathFor 'line.show' line='Metro M2 (kierunek Dworzec Wileński)'}}">Kierunek Dworzec Wileński<span class="secondary-content"><i class="mdi-navigation-chevron-right black-text"></i></span></a>
-          </div>
-          <div class="collapsible-body">
-            <a href="{{pathFor 'line.show' line='Metro M2 (kierunek Rondo Daszyńskiego)'}}">Kierunek Rondo Daszyńskiego<span class="secondary-content"><i class="mdi-navigation-chevron-right black-text"></i></span></a>
-          </div>
-        </li>
+        {{#each subwayLines}}
+          {{> line}} 
+        {{/each}}
       </ul>
+
 
       <div class="aux footer">
         (Odświeża się automatycznie).
