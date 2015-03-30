@@ -232,11 +232,12 @@ span.report-detail {
   right: 20px;
 }
 
-#add-modal {
-  max-width: 500px;
+.modal {
+  width: auto;
+  max-width: 280px;
 }
 
-#add-modal .modal-content{
+.modal-content {
   margin-bottom: 20px;
 }
 
@@ -308,4 +309,8 @@ iframe#twitter-widget-0 {
 
 .card a.btn-vote i.left {
   margin-right: 5px;
+}
+
+.card .card-content, .card .card-action {
+  padding: 15px;
 }
