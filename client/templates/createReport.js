@@ -38,6 +38,6 @@ Template.createReport.events({
         Session.setPersistent(report, 'created');
       });
     }
-    toast("Thanks for your report!", 2000);
+    toast("Dzięki!", 2000);
   }
 });
