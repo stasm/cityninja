@@ -29,6 +29,25 @@ autorami są [David Lago][], [Geoffrey Litt][] i [Radhika Malik][].
 [Radhika Malik]: https://twitter.com/radhika1990
 
 
+Instalacja
+----------
+
+  - Zainstaluj Meteor wg [instrukcji][]:
+
+        curl https://install.meteor.com/ | sh
+
+  - Sklonuj kod:
+
+        git clone https://github.com/stasm/warszawski.ninja.git
+
+  - Uruchom lokalny serwer:
+
+        cd warszawski.ninja
+        meteor run
+
+[instrukcji]: https://www.meteor.com/install
+
+
 Licencja i kod źródłowy
 -----------------------
 
@@ -37,3 +56,4 @@ pomysł na usprawnienie działania albo nową funkcję, [zgłoś go][] albo wyś
 pull requesta!
 
 [MIT]: http://www.opensource.org/licenses/MIT
+[zgłoś go]: https://github.com/stasm/warszawski.ninja/issues
