@@ -4,7 +4,7 @@
   "description": "Nie daj zaskoczyć się opóźnieniom ZTM.",
   "launch_path": "/index.html",
   "icons": {
-    "128": "/images/128.png",
+    "128": "/images/ninja-128x128.png"
   },
   "developer": {
     "name": "Staś Małolepszy",
