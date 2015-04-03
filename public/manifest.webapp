@@ -1,0 +1,15 @@
+{
+  "version": "0.0.1",
+  "name": "warszawski.ninja",
+  "description": "Nie daj zaskoczyć się opóźnieniom ZTM.",
+  "launch_path": "/index.html",
+  "icons": {
+    "128": "/images/128.png",
+  },
+  "developer": {
+    "name": "Staś Małolepszy",
+    "url": "http://informationisart.com"
+  },
+  "default_locale": "pl",
+  "fullscreen": "true"
+}
