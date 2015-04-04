@@ -2,7 +2,7 @@
   "version": "0.0.1",
   "name": "warszawski.ninja",
   "description": "Nie daj zaskoczyć się opóźnieniom ZTM.",
-  "launch_path": "/index.html",
+  "launch_path": "/",
   "icons": {
     "128": "/images/ninja-128x128.png"
   },
