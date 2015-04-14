@@ -22,6 +22,29 @@
     }
 }
 
+@-webkit-keyframes rainbow {
+    0%   { color: red; } 
+    20%  { color: orange; }
+    40%  { color: yellow; }
+    60%  { color: green; }
+    80%  { color: blue; }
+    100% { color: violet; }
+}
+
+@-moz-keyframes rainbow {
+    0%   { color: red; } 
+    20%  { color: orange; }
+    40%  { color: yellow; }
+    60%  { color: green; }
+    80%  { color: blue; }
+    100% { color: violet; }
+}
+
+.credits:hover #heart {
+    -webkit-animation: rainbow 10s infinite alternate linear; 
+    -moz-animation: rainbow 10s infinite alternate linear; 
+}
+
 .line.active .mdi-navigation-expand-more {
   -webkit-transform: translate3d(0, 0, 0);
   -webkit-animation: spin-180 0.25s 1 ease-out;
