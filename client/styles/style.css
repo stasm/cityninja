@@ -108,8 +108,21 @@ ul.collapsible {
   margin-bottom: 30px;
 }
 
+.collapsible span.secondary-content {
+  text-align: center;
+  font-size: 1.6rem;
+}
+
+.collapsible span.reports {
+  width: 28px;
+  color: #FFA200;
+}
+
+
 .collapsible-body {
-  padding: 10px;
+  height: 3rem;
+  line-height: 3rem;
+  padding: 0 1rem;
   text-align: left;
   background-color: #eee;
   cursor: pointer;
@@ -132,7 +145,12 @@ ul.collapsible {
   background-color: #f0f0f0;
 }
 
+.collapsible-header i {
+  margin-right: 0;
+}
+
 .collapsible-header i.subway-icon {
+  margin-right: 1rem;
   width: 50px;
   color: white;
 }
