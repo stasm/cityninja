@@ -13,3 +13,4 @@ percolate:synced-cron
 iron:router
 momentjs:moment
 rzymek:moment-locale-pl
+nimble:restivus
