@@ -4,7 +4,7 @@
     <i class="mdi-maps-directions-{{type}} subway-icon {{color}}"></i>
     {{line}}
     <span class="secondary-content">
-      <i class="mdi-navigation-expand-more grey-text lighten-2"></i>
+      <!--<i class="mdi-navigation-expand-more grey-text lighten-2"></i>-->
     </span>
   </div>
 
@@ -13,8 +13,12 @@
       <a href="{{pathFor 'line.show' line=path type=../type}}">
         {{direction}}
         {{#if numReports path}}
-          <span class="secondary-content reports">
+          <span class="secondary-content reports warn">
             <i class="mdi-alert-warning"></i>
+          </span>
+        {{else}}
+          <span class="secondary-content reports ok">
+            <i class="mdi-action-done"></i>
           </span>
         {{/if}}
       </a>

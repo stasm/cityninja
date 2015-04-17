@@ -115,6 +115,14 @@ ul.collapsible {
 
 .collapsible span.reports {
   width: 28px;
+}
+
+.collapsible span.reports.ok {
+  font-size: 1rem;
+  color: #d0d0d0;
+}
+
+.collapsible span.reports.warn {
   color: #FFA200;
 }
 
