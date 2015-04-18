@@ -2,6 +2,13 @@
   <div class="navbar-fixed">
     <nav>
       <div class="nav-wrapper grey darken-2">
+        <div class="fav">
+          {{#if isFav}}
+            <i class="mdi-action-favorite"></i>
+          {{else}}
+            <i class="mdi-action-favorite-outline"></i>
+          {{/if}}
+        </div>
         <div class="back-button">
           <a href="/">
             &lsaquo; Wróć

@@ -1,6 +1,6 @@
 <template name="line">
   <li class="line">
-  <div class="collapsible-header active">
+  <div class="collapsible-header {{#if isFav directions}}active{{/if}}">
     <i class="mdi-maps-directions-{{type}} subway-icon {{color}}"></i>
     {{line}}
     <span class="secondary-content">

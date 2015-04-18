@@ -20,12 +20,6 @@ Template.landing.rendered = function() {
   });
 };
 
-Template.landing.events({
-  'click .line-item': function(e) {
-    $(this).toggleClass('active');
-  }
-});
-
 Template.landing.helpers({
   subwayLines: function() {
     return listOfLines().subway;

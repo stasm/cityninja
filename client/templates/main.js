@@ -25,8 +25,22 @@ Template.main.helpers({
     if (line.indexOf("M2") > -1) {
       return "red-line";
     }
+  },
+  isFav: function() {
+    var line = currentLine();
+    return Session.get('fav ' + line);
   }
 });
+
+Template.main.events = {
+  'click .fav': function(event) {
+    var count = Session.get('favs count') || 0;
+    var favid = 'fav ' + currentLine();
+    var toggle = Session.get(favid) ? false : true;
+    Session.setPersistent(favid, toggle);
+    Session.setPersistent('favs count', toggle ? count + 1 : count - 1);
+  }
+};
 
 Template.main.rendered = function() {
   setInterval(function(){
