@@ -233,6 +233,7 @@ img.top-panel-ninja {
 
 .station-name {
   text-transform: uppercase;
+  cursor: pointer;
 }
 
 .white-circle {
@@ -275,23 +276,13 @@ span.report-detail {
   white-space: nowrap;
 }
 
-.add-button-container {
-  position: fixed;
-  bottom: 10px;
-  right: 20px;
+.modal.bottom-sheet {
+  max-height: 75%;
 }
 
-.modal {
-  width: auto;
-  max-width: 280px;
-}
-
-.modal-content {
-  margin-bottom: 20px;
-}
-
-select {
-  display: block;
+.collection .collection-item.avatar {
+  height: auto;
+  cursor: pointer;
 }
 
 .intro-screen-content {

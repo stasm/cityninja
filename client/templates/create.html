@@ -1,0 +1,15 @@
+<template name="create">
+  <div id="create" class="modal bottom-sheet">
+    <div class="modal-content">
+      <h4>Co się dzieje?</h4>
+      <ul class="collection">
+        {{#each reportTypes}}
+          <li class="collection-item avatar">
+            <i class="{{icon}} circle {{color}}"></i>
+            <span class="title">{{name}}</span>
+          </li>
+        {{/each}}
+      </ul>
+    </div>
+  </div>
+</template>

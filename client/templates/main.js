@@ -29,9 +29,6 @@ Template.main.helpers({
 });
 
 Template.main.rendered = function() {
-  // Enable modal triggering with + button
-  $('.modal-trigger').leanModal();
-
   setInterval(function(){
     var currentTime = moment().zone("+01:00").format("H:mm");
     $('#current-time').text(currentTime);

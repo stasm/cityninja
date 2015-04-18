@@ -1,29 +1,24 @@
 Meteor.subscribe("reports");
 
-Template.createNormal.helpers({
-  stations: function () {
-    return currentStations();
-  },
-  normalReportTypes: function() {
-    return normalReportTypes[currentTransitType()];
+Template.create.helpers({
+  reportTypes: function() {
+    return reportTypes[currentTransitType()];
   }
 });
 
-Template.createNormal.events({
-  'click .submit': function() {
-    // Gather imputs from form
-    var nameInput = $('#normalNameInput');
-    var name = nameInput.val();
-    var locationInput = $('#normalLocationInput');
-    var location = locationInput.val();
+Template.create.events({
+  'click .collection-item': function(event, template) {
+    var modal = template.$('#create');
+    var location = modal.data('location');
     var line = currentLine();
 
     // Does a similar report already exist?
     var existingReport = Reports.findOne({
-      name: name,
+      name: this.name,
       location: location,
       line: line
     });
+
     // If so and we can upvote, we do
     if (existingReport) {
       if(canUpvote(existingReport._id)) {
@@ -32,11 +27,12 @@ Template.createNormal.events({
         Session.setPersistent(existingReport._id, 'upvoted');
       }
     } else { // Create a new report
-      Meteor.call("saveReport", name, location, line, function(err, report) {
+      Meteor.call("saveReport", this.name, location, line, function(err, report) {
         // Avoid future upvotes
         Session.setPersistent(report, 'created');
       });
     }
-    toast("Dzięki!", 2000);
+    modal.closeModal();
+    Materialize.toast("Dzięki!", 2000);
   }
 });

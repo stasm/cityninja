@@ -19,7 +19,7 @@ Template.report.events({
       // Prevent future upvotes
       Session.setPersistent(this._id, 'upvoted');
       Meteor.call("upvoteReport", this._id);
-      toast("Dzięki!", 2000);
+      Materialize.toast("Dzięki!", 2000);
     }
   },
   'click .downvote': function() {
@@ -27,15 +27,16 @@ Template.report.events({
       // Prevent future downvotes
       Session.setPersistent(this._id, 'downvoted');
       Meteor.call("downvoteReport", this._id);
-      toast("Dzięki!", 2000);
+      Materialize.toast("Dzięki!", 2000);
     }
   }
 });
 
-Template.report.rendered = function() {
-  // Enable modal triggering with button on a "Normal conditions" event.
-  $('.modal-trigger').leanModal();
-};
+Template.report.events({
+  'click .create-nonetheless': function(event) {
+    $('#create').data('location', this.location).openModal();
+  }
+});
 
 Template.report.events({
   'click .modal-trigger': function(e) {

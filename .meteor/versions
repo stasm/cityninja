@@ -10,7 +10,6 @@ check@1.0.5
 chriswessels:glyphicons-halflings@2.0.0
 coffeescript@1.0.6
 copleykj:livestamp@1.1.6
-d0minikk:materialize-meteor@1.95.1
 ddp@1.1.0
 deps@1.0.7
 ejson@1.0.6
@@ -33,6 +32,7 @@ json@1.0.3
 launch-screen@1.0.2
 livedata@1.0.13
 logging@1.0.7
+materialize:materialize@0.96.1
 meteor@1.1.6
 meteor-platform@1.2.2
 minifiers@1.1.5
