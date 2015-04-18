@@ -46,5 +46,6 @@ SyncedCron.start();
 
 // Publish subset of non-expired reports to client
 Meteor.publish('reports', function () {
+  //Meteor._sleepForMs(2000);
   return Reports.find({expired: false});
 });

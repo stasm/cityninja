@@ -12,14 +12,16 @@
     <div class="collapsible-body">
       <a href="{{pathFor 'line.show' line=path type=../type}}">
         {{direction}}
-        {{#if numReports path}}
-          <span class="secondary-content reports warn">
-            <i class="mdi-alert-warning"></i>
-          </span>
-        {{else}}
-          <span class="secondary-content reports ok">
-            <i class="mdi-action-done"></i>
-          </span>
+        {{#if Template.subscriptionsReady}}
+          {{#if numReports path}}
+            <span class="secondary-content reports warn">
+              <i class="mdi-alert-warning"></i>
+            </span>
+          {{else}}
+            <span class="secondary-content reports ok">
+              <i class="mdi-action-done"></i>
+            </span>
+          {{/if}}
         {{/if}}
       </a>
     </div>

@@ -15,20 +15,30 @@
   </div>
 
   <!-- ⏲ ⏰ ⏱ ⨀ ⭯ ⌚ ⌛ ⏳ -->
-  {{#if noReports }}
-    <div class="top-panel card-panel green white-text">
-      <span id="at">stan na <span id="current-time"></span></span>
-      <img src="/images/ninja.png" class="top-panel-ninja" />
-      <div class="top-panel-text">
-        Wszystko OK
+  {{#if Template.subscriptionsReady}}
+    {{#if noReports }}
+      <div class="top-panel card-panel green white-text">
+        <span id="at">stan na <span id="current-time"></span></span>
+        <img src="/images/ninja.png" class="top-panel-ninja" />
+        <div class="top-panel-text">
+          Wszystko OK
+        </div>
       </div>
-    </div>
+    {{else}}
+      <div class="top-panel card-panel red white-text">
+        <span id="at">stan na <span id="current-time"></span></span>
+        <img src="/images/ninja.png" class="top-panel-ninja" />
+        <div class="top-panel-text">
+          Zgłoszeń:  {{numReports}}
+        </div>
+      </div>
+    {{/if}}
   {{else}}
-    <div class="top-panel card-panel red white-text">
+    <div class="top-panel card-panel grey white-text">
       <span id="at">stan na <span id="current-time"></span></span>
       <img src="/images/ninja.png" class="top-panel-ninja" />
       <div class="top-panel-text">
-        Zgłoszeń:  {{numReports}}
+        Sprawdzam…
       </div>
     </div>
   {{/if}}

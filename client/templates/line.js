@@ -1,4 +1,6 @@
-Meteor.subscribe('reports');
+Template.line.onCreated(function() {
+  this.subscribe('reports');
+});
 
 Template.line.helpers({
   numReports: function(line) {

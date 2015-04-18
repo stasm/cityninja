@@ -1,4 +1,6 @@
-Meteor.subscribe('reports');
+Template.main.onCreated(function() {
+  this.subscribe('reports');
+});
 
 Template.main.helpers({
   stations: function () {
