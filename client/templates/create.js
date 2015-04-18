@@ -9,7 +9,7 @@ Template.create.helpers({
 Template.create.events({
   'click .collection-item': function(event, template) {
     var modal = template.$('#create');
-    var location = modal.data('location');
+    var location = template.$('#create h4').text();
     var line = currentLine();
 
     // Does a similar report already exist?

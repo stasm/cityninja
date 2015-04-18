@@ -294,6 +294,10 @@ span.report-detail {
   max-height: 75%;
 }
 
+h4 {
+  font-size: 1.4rem;
+}
+
 .collection .collection-item.avatar {
   height: auto;
   cursor: pointer;

@@ -2,7 +2,8 @@ Meteor.subscribe("reports");
 
 Template.station.events({
   'click .station-name': function(event) {
-    $('#create').data('location', this.name).openModal();
+    $('#create h4').text(this.name);
+    $('#create').openModal();
   }
 });
 
