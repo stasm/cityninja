@@ -12,13 +12,13 @@ Template.line.helpers({
       return Session.get('fav ' + dir.path);
     });
   },
-  badReportCategories: function(dir, type) {
+  badReportCategories: function(dir) {
     return reportCategories.filter(function(category) {
       if (category.name === 'normal') {
         return false;
       }
 
-      return numReports(dir, category.name, type);
+      return numReports(dir, category.name );
     });
   }
 });

@@ -13,7 +13,7 @@
       <a href="{{pathFor 'line.show' line=path type=../type}}">
         <em>{{direction}}</em>
         {{#if Template.subscriptionsReady}}
-          {{#each badReportCategories path ../type}}
+          {{#each badReportCategories path}}
             <span class="reports {{textcolor}} {{class}}">
               <i class="{{icon}}"></i>
             </span>
