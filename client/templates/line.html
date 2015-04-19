@@ -11,17 +11,17 @@
   {{#each directions}}
     <div class="collapsible-body">
       <a href="{{pathFor 'line.show' line=path type=../type}}">
-        {{direction}}
+        <em>{{direction}}</em>
         {{#if Template.subscriptionsReady}}
-          {{#if numReports path}}
-            <span class="secondary-content reports warn">
-              <i class="mdi-alert-warning"></i>
+          {{#each badReportCategories path ../type}}
+            <span class="reports {{textcolor}} {{class}}">
+              <i class="{{icon}}"></i>
             </span>
           {{else}}
-            <span class="secondary-content reports ok">
+            <span class="reports grey-text ok">
               <i class="mdi-action-done"></i>
             </span>
-          {{/if}}
+          {{/each}}
         {{/if}}
       </a>
     </div>

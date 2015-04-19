@@ -108,24 +108,16 @@ ul.collapsible {
   margin-bottom: 30px;
 }
 
-.collapsible span.secondary-content {
+.collapsible span.reports {
+  float: right;
   text-align: center;
   font-size: 1.6rem;
-}
-
-.collapsible span.reports {
   width: 28px;
 }
 
 .collapsible span.reports.ok {
   font-size: 1rem;
-  color: #d0d0d0;
 }
-
-.collapsible span.reports.warn {
-  color: #FFA200;
-}
-
 
 .collapsible-body {
   height: 3rem;
@@ -140,8 +132,9 @@ ul.collapsible {
   background-color: #ddd;
 }
 
-.collapsible-body > a {
+.collapsible-body > a em {
   color: black;
+  font-style: normal;
 }
 
 .collapsible-header {
