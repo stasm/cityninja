@@ -3,14 +3,12 @@ Template.line.onCreated(function() {
 });
 
 Template.line.helpers({
-  isFav: function(directions) {
-    // spacial case for no favs: expand all lines
-    if (!Session.get('favs count')) {
-      return true;
-    }
-    return directions.some(function(dir) {
-      return Session.get('fav ' + dir.path);
-    });
+  noFavs: function() {
+    return !Session.get('favs count');
+  },
+  isFav: function(dir) {
+    // if no line is a fav, all are
+    return !Session.get('favs count') || Session.get('fav ' + dir);
   },
   badReportCategories: function(dir) {
     return reportCategories.filter(function(category) {

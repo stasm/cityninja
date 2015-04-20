@@ -40,6 +40,11 @@
     100% { color: violet; }
 }
 
+body {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
 .credits:hover #heart {
     -webkit-animation: rainbow 10s infinite alternate linear; 
     -moz-animation: rainbow 10s infinite alternate linear; 
@@ -130,6 +135,10 @@ ul.collapsible {
 
 .collapsible-body:hover {
   background-color: #ddd;
+}
+
+.collapsible-body.fav-dir {
+  display: block;
 }
 
 .collapsible-body > a em {

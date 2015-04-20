@@ -1,6 +1,6 @@
 <template name="line">
   <li class="line">
-  <div class="collapsible-header {{#if isFav directions}}active{{/if}}">
+  <div class="collapsible-header {{#if noFavs}}active{{/if}}">
     <i class="mdi-maps-directions-{{type}} subway-icon {{color}}"></i>
     {{line}}
     <span class="secondary-content">
@@ -9,7 +9,7 @@
   </div>
 
   {{#each directions}}
-    <div class="collapsible-body">
+    <div class="collapsible-body {{#if isFav path}}fav-dir{{/if}}">
       <a href="{{pathFor 'line.show' line=path type=../type}}">
         <em>{{direction}}</em>
         {{#if Template.subscriptionsReady}}
