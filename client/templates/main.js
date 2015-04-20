@@ -38,7 +38,13 @@ Template.main.events = {
     var favid = 'fav ' + currentLine();
     var toggle = Session.get(favid) ? false : true;
     Session.setPersistent(favid, toggle);
-    Session.setPersistent('favs count', toggle ? count + 1 : count - 1);
+    if (toggle) {
+      Session.setPersistent('favs count', count + 1);
+      Materialize.toast('Dodano do ulubionych.', 2000);
+    } else {
+      Session.setPersistent('favs count', count - 1);
+      Materialize.toast('Usunięto z ulubionych.', 2000);
+    }
   }
 };
 
