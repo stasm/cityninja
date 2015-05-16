@@ -2,9 +2,7 @@ Meteor.subscribe("reports");
 
 Template.create.helpers({
   reportTypes: function() {
-    return reportTypes.filter(function(reportType) {
-      return reportType.type === currentTransitType();
-    });
+    return reportTypes[currentTransitType()];
   }
 });
 

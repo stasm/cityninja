@@ -10,13 +10,13 @@ Template.line.helpers({
     // if no line is a fav, all are
     return !Session.get('favs count') || Session.get('fav ' + dir);
   },
-  badReportCategories: function(dir) {
+  badReportCategories: function(dir, type) {
     return reportCategories.filter(function(category) {
       if (category.name === 'normal') {
         return false;
       }
 
-      return numReports(dir, category.name );
+      return numReports(dir, category.name, type);
     });
   }
 });
