@@ -9,9 +9,11 @@ Template.station.events({
 
 Template.station.helpers({
   reports: function() {
+    var params = Router.current().params;
     return Reports.find({
       location: this.name,
-      line: currentLine(),
+      line: params.line,
+      dir: params.dir,
       expired: false
     });
   }

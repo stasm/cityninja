@@ -22,6 +22,6 @@ Template.landing.rendered = function() {
 
 Template.landing.helpers({
   lines: function(lineType) {
-    return listOfLines()[lineType];
+    return lines[lineType];
   }
 });

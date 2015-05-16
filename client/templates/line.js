@@ -6,17 +6,17 @@ Template.line.helpers({
   noFavs: function() {
     return !Session.get('favs count');
   },
-  isFav: function(dir) {
+  isFav: function(line, dir) {
     // if no line is a fav, all are
-    return !Session.get('favs count') || Session.get('fav ' + dir);
+    return !Session.get('favs count') || Session.get('fav ' + line + dir);
   },
-  badReportCategories: function(dir, type) {
+  badReportCategories: function(type, line, dir) {
     return reportCategories.filter(function(category) {
       if (category.name === 'normal') {
         return false;
       }
 
-      return numReports(dir, category.name, type);
+      return numReports(line, dir, category.name, type);
     });
   }
 });

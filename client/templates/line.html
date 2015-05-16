@@ -9,11 +9,11 @@
   </div>
 
   {{#each directions}}
-    <div class="collapsible-body {{#if isFav path}}fav-dir{{/if}}">
-      <a href="{{pathFor 'line.show' line=path type=../type}}">
+    <div class="collapsible-body {{#if isFav ../line direction}}fav-dir{{/if}}">
+      <a href="{{pathFor 'dir.show' line=../line type=../type dir=direction}}">
         <em>{{direction}}</em>
         {{#if Template.subscriptionsReady}}
-          {{#each badReportCategories path ../type}}
+          {{#each badReportCategories ../type ../line direction}}
             <span class="reports {{textcolor}} {{class}}">
               <i class="{{icon}}"></i>
             </span>

@@ -1,41 +1,45 @@
+
 Template.main.onCreated(function() {
   this.subscribe('reports');
+  var params = Router.current().params;
+  this.type = params.type;
+  this.line = params.line;
+  this.dir = params.dir;
 });
 
 Template.main.helpers({
   stations: function () {
-    return currentStations();
+    return stations[Template.instance().dir];
   },
-  currentLine: function() {
-    return currentLine();
+  title: function() {
+    return Template.instance().line + ': ' + Template.instance().dir;
   },
   noReports: function() {
-    return numReports(currentLine()) === 0;
+    var self = Template.instance();
+    return numReports(self.line, self.dir) === 0;
   },
   numReports: function() {
-    return numReports(currentLine());
+    var self = Template.instance();
+    return numReports(self.line, self.dir);
   },
   lineColor: function() {
-    var line = currentLine();
+    var self = Template.instance();
 
-    if (line.indexOf("M1") > -1) {
-      return "blue-line";
-    }
-
-    if (line.indexOf("M2") > -1) {
-      return "red-line";
-    }
+    return lines[self.type].filter(function(elem) {
+      return elem.line === self.line;
+    })[0].color;
   },
   isFav: function() {
-    var line = currentLine();
-    return Session.get('fav ' + line);
+    var template = Template.instance();
+    return Session.get('fav ' + template.line + template.dir);
   }
 });
 
 Template.main.events = {
   'click .fav': function(event) {
+    var template = Template.instance();
     var count = Session.get('favs count') || 0;
-    var favid = 'fav ' + currentLine();
+    var favid = 'fav ' + template.line + template.dir;
     var toggle = Session.get(favid) ? false : true;
     Session.setPersistent(favid, toggle);
     if (toggle) {
