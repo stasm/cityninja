@@ -22,7 +22,7 @@ Template.landing.rendered = function() {
 
 Template.landing.helpers({
   subwayLines: function() {
-    return listOfLines().subway;
+    return listOfLines().metro;
   },
   trainLines: function() {
     return listOfLines().train;
