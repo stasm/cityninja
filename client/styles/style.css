@@ -155,7 +155,8 @@ ul.collapsible {
 .collapsible-header i.subway-icon {
   margin-right: 1rem;
   width: 50px;
-  color: #ccc;
+  color: #999;
+  font-size: 18px;
 }
 
 .chevron {
