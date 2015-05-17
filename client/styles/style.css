@@ -366,8 +366,10 @@ iframe#twitter-widget-0 {
   height: 3rem;
   padding: 12px;
   font-size: 1rem;
-  color: #999;
   font-weight: 800;
+  color: #999;
+  background-color: #E0E0E0 !important;
+  box-shadow: inset 0px 2px 5px 0px rgba(0, 0, 0, 0.16);
 }
 
 ul.now {
