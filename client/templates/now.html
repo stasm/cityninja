@@ -2,11 +2,13 @@
 
   {{#if noReports}}
 
-    <div class="cover teal lighten-2">
-      <p>
-        Brak zakłóceń!
-      </p>
-    </div>
+    {{#if Template.subscriptionsReady}}
+      <div class="cover teal lighten-2">
+        <p>
+          Brak zakłóceń!
+        </p>
+      </div>
+    {{/if}}
 
   {{else}}
 
