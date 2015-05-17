@@ -1,0 +1,30 @@
+<template name="index">
+
+<nav class="deep-purple lighten-1">
+  <div class="">
+
+    <img class="left ninja-logo" src="/images/ninja.png" />
+    <div class="switch right mdi-fav">
+      <label>
+        <input type="checkbox">
+        <span class="lever"></span>
+      </label>
+    </div>
+
+    <h1 class="app-title">warszawski.ninja</h1>
+  </div>
+</nav>
+
+  <ul class="tabs">
+    <li class="tab col s3"><a class="active" href="#now">Zgłoszenia</a></li>
+    <li class="tab col s3"><a href="#lines">Linie</a></li>
+  </ul>
+
+  <div id="now" class="col s12">
+    
+  </div>
+
+  <div id="lines" class="col s12">
+    {{> landing}}
+  </div>
+</template>
