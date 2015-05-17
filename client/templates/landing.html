@@ -23,6 +23,18 @@
         {{/each}}
       </ul>
 
+      <ul class="collapsible" data-collapsible="expandable">
+        {{#each lines 'skm'}}
+          {{> line}} 
+        {{/each}}
+      </ul>
+
+      <!--<ul class="collapsible" data-collapsible="expandable">
+        {{#each lines 'km'}}
+          {{> line}} 
+        {{/each}}
+      </ul>-->
+
 
       <div class="aux footer">
         (Odświeża się automatycznie).
