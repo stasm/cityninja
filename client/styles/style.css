@@ -69,6 +69,27 @@ body {
   z-index: -1;
 }
 
+ul.tabs {
+  z-index: 10;
+}
+
+.cover {
+  color: white;
+  display:table-cell;
+  vertical-align:middle;
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  left: 0px;
+  top: 102px;
+}
+
+.cover > * {
+  margin: 50% auto 0;
+  text-align: center;
+  font-weight: 800;
+}
+
 h1.transport-type {
   text-align: left;
   font-size: 14px;
@@ -358,6 +379,8 @@ iframe#twitter-widget-0 {
 }
 
 .subheader {
+  position: sticky;
+  top: 0;
   height: 3rem;
   padding: 12px;
   font-size: 1rem;

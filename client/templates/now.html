@@ -1,16 +1,39 @@
 <template name="now">
 
-  <div class="subheader grey lighten-2">
-    Ostatnie 5 minut
-  </div>
+  {{#if noReports}}
 
-  <ul class="now collection">
+    <div class="cover teal lighten-2">
+      <p>
+        Brak zakłóceń!
+      </p>
+    </div>
 
-    {{#each reports}}
-      {{> nowitem}}
-    {{else}}
-    {{/each}}
+  {{else}}
 
- </ul>
+    {{#if hasReports 5 0}}
+      <div class="subheader grey lighten-2">
+        Ostatnie 5 minut
+      </div>
+      <ul class="now collection">
+        {{#each reports 5 0}}
+          {{> nowitem}}
+        {{/each}}
+      </ul>
+    {{/if}}
+
+    {{#if hasReports 20 5}}
+      <div class="subheader grey lighten-2">
+        Starsze niż 5 minut
+      </div>
+      <ul class="now collection">
+        {{#each reports 20 5}}
+          {{> nowitem}}
+        {{/each}}
+      </ul>
+    {{/if}}
+
+  {{/if}}
+
+
   
 </template>

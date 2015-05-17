@@ -5,6 +5,6 @@ Template.nowitem.helpers({
     var repType = allReportTypes.filter(function(elem) {
       return elem.name === name;
     })[0];
-    return repType.icon + ' ' + repType.color;
+    return repType.icon;
   }
 });
