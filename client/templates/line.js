@@ -3,13 +3,13 @@ Template.line.onCreated(function() {
 });
 
 Template.line.helpers({
-  badReportCategories: function(type, line, dir) {
-    return reportCategories.filter(function(category) {
-      if (category.name === 'normal') {
-        return false;
+  hasBadReports: function(type, line, dir) {
+    return reportCategories.reduce(function(sum, cur) {
+      if (cur.name === 'normal') {
+        return sum;
       }
 
-      return numReports(line, dir, category.name, type);
-    });
+      return sum + numReports(line, dir, cur.name, type);
+    }, 0);
   }
 });

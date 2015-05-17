@@ -110,54 +110,65 @@ ul.collapsible {
   margin: 0;
 }
 
-.collapsible span.reports {
-  float: right;
-  text-align: center;
-  font-size: 1.6rem;
-  width: 28px;
+li.line {
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #fff;
 }
 
-.collapsible span.reports.ok {
-  font-size: 1rem;
+li.line.active {
+  border-top: 1px solid #E0E0E0;
+  border-bottom: 1px solid #E0E0E0;
 }
 
-.collapsible-body {
-  height: 3rem;
-  line-height: 3rem;
-  padding: 0 1rem;
-  text-align: left;
-  background-color: #eee;
-  cursor: pointer;
+li.line.active:first-of-type {
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #E0E0E0;
 }
 
-.collapsible-body:hover {
-  background-color: #ddd;
+li.line.active:last-of-type {
+  border-top: 1px solid #E0E0E0;
+  border-bottom: 1px solid #fff;
 }
 
-.collapsible-body > a em {
-  color: black;
-  font-style: normal;
+.collapsible-header,
+.collapsible-body,
+.collapsible .collection,
+.collapsible .collection-item {
+  border: none !important;
 }
 
 .collapsible-header {
-  text-align: left;
-  padding-left: 0px;
+  padding-left: 72px;
+  position: relative;
 }
 
-.collapsible-header:hover {
-  background-color: #f0f0f0;
-}
-
-.collapsible-header i {
-  margin-right: 0;
-}
-
-.collapsible-header i.subway-icon {
-  margin-right: 1rem;
-  width: 50px;
+.collapsible-header .icon,
+.collapsible-body .icon {
   color: #999;
   font-size: 18px;
+  text-align: center;
+  position: absolute;
+  width: 42px;
+  height: 42px;
+  overflow: hidden;
+  left: 15px;
+  display: inline-block;
+  vertical-align: middle;
 }
+
+.collapsible-header.active {
+  color: #009688;
+}
+
+.collapsible-header.active .icon {
+  color: #009688;
+}
+
+span.title {
+  font-size: 14px !important;
+  color: rgba(0, 0, 0, 0.87);
+}
+
 
 .chevron {
   color: #ccc;

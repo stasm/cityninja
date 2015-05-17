@@ -1,31 +1,31 @@
 <template name="line">
   <li class="line">
   <div class="collapsible-header">
-    <i class="{{icon}} subway-icon"></i>
+    <i class="{{icon}} icon"></i>
     {{line}}
     <span class="secondary-content">
       <i class="mdi-navigation-expand-more chevron"></i>
     </span>
   </div>
 
-  {{#each directions}}
-    <div class="collapsible-body">
-      <a href="{{pathFor 'dir.show' line=../line type=../type dir=direction}}">
-        <em>{{direction}}</em>
-        {{#if Template.subscriptionsReady}}
-          {{#each badReportCategories ../type ../line direction}}
-            <span class="reports {{textcolor}} {{class}}">
-              <i class="{{icon}}"></i>
-            </span>
-          {{else}}
-            <span class="reports grey-text ok">
-              <i class="mdi-action-done"></i>
-            </span>
-          {{/each}}
-        {{/if}}
-      </a>
-    </div>
-  {{/each}}
+  <div class="collapsible-body">
+    <ul class="collection">
+      {{#each directions}}
+        <li class="collection-item avatar">
+          <a href="{{pathFor 'dir.show' line=../line type=../type dir=direction}}">
+            {{#if Template.subscriptionsReady}}
+              {{#if hasBadReports ../type ../line direction}}
+                <i class="icon mdi-alert-warning"></i>
+              {{else}}
+                <i class="icon mdi-action-done"></i>
+              {{/if}}
+            {{/if}}
+            <span class="title">{{direction}}</span>
+          </a>
+        </li>
+      {{/each}}
+    </ul>
+  </div>
 
   </li>
 </template>
