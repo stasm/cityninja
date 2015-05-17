@@ -1,0 +1,15 @@
+<template name="now">
+
+  <div class="subheader grey lighten-2">
+    Najnowsze
+  </div>
+
+  <ul class="now collection">
+
+    {{#each reports}}
+      {{> nowitem}}
+    {{/each}}
+
+ </ul>
+  
+</template>

@@ -361,3 +361,19 @@ iframe#twitter-widget-0 {
 .card .card-content, .card .card-action {
   padding: 15px;
 }
+
+.subheader {
+  height: 3rem;
+  padding: 12px;
+  font-size: 1rem;
+  color: #999;
+  font-weight: 800;
+}
+
+ul.now {
+  border: none;
+}
+
+ul.now p {
+  color: #aaa;
+}
