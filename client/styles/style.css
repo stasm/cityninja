@@ -413,6 +413,6 @@ ul.now {
   border: none;
 }
 
-ul.now p {
+ul.now li {
   color: #aaa;
 }
