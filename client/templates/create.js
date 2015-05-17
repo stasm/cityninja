@@ -2,7 +2,7 @@ Meteor.subscribe("reports");
 
 Template.create.helpers({
   reportTypes: function() {
-    return reportTypes[currentTransitType()];
+    return reportTypes[Router.current().params.type];
   }
 });
 
@@ -10,13 +10,16 @@ Template.create.events({
   'click .collection-item': function(event, template) {
     var modal = template.$('#create');
     var location = template.$('#create h4').text();
-    var line = currentLine();
+    var params = Router.current().params;
+    var line = params.line;
+    var dir = params.dir;
 
     // Does a similar report already exist?
     var existingReport = Reports.findOne({
       name: this.name,
       location: location,
-      line: line
+      line: line,
+      dir: dir
     });
 
     // If so and we can upvote, we do
@@ -27,7 +30,8 @@ Template.create.events({
         Session.setPersistent(existingReport._id, 'upvoted');
       }
     } else { // Create a new report
-      Meteor.call("saveReport", this.name, location, line, function(err, report) {
+      Meteor.call(
+        "saveReport", this.name, location, line, dir, function(err, report) {
         // Avoid future upvotes
         Session.setPersistent(report, 'created');
       });

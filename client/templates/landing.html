@@ -10,9 +10,15 @@
         <h2 class="app-subtitle"></h2>
       </div>
 
-      <!--<h1 class="transport-type">Metro</h1>-->
+      
       <ul class="collapsible" data-collapsible="expandable">
-        {{#each subwayLines}}
+        {{#each lines 'metro'}}
+          {{> line}} 
+        {{/each}}
+      </ul>
+      
+      <ul class="collapsible" data-collapsible="expandable">
+        {{#each lines 'wkd'}}
           {{> line}} 
         {{/each}}
       </ul>

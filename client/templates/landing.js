@@ -21,10 +21,7 @@ Template.landing.rendered = function() {
 };
 
 Template.landing.helpers({
-  subwayLines: function() {
-    return listOfLines().subway;
-  },
-  trainLines: function() {
-    return listOfLines().train;
+  lines: function(lineType) {
+    return lines[lineType];
   }
 });
