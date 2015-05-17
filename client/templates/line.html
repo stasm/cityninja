@@ -1,15 +1,15 @@
 <template name="line">
   <li class="line">
-  <div class="collapsible-header {{#if noFavs}}active{{/if}}">
-    <i class="{{icon}} subway-icon {{color}}"></i>
+  <div class="collapsible-header">
+    <i class="{{icon}} subway-icon"></i>
     {{line}}
     <span class="secondary-content">
-      <!--<i class="mdi-navigation-expand-more grey-text lighten-2"></i>-->
+      <i class="mdi-navigation-expand-more chevron"></i>
     </span>
   </div>
 
   {{#each directions}}
-    <div class="collapsible-body {{#if isFav ../line direction}}fav-dir{{/if}}">
+    <div class="collapsible-body">
       <a href="{{pathFor 'dir.show' line=../line type=../type dir=direction}}">
         <em>{{direction}}</em>
         {{#if Template.subscriptionsReady}}

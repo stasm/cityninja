@@ -1,13 +1,14 @@
 <template name="now">
 
   <div class="subheader grey lighten-2">
-    Najnowsze
+    Ostatnie 5 minut
   </div>
 
   <ul class="now collection">
 
     {{#each reports}}
       {{> nowitem}}
+    {{else}}
     {{/each}}
 
  </ul>

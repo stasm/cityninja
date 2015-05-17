@@ -69,10 +69,6 @@ body {
   z-index: -1;
 }
 
-.blue-line, .red-line, .green-line, .orange-line, .purple-line {
-  background-color: #aaa;
-}
-
 h1.transport-type {
   text-align: left;
   font-size: 14px;
@@ -89,7 +85,8 @@ ul.slogans {
 /* Collapsible menu styling */
 
 ul.collapsible {
-  margin-bottom: 30px;
+  border: none;
+  margin: 0;
 }
 
 .collapsible span.reports {
@@ -116,10 +113,6 @@ ul.collapsible {
   background-color: #ddd;
 }
 
-.collapsible-body.fav-dir {
-  display: block;
-}
-
 .collapsible-body > a em {
   color: black;
   font-style: normal;
@@ -141,7 +134,11 @@ ul.collapsible {
 .collapsible-header i.subway-icon {
   margin-right: 1rem;
   width: 50px;
-  color: white;
+  color: #ccc;
+}
+
+.chevron {
+  color: #ccc;
 }
 
 .mdi-navigation {
@@ -287,8 +284,6 @@ h4 {
 .intro-screen-content {
   max-width: 500px;
   margin: 0 auto;
-  text-align: center;
-  padding: 10px;
 }
 
 .logo {
