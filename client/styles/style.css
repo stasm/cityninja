@@ -164,6 +164,10 @@ li.line.active:last-of-type {
   color: #009688;
 }
 
+.collapsible .collection {
+  margin: 0;
+}
+
 span.title {
   font-size: 14px !important;
   color: rgba(0, 0, 0, 0.87);
@@ -396,8 +400,6 @@ iframe#twitter-widget-0 {
 }
 
 .subheader {
-  position: sticky;
-  top: 0;
   height: 3rem;
   padding: 12px;
   font-size: 1rem;
