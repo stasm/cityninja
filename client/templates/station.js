@@ -2,7 +2,7 @@ Meteor.subscribe("reports");
 
 Template.station.events({
   'click .flag': function(event) {
-    $('#create h4').text(this.name);
+    $('#create .station').text(this.name);
     $('#create').openModal();
   }
 });

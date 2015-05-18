@@ -1,11 +1,14 @@
 <template name="create">
   <div id="create" class="modal bottom-sheet">
     <div class="modal-content">
-      <h4>Co się dzieje?</h4>
-      <ul class="collection">
+      <ul class="collection create">
+        <li class="collection-item header avatar">
+          <i class="mdi-maps-directions-train circle"></i>
+          <span class="title station">{{station}}</span>
+        </li>
         {{#each reportTypes}}
           <li class="collection-item avatar">
-            <i class="{{icon}} circle {{color}}"></i>
+            <i class="{{icon}}"></i>
             <span class="title">{{name}}</span>
           </li>
         {{/each}}

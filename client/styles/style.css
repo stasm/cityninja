@@ -169,7 +169,6 @@ span.title {
 .top-panel {
   margin: 0;
   overflow: hidden;
-  max-width: 500px;
 }
 
 img.top-panel-ninja {
@@ -315,12 +314,14 @@ iframe#twitter-widget-0 {
   padding-right: 48px;
 }
 
-.collection.now {
+.collection.now,
+.collection.create {
   border: none;
   color: #aaa;
 }
 
-.collection .collection-item {
+.collection.now .collection-item,
+.collection.stations .collection-item {
   padding-right: 72px;
   border: none;
 }
@@ -346,4 +347,41 @@ iframe#twitter-widget-0 {
 
 .collection.stations .flag {
   cursor: pointer;
+}
+
+.modal {
+  background-color: #fff;
+}
+
+.modal .modal-content {
+  padding: 0;
+}
+
+.collection.create .collection-item {
+  min-height: 48px;
+  padding-right: 16;
+  border: none;
+}
+
+.collection.create .collection-item.header {
+  min-height: 72px;
+  padding: 12px 72px;
+  line-height: 44px;
+}
+
+.collection .collection-item.header i.circle {
+  color: #fff;
+  background-color: #009688;
+}
+
+.collection .collection-item.avatar i {
+  position: absolute;
+  width: 42px;
+  height: 42px;
+  left: 16px;
+  display: inline-block;
+  vertical-align: middle;
+  color: #999;
+  background-color: #fff;
+  text-align: center;
 }

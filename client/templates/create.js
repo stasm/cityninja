@@ -9,7 +9,7 @@ Template.create.helpers({
 Template.create.events({
   'click .collection-item': function(event, template) {
     var modal = template.$('#create');
-    var location = template.$('#create h4').text();
+    var location = template.$('#create .station').text();
     var params = Router.current().params;
     var line = params.line;
     var dir = params.dir;
