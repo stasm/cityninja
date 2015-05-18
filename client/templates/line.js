@@ -7,7 +7,8 @@ Template.landing.rendered = function() {
 
   // Make whole div with line clickable
   $(".collection-item").click(function() {
-    window.location = $(this).find("a").attr("href");
+    var url = $(this).find("a").attr("href");
+    Router.go(url);
     return false;
   });
 };
