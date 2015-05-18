@@ -157,7 +157,11 @@ span.title {
 }
 
 .secondary {
+  min-width: 32px;
+  min-height: 32px;
+  text-align: center;
   float: right;
+  margin-right: -8px;
   color: #999;
 }
 
@@ -343,7 +347,7 @@ div.lines {
 }
 
 .card {
-  margin: 1rem 0 0 1rem
+  margin: 1rem 0 0;
 }
 
 .card a.btn-flat {
