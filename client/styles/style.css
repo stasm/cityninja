@@ -210,6 +210,7 @@ img.top-panel-ninja {
 }
 
 #at {
+  line-height: 40px;
   float: right;
   font-size: 80%;
 }

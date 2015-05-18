@@ -21,17 +21,6 @@ Template.main.helpers({
     var self = Template.instance();
     return numReports(self.line, self.dir) === 0;
   },
-  numReports: function() {
-    var self = Template.instance();
-    return numReports(self.line, self.dir);
-  },
-  lineColor: function() {
-    var self = Template.instance();
-
-    return lines[self.type].filter(function(elem) {
-      return elem.line === self.line;
-    })[0].color;
-  },
   isFav: function() {
     var template = Template.instance();
     return Session.get('fav ' + template.line + template.dir);
