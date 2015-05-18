@@ -130,6 +130,10 @@ li.line.active:last-of-type {
   border-bottom: 1px solid #fff;
 }
 
+li.line.active + li.line.active {
+  border-top: 1px solid #fff;
+}
+
 .collapsible-header,
 .collapsible-body,
 .collapsible .collection,
