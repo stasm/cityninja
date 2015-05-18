@@ -1,26 +1,14 @@
-Template.now.onCreated(function() {
-  this.subscribe('reports');
-});
+Meteor.subscribe('reports');
 
-function getReports(gtMin, ltMin) {
-  var now = Date.now();
+function getReports() {
   return Reports.find({
     expired: false,
-    createdAt: {
-      $gte: new Date(now - 1000 * 60 * gtMin),
-      $lt: new Date(now - 1000 * 60 * ltMin)
-    }
-  });
+  }, { sort: {createdAt: -1}});
 }
 
 Template.now.helpers({
   noReports: function() {
-    return Reports.find({
-      expired: false
-    }).count() === 0;
+    return getReports().count() === 0;
   },
-  reports: getReports,
-  hasReports: function(gtMin, ltMin) {
-    return getReports(gtMin, ltMin).count() !== 0;
-  }
+  reports: getReports
 });

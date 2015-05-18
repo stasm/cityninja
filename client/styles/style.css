@@ -409,10 +409,23 @@ iframe#twitter-widget-0 {
   box-shadow: inset 0px 2px 5px 0px rgba(0, 0, 0, 0.16);
 }
 
-ul.now {
+.collection.now {
   border: none;
 }
 
-ul.now li {
+.collection.now .collection-item {
+  padding-right: 72px;
   color: #aaa;
+  border: none;
+}
+
+.collection.now p {
+  font-size: 12px;
+  line-height: 1.2rem;
+}
+
+.collection.now .secondary-content {
+  color: #aaa;
+  top: 10px !important;
+  font-size: 10px;
 }

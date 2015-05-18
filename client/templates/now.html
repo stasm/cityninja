@@ -5,37 +5,20 @@
     {{#if Template.subscriptionsReady}}
       <div class="cover teal lighten-2">
         <p>
-          Brak zakłóceń!
+          Jest dobrze.<br>
+          ◕ ◡ ◕
         </p>
       </div>
     {{/if}}
 
   {{else}}
 
-    {{#if hasReports 5 0}}
-      <div class="subheader grey lighten-2">
-        Ostatnie 5 minut
-      </div>
-      <ul class="now collection">
-        {{#each reports 5 0}}
-          {{> nowitem}}
-        {{/each}}
-      </ul>
-    {{/if}}
-
-    {{#if hasReports 20 5}}
-      <div class="subheader grey lighten-2">
-        Starsze niż 5 minut
-      </div>
-      <ul class="now collection">
-        {{#each reports 20 5}}
-          {{> nowitem}}
-        {{/each}}
-      </ul>
-    {{/if}}
+    <ul class="now collection">
+      {{#each reports}}
+        {{> nowitem}}
+      {{/each}}
+    </ul>
 
   {{/if}}
-
-
   
 </template>
