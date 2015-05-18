@@ -1,27 +1,5 @@
 /* CSS declarations go here */
 
-@-webkit-keyframes spin-180 {
-    from {
-      transform: rotate(0deg);
-    } to {
-      transform: rotate(180deg);
-    }
-}
-@-moz-keyframes spin-180 {
-    from {
-      transform: rotate(0deg);
-    } to {
-      transform: rotate(180deg);
-    }
-}
-@keyframes spin-180 {
-    from {
-      transform: rotate(0deg);
-    } to {
-      transform: rotate(180deg);
-    }
-}
-
 @-webkit-keyframes rainbow {
     0%   { color: red; } 
     20%  { color: orange; }
@@ -48,16 +26,6 @@ body {
 .credits:hover #heart {
     -webkit-animation: rainbow 10s infinite alternate linear; 
     -moz-animation: rainbow 10s infinite alternate linear; 
-}
-
-.line.active .mdi-navigation-expand-more {
-  -webkit-transform: translate3d(0, 0, 0);
-  -webkit-animation: spin-180 0.25s 1 ease-out;
-  -webkit-animation-fill-mode: forwards;
-  -moz-animation: spin-180 0.25s 1 ease-out;
-  -moz-animation-fill-mode: forwards;
-  animation: spin-180 0.25s 1 ease-out;
-  animation-fill-mode: forwards;
 }
 
 .line-background {
@@ -133,6 +101,25 @@ li.line.active:last-of-type {
 li.line.active + li.line.active {
   border-top: 1px solid #fff;
 }
+
+.collapsible-header + .collapsible-body {
+  display: block;
+  max-height: 0;
+  transition: max-height .4s;
+}
+
+.collapsible-header.active + .collapsible-body {
+  max-height: 40rem;
+}
+
+.collapsible-header .mdi-navigation-expand-more {
+  transition: transform .4s;
+}
+
+.collapsible-header.active .mdi-navigation-expand-more {
+  transform: rotate(180deg);
+}
+
 
 .collapsible-header,
 .collapsible-body,

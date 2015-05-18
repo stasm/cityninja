@@ -1,8 +1,8 @@
 Template.landing.rendered = function() {
 
-  // Collapsible lines
-  $('.collapsible').collapsible({
-    accordion : false // expandable
+  $(".collapsible-header").click(function() {
+    $(this).toggleClass('active')
+      .parent().toggleClass('active');
   });
 
   // Make whole div with line clickable
