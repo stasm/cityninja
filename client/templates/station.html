@@ -3,11 +3,9 @@
   <li class="collection-item">
     {{name}}
     <i class="secondary mdi-content-flag flag"></i>
-    <div class="reports-container">
-      {{#each reports name}}
-        {{> report}}
-      {{/each}}
-    </div>
+    {{#each reports name}}
+      {{> report}}
+    {{/each}}
   </li>
 
 </template>

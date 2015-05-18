@@ -1,14 +1,23 @@
 Meteor.subscribe("reports");
 
 canUpvote = function(docId) {
-  if (docId == null) return true;
-  return Session.get(docId) == null;
-}
+  if (!docId) {
+    return true;
+  }
+
+  return !Session.get(docId);
+};
 
 Template.report.helpers({
   canUpvote: canUpvote,
   positive: function(reportName) {
     return (reportName === 'Wszystko OK');
+  },
+  icon: function(name) {
+    var repType = allReportTypes.filter(function(elem) {
+      return elem.name === name;
+    })[0];
+    return repType.icon;
   }
 });
 
@@ -34,12 +43,13 @@ Template.report.events({
 
 Template.report.events({
   'click .create-nonetheless': function(event) {
-    $('#create').data('location', this.location).openModal();
-  }
-});
+    var params = Router.current().params;
+    var icon = lines[params.type].filter(function(elem) {
+      return elem.line === params.line;
+    })[0].icon;
 
-Template.report.events({
-  'click .modal-trigger': function(e) {
-    $('#locationInput').val(this.location);
+    $('#create .circle').addClass(icon);
+    $('#create .station').text(this.location);
+    $('#create').openModal();
   }
 });

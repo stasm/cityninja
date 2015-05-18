@@ -10,7 +10,6 @@ Template.station.events({
     $('#create .circle').addClass(icon);
     $('#create .station').text(this.name);
     $('#create').openModal();
-
   }
 });
 

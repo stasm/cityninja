@@ -1,49 +1,24 @@
 <template name="report">
-  <div class="report card grey lighten-5">
+  <div class="card">
     <div class="card-content">
-      <div class="main-info">
-        {{#if positive name}}
-          <span class="report-title green-text">
-            {{name}}
-          </span>
-        {{else}}
-          <span class="report-title">
-            {{name}}
-          </span>
-        {{/if}}
-        <span class="report-location">
-          na stacji {{location}}
-        </span>
-      </div>
-      <div class="report-details">
-        <span class="report-detail report-time">
-          <i class="mdi-device-access-time"></i>
-          {{livestamp lastConfirmedAt}}
-        </span>
 
-        <span class="report-detail report-votes">
-          <i class="mdi-action-thumb-up"></i>
-          {{votes}} potwierdziło
-        </span>
-        {{#unless positive name}}
-          <span class="report-detail report-votes">
-            <i class="mdi-image-tag-faces"></i>
-            {{clears}} odwołało
-          </span>
-        {{/unless}}
-      </div>
+      <span class="secondary">
+        {{ livestamp createdAt }}
+      </span>
+      <p>{{name}}</p>
+
     </div>
 
     {{#if canUpvote this._id}}
     <div class="card-action">
-      <a class="waves-effect waves-light btn-flat btn-vote blue white-text upvote">
-        <i class="mdi-action-thumb-up left"></i>Potwierdź</a>
+      <a class="waves-effect waves-light btn-flat teal-text upvote">
+        <i class="mdi-social-person-add left"></i>Potwierdź</a>
       {{#if positive name}}
-        <a class="waves-effect waves-light btn-flat btn-vote red white-text create-nonetheless">
-          <i class="mdi-action-thumb-down left"></i>Zgłoś kłopot</a>
+        <a class="waves-effect waves-light btn-flat black-text create-nonetheless">
+          <i class="mdi-content-flag left"></i>Zgłoś kłopot</a>
       {{else}}
-        <a class="waves-effect waves-light btn-flat btn-vote blue white-text downvote">
-          <i class="mdi-image-tag-faces left"></i>Odwołaj</a>
+        <a class="waves-effect waves-light btn-flat black-text downvote">
+          <i class="mdi-image-rotate-left left"></i>Odwołaj</a>
       {{/if}}
     </div>
     {{/if}}

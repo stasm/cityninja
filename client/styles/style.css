@@ -189,32 +189,6 @@ img.top-panel-ninja {
   font-size: 80%;
 }
 
-.reports-container {
-  margin-left: 30px;
-  max-width: 500px;
-  padding-right: 15px;
-}
-
-.report {
-  width: 100%;
-}
-
-span.report-title {
-  font-weight: bold;
-  font-size: 18px;
-  color: red;
-}
-
-span.report-location {
-  font-size: 12px;
-  color: #aaa;
-}
-
-span.report-detail {
-  margin-right: 10px;
-  white-space: nowrap;
-}
-
 .modal.bottom-sheet {
   max-height: 75%;
 }
@@ -279,27 +253,6 @@ div.lines {
   color: #999;
 }
 
-iframe#twitter-widget-0 {
-  vertical-align: bottom;
-  margin-left: 10px;
-}
-
-.card a.btn-vote{
-  padding-left: 0.5rem;
-  padding-top: 0.01rem;
-  padding-right: 0.7rem;
-  padding-bottom: 0.01rem;
-  margin-right: 5px;
-}
-
-.card a.btn-vote i.left {
-  margin-right: 5px;
-}
-
-.card .card-content, .card .card-action {
-  padding: 15px;
-}
-
 .subheader {
   min-height: 3rem;
   padding: 12px 20px 12px 12px;
@@ -331,9 +284,11 @@ iframe#twitter-widget-0 {
   line-height: 1.2rem;
 }
 
-.collection.now .secondary-content {
+.collection.now .secondary {
+  position: absolute;
+  top: 10px;
+  right: 16px;
   color: #aaa;
-  top: 10px !important;
   font-size: 10px;
 }
 
@@ -385,4 +340,20 @@ iframe#twitter-widget-0 {
   color: #666;
   background-color: #fff;
   text-align: center;
+}
+
+.card {
+  margin: 1rem 0 0 1rem
+}
+
+.card a.btn-flat {
+  padding: 0 .7rem .5rem;
+}
+
+.card .card-action {
+  padding: 15px;
+}
+
+.card .secondary {
+  font-size: 10px;
 }
