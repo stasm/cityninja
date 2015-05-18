@@ -52,9 +52,16 @@ ul.tabs {
   top: 102px;
 }
 
-.cover > * {
-  margin: 50% auto 0;
+.cover div {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   text-align: center;
+}
+
+.cover p:first-of-type {
+  margin-top: 0;
   font-weight: 800;
 }
 
