@@ -9,7 +9,8 @@ Template.main.onCreated(function() {
 
 Template.main.helpers({
   stations: function () {
-    return stations[Template.instance().dir];
+    var self = Template.instance();
+    return stations[self.dir];
   },
   line: function() {
     return Template.instance().line;
