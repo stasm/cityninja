@@ -1,4 +1,4 @@
-Template.landing.helpers({
+Template.lines.helpers({
   lines: function(lineType) {
     return lines[lineType];
   }

@@ -1,51 +1,33 @@
 <template name="main">
-  <div class="navbar-fixed">
-    <nav>
-      <div class="nav-wrapper grey darken-2">
-        <div class="fav">
-          {{#if isFav}}
-            <i class="mdi-action-favorite"></i>
-          {{else}}
-            <i class="mdi-action-favorite-outline"></i>
-          {{/if}}
-        </div>
-        <div class="back-button">
-          <a href="/">
-            <i class="mdi-navigation-arrow-back"></i>
-          </a>
-        </div>
-        <div class="line-being-viewed">
-          {{ title }}
-        </div>
-      </div>
-    </nav>
+
+  {{> nav index=0 title=line }}
+
+  <div class="subheader">
+    {{#if isFav}}
+      <i class="secondary fav mdi-action-favorite"></i>
+    {{else}}
+      <i class="secondary fav mdi-action-favorite-outline"></i>
+    {{/if}}
+
+    <div>
+      {{ dir }}
+    </div>
   </div>
 
-  <!-- ⏲ ⏰ ⏱ ⨀ ⭯ ⌚ ⌛ ⏳ -->
-  {{#if Template.subscriptionsReady}}
-    {{#if noReports }}
-      <div class="top-panel card-panel green white-text">
-        <span id="at">stan na <span id="current-time"></span></span>
-        <img src="/images/ninja.png" class="top-panel-ninja" />
-        <div class="top-panel-text">
-          Wszystko OK
-        </div>
-      </div>
-    {{else}}
-      <div class="top-panel card-panel red white-text">
-        <span id="at">stan na <span id="current-time"></span></span>
-        <img src="/images/ninja.png" class="top-panel-ninja" />
-        <div class="top-panel-text">
-          Zgłoszeń:  {{numReports}}
-        </div>
-      </div>
-    {{/if}}
-  {{else}}
-    <div class="top-panel card-panel grey white-text">
+  {{#if noReports }}
+    <div class="top-panel card-panel teal lighten-2 white-text">
       <span id="at">stan na <span id="current-time"></span></span>
-      <img src="/images/ninja.png" class="top-panel-ninja" />
+      <img src="/images/white-128x128.png" class="top-panel-ninja" />
       <div class="top-panel-text">
-        Sprawdzam…
+        Wszystko OK
+      </div>
+    </div>
+  {{else}}
+    <div class="top-panel card-panel amber white-text">
+      <span id="at">stan na <span id="current-time"></span></span>
+      <img src="/images/white-128x128.png" class="top-panel-ninja" />
+      <div class="top-panel-text">
+        Zgłoszeń:  {{numReports}}
       </div>
     </div>
   {{/if}}

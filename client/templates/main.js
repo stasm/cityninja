@@ -11,8 +11,11 @@ Template.main.helpers({
   stations: function () {
     return stations[Template.instance().dir];
   },
-  title: function() {
-    return Template.instance().line + ': ' + Template.instance().dir;
+  line: function() {
+    return Template.instance().line;
+  },
+  dir: function() {
+    return Template.instance().dir;
   },
   noReports: function() {
     var self = Template.instance();

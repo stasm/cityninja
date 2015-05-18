@@ -1,4 +1,4 @@
-Template.landing.rendered = function() {
+Template.line.rendered = function() {
 
   $(".collapsible-header").click(function() {
     $(this).toggleClass('active')

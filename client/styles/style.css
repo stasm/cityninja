@@ -180,56 +180,21 @@ span.title {
   text-align: right;
 }
 
-.navbar-fixed {
-  z-index: 99;
-  height: 50px;
-}
-
-.navbar-fixed nav {
-  height: 44px;
-  line-height: 1em;
-}
-
-.nav-wrapper {
-  overflow: hidden;
-  line-height: 1em;
+.secondary {
+  float: right;
+  color: #999;
 }
 
 .fav {
   overflow: hidden;
-  position: absolute;
-  right: 0;
-  width: 44px;
-  padding-left: 15px;
+  width: 2rem;
   cursor: pointer;
 }
 
-nav .nav-wrapper .fav i {
-  font-size: 1rem;
-  line-height: 44px;
-}
-
-.back-button {
-  float: left;
-  overflow: hidden;
-  position: absolute;
-  margin-left: 10px;
-  line-height: 44px;
-}
-
-.line-being-viewed {
-  margin-top: 15px;
-  text-align: center;
-  width: 100%;
-  font-size: 16px;
-}
-
 .top-panel {
-  margin-left: 30px;
+  margin: 0;
   overflow: hidden;
   max-width: 500px;
-  padding: 5px;
-  margin-right: 15px;
 }
 
 img.top-panel-ninja {
@@ -326,11 +291,12 @@ h4 {
   margin: 0 auto;
 }
 
-.ninja-logo {
+.primary {
   height: 32px;
   width: 32px;
   margin: 12px;
-  float: left;
+  line-height: 36px;
+  font-size: 1.6rem;
 }
 
 h1.app-title {
@@ -398,13 +364,17 @@ iframe#twitter-widget-0 {
 }
 
 .subheader {
-  height: 3rem;
+  min-height: 3rem;
   padding: 12px;
   font-size: 1rem;
   font-weight: 800;
   color: #999;
   background-color: #E0E0E0 !important;
   box-shadow: inset 0px 2px 5px 0px rgba(0, 0, 0, 0.16);
+}
+
+.subheader div {
+  padding-right: 48px;
 }
 
 .collection.now {

@@ -1,0 +1,24 @@
+<template name="nav">
+
+  <nav class="deep-purple lighten-1">
+    <div class="">
+
+      {{#if index}}
+        <img class="left primary" src="/images/white-128x128.png" />
+        <div class="switch right mdi-fav">
+          <label>
+            <input type="checkbox">
+            <span class="lever"></span>
+          </label>
+        </div>
+      {{else}}
+        <a class="left primary" href="/">
+          <i class="mdi-navigation-arrow-back"></i>
+        </a>
+      {{/if}}
+
+      <h1 class="app-title">{{ title }}</h1>
+    </div>
+  </nav>
+
+</template>
