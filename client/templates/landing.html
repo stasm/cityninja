@@ -1,36 +1,31 @@
 <template name="landing">
-  <div id="fb-root"></div>
-  <div id="intro-screen">
-    <div class="intro-screen-content">
       
-      <div class="subheader">Metro</div>
-      <ul class="collapsible" data-collapsible="expandable">
-        {{#each lines 'metro'}}
-          {{> line}} 
-        {{/each}}
-      </ul>
-      
-      <div class="subheader">Warszawska Kolej Dojazdowa</div>
-      <ul class="collapsible" data-collapsible="expandable">
-        {{#each lines 'wkd'}}
-          {{> line}} 
-        {{/each}}
-      </ul>
+  <div class="subheader">Metro</div>
+  <ul class="collapsible" data-collapsible="expandable">
+    {{#each lines 'metro'}}
+      {{> line}} 
+    {{/each}}
+  </ul>
+  
+  <div class="subheader">Warszawska Kolej Dojazdowa</div>
+  <ul class="collapsible" data-collapsible="expandable">
+    {{#each lines 'wkd'}}
+      {{> line}} 
+    {{/each}}
+  </ul>
 
-      <div class="subheader">Szybka Kolej Miejska</div>
-      <ul class="collapsible" data-collapsible="expandable">
-        {{#each lines 'skm'}}
-          {{> line}} 
-        {{/each}}
-      </ul>
+  <div class="subheader">Szybka Kolej Miejska</div>
+  <ul class="collapsible" data-collapsible="expandable">
+    {{#each lines 'skm'}}
+      {{> line}} 
+    {{/each}}
+  </ul>
 
-      <div class="subheader">Koleje Mazowieckie</div>
-      <ul class="collapsible" data-collapsible="expandable">
-        {{#each lines 'km'}}
-          {{> line}} 
-        {{/each}}
-      </ul>
+  <div class="subheader">Koleje Mazowieckie</div>
+  <ul class="collapsible" data-collapsible="expandable">
+    {{#each lines 'km'}}
+      {{> line}} 
+    {{/each}}
+  </ul>
 
-    </div>
-  </div>
 </template>
