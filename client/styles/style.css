@@ -28,15 +28,6 @@ body {
     -moz-animation: rainbow 10s infinite alternate linear; 
 }
 
-.line-background {
-  position: fixed;
-  width: 10px;
-  height: 100%;
-  top: 0;
-  left: 15px;
-  z-index: -1;
-}
-
 ul.tabs {
   z-index: 10;
 }
@@ -64,21 +55,6 @@ ul.tabs {
   margin-top: 0;
   font-weight: 800;
 }
-
-h1.transport-type {
-  text-align: left;
-  font-size: 14px;
-  line-height: 1em;
-  margin: 0;
-  text-transform: uppercase;
-  color: #B3B3B3;
-}
-
-ul.slogans {
-  margin-top: 0;
-}
-
-/* Collapsible menu styling */
 
 ul.collapsible {
   border: none;
@@ -187,7 +163,6 @@ span.title {
 
 .fav {
   overflow: hidden;
-  width: 2rem;
   cursor: pointer;
 }
 
@@ -213,34 +188,6 @@ img.top-panel-ninja {
   line-height: 40px;
   float: right;
   font-size: 80%;
-}
-
-.main-content {
-  margin-top: 20px;
-}
-
-.station {
-  margin-left: 7px;
-  margin-bottom: 10px;
-}
-
-.station-name {
-  text-transform: uppercase;
-  cursor: pointer;
-}
-
-.white-circle {
-  width: 10px;
-  height: 10px;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
-  border-radius: 5px;
-  background-color: white;
-  border: solid thin black;
-  float: left;
-  margin-right: 5px;
-  margin-top: 6px;
-  margin-left: 8px;
 }
 
 .reports-container {
@@ -280,16 +227,6 @@ h4 {
 .collection .collection-item.avatar {
   height: auto;
   cursor: pointer;
-}
-
-.intro-screen-content {
-  max-width: 500px;
-  margin: 0 auto;
-}
-
-.logo {
-  overflow: hidden;
-  margin: 0 auto;
 }
 
 .primary {
@@ -366,7 +303,7 @@ iframe#twitter-widget-0 {
 
 .subheader {
   min-height: 3rem;
-  padding: 12px;
+  padding: 12px 20px 12px 12px;
   font-size: 1rem;
   font-weight: 800;
   color: #999;
@@ -397,4 +334,16 @@ iframe#twitter-widget-0 {
   color: #aaa;
   top: 10px !important;
   font-size: 10px;
+}
+
+.collection.stations {
+  border: none;
+}
+
+.collection.stations .collection-item {
+  padding-right: 20px;
+}
+
+.collection.stations .flag {
+  cursor: pointer;
 }

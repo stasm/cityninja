@@ -1,13 +1,13 @@
 <template name="station">
-  <div class="station">
-    <div class="station-name">
-      <div class="white-circle"></div>
-      {{name}}
-    </div>
+
+  <li class="collection-item">
+    {{name}}
+    <i class="secondary mdi-content-flag flag"></i>
     <div class="reports-container">
       {{#each reports name}}
         {{> report}}
       {{/each}}
     </div>
-  </div>
+  </li>
+
 </template>

@@ -32,13 +32,11 @@
     </div>
   {{/if}}
 
-  <div class="line-background {{ lineColor }}"></div>
-
-  <div class="main-content">
+  <ul class="collection stations">
     {{#each stations}}
       {{> station}}
     {{/each}}
-  </div>
+  </ul>
 
   {{> create}}
 </template>

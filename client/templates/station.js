@@ -1,7 +1,7 @@
 Meteor.subscribe("reports");
 
 Template.station.events({
-  'click .station-name': function(event) {
+  'click .flag': function(event) {
     $('#create h4').text(this.name);
     $('#create').openModal();
   }
