@@ -15,10 +15,10 @@
           <a href="{{pathFor 'dir.show' line=../line type=../type dir=direction}}">
             {{#if Template.subscriptionsReady}}
               {{#if hasBadReports ../type ../line direction}}
-                <i class="icon mdi-alert-warning"></i>
-              {{else}}
-                <i class="icon mdi-action-done"></i>
+                <i class="icon mdi-alert-warning amber-text"></i>
               {{/if}}
+            {{else}}
+              <i class="icon mdi-action-done"></i>
             {{/if}}
             <span class="title">{{direction}}</span>
           </a>

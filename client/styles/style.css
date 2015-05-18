@@ -411,11 +411,11 @@ iframe#twitter-widget-0 {
 
 .collection.now {
   border: none;
+  color: #aaa;
 }
 
-.collection.now .collection-item {
+.collection .collection-item {
   padding-right: 72px;
-  color: #aaa;
   border: none;
 }
 
