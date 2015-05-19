@@ -85,14 +85,8 @@ li.line.active + li.line.active {
   border-top: 1px solid #fff;
 }
 
-.collapsible-header + .collapsible-body {
-  display: block;
-  max-height: 0;
-  transition: max-height .4s;
-}
-
 .collapsible-header.active + .collapsible-body {
-  max-height: 40rem;
+  display: block;
 }
 
 .collapsible-header .mdi-navigation-expand-more {
