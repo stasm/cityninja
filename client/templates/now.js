@@ -159,4 +159,3 @@ Template.now.events({
         Session.set('easter egg counter', Session.get('easter egg counter') + 1);
     },
 });
-
