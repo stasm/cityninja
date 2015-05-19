@@ -24,22 +24,17 @@ Template.main.helpers({
   },
   isFav: function() {
     var template = Template.instance();
-    return Session.get('fav ' + template.line + template.dir);
+    return isFav(template.line, template.dir);
   }
 });
 
 Template.main.events = {
   'click .fav': function(event) {
     var template = Template.instance();
-    var count = Session.get('favs count') || 0;
-    var favid = 'fav ' + template.line + template.dir;
-    var toggle = Session.get(favid) ? false : true;
-    Session.setPersistent(favid, toggle);
-    if (toggle) {
-      Session.setPersistent('favs count', count + 1);
+
+    if (toggleFav(template.line, template.dir)) {
       Materialize.toast('Dodano do ulubionych.', 2000);
     } else {
-      Session.setPersistent('favs count', count - 1);
       Materialize.toast('Usunięto z ulubionych.', 2000);
     }
   }

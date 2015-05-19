@@ -1,9 +1,22 @@
 Meteor.subscribe('reports');
 
 function getReports() {
-  return Reports.find({
-    expired: false,
-  }, { sort: {createdAt: -1}});
+
+  var query = {
+    expired: false
+  };
+
+  if (viewingFavs()) {
+    var favs = getFavs();
+    query.line = {
+      $in: favs.lines
+    };
+    query.dir = {
+      $in: favs.dirs
+    };
+  }
+
+  return Reports.find(query, { sort: {createdAt: -1}});
 }
 
 Template.now.helpers({
