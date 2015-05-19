@@ -6,6 +6,9 @@
       <p>{{ line }} {{ dir }} na stacji {{ location }}</p>
       <span class="secondary">
         {{ livestamp createdAt }}
+        {{#if isFav line dir }}
+          <br><span class="mdi-action-favorite"></span>
+        {{/if}}
       </span>
     </li>
 
