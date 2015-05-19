@@ -315,6 +315,10 @@ div.lines {
   cursor: pointer;
 }
 
+.collection.stations .flag:hover {
+  color: #000;
+}
+
 .modal {
   background-color: #fff;
 }
