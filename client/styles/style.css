@@ -170,6 +170,14 @@ span.title {
   cursor: pointer;
 }
 
+.fav:hover {
+  color: #000;
+}
+
+.fav.active {
+  color: #ec407a;
+}
+
 .top-panel {
   margin: 0;
   overflow: hidden;
