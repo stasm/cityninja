@@ -229,6 +229,7 @@ h1.app-title {
 
 
 .switch label .lever {
+  top: -2px;
   background-color: rgba(0, 0, 0, 0.3);
 }
 
@@ -242,6 +243,16 @@ h1.app-title {
 
 .switch label input[type="checkbox"]:checked + .lever::after {
   color: #fff !important;
+}
+
+.more {
+  cursor: pointer;
+  font-size: 18px;
+  margin-top: 1px;
+}
+
+#menu {
+  z-index: 20;
 }
 
 div.lines {
@@ -370,4 +381,8 @@ div.lines {
 
 .card .secondary {
   font-size: 10px;
+}
+
+.colophon {
+  background-color: #d1c4e9;
 }

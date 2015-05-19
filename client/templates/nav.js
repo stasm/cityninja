@@ -63,3 +63,13 @@ Template.nav.events({
     Session.setPersistent('viewing favs', evt.target.checked);
   }
 });
+
+Template.nav.onRendered(function() {
+  $('.more').dropdown({
+    inDuration: 300,
+    outDuration: 225,
+    constrain_width: false,
+    belowOrigin: true,
+    gutter: 0,
+  });
+});
