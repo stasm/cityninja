@@ -47,6 +47,7 @@ ul.tabs {
   position: absolute;
   top: 45%;
   left: 50%;
+  -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   text-align: center;
 }
@@ -90,10 +91,12 @@ li.line.active + li.line.active {
 }
 
 .collapsible-header .mdi-navigation-expand-more {
+  -webkit-transition: -webkit-transform .4s;
   transition: transform .4s;
 }
 
 .collapsible-header.active .mdi-navigation-expand-more {
+  -webkit-transform: rotate(180deg);
   transform: rotate(180deg);
 }
 
