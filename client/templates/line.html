@@ -1,6 +1,7 @@
 <template name="line">
-  <li class="line">
-  <div class="collapsible-header">
+  <li class="line {{#if viewingFavs}}active{{/if}}">
+
+  <div class="collapsible-header {{#if viewingFavs}}active{{/if}}">
     <i class="{{icon}} icon"></i>
     {{line}}
     <span class="secondary-content">
@@ -11,14 +12,10 @@
   <div class="collapsible-body">
     <ul class="collection">
       {{#each directions}}
-        <li class="collection-item avatar">
+        <li class="collection-item avatar {{#if isHidden ../line direction}}hidden{{/if}}">
           <a href="{{pathFor 'dir.show' line=../line type=../type dir=direction}}">
-            {{#if Template.subscriptionsReady}}
-              {{#if hasBadReports ../type ../line direction}}
-                <i class="icon mdi-alert-warning amber-text"></i>
-              {{/if}}
-            {{else}}
-              <i class="icon mdi-action-done"></i>
+            {{#if hasBadReports ../type ../line direction}}
+              <i class="icon mdi-alert-warning amber-text"></i>
             {{/if}}
             <span class="title">{{direction}}</span>
           </a>

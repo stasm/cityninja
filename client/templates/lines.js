@@ -1,5 +1,15 @@
 Template.lines.helpers({
   lines: function(lineType) {
-    return lines[lineType];
+    if (!viewingFavs()) {
+      return lines[lineType];
+    }
+
+    var favs = getFavs();
+    return lines[lineType].filter(function(elem) {
+      return favs.lines.indexOf(elem.line) !== -1;
+    });
+  },
+  viewingAll: function() {
+    return !viewingFavs();
   }
 });

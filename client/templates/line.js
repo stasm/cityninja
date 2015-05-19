@@ -1,19 +1,21 @@
-Template.line.rendered = function() {
-
-  $(".collapsible-header").click(function() {
-    $(this).toggleClass('active')
+Template.line.events({
+  'click .collapsible-header': function(evt) {
+    $(evt.target).toggleClass('active')
       .parent().toggleClass('active');
-  });
-
-  // Make whole div with line clickable
-  $(".collection-item").click(function() {
-    var url = $(this).find("a").attr("href");
+  },
+  'click .collection-item': function(evt) {
+    var url = $(evt.target).find("a").attr("href");
     Router.go(url);
-    return false;
-  });
-};
+  },
+});
 
 Template.line.helpers({
+  viewingFavs: function() {
+    return viewingFavs();
+  },
+  isHidden: function(line, dir) {
+    return viewingFavs() && !isFav(line, dir);
+  },
   hasBadReports: function(type, line, dir) {
     return reportCategories.reduce(function(sum, cur) {
       if (cur.name === 'normal') {
