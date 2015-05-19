@@ -223,20 +223,19 @@ h1.app-title {
 
 
 .switch label .lever {
-  background-colo: rgba(255, 255, 255, 0.3);
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
 .switch label .lever::after {
-  content: "";
   content: "";
-  color: #7E57C2 !important;
+  color: #fff;
+  background-color: #7E57C2;
   line-height: 1.6rem;
   padding-left: 5px;
 }
 
 .switch label input[type="checkbox"]:checked + .lever::after {
-  content: "";
-  color: white !important;
+  color: #fff !important;
 }
 
 div.lines {
