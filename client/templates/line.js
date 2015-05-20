@@ -1,10 +1,10 @@
 Template.line.events({
   'click .collapsible-header': function(evt) {
-    $(evt.target).toggleClass('active')
+    $(evt.currentTarget).toggleClass('active')
       .parent().toggleClass('active');
   },
   'click .collection-item': function(evt) {
-    var url = $(evt.target).find("a").attr("href");
+    var url = $(evt.currentTarget).find("a").attr("href");
     Router.go(url);
   },
 });
