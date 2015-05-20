@@ -24,6 +24,8 @@ body {
 }
 
 nav {
+  height: 56px !important;
+  line-height: 56px !important;
   position: fixed;
   z-index: 100;
 }
@@ -244,8 +246,8 @@ h4 {
   font-size: 1.6rem;
 }
 
-h1.app-title {
-  font-size: 1.6rem;
+h1 {
+  font-size: 22px;
   margin: 0;
   line-height: 56px;
   text-align: left;
