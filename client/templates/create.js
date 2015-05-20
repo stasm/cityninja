@@ -1,5 +1,9 @@
 Meteor.subscribe("reports");
 
+reenableScrolling = function() {
+  $('body').removeClass('modal-open');
+};
+
 Template.create.helpers({
   reportTypes: function() {
     return reportTypes[Router.current().params.type];
@@ -8,6 +12,7 @@ Template.create.helpers({
 
 Template.create.events({
   'click .close': function(event) {
+    reenableScrolling();
     $('#create').closeModal();
   },
   'click .report': function(event, template) {

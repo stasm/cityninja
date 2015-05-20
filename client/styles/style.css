@@ -23,6 +23,10 @@ body {
   padding: 0 !important;
 }
 
+.modal-open {
+  overflow: hidden;
+}
+
 nav {
   height: 56px !important;
   line-height: 56px !important;

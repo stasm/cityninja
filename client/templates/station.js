@@ -10,6 +10,8 @@ Template.station.events({
     $('#create .circle').addClass(icon);
     $('#create .station').text(this.name);
     $('#create').openModal();
+    $('body').addClass('modal-open');
+    $('#lean-overlay').on('click', reenableScrolling);
   }
 });
 
