@@ -5,7 +5,6 @@
 # but you can also edit it by hand.
 
 meteor-platform
-chriswessels:glyphicons-halflings
 copleykj:livestamp
 u2622:persistent-session
 percolate:synced-cron
