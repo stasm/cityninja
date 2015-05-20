@@ -1,15 +1,18 @@
 Meteor.subscribe("reports");
 
 canUpvote = function(docId) {
-  if (!docId) {
-    return true;
-  }
+  return docId === undefined ?
+    false : Session.equals(docId, undefined);
+};
 
-  return !Session.get(docId);
+canRemove = function(docId, createdAt) {
+  return Session.equals(docId, 'created') &&
+    Date.now() - new Date(createdAt) < 1000 * 60 * 5;
 };
 
 Template.report.helpers({
   canUpvote: canUpvote,
+  canRemove: canRemove,
   positive: function(reportName) {
     return (reportName === 'Wszystko OK');
   },
@@ -38,7 +41,14 @@ Template.report.events({
       Meteor.call("downvoteReport", this._id);
       Materialize.toast("Dzięki!", 2000);
     }
-  }
+  },
+  'click .remove': function() {
+    if (canRemove(this._id, this.createdAt)) {
+      Session.clear(this._id);
+      Meteor.call("removeReport", this._id);
+      Materialize.toast("Puff!", 2000);
+    }
+  },
 });
 
 Template.report.events({
