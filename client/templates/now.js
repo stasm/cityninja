@@ -24,7 +24,11 @@ Template.now.helpers({
   noReports: function() {
     return getReports().count() === 0;
   },
-  reports: getReports
+  reports: getReports,
+
+  duzo: function() {
+    return Session.get('easter egg counter') > 6;
+  },
 });
 
 
@@ -144,12 +148,6 @@ Template.now.onRendered(function() {
 
   resetElement();
 
-});
-
-Template.now.helpers({
-  duzo: function() {
-    return Session.get('easter egg counter') > 6;
-  },
 });
 
 Template.now.events({
