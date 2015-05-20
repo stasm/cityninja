@@ -376,6 +376,17 @@ div.lines {
   cursor: default;
 }
 
+.collection.create .secondary {
+  color: #666;
+  font-size: 22px;
+  margin-right: -56px;
+  cursor: pointer;
+}
+
+.collection.create .secondary:hover {
+  color: #000;
+}
+
 .collection .collection-item.header i.circle {
   color: #fff;
   background-color: #f06292;

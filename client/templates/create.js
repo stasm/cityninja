@@ -7,7 +7,10 @@ Template.create.helpers({
 });
 
 Template.create.events({
-  'click .collection-item': function(event, template) {
+  'click .close': function(event) {
+    $('#create').closeModal();
+  },
+  'click .report': function(event, template) {
     var modal = template.$('#create');
     var location = template.$('#create .station').text();
     var params = Router.current().params;
