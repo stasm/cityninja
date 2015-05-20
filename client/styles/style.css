@@ -151,9 +151,13 @@ li.line.active + li.line.active {
   margin: 0;
 }
 
-span.title {
+.title {
   font-size: 14px !important;
   color: rgba(0, 0, 0, 0.87);
+}
+
+.strong {
+  font-weight: 800;
 }
 
 

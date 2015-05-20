@@ -16,8 +16,10 @@
           <a href="{{pathFor 'dir.show' line=../line type=../type dir=direction}}">
             {{#if hasBadReports ../type ../line direction}}
               <i class="icon mdi-alert-warning amber-text"></i>
+              <span class="title strong">{{direction}}</span>
+            {{else}}
+              <span class="title">{{direction}}</span>
             {{/if}}
-            <span class="title">{{direction}}</span>
           </a>
         </li>
       {{/each}}
