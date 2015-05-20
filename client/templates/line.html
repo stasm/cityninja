@@ -1,7 +1,8 @@
 <template name="line">
   <li class="line {{#if viewingFavs}}active{{/if}}">
 
-  <div class="collapsible-header {{#if viewingFavs}}active{{/if}}">
+  <div class="collapsible-header {{#if isExpanded line}}active{{/if}}"
+    data-line="{{line}}">
     <i class="{{icon}} icon"></i>
     {{line}}
     <span class="secondary-content">

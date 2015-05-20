@@ -1,6 +1,12 @@
 Template.line.events({
   'click .collapsible-header': function(evt) {
-    $(evt.currentTarget).toggleClass('active')
+    var header = $(evt.currentTarget);
+
+    Session.set(
+      'expanded ' + evt.currentTarget.dataset.line,
+      !header.hasClass('active'));
+
+    header.toggleClass('active')
       .parent().toggleClass('active');
   },
   'click .collection-item': function(evt) {
@@ -10,8 +16,8 @@ Template.line.events({
 });
 
 Template.line.helpers({
-  viewingFavs: function() {
-    return viewingFavs();
+  isExpanded: function(line) {
+    return viewingFavs() || Session.get('expanded ' + line);
   },
   isHidden: function(line, dir) {
     return viewingFavs() && !isFav(line, dir);
