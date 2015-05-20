@@ -1,8 +1,24 @@
 Session.setDefault('easter egg counter', 0);
 
+var taunts = [
+  'Jest w miarę okej.',
+  'Jest nie najgorzej.',
+  'Jest całkiem całkiem.',
+  'Jest w porządku, serio.',
+  'Jest dobrze. Póki co.'
+];
+
+
 Template.allgood.helpers({
-  duzo: function() {
-    return Session.get('easter egg counter') > 6;
+  status: function() {
+    if (Session.get('easter egg counter') < 7) {
+      return 'Jest dobrze.';
+    } else if (taunts.length) {
+      var randpos = Math.floor(Math.random() * taunts.length);
+      return taunts.splice(randpos, 1)[0];
+    } else {
+      return 'Jest dużodobrze.';
+    }
   },
 });
 
