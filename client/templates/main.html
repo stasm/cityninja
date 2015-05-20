@@ -2,41 +2,45 @@
 
   {{> nav index=0 more=0 title=line }}
 
-  <div class="subheader">
-    {{#if isFav}}
-      <i class="secondary fav active mdi-action-favorite"></i>
+  <div class="wrapper">
+
+    <div class="subheader">
+      {{#if isFav}}
+        <i class="secondary fav active mdi-action-favorite"></i>
+      {{else}}
+        <i class="secondary fav mdi-action-favorite"></i>
+      {{/if}}
+
+      <div>
+        {{ dir }}
+      </div>
+    </div>
+
+    {{#if noReports }}
+      <div class="top-panel card-panel teal lighten-2 white-text">
+        <span id="at">stan na <span id="current-time"></span></span>
+        <img src="/images/white-128x128.png" class="top-panel-ninja" />
+        <div class="top-panel-text">
+          Wszystko OK.
+        </div>
+      </div>
     {{else}}
-      <i class="secondary fav mdi-action-favorite"></i>
+      <div class="top-panel card-panel amber white-text">
+        <span id="at">stan na <span id="current-time"></span></span>
+        <img src="/images/white-128x128.png" class="top-panel-ninja" />
+        <div class="top-panel-text">
+          Problemy na trasie!
+        </div>
+      </div>
     {{/if}}
 
-    <div>
-      {{ dir }}
-    </div>
+    <ul class="collection stations">
+      {{#each stations}}
+        {{> station }}
+      {{/each}}
+    </ul>
+
   </div>
-
-  {{#if noReports }}
-    <div class="top-panel card-panel teal lighten-2 white-text">
-      <span id="at">stan na <span id="current-time"></span></span>
-      <img src="/images/white-128x128.png" class="top-panel-ninja" />
-      <div class="top-panel-text">
-        Wszystko OK.
-      </div>
-    </div>
-  {{else}}
-    <div class="top-panel card-panel amber white-text">
-      <span id="at">stan na <span id="current-time"></span></span>
-      <img src="/images/white-128x128.png" class="top-panel-ninja" />
-      <div class="top-panel-text">
-        Problemy na trasie!
-      </div>
-    </div>
-  {{/if}}
-
-  <ul class="collection stations">
-    {{#each stations}}
-      {{> station }}
-    {{/each}}
-  </ul>
 
   {{> create}}
 </template>

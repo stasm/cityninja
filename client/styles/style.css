@@ -23,6 +23,15 @@ body {
   padding: 0 !important;
 }
 
+nav {
+  position: fixed;
+  z-index: 100;
+}
+
+.wrapper {
+  padding-top: 56px;
+}
+
 div.section:hover #heart {
     -webkit-animation: rainbow 10s infinite alternate linear; 
     -moz-animation: rainbow 10s infinite alternate linear; 
