@@ -1,4 +1,5 @@
 Meteor.subscribe('reports');
+Session.setDefault('easter egg counter', 0);
 
 function getReports() {
 
@@ -23,8 +24,13 @@ Template.now.helpers({
   noReports: function() {
     return getReports().count() === 0;
   },
-  reports: getReports
+  reports: getReports,
+
+  duzo: function() {
+    return Session.get('easter egg counter') > 6;
+  },
 });
+
 
 Template.now.onRendered(function() {
 
@@ -142,4 +148,10 @@ Template.now.onRendered(function() {
 
   resetElement();
 
+});
+
+Template.now.events({
+    'click .cover': function(event) {
+        Session.set('easter egg counter', Session.get('easter egg counter') + 1);
+    },
 });
