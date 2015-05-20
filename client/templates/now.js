@@ -52,7 +52,6 @@ Template.now.onRendered(function() {
   mc.on("panstart panmove", onPan);
   mc.on("rotatestart rotatemove", onRotate);
   mc.on("pinchstart pinchmove", onPinch);
-  mc.on("swipe", onSwipe);
 
   mc.on("hammer.input", function(ev) {
     if (ev.isFinal) {
@@ -65,10 +64,9 @@ Template.now.onRendered(function() {
     transform = {
       translate: { x: 0, y: 0 },
       scale: 1,
-      angle: 0,
-      rx: 0,
-      ry: 0,
-      rz: 0
+      rotateX: 0,
+      rotateY: 0,
+      rotateZ: 0,
     };
     requestElementUpdate();
   }
@@ -78,8 +76,9 @@ Template.now.onRendered(function() {
       'translate3d(' + transform.translate.x + 'px, ' +
         transform.translate.y + 'px, 0)',
       'scale(' + transform.scale + ', ' + transform.scale + ')',
-      'rotate3d('+ transform.rx +','+ transform.ry +','+
-        transform.rz +','+  transform.angle + 'deg)'
+      'rotateX('+ transform.rotateX + 'deg)',
+      'rotateY('+ transform.rotateY + 'deg)',
+      'rotateZ('+ transform.rotateZ + 'deg)',
     ];
 
     value = value.join(" ");
@@ -110,6 +109,9 @@ Template.now.onRendered(function() {
       y: damp(ev.deltaY, max)
     };
 
+    transform.rotateX = - damp(ev.deltaY, 90);
+    transform.rotateY = damp(ev.deltaX, 90);
+
     requestElementUpdate();
   }
 
@@ -134,21 +136,6 @@ Template.now.onRendered(function() {
     ninja.className = '';
     transform.rz = 1;
     transform.angle = initAngle + ev.rotation;
-
-    requestElementUpdate();
-  }
-
-  function onSwipe(ev) {
-    var angle = 50;
-    transform.ry = (ev.direction & Hammer.DIRECTION_HORIZONTAL) ? 1 : 0;
-    transform.rx = (ev.direction & Hammer.DIRECTION_VERTICAL) ? 1 : 0;
-    transform.angle = (ev.direction &
-      (Hammer.DIRECTION_RIGHT | Hammer.DIRECTION_UP)) ? angle : -angle;
-
-    clearTimeout(timer);
-    timer = setTimeout(function () {
-      resetElement();
-    }, 300);
 
     requestElementUpdate();
   }
