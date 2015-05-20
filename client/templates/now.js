@@ -149,8 +149,6 @@ Template.now.onRendered(function() {
 Template.now.helpers({
   duzo: function() {
     return Session.get('easter egg counter') > 6;
-    };
-
   },
 });
 
