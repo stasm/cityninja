@@ -44,6 +44,7 @@ Template.create.events({
         Session.setPersistent(report, 'created');
       });
     }
+    reenableScrolling();
     modal.closeModal();
     Materialize.toast("Dzięki!", 2000);
   }
