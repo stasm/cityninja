@@ -14,3 +14,4 @@ momentjs:moment
 rzymek:moment-locale-pl
 nimble:restivus
 materialize:materialize
+hammer:hammer@=2.0.4_1

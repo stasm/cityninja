@@ -52,6 +52,14 @@ ul.tabs {
   text-align: center;
 }
 
+#play-ninja {
+  cursor: pointer;
+}
+
+#play-ninja.animate {
+  transition: all 0.3s ease 0s;
+}
+
 .cover p:first-of-type {
   margin-top: 0;
   font-weight: 800;
