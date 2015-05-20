@@ -23,7 +23,7 @@ body {
   padding: 0 !important;
 }
 
-.credits:hover #heart {
+div.section:hover #heart {
     -webkit-animation: rainbow 10s infinite alternate linear; 
     -moz-animation: rainbow 10s infinite alternate linear; 
 }
