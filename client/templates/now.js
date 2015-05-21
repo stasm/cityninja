@@ -4,7 +4,6 @@ Session.setDefault('easter egg counter', 0);
 function getReports() {
 
   var query = {
-    name: {$ne: 'Wszystko OK'},
     expired: false
   };
 

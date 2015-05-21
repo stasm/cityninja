@@ -15,7 +15,7 @@
       {{#each directions}}
         <li class="collection-item avatar {{#if isHidden ../line direction}}hidden{{/if}}">
           <a href="{{pathFor 'dir.show' line=../line type=../type dir=direction}}">
-            {{#if hasBadReports ../type ../line direction}}
+            {{#if numReports ../line direction}}
               <i class="icon mdi-alert-warning amber-text"></i>
               <span class="title strong">{{direction}}</span>
             {{else}}

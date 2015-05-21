@@ -22,13 +22,5 @@ Template.line.helpers({
   isHidden: function(line, dir) {
     return viewingFavs() && !isFav(line, dir);
   },
-  hasBadReports: function(type, line, dir) {
-    return reportCategories.reduce(function(sum, cur) {
-      if (cur.name === 'normal') {
-        return sum;
-      }
-
-      return sum + numReports(line, dir, cur.name, type);
-    }, 0);
-  }
+  numReports: numReports
 });
