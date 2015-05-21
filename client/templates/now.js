@@ -48,6 +48,10 @@ Template.now.onRendered(function() {
   var transform;
   var timer;
 
+  if (!ninja) {
+    return false;
+  }
+
   var mc = new Hammer.Manager(ninja);
 
   mc.add(new Hammer.Pan({ threshold: 0, pointers: 0 }));
