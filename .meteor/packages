@@ -9,9 +9,8 @@ copleykj:livestamp
 u2622:persistent-session
 percolate:synced-cron
 iron:router
-momentjs:moment
-rzymek:moment-locale-pl
 nimble:restivus
 materialize:materialize
 hammer:hammer@=2.0.4_1
 remcoder:chronos
+rzymek:moment-locale-pl

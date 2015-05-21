@@ -39,10 +39,3 @@ Template.main.events = {
     }
   }
 };
-
-Template.main.rendered = function() {
-  setInterval(function(){
-    var currentTime = moment().zone("+01:00").format("H:mm");
-    $('#current-time').text(currentTime);
-  }, 1000);
-};

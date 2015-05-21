@@ -227,12 +227,6 @@ img.top-panel-ninja {
   font-size: 16px;
 }
 
-#at {
-  line-height: 40px;
-  float: right;
-  font-size: 80%;
-}
-
 .modal.bottom-sheet {
   max-height: 100%;
 }
