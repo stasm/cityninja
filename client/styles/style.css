@@ -34,6 +34,10 @@ nav {
   z-index: 100;
 }
 
+.logo {
+  cursor: pointer;
+}
+
 .wrapper {
   padding-top: 56px;
 }

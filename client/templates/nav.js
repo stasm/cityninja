@@ -61,6 +61,9 @@ Template.nav.helpers({
 Template.nav.events({
   'change .show-favs': function(evt) {
     Session.setPersistent('viewing favs', evt.target.checked);
+  },
+  'click .logo': function(evt) {
+    $("html, body").animate({ scrollTop: "0px" });
   }
 });
 
