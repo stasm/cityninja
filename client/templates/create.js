@@ -39,9 +39,8 @@ Template.create.events({
       }
     } else { // Create a new report
       Meteor.call(
-        "saveReport", this.name, location, line, dir, function(err, report) {
-        // Avoid future upvotes
-        Session.setPersistent(report, 'created');
+        "saveReport", this.name, location, line, dir, function(err, docId) {
+        Session.setPersistent(docId, 'created');
       });
     }
     reenableScrolling();

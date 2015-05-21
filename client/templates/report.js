@@ -7,7 +7,7 @@ canUpvote = function(docId) {
 
 canRemove = function(docId, createdAt) {
   return Session.equals(docId, 'created') &&
-    Date.now() - new Date(createdAt) < 1000 * 60 * 5;
+    Chronos.currentTime(5000) - new Date(createdAt) < 1000 * 30;
 };
 
 Template.report.helpers({

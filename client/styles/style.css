@@ -423,3 +423,17 @@ div.lines {
 .card .secondary {
   font-size: 10px;
 }
+
+@-webkit-keyframes fadeout {
+    0%   { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+@-moz-keyframes fadeout {
+    0%   { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+.card .remove {
+  animation: fadeout 30s linear 0s 1 normal forwards running;
+}
