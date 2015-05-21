@@ -29,9 +29,6 @@ Template.report.helpers({
   canThank: canThank,
   isAuthor: isAuthor,
   hasActions: hasActions,
-  positive: function(reportName) {
-    return (reportName === 'Wszystko OK');
-  },
   icon: function(name) {
     var repType = allReportTypes.filter(function(elem) {
       return elem.name === name;
@@ -77,10 +74,4 @@ Template.report.events({
       Materialize.toast("Podziękowanie wysłane!", 2000);
     }
   },
-});
-
-Template.report.events({
-  'click .create-nonetheless': function() {
-    return openModal(this.location);
-  }
 });
