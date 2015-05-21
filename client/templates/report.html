@@ -1,5 +1,9 @@
 <template name="report">
-<div class="card {{#if hasActions _id}}hilite{{/if}}" id="report-{{_id}}">
+<div 
+  id="report-{{_id}}"
+  class="card 
+    {{#if hasActions _id}}hilite{{/if}}
+    {{#if isAuthor _id}}active{{/if}}">
     <div class="card-content">
 
       <span class="secondary">
@@ -18,7 +22,7 @@
     </div>
 
     {{#if canRemove _id createdAt}}
-      <div class="card-action active">
+      <div class="card-action">
         <a class="waves-effect waves-light btn-flat black-text remove">
           <i class="mdi-action-delete left"></i>Usuń</a>
       </div>

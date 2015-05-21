@@ -445,8 +445,7 @@ div.lines {
   padding: 15px;
 }
 
-.card.active .card-action,
-.card .card-action.active {
+.card.active .card-action {
   display: block;
 }
 

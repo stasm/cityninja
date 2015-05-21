@@ -1,28 +1,31 @@
 Meteor.subscribe("reports");
 
-canUpvote = function(docId) {
-  return docId === undefined ?
-    false :
-    Session.equals(docId + ' created', undefined) &&
-      Session.equals(docId + ' voted', undefined);
+isAuthor = function(doc) {
+  return Session.equals(doc + ' created', true);
 };
 
-canRemove = function(docId, createdAt) {
-  return Session.equals(docId + ' created', true) &&
+canThank = function(doc) {
+  return !isAuthor(doc) && Session.equals(doc + ' thanked', undefined);
+};
+
+canUpvote = function(doc) {
+  return doc === undefined ?
+    false : !isAuthor(doc) && Session.equals(doc + ' voted', undefined);
+};
+
+canRemove = function(doc, createdAt) {
+  return isAuthor(doc) &&
     Chronos.currentTime(5000) - new Date(createdAt) < 1000 * 30;
 };
 
-canThank = function(docId) {
-  return Session.equals(docId + ' created', undefined) &&
-      Session.equals(docId + ' thanked', undefined);
-};
 
 Template.report.helpers({
   canUpvote: canUpvote,
   canRemove: canRemove,
   canThank: canThank,
-  hasActions: function(docId) {
-    return canUpvote(docId) || canThank(docId);
+  isAuthor: isAuthor,
+  hasActions: function(doc) {
+    return canUpvote(doc) || canThank(doc);
   },
   positive: function(reportName) {
     return (reportName === 'Wszystko OK');
