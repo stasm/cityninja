@@ -18,15 +18,17 @@ canRemove = function(doc, createdAt) {
     Chronos.currentTime(5000) - new Date(createdAt) < 1000 * 30;
 };
 
+hasActions = function(doc) {
+  return canUpvote(doc) || canThank(doc);
+};
+
 
 Template.report.helpers({
   canUpvote: canUpvote,
   canRemove: canRemove,
   canThank: canThank,
   isAuthor: isAuthor,
-  hasActions: function(doc) {
-    return canUpvote(doc) || canThank(doc);
-  },
+  hasActions: hasActions,
   positive: function(reportName) {
     return (reportName === 'Wszystko OK');
   },

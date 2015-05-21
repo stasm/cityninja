@@ -1,16 +1,13 @@
 <template name="report">
-<div 
-  id="report-{{_id}}"
-  class="card 
-    {{#if hasActions _id}}hilite{{/if}}
-    {{#if isAuthor _id}}active{{/if}}">
+  <div id="report-{{_id}}"
+    class="card {{#if hasActions _id}}hilite{{/if}} {{#if isAuthor _id}}active{{/if}}">
     <div class="card-content">
 
       <span class="secondary">
         {{ livestamp createdAt }}
       </span>
       <span class="title">{{name}}</span>
-      <p>
+      <p class="aux">
         <span class="mdi-action-thumb-up"></span>
         <span class="count">{{thanks}}</span>
         <span class="mdi-social-person-add"></span>

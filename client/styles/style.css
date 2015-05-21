@@ -317,30 +317,18 @@ div.lines {
   padding-right: 48px;
 }
 
-.collection.now,
 .collection.create {
   border: none;
   color: #aaa;
 }
 
-.collection.now .collection-item,
+#now {
+  padding: 0 20px;
+}
+
 .collection.stations .collection-item {
   padding-right: 72px;
   border: none;
-}
-
-.collection.now p {
-  font-size: 12px;
-  line-height: 1.2rem;
-}
-
-.collection.now .secondary {
-  text-align: right;
-  position: absolute;
-  top: 10px;
-  right: 16px;
-  color: #aaa;
-  font-size: 10px;
 }
 
 .collection.stations {
@@ -422,13 +410,16 @@ div.lines {
 }
 
 .card .card-content p {
-  display: none;
   color: #999;
   font-size: 12px;
   line-heigpht: 1.2rem;
 }
 
-.card.active .card-content p {
+.card .card-content .aux {
+  display: none;
+}
+
+.card.active .card-content .aux {
   display: block;
 }
 

@@ -9,5 +9,11 @@ Template.nowitem.helpers({
   },
   isFav: function(line, dir) {
     return isFav(line, dir);
+  },
+  hasActions: function(doc) {
+    return hasActions(doc);
+  },
+  isAuthor: function(doc) {
+    return isAuthor(doc);
   }
 });

@@ -1,15 +1,18 @@
 <template name="nowitem">
 
-    <li class="collection-item avatar">
-      <i class="{{icon name}} circle white grey-text"></i>
-      <span class="title">{{name}}</span>
-      <p>{{ line }} {{ dir }} na stacji {{ location }}</p>
+  <div id="report-{{_id}}"
+    class="card {{#if hasActions _id}}hilite{{/if}} {{#if isAuthor _id}}active{{/if}}">
+    <div class="card-content">
+
       <span class="secondary">
         {{ livestamp createdAt }}
-        {{#if isFav line dir }}
-          <br><span class="mdi-action-favorite"></span>
-        {{/if}}
       </span>
-    </li>
+      <span class="title">{{name}}</span>
+
+      <p>{{ line }} na stacji {{ location }}.</p>
+      <p>Kierunek {{ dir }}.</p>
+
+    </div>
+  </div>
 
 </template>
