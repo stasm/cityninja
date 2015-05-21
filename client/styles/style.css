@@ -415,6 +415,7 @@ div.lines {
   line-heigpht: 1.2rem;
 }
 
+.stations .loc,
 .card .card-content .aux {
   display: none;
 }
