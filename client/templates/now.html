@@ -2,19 +2,12 @@
 
   {{#if noReports}}
 
-    {{#if Template.subscriptionsReady}}
-      <div class="cover teal lighten-2">
-        <div>
-          <img id="play-ninja" class="animate" src="/images/white-128x128.png" />
-          <p>Jest dobrze.<br>{{#if duzo}} Jest dużodobrze. {{/if}}</p>
-        </div>
-      </div>
-    {{/if}}
+    {{> allgood }}
 
   {{else}}
 
     {{#each reports}}
-      {{> report}}
+      {{> report }}
     {{/each}}
 
   {{/if}}
