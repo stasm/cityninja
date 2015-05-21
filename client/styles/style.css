@@ -409,7 +409,31 @@ div.lines {
 }
 
 .card {
+  cursor: pointer;
   margin: 1rem 0 0;
+}
+
+.card.hilite .title {
+  font-weight: 800;
+}
+
+.card.hilite.active .title {
+  font-weight: 400;
+}
+
+.card .card-content p {
+  display: none;
+  color: #999;
+  font-size: 12px;
+  line-heigpht: 1.2rem;
+}
+
+.card.active .card-content p {
+  display: block;
+}
+
+.card .count {
+  margin: 0 12px 0 3px;
 }
 
 .card a.btn-flat {
@@ -417,7 +441,13 @@ div.lines {
 }
 
 .card .card-action {
+  display: none;
   padding: 15px;
+}
+
+.card.active .card-action,
+.card .card-action.active {
+  display: block;
 }
 
 .card .secondary {

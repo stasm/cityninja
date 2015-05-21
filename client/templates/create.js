@@ -33,14 +33,13 @@ Template.create.events({
     // If so and we can upvote, we do
     if (existingReport) {
       if(canUpvote(existingReport._id)) {
+        Session.setPersistent(existingReport._id + ' voted', 'up');
         Meteor.call("upvoteReport", existingReport._id);
-        // Avoid future upvotes
-        Session.setPersistent(existingReport._id, 'upvoted');
       }
     } else { // Create a new report
       Meteor.call(
         "saveReport", this.name, location, line, dir, function(err, docId) {
-        Session.setPersistent(docId, 'created');
+        Session.setPersistent(docId + ' created', true);
       });
     }
     reenableScrolling();
