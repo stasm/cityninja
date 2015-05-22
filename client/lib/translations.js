@@ -37,11 +37,12 @@ translations = {
 };
 
 taunts = [
-  'Jest w miarę okej.',
-  'Jest nie najgorzej.',
-  'Jest całkiem całkiem.',
+  'Wszystko OK.',
+  'Jest super.',
   'Jest w porządku, serio.',
-  'Jest dobrze. Póki co.'
+  'Brak zgoszeń oznacza… brak zgłoszeń.',
+  'Jeśli nie ma rozwiązania, to nie problemu.',
+  'Dobrego dnia!',
 ];
 
 toasts = {
