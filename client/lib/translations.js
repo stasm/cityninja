@@ -40,7 +40,7 @@ taunts = [
   'Wszystko OK.',
   'Jest super.',
   'Jest w porządku, serio.',
-  'Brak zgoszeń oznacza… brak zgłoszeń.',
+  'Brak zgłoszeń oznacza… brak zgłoszeń.',
   'Jeśli nie ma rozwiązania, to nie problemu.',
   'Dobrego dnia!',
 ];
@@ -56,10 +56,12 @@ toasts = {
     'Dzięki, potwierdzone.',
     'Zgłoszenie potwierdzone.',
     'Dobra robota.',
+    'A więc jednak.',
   ],
   downvoted: [
     'Dzięki, odwołane.',
     'Zgłoszenie odwołane.',
+    'Dobra robota.',
     'Uff!',
   ],
   removed: [
