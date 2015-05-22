@@ -1,14 +1,5 @@
 Session.setDefault('easter egg counter', 0);
 
-var taunts = [
-  'Jest w miarę okej.',
-  'Jest nie najgorzej.',
-  'Jest całkiem całkiem.',
-  'Jest w porządku, serio.',
-  'Jest dobrze. Póki co.'
-];
-
-
 Template.allgood.helpers({
   status: function() {
     if (Session.get('easter egg counter') < 7) {

@@ -44,6 +44,6 @@ Template.create.events({
     }
     reenableScrolling();
     modal.closeModal();
-    Materialize.toast("Dzięki!", 2000);
+    Materialize.toast(pickRandom(toasts.created), 2000);
   }
 });

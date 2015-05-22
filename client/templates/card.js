@@ -71,7 +71,7 @@ Template.cardactions.events({
       // Prevent future upvotes
       Session.setPersistent(this._id + ' voted', 'up');
       Meteor.call("upvoteReport", this._id);
-      Materialize.toast("Dzięki!", 2000);
+      Materialize.toast(pickRandom(toasts.upvoted), 2000);
     }
   },
   'click .downvote': function(evt) {
@@ -79,7 +79,7 @@ Template.cardactions.events({
     if (canUpvote(this._id)) {
       Session.setPersistent(this._id + ' voted', 'down');
       Meteor.call("downvoteReport", this._id);
-      Materialize.toast("Dzięki!", 2000);
+      Materialize.toast(pickRandom(toasts.downvoted), 2000);
     }
   },
   'click .remove': function(evt) {
@@ -87,7 +87,7 @@ Template.cardactions.events({
     if (isAuthor(this._id)) {
       Session.clear(this._id + ' created', true);
       Meteor.call("removeReport", this._id);
-      Materialize.toast("Puff!", 2000);
+      Materialize.toast(pickRandom(toasts.removed), 2000);
     }
   },
   'click .thank': function(evt) {
@@ -95,7 +95,7 @@ Template.cardactions.events({
     if (canThank(this._id)) {
       Session.setPersistent(this._id + ' thanked', true);
       Meteor.call("thankReport", this._id);
-      Materialize.toast("Podziękowanie wysłane!", 2000);
+      Materialize.toast(pickRandom(toasts.thanked), 2000);
     }
   },
 });
