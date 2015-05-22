@@ -167,8 +167,8 @@ li.line.active + li.line.active {
   margin: 0;
 }
 
-.title {
-  font-size: 14px !important;
+.title,
+.subtitle {
   color: rgba(0, 0, 0, 0.87);
 }
 
@@ -225,10 +225,6 @@ img.top-panel-ninja {
 
 .modal.bottom-sheet {
   max-height: 100%;
-}
-
-h4 {
-  font-size: 1.4rem;
 }
 
 .collection .collection-item.avatar {
@@ -307,9 +303,15 @@ div.lines {
   padding: 0 20px;
 }
 
-.collection.stations .collection-item {
-  padding-right: 72px;
-  border: none;
+.collection a,
+.collection a:active,
+.collection a:hover,
+.collection a:visited {
+  color: #000;
+}
+
+.collection .collection-item {
+  font-size: 14px !important;
 }
 
 .collection.stations {
@@ -318,6 +320,7 @@ div.lines {
 
 .collection.stations .collection-item {
   padding-right: 20px;
+  border: none;
 }
 
 .collection.stations .flag:hover {
@@ -390,7 +393,6 @@ div.lines {
   line-heigpht: 1.2rem;
 }
 
-.stations .loc,
 .card .card-content .aux {
   display: none;
 }
@@ -418,18 +420,4 @@ div.lines {
 
 .card .secondary {
   font-size: 10px;
-}
-
-@-webkit-keyframes fadeout {
-    0%   { opacity: 1; }
-    100% { opacity: 0; }
-}
-
-@-moz-keyframes fadeout {
-    0%   { opacity: 1; }
-    100% { opacity: 0; }
-}
-
-.card .remove {
-  animation: fadeout 30s linear 0s 1 normal forwards running;
 }

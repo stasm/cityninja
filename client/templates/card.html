@@ -1,16 +1,37 @@
 <template name="reportcard">
-  <div id="report-{{_id}}" class="card {{#if isAuthor _id}}active{{/if}}">
-    <div class="card-content {{#if hasActions _id}}has-actions pointer{{/if}}">
+  <div id="report-{{_id}}" class="card">
+    <div class="card-content pointer {{#if hasActions _id}}has-actions{{/if}}">
 
       <span class="secondary">
         <span class="mdi-action-thumb-up"></span>
         <span class="count">{{thanks}}</span>
         {{ relativeTime createdAt }}
       </span>
-      <span class="title">{{name}}</span>
 
-      <p class="loc">{{ line }} na stacji {{ location }}.</p>
-      <p class="loc">Kierunek {{ dir }}.</p>
+      <span class="title">{{name}}</span>
+      <p class="aux">{{ howMany votes clears }}</p>
+
+    </div>
+
+    {{> cardactions this}}
+
+  </div>
+</template>
+
+<template name="feedcard">
+  <div id="report-{{_id}}" class="card">
+    <div class="card-content pointer {{#if hasActions _id}}has-actions{{/if}}">
+
+      <span class="secondary">
+        <span class="mdi-action-thumb-up"></span>
+        <span class="count">{{thanks}}</span>
+        {{ relativeTime createdAt }}
+      </span>
+
+      <span class="title">{{ line }} {{ location }}</span>
+      <p><span class="subtitle">{{ name }} —</span> {{ dir }}</p>
+
+      <p class="aux">{{ howMany votes clears }}</p>
 
     </div>
 
@@ -20,7 +41,7 @@
 </template>
 
 <template name="cardactions">
-    {{#if canRemove _id createdAt}}
+    {{#if isAuthor _id }}
       <div class="card-action">
         <a class="waves-effect waves-light btn-flat black-text remove">
           <i class="mdi-action-delete left"></i>Usuń</a>
@@ -34,10 +55,10 @@
       </div>
     {{/if}}
 
-    {{#if canUpvote _id}}
+    {{#if canUpvote _id }}
       <div class="card-action">
-        <a class="waves-effect waves-light btn-flat teal-text upvote">
-          <i class="mdi-social-person-add left"></i>Potwierdź</a>
+        <a class="waves-effect waves-light btn-flat black-text upvote">
+          <i class="mdi-action-done left"></i>Potwierdź</a>
         <a class="waves-effect waves-light btn-flat black-text downvote">
           <i class="mdi-content-block left"></i>Odwołaj</a>
       </div>
