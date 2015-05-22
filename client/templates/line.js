@@ -15,12 +15,16 @@ Template.line.events({
   },
 });
 
+function isExpanded(line) {
+  return viewingFavs() || Session.get('expanded ' + line);
+}
+
 Template.line.helpers({
-  isExpanded: function(line) {
-    return viewingFavs() || Session.get('expanded ' + line);
-  },
+  isExpanded: isExpanded,
   isHidden: function(line, dir) {
     return viewingFavs() && !isFav(line, dir);
   },
-  numReports: numReports
+  hasReports: function(line, dir) {
+    return isExpanded(line) && numReports(line, dir);
+  }
 });
