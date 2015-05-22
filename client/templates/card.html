@@ -3,8 +3,10 @@
     <div class="card-content pointer {{#if hasActions _id}}has-actions{{/if}}">
 
       <span class="secondary">
-        <span class="mdi-action-thumb-up"></span>
-        <span class="count">{{thanks}}</span>
+        {{#if thanks }}
+          <span class="mdi-action-thumb-up"></span>
+          <span class="count">{{thanks}}</span>
+        {{/if}}
         {{ relativeTime createdAt }}
       </span>
 
@@ -23,8 +25,10 @@
     <div class="card-content pointer {{#if hasActions _id}}has-actions{{/if}}">
 
       <span class="secondary">
-        <span class="mdi-action-thumb-up"></span>
-        <span class="count">{{thanks}}</span>
+        {{#if thanks }}
+          <span class="mdi-action-thumb-up"></span>
+          <span class="count">{{thanks}}</span>
+        {{/if}}
         {{ relativeTime createdAt }}
       </span>
 
