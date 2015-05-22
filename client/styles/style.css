@@ -281,6 +281,8 @@ h1 {
 
 #menu {
   z-index: 20;
+  top: 22px !important;
+  left: 215px !important;
 }
 
 div.lines {
