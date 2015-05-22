@@ -22,9 +22,23 @@ hasActions = function(doc) {
   return canUpvote(doc) || canThank(doc);
 };
 
+function relativeTime(time) {
+  var diff = (Chronos.currentTime(30000) - new Date(time)) / 1000;
+  if (diff < 31) {
+    return 'teraz';
+  } else if (diff < 60) {
+    return '1m';
+  } else if (diff < 3600) {
+    return Math.floor(diff / 60) + 'm';
+  } else {
+    return Math.floor(diff / 3600) + 'g';
+  }
+}
+
 Template.reportcard.helpers({
   isAuthor: isAuthor,
-  hasActions: hasActions
+  hasActions: hasActions,
+  relativeTime: relativeTime
 });
 
 Template.reportcard.events({
