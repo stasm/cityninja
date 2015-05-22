@@ -110,6 +110,10 @@ li.line.active + li.line.active {
   border-top: 1px solid #fff;
 }
 
+.collapsible-header.active .strong {
+  font-weight: 400;
+}
+
 .collapsible-header.active + .collapsible-body {
   display: block;
 }

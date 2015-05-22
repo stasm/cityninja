@@ -4,7 +4,7 @@
   <div class="collapsible-header pointer {{#if isExpanded line}}active{{/if}}"
     data-line="{{line}}">
     <i class="{{icon}} icon"></i>
-    {{line}}
+    <span class="{{#if hasReports line}}strong{{/if}}">{{line}}</span>
     <span class="secondary-content">
       <i class="mdi-navigation-expand-more chevron"></i>
     </span>

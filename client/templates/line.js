@@ -25,6 +25,8 @@ Template.line.helpers({
     return viewingFavs() && !isFav(line, dir);
   },
   hasReports: function(line, dir) {
-    return isExpanded(line) && numReports(line, dir);
+    return typeof dir === 'string' ?
+      isExpanded(line) && numReports(line, dir) :
+      numReports(line);
   }
 });
