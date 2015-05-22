@@ -18,6 +18,11 @@
     100% { color: violet; }
 }
 
+#play-ninja,
+.pointer {
+  cursor: pointer;
+}
+
 body {
   margin: 0 !important;
   padding: 0 !important;
@@ -32,10 +37,6 @@ nav {
   line-height: 56px !important;
   position: fixed;
   z-index: 100;
-}
-
-.logo {
-  cursor: pointer;
 }
 
 .wrapper {
@@ -69,10 +70,6 @@ ul.tabs {
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   text-align: center;
-}
-
-#play-ninja {
-  cursor: pointer;
 }
 
 #play-ninja.animate {
@@ -199,7 +196,6 @@ li.line.active + li.line.active {
 
 .fav {
   overflow: hidden;
-  cursor: pointer;
 }
 
 .fav:hover {
@@ -237,7 +233,6 @@ h4 {
 
 .collection .collection-item.avatar {
   height: auto;
-  cursor: pointer;
 }
 
 .primary {
@@ -274,7 +269,6 @@ h1 {
 }
 
 .more {
-  cursor: pointer;
   font-size: 18px;
   margin-top: 1px;
 }
@@ -288,19 +282,6 @@ h1 {
 div.lines {
   margin-top: 15px;
   margin-bottom: 25px;
-}
-
-.aux {
-  font-size: 0.8em;
-}
-
-.footer {
-  height: 20px;
-  margin-bottom: 20px;
-}
-
-.credits {
-  color: #999;
 }
 
 .subheader {
@@ -339,10 +320,6 @@ div.lines {
   padding-right: 20px;
 }
 
-.collection.stations .flag {
-  cursor: pointer;
-}
-
 .collection.stations .flag:hover {
   color: #000;
 }
@@ -372,7 +349,6 @@ div.lines {
   color: #666;
   font-size: 22px;
   margin-right: -56px;
-  cursor: pointer;
 }
 
 .collection.create .secondary:hover {
@@ -397,15 +373,14 @@ div.lines {
 }
 
 .card {
-  cursor: pointer;
   margin: 1rem 0 0;
 }
 
-.card.hilite .title {
+.card-content.has-actions .title {
   font-weight: 800;
 }
 
-.card.hilite.active .title {
+.card.active .card-content.has-actions .title {
   font-weight: 400;
 }
 

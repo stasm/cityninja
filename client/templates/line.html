@@ -1,7 +1,7 @@
 <template name="line">
   <li class="line {{#if viewingFavs}}active{{/if}}">
 
-  <div class="collapsible-header {{#if isExpanded line}}active{{/if}}"
+  <div class="collapsible-header pointer {{#if isExpanded line}}active{{/if}}"
     data-line="{{line}}">
     <i class="{{icon}} icon"></i>
     {{line}}
@@ -13,7 +13,7 @@
   <div class="collapsible-body">
     <ul class="collection">
       {{#each directions}}
-        <li class="collection-item avatar {{#if isHidden ../line direction}}hidden{{/if}}">
+        <li class="collection-item pointer avatar {{#if isHidden ../line direction}}hidden{{/if}}">
           <a href="{{pathFor 'dir.show' line=../line type=../type dir=direction}}">
             {{#if hasReports ../line direction}}
               <i class="icon mdi-alert-warning amber-text"></i>

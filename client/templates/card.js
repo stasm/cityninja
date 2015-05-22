@@ -42,8 +42,8 @@ Template.reportcard.helpers({
 });
 
 Template.reportcard.events({
-  'click .card': function(evt) {
-    $(evt.currentTarget).toggleClass('active');
+  'click .card-content.has-actions': function(evt) {
+    $(evt.currentTarget).parent().toggleClass('active');
   },
   'click .upvote': function(evt) {
     evt.stopImmediatePropagation();
