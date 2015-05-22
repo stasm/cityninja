@@ -1,4 +1,4 @@
-<template name="report">
+<template name="reportcard">
   <div id="report-{{_id}}"
     class="card {{#if hasActions _id}}hilite{{/if}} {{#if isAuthor _id}}active{{/if}}">
     <div class="card-content">
@@ -14,14 +14,16 @@
       <p class="aux">
         <span class="mdi-action-thumb-up"></span>
         <span class="count">{{thanks}}</span>
-        <span class="mdi-social-person-add"></span>
-        <span class="count">{{votes}}</span>
-        <span class="mdi-content-block"></span>
-        <span class="count">{{clears}}</span>
       </p>
 
     </div>
 
+    {{> cardactions this}}
+
+  </div>
+</template>
+
+<template name="cardactions">
     {{#if canRemove _id createdAt}}
       <div class="card-action">
         <a class="waves-effect waves-light btn-flat black-text remove">
@@ -44,6 +46,4 @@
           <i class="mdi-content-block left"></i>Odwołaj</a>
       </div>
     {{/if}}
-
-  </div>
 </template>
