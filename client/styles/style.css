@@ -363,11 +363,6 @@ div.lines {
   color: #000;
 }
 
-.collection .collection-item.header i.circle {
-  color: #fff;
-  background-color: #f06292;
-}
-
 .collection .collection-item.avatar i {
   position: absolute;
   width: 42px;
