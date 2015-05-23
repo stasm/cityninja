@@ -1,6 +1,7 @@
 Session.setDefault('easter egg counter', 0);
 
 Template.allgood.helpers({
+  viewingFavs: viewingFavs,
   status: function() {
     if (Session.get('easter egg counter') < 7) {
       return 'Jest dobrze.';
@@ -49,7 +50,7 @@ Template.allgood.onRendered(function() {
   });
 
   function resetElement() {
-    ninja.className = 'animate';
+    ninja.classList.add('animate');
     transform = {
       translate: { x: 0, y: 0 },
       scale: 1,
@@ -84,7 +85,7 @@ Template.allgood.onRendered(function() {
   }
 
   function onPan(ev) {
-    ninja.className = '';
+    ninja.classList.remove('animate');
     transform.translate = {
       x: damp(ev.deltaX, max),
       y: damp(ev.deltaY, max)
@@ -102,7 +103,7 @@ Template.allgood.onRendered(function() {
       initScale = transform.scale || 1;
     }
 
-    ninja.className = '';
+    ninja.classList.remove('animate');
     transform.scale = initScale * ev.scale;
 
     window.requestAnimationFrame(updateElementTransform);
@@ -114,7 +115,7 @@ Template.allgood.onRendered(function() {
       initAngle = transform.angle || 0;
     }
 
-    ninja.className = '';
+    ninja.classList.remove('animate');
     transform.rz = 1;
     transform.angle = initAngle + ev.rotation;
 

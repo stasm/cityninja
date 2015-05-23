@@ -67,13 +67,25 @@ ul.tabs {
   top: 56px;
 }
 
-.cover div {
+.cover div.container {
   position: absolute;
   top: 45%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   text-align: center;
+}
+
+#play-ninja {
+  width: 128px;
+  height: 128px;
+  margin: 0 auto;
+  background-image: url("/images/white-fav-128x128.png");
+  background-position: 0 0;
+}
+
+#play-ninja.viewingFavs {
+  background-position: 128px 0;
 }
 
 #play-ninja.animate {

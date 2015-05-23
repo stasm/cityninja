@@ -2,7 +2,9 @@
 
   <div class="cover teal lighten-2">
     <div class="container">
-      <img id="play-ninja" class="animate" src="/images/white-128x128.png" />
+      <div id="play-ninja"
+        src="/images/white-128x128.png"
+        class="animate {{#if viewingFavs }}viewingFavs{{/if}}"></div>
       <p>{{status}}</p>
     </div>
   </div>
