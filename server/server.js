@@ -18,7 +18,7 @@ Meteor.startup(function() {
 // Task to expire old reports. It checks every minute to see if there are
 // tasks reported/confirmed more than 30 minutes ago.
 SyncedCron.add({
-  name: 'Expire old reports',
+  name: 'expire',
   schedule: function(parser) {
     return parser.text('every 1 minute');
   },

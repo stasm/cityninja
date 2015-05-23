@@ -30,19 +30,20 @@ function relativeTime(time) {
   }
 }
 
-function howMany(votes) {
-  var trans = votes > 0 ? translations.confirms : translations.clears;
-  var num = Math.abs(votes);
-  return num + ' ' + trans[plural(Math.abs(num))];
+function howMany(num, trans) {
+  return num + ' ' + trans[plural(num)];
 }
 
 var cardHelpers = {
   hasActions: hasActions,
   relativeTime: relativeTime,
   howMany: function(confirms, clears) {
-    return [confirms, clears].filter(
-      function(elem) { return elem !== 0; }).map(
-        howMany).join(', ');
+    return [
+      [confirms, translations.confirms],
+      [clears, translations.clears]
+    ].filter(
+      function(elem) { return elem[0] !== 0; }).map(
+        Function.prototype.apply.bind(howMany, null)).join(', ');
   }
 };
 
