@@ -15,6 +15,11 @@ Meteor.startup(function() {
   });
 });
 
+SyncedCron.config({
+  log: false,
+  collectionTTL: 172800, // autoremove logs after 48h
+});
+
 // Task to expire old reports. It checks every minute to see if there are
 // tasks reported/confirmed more than 30 minutes ago.
 SyncedCron.add({
@@ -36,9 +41,6 @@ SyncedCron.add({
       {$set: {expired: true}},
       {multi: true}
     );
-
-    var activeRemaining = Reports.find({expired: false}).count();
-    console.log(activeRemaining + ' active reports remaining.');
   }
 });
 
