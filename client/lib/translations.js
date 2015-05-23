@@ -41,7 +41,7 @@ taunts = [
   'Jest super.',
   'Jest w porządku, serio.',
   'Brak zgłoszeń oznacza… brak zgłoszeń.',
-  'Jeśli nie ma rozwiązania, to nie problemu.',
+  'Jeśli nie ma rozwiązania, to nie ma problemu.',
   'Dobrego dnia!',
 ];
 

@@ -18,9 +18,6 @@ function getReports() {
   return Reports.find(query, { sort: {createdAt: -1}});
 }
 
-Template.now.helpers({
-  noReports: function() {
-    return getReports().count() === 0;
-  },
+Template.feed.helpers({
   reports: getReports,
 });

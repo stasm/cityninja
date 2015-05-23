@@ -4,27 +4,35 @@
 
   <div class="wrapper">
 
+    {{#if showFavInfo }}
+      {{> favinfo }}
+    {{else}}
+      {{> tabs }}
+    {{/if}}
+
+  </div>
+
+</template>
+
+<template name="tabs">
     <ul class="tabs">
       <li class="tab">
-        <a class="{{#if viewingNow }}active{{/if}}" href="#now" data-route="live">
+        <a class="{{#if currentTab 'live' }}active{{/if}}" href="#feed" data-route="live">
           Zgłoszenia
         </a>
       </li>
       <li class="tab">
-        <a class="{{#if viewingLines }}active{{/if}}" href="#lines" data-route="linie">
+        <a class="{{#if currentTab 'linie' }}active{{/if}}" href="#lines" data-route="linie">
           Linie
         </a>
       </li>
     </ul>
 
-    <div id="now" class="col s12">
-      {{> now}}
+    <div id="feed" class="col s12">
+      {{> feed }}
     </div>
 
     <div id="lines" class="col s12">
       {{> lines}}
     </div>
-
-  </div>
-
 </template>

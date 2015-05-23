@@ -1,0 +1,9 @@
+<template name="feed">
+
+    {{#each reports}}
+      {{> feedcard }}
+    {{else}}
+      {{> allgood }}
+    {{/each}}
+
+</template>

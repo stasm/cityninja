@@ -63,6 +63,10 @@ ul.tabs {
   top: 102px;
 }
 
+.wrapper > .cover {
+  top: 56px;
+}
+
 .cover div {
   position: absolute;
   top: 45%;
@@ -76,8 +80,11 @@ ul.tabs {
   transition: all 0.3s ease 0s;
 }
 
+.cover p {
+  margin: 0;
+}
+
 .cover p:first-of-type {
-  margin-top: 0;
   font-weight: 800;
 }
 
