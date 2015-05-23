@@ -1,4 +1,3 @@
-
 Template.main.onCreated(function() {
   this.subscribe('reports');
   var params = Router.current().params;

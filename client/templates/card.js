@@ -1,22 +1,5 @@
 Meteor.subscribe("reports");
 
-isAuthor = function(doc) {
-  return Session.equals(doc + ' created', true);
-};
-
-canThank = function(doc) {
-  return !isAuthor(doc) && Session.equals(doc + ' thanked', undefined);
-};
-
-canUpvote = function(doc) {
-  return doc === undefined ?
-    false : !isAuthor(doc) && Session.equals(doc + ' voted', undefined);
-};
-
-hasActions = function(doc) {
-  return canUpvote(doc) && canThank(doc);
-};
-
 function relativeTime(time) {
   var diff = (Chronos.currentTime(30000) - new Date(time)) / 1000;
   if (diff < 31) {
