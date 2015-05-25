@@ -18,10 +18,13 @@ function howMany(num, trans) {
 var cardHelpers = {
   hasActions: hasActions,
   relativeTime: relativeTime,
-  howMany: function(confirms, clears) {
+  numThanks: function(thanks) {
+    return thanks.length;
+  },
+  numVotes: function(confirms, clears) {
     return [
-      [confirms, translations.confirms],
-      [clears, translations.clears]
+      [confirms.length, translations.confirms],
+      [clears.length, translations.clears]
     ].filter(
       function(elem) { return elem[0] !== 0; }).map(
         Function.prototype.apply.bind(howMany, null)).join(', ');
