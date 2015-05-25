@@ -1,5 +1,3 @@
-Meteor.subscribe('reports');
-
 function getReports() {
   var query = {
     expired: false

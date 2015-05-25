@@ -1,5 +1,3 @@
-Meteor.subscribe("reports");
-
 openModal = function(loc) {
   var params = Router.current().params;
   var icon = lines[params.type].filter(function(elem) {

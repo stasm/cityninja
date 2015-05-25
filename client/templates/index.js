@@ -1,5 +1,3 @@
-Meteor.subscribe("reports");
-
 Template.index.helpers({
   showFavInfo: function() {
     return viewingFavs() && !hasFavs();

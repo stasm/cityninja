@@ -1,5 +1,3 @@
-Meteor.subscribe("reports");
-
 function relativeTime(time) {
   var diff = (Chronos.currentTime(30000) - new Date(time)) / 1000;
   if (diff < 31) {

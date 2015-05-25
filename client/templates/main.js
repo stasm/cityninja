@@ -1,5 +1,4 @@
 Template.main.onCreated(function() {
-  this.subscribe('reports');
   var params = Router.current().params;
   this.type = params.type;
   this.line = params.line;

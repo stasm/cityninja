@@ -1,5 +1,3 @@
-Meteor.subscribe("reports");
-
 reenableScrolling = function() {
   $('body').removeClass('modal-open');
 };

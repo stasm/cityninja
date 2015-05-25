@@ -1,20 +1,3 @@
-Meteor.startup(function() {
-  Restivus.configure({
-    useAuth: false,
-    prettyJson:true
-  });
-
-  
-  Restivus.addRoute('reports',{authRequired: false},{ 
-      get: function(){
-      //GET api/reports
-      //Gives you the current list of active reports.
-      var reports = Reports.find({expired: false}).fetch();
-      return {statusCode:200, body:{data: reports}};
-    }
-  });
-});
-
 SyncedCron.config({
   log: false,
   collectionTTL: 172800, // autoremove logs after 48h
@@ -46,8 +29,3 @@ SyncedCron.add({
 
 SyncedCron.start();
 
-// Publish subset of non-expired reports to client
-Meteor.publish('reports', function () {
-  //Meteor._sleepForMs(2000);
-  return Reports.find({expired: false});
-});
