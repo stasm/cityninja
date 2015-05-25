@@ -1,27 +1,39 @@
-Session.setDefault('easter egg counter', 0);
-
 Template.allgood.helpers({
   viewingFavs: viewingFavs,
   status: function() {
+    var self = Template.instance();
     if (Session.get('easter egg counter') < 7) {
       return 'Jest dobrze.';
-    } else if (taunts.length) {
-      var randpos = Math.floor(Math.random() * taunts.length);
-      return taunts.splice(randpos, 1)[0];
+    } else if (self.taunts.length) {
+      var randpos = Math.floor(Math.random() * self.taunts.length);
+      return self.taunts.splice(randpos, 1)[0];
     } else {
       return 'Jest dużodobrze.';
     }
   },
 });
 
+function resetTaunts () {
+  Session.set('easter egg counter', 0);
+  this.taunts = taunts.slice();
+};
+
 Template.allgood.events({
-    'click .cover': function(event) {
-        Session.set('easter egg counter', Session.get('easter egg counter') + 1);
+    'click .cover': function(event, self) {
+        var eggCounter = Session.get('easter egg counter')
+        if (eggCounter < 15) {
+          Session.set('easter egg counter', eggCounter + 1);
+        } else {
+          resetTaunts.call(self);
+        }
     },
 });
 
-Template.allgood.onRendered(function() {
+Template.allgood.onCreated(function() {
+  resetTaunts.call(this);
+});
 
+Template.allgood.onRendered(function() {
   var ninja = this.find("#play-ninja");
   var cover = this.find(".cover");
 
