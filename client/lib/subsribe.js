@@ -1,1 +1,1 @@
-Meteor.subscribe('reports');
+Meteor.subscribe('currentReports');

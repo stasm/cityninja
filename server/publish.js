@@ -1,7 +1,18 @@
-Meteor.publish('reports', function () {
+Meteor.publish('currentReports', function () {
   heartbeat(this.userId);
   this.connection.onClose(heartbeat.bind(this, this.userId));
-  return Reports.find({expired: false});
+  return Reports.find({expired: false}, {fields: {
+    removed: 0,
+    weight: 0
+  }});
+});
+
+Meteor.publish('userReports', function () {
+  return Reports.find({createdBy: this.userId}, {fields: {
+    thanks: 1,
+    confirms: 1,
+    clears: 1
+  }});
 });
 
 function heartbeat(userId) {

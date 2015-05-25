@@ -11,10 +11,6 @@ function relativeTime(time) {
   }
 }
 
-function howMany(num, trans) {
-  return num + ' ' + trans[plural(num)];
-}
-
 var cardHelpers = {
   hasActions: hasActions,
   relativeTime: relativeTime,
@@ -22,12 +18,7 @@ var cardHelpers = {
     return thanks.length;
   },
   numVotes: function(confirms, clears) {
-    return [
-      [confirms.length, translations.confirms],
-      [clears.length, translations.clears]
-    ].filter(
-      function(elem) { return elem[0] !== 0; }).map(
-        Function.prototype.apply.bind(howMany, null)).join(', ');
+    return numVotes(', ', confirms.length, clears.length);
   }
 };
 

@@ -1,0 +1,58 @@
+<template name="profile">
+
+  {{> nav index=0 title="Twój profil" more=1 color="teal" }}
+
+  <div class="wrapper container">
+
+    <div class="section">
+      <h4>Twoje zgłoszenia</h4>
+
+      {{#unless Template.subscriptionsReady}}
+
+        <p>Sprawdzam…</p>
+
+      {{else}}
+
+        {{#unless all}}
+          <p>
+            Z tego urządzenia nie wysłano jeszcze żadnych zgłoszeń.
+            Oby nie było potrzeby!
+          </p>
+        {{else}}
+          <p>
+            Z tego urządzenia wysłano {{ all }} {{ plural 'reports' all }}.
+
+            {{#if thanks }}
+              <strong>{{ thanks }}</strong> {{ plural 'peopleSent' thanks }} Ci podziękowania.
+            {{/if}}
+
+            Łącznie Twoje zgłoszenia zebrały {{ numVotes confirms clears }}.
+          </p>
+        {{/unless}}
+
+      {{/unless}}
+
+    </div>
+
+    <div class="section">
+      <h4>Skąd to wiemy?</h4>
+      <p>
+        Ninja dba o Twoją prywatność i nie przechowuje żadnych informacji,
+        które mogłyby posłużyć w zidentyfikowaniu Cię w Internecie.
+      </p>
+      <p>
+        Rozpoznajemy jedynie urządzenie, z którego wysyłasz zgłoszenia.
+        Wykorzystujemy do tego losowy identyfikator, który zapisujemy w pamięci
+        urządzenia.
+      </p>
+      <p>
+        Jeśli odinstalujesz aplikację albo wyczyścisz pamięć przeglądarki, 
+        identyfikator zostanie usunięty i historia Twoich zgłoszeń przepadnie
+        na zawsze.
+      </p>
+        
+    </div>
+
+  </div>
+
+</template>

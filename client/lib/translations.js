@@ -21,18 +21,39 @@ pickRandom = function(arr) {
   return arr[Math.floor(Math.random() * arr.length)];
 };
 
+howMany = function(num, trans) {
+  return num + ' ' + trans[plural(num)];
+};
+
+numVotes = function(sep, confirms, clears) {
+  return [
+    [confirms, translations.confirms],
+    [clears, translations.clears]
+  ].filter(
+    function(elem) { return elem[0] !== 0; }).map(
+      Function.prototype.apply.bind(howMany, null)).join(sep);
+};
+
 translations = {
   confirms: {
     one: 'potwierdzenie',
     few: 'potwierdzenia',
     many: 'potwierdzeń',
-    other: 'potwierdzenia',
   },
   clears: {
     one: 'odwołanie',
     few: 'odwołania',
     many: 'odwołań',
-    other: 'odwołania',
+  },
+  reports: {
+    one: 'zgłoszenie',
+    few: 'zgłoszenia',
+    many: 'zgłoszeń',
+  },
+  peopleSent: {
+    one: 'osoba wysłała',
+    few: 'osoby wysłały',
+    many: 'osób wysłało',
   },
 };
 
