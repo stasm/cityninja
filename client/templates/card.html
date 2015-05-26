@@ -32,7 +32,12 @@
         {{ relativeTime createdAt }}
       </span>
 
-      <span class="title">{{ line }} {{ location }}</span>
+      {{#if isTwitter source}}
+        <span class="title">{{ createdBy }}</span>
+      {{else}}
+        <span class="title">{{ line }} {{ location }}</span>
+      {{/if}}
+
       <p><span class="subtitle">{{ name }} —</span> {{ dir }}</p>
 
       <p class="aux">{{ numVotes confirms clears }}</p>

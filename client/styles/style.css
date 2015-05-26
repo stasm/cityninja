@@ -214,6 +214,7 @@ li.line.active + li.line.active {
   text-align: center;
   float: right;
   margin-right: -8px;
+  margin-left: 12px;
   color: #999;
 }
 

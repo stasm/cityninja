@@ -19,6 +19,9 @@ var cardHelpers = {
   },
   numVotes: function(confirms, clears) {
     return numVotes(', ', confirms.length, clears.length);
+  },
+  isTwitter: function(source) {
+    return source === 'twitter';
   }
 };
 
