@@ -39,7 +39,7 @@ function isOwn(tweet) {
   }
 
   // check if reply to own tweet
-  if (ACCOUNTS.indexOf(tweet.in_reply_to_user_id) !== -1) {
+  if (tweet.in_reply_to_user_id === tweet.user.id) {
     return true;
   }
 
