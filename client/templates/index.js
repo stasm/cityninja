@@ -1,6 +1,9 @@
 Template.index.helpers({
   showFavInfo: function() {
     return viewingFavs() && !hasFavs();
+  },
+  reportTypes: function() {
+    return reportTypes.skm;
   }
 });
 

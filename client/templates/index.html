@@ -12,6 +12,21 @@
 
   </div>
 
+  <div class="fixed-action-btn" style="bottom: 20px; right: 20px;">
+    <a class="btn-floating btn-large amber">
+      <i class="large mdi-content-add"></i>
+    </a>
+    <ul>
+      {{#each reportTypes}}
+        <li>
+        <a class="btn-floating {{color}}">
+            <i class="{{icon}}"></i>
+          </a>
+        </li>
+      {{/each}}
+    </ul>
+  </div>
+
 </template>
 
 <template name="tabs">
