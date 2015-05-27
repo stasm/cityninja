@@ -19,36 +19,37 @@ var ACCOUNTS = [
   1143227575  // @PruszkowWawa
 ];
 
+var KEYWORDS = [
+  'tram', 'bus', 'metro', 'skm', 'kolej', 'km', 'utrudnienia', 'awaria',
+  'odwołany', 'opóźniony',
+];
 
 // https://dev.twitter.com/streaming/overview/request-parameters
 var params = {
-  filter_level: 'medium',
+  filter_level: 'none',
   follow: ACCOUNTS.join(','),
-  track: 'tram,bus,metro,skm,kolej,km,utrudnienia,awaria,odwołany,opóźniony',
 };
 
 function isOwn(tweet) {
-  // check if author is in ACCOUNTS
-  if (ACCOUNTS.indexOf(tweet.user.id) === -1) {
-    return false;
+  // true if not a reply or reply to own tweet
+  return ACCOUNTS.indexOf(tweet.user.id) !== -1 &&
+    (tweet.in_reply_to_user_id === null ||
+     tweet.in_reply_to_user_id === tweet.user.id);
+}
+
+function hasKeywords(tweet) {
+  var text = tweet.text.toLowerCase();
+
+  function inText(key) {
+    return text.indexOf(key) !== -1;
   }
 
-  // check if not a reply
-  if (tweet.in_reply_to_user_id === null) {
-    return true;
-  }
-
-  // check if reply to own tweet
-  if (tweet.in_reply_to_user_id === tweet.user.id) {
-    return true;
-  }
-
-  return false;
+  return KEYWORDS.some(inText);
 }
 
 Twitter.streamAsync(client, 'statuses/filter', params, function(stream) {
   stream.on('data', Meteor.bindEnvironment(function(tweet) {
-    if (isOwn(tweet)) {
+    if (isOwn(tweet) && hasKeywords(tweet)) {
       Reports.insert({
         source: 'twitter',
         name: tweet.text,

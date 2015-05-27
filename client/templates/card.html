@@ -34,11 +34,11 @@
 
       {{#if isTwitter source}}
         <span class="title">{{ createdBy }}</span>
+        <p><span class="subtitle">{{ name }}</span></p>
       {{else}}
         <span class="title">{{ line }} {{ location }}</span>
+        <p><span class="subtitle">{{ name }} —</span> {{ dir }}</p>
       {{/if}}
-
-      <p><span class="subtitle">{{ name }} —</span> {{ dir }}</p>
 
       <p class="aux">{{ numVotes confirms clears }}</p>
 
