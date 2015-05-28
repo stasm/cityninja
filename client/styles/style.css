@@ -1,5 +1,14 @@
 /* CSS declarations go here */
 
+@-moz-keyframes spin {
+    0%   { transform: rotateZ(0deg); }
+    100%   { transform: rotateZ(720deg); }
+}
+
+#fab:hover {
+  -moz-animation: spin 1s infinite alternate linear;
+}
+
 @-webkit-keyframes rainbow {
     0%   { color: red; } 
     20%  { color: orange; }
