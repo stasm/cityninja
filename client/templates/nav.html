@@ -24,7 +24,7 @@
       {{else}}
         <a class="left primary" href="/"
           onclick="window.history.back(); return false;">
-          <i class="mdi-navigation-arrow-back"></i>
+          <i class="mdi-navigation-{{#if back}}{{back}}{{else}}arrow-back{{/if}}"></i>
         </a>
       {{/if}}
 
