@@ -35,7 +35,7 @@ Template.profile.helpers({
     return Meteor.user().profile[name] ? 'checked' : null;
   },
   isDisabled: function() {
-    return Meteor.user().profile['push-enabled'] ? null : 'disabled';
+    return Meteor.user().profile['push-new-enabled'] ? null : 'disabled';
   }
 });
 
