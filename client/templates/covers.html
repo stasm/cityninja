@@ -4,7 +4,7 @@
     <div class="container">
       <div id="play-ninja"
         src="/images/white-128x128.png"
-        class="animate {{#if viewingFavs }}viewingFavs{{/if}}"></div>
+        class="ninja animate {{#if viewingFavs }}viewingFavs{{/if}}"></div>
       <p>{{status}}</p>
     </div>
   </div>
@@ -22,6 +22,21 @@
         <a class="waves-effect waves-light btn-flat cancel">Nie teraz</a>
         <a class="waves-effect waves-light btn ok">Oznacz ulubione</a>
       </div>
+    </div>
+  </div>
+
+</template>
+
+<template name="loading">
+
+  {{> nav index=1 more=1 title="warszawski.ninja" }}
+
+  <div class="cover deep-purple lighten-2">
+    <div class="container">
+      <div id="spin-ninja"
+        src="/images/white-128x128.png"
+        class="ninja animate"></div>
+      <p>Sprawdzam…</p>
     </div>
   </div>
 
