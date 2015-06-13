@@ -82,13 +82,14 @@ div.section:hover #heart {
   top: 56px;
 }
 
-.cover div.container {
+.cover .container {
   position: absolute;
   top: 45%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   text-align: center;
+  width: 100%;
 }
 
 #play-ninja {
@@ -113,6 +114,19 @@ div.section:hover #heart {
 
 .cover p:first-of-type {
   font-weight: 800;
+}
+
+.cta {
+  margin: 20px auto 0;
+}
+
+.cta a {
+  padding: 0px 20px;
+}
+
+.cta .cancel {
+  color: #fff;
+  margin-right: 20px;
 }
 
 ul.collapsible {

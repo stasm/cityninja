@@ -16,17 +16,17 @@ Template.allgood.helpers({
 function resetTaunts () {
   Session.set('easter egg counter', 0);
   this.taunts = taunts.slice();
-};
+}
 
 Template.allgood.events({
-    'click .cover': function(event, self) {
-        var eggCounter = Session.get('easter egg counter')
-        if (eggCounter < 15) {
-          Session.set('easter egg counter', eggCounter + 1);
-        } else {
-          resetTaunts.call(self);
-        }
-    },
+  'click .cover': function(event, self) {
+    var eggCounter = Session.get('easter egg counter');
+    if (eggCounter < 15) {
+      Session.set('easter egg counter', eggCounter + 1);
+    } else {
+      resetTaunts.call(self);
+    }
+  },
 });
 
 Template.allgood.onCreated(function() {
@@ -138,3 +138,13 @@ Template.allgood.onRendered(function() {
 
 });
 
+Template.favinfo.events({
+  'click .cancel': function() {
+    viewingFavs(false);
+  },
+  'click .ok': function() {
+    viewingFavs(false);
+    Session.set('current tab', 'linie');
+    window.history.replaceState('linie', null, 'linie');
+  },
+});

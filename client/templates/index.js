@@ -19,6 +19,5 @@ Template.tabs.events({
     var route = evt.target.dataset.route;
     Session.set('current tab', route);
     window.history.replaceState(route, null, route);
-
   }
 });
