@@ -34,7 +34,7 @@ body {
 
 nav {
   height: 56px !important;
-  line-height: 56px !important;
+  line-height: normal !important;
   position: fixed;
   z-index: 100;
   box-shadow: none;
@@ -282,6 +282,7 @@ h1 {
   font-size: 18px;
   margin: 0;
   line-height: 56px;
+  height: 56px;
   text-align: left;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -292,6 +293,9 @@ h4 {
   margin: 0;
 }
 
+nav .switch {
+  margin-top: 20px;
+}
 
 .switch.mdi-fav label .lever {
   margin: 0 !important;
@@ -313,7 +317,7 @@ h4 {
 
 .more {
   font-size: 24px;
-  margin: 1px 15px 0 10px;
+  margin: 16px 15px 0 10px;
 }
 
 #menu {
