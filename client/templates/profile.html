@@ -35,7 +35,44 @@
     </div>
 
     <div class="section">
-      <h4>Skąd to wiemy?</h4>
+      <h4>Ustawienia</h4>
+
+      {{#if Template.subscriptionsReady}}
+
+        <div>
+          <div class="switch right">
+            <label>
+              <input data-setting="push-enabled" type="checkbox"
+                {{isChecked 'push-enabled'}}>
+              <span class="lever"></span>
+            </label>
+          </div>
+          <p>
+            Powiadomienia <em>push</em>
+          </p>
+        </div>
+
+        <div class="{{#if isDisabled 'push-rushhours'}}disabled{{/if}}">
+          <div class="switch right">
+            <label>
+              <input data-setting="push-rushhours" type="checkbox"
+                {{isChecked 'push-rushhours'}}
+                {{isDisabled 'push-rushhours'}}>
+              <span class="lever"></span>
+            </label>
+          </div>
+          <p>
+            Tylko w godzinach szczytu
+          </p>
+        </div>
+
+      {{/if}}
+
+    </div>
+
+
+    <div class="section">
+      <h4>Nie śledzimy Cię</h4>
       <p>
         Ninja dba o Twoją prywatność i nie przechowuje żadnych informacji,
         które mogłyby posłużyć w zidentyfikowaniu Cię w Internecie.
