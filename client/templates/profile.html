@@ -1,6 +1,6 @@
 <template name="profile">
 
-  {{> nav index=0 title="Twój profil" more=1 color="teal" back="close" }}
+  {{> nav index=0 title="Twoja aktywność" more=1 color="teal" back="close" }}
 
   <div class="wrapper container">
 
@@ -32,79 +32,6 @@
 
       {{/unless}}
 
-    </div>
-
-    <div class="section">
-      <h4>Powiadomienia <em>push</em></h4>
-
-      {{#unless Template.subscriptionsReady}}
-
-        <p>Sprawdzam…</p>
-
-      {{else}}
-
-        <div>
-          <div class="switch right">
-            <label>
-              <input data-setting="push-thanks-enabled" type="checkbox"
-                {{isChecked 'push-thanks-enabled'}}>
-              <span class="lever"></span>
-            </label>
-          </div>
-          <p>
-            Podziękowania
-          </p>
-        </div>
-
-        <div>
-          <div class="switch right">
-            <label>
-              <input data-setting="push-new-enabled" type="checkbox"
-                {{isChecked 'push-new-enabled'}}>
-              <span class="lever"></span>
-            </label>
-          </div>
-          <p>
-            Nowe zgłoszenia
-          </p>
-        </div>
-
-        <div class="{{#if isDisabled 'push-new-rushhours'}}disabled{{/if}}">
-          <div class="switch right">
-            <label>
-              <input data-setting="push-new-rushhours" type="checkbox"
-                {{isChecked 'push-new-rushhours'}}
-                {{isDisabled 'push-new-rushhours'}}>
-              <span class="lever"></span>
-            </label>
-          </div>
-          <p>
-            Tylko w godzinach szczytu
-          </p>
-        </div>
-
-      {{/unless}}
-
-    </div>
-
-
-    <div class="section">
-      <h4>Nie śledzimy Cię</h4>
-      <p>
-        Ninja dba o Twoją prywatność i nie przechowuje żadnych informacji,
-        które mogłyby posłużyć w zidentyfikowaniu Cię w Internecie.
-      </p>
-      <p>
-        Rozpoznajemy jedynie urządzenie, z którego wysyłasz zgłoszenia.
-        Wykorzystujemy do tego losowy identyfikator, który zapisujemy w pamięci
-        urządzenia.
-      </p>
-      <p>
-        Jeśli odinstalujesz aplikację albo wyczyścisz pamięć przeglądarki, 
-        identyfikator zostanie usunięty i historia Twoich zgłoszeń przepadnie
-        na zawsze.
-      </p>
-        
     </div>
 
   </div>

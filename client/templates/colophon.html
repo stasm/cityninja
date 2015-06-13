@@ -1,12 +1,23 @@
 <template name="colophon">
 
-  {{> nav index=0 title="Kolofon" more=1 back="close" }}
+  {{> nav index=0 title="Informacje" more=1 back="close" }}
 
   <div class="wrapper container">
 
     <div class="section">
+      <h4>Co to jest?</h4>
       <p>
-        Uwagi?  Pomysły?  Daj nam znać:
+        <em>warszawski.ninja</em> jest platformą wymiany informacji o bieżącym stanie 
+        komunikacji miejskiej w Warszawie. Doniesienia o opóźnieniach 
+        i kłopotach na trasie są pojawią się w czasie rzeczywistym na 
+        telefonach wszystkich użytkowników.
+      </p>
+    </div>
+
+    <div class="section">
+      <h4>Uwagi? Pomysły?</h4>
+      <p>
+        Daj nam znać:
         <a href="https://www.facebook.com/warszawski.ninja">facebook</a>, 
         <a href="https://www.twitter.com/warszawskininja">twitter</a>, 
         <a href="https://github.com/stasm/warszawski.ninja">github</a>.
@@ -14,13 +25,30 @@
     </div>
 
     <div class="section">
-
+      <h4>Nie śledzimy Cię</h4>
       <p>
-        <span id="heart">♥</span> Inspiracja: konkurs
+        Ninja dba o Twoją prywatność i nie przechowuje żadnych informacji,
+        które mogłyby posłużyć w zidentyfikowaniu Cię w Internecie.
+      </p>
+      <p>
+        Rozpoznajemy jedynie urządzenie, z którego wysyłasz zgłoszenia.
+        Wykorzystujemy do tego losowy identyfikator, który zapisujemy w pamięci
+        urządzenia.
+      </p>
+      <p>
+        Jeśli odinstalujesz aplikację albo wyczyścisz pamięć przeglądarki, 
+        identyfikator zostanie usunięty i historia Twoich zgłoszeń przepadnie
+        na zawsze.
+      </p>
+    </div>
+
+    <div class="section">
+      <h4><span id="heart">♥</span> Inspiracja</h4>
+      <p>
+        Konkurs
         <a href="https://konkurs.danepowarszawsku.pl/">Dane po warszawsku</a> i
         <a href="http://mbta.ninja">mbta.ninja</a>.
       </p>
-
     </div>
 
   </div>

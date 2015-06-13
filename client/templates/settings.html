@@ -1,0 +1,62 @@
+<template name="settings">
+
+  {{> nav index=0 title="Ustawienia" more=1 color="teal" back="close" }}
+
+  <div class="wrapper container">
+
+    <div class="section">
+      <h4>Powiadomienia <em>push</em></h4>
+
+      {{#unless Template.subscriptionsReady}}
+
+        <p>Sprawdzam…</p>
+
+      {{else}}
+
+        <div>
+          <div class="switch right">
+            <label>
+              <input data-setting="push-thanks-enabled" type="checkbox"
+                {{isChecked 'push-thanks-enabled'}}>
+              <span class="lever"></span>
+            </label>
+          </div>
+          <p>
+            Podziękowania
+          </p>
+        </div>
+
+        <div>
+          <div class="switch right">
+            <label>
+              <input data-setting="push-new-enabled" type="checkbox"
+                {{isChecked 'push-new-enabled'}}>
+              <span class="lever"></span>
+            </label>
+          </div>
+          <p>
+            Nowe zgłoszenia
+          </p>
+        </div>
+
+        <div class="{{#if isDisabled 'push-new-rushhours'}}disabled{{/if}}">
+          <div class="switch right">
+            <label>
+              <input data-setting="push-new-rushhours" type="checkbox"
+                {{isChecked 'push-new-rushhours'}}
+                {{isDisabled 'push-new-rushhours'}}>
+              <span class="lever"></span>
+            </label>
+          </div>
+          <p>
+            Tylko w godzinach szczytu
+          </p>
+        </div>
+
+      {{/unless}}
+
+    </div>
+
+  </div>
+
+</template>
