@@ -37,6 +37,7 @@ nav {
   line-height: 56px !important;
   position: fixed;
   z-index: 100;
+  box-shadow: none;
 }
 
 .wrapper {
@@ -48,8 +49,22 @@ div.section:hover #heart {
     -moz-animation: rainbow 10s infinite alternate linear; 
 }
 
-ul.tabs {
+.tabs {
   z-index: 10;
+  background-color: #7E57C2;
+}
+
+.tabs .tab a {
+  color: #fff;
+}
+
+.tabs .tab a:hover {
+  color: #fff;
+}
+
+.tabs .indicator {
+  background-color: #84C7C1;
+  height: 3px;
 }
 
 .cover {
@@ -258,21 +273,29 @@ img.top-panel-ninja {
 .primary {
   height: 32px;
   width: 32px;
-  margin: 12px;
+  margin: 12px 8px;
   line-height: 36px;
   font-size: 1.6rem;
 }
 
-h1, h4 {
-  font-size: 22px;
+h1 {
+  font-size: 18px;
   margin: 0;
   line-height: 56px;
   text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+h4 {
+  font-size: 18px;
+  margin: 0;
 }
 
 
 .switch.mdi-fav label .lever {
-  top: -2px;
+  margin: 0 !important;
+  top: -3px;
   background-color: rgba(0, 0, 0, 0.3);
 }
 
@@ -289,15 +312,15 @@ h1, h4 {
 }
 
 .more {
-  font-size: 18px;
-  margin-top: 1px;
+  font-size: 24px;
+  margin: 1px 15px 0 10px;
 }
 
 #menu {
   z-index: 20;
   top: 22px !important;
   left: auto !important;
-  right: 5px !important;
+  right: 15px !important;
 }
 
 div.lines {
