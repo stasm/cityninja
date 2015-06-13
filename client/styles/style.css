@@ -19,13 +19,13 @@
 }
 
 @-webkit-keyframes spin {
-    0%   { transform: rotateY(0); }
-    100% { transform: rotateY(360deg); }
+    0%   { -webkit-transform: rotateY(0); }
+    100% { -webkit-transform: rotateY(360deg); }
 }
 
 @-moz-keyframes spin {
-    0%   { transform: rotateY(0); }
-    100% { transform: rotateY(360deg); }
+    0%   { -moz-transform: rotateY(0); }
+    100% { -moz-transform: rotateY(360deg); }
 }
 
 #play-ninja,
@@ -55,8 +55,8 @@ nav {
 }
 
 div.section:hover #heart {
-    -webkit-animation: rainbow 10s infinite alternate linear; 
-    -moz-animation: rainbow 10s infinite alternate linear; 
+  -webkit-animation: rainbow 10s infinite alternate linear; 
+  -moz-animation: rainbow 10s infinite alternate linear; 
 }
 
 .tabs {
@@ -119,8 +119,8 @@ div.section:hover #heart {
 }
 
 #spin-ninja {
-  -webkit-animation: spin 1s ease infinite normal;
-  -moz-animation: spin 1s ease infinite normal;
+  -webkit-animation: spin 1s infinite normal ease;
+  -moz-animation: spin 1s infinite normal ease;
 }
 
 .cover p {
@@ -346,7 +346,7 @@ nav .switch {
 
 .more {
   font-size: 24px;
-  margin: 16px 15px 0 10px;
+  margin: 16px 15px 0;
 }
 
 #menu {
