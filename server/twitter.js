@@ -71,7 +71,7 @@ function createReportFromTweet(tweet) {
     sourceName: tweet.user.name,
     sourceUser: tweet.user.screen_name,
     sourceId: tweet.id_str,
-    name: text,
+    name: tweet.text,
     thanks: [],
     confirms: [],
     clears: [],
