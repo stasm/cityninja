@@ -512,3 +512,26 @@ div.lines {
 .disabled {
   color: #999 !important;
 }
+
+#landing #logo {
+  display: block;
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+}
+
+#landing h1 {
+  font-size: 2rem;
+  text-align: center;
+}
+
+#landing #inbrowser {
+  display: block;
+  width: 172px;
+  height: 60px;
+  text-align: center;
+  line-height: 60px;
+  background-color: #eee;
+  border: 1px solid #eee;
+  border-radius: 9px;
+}
