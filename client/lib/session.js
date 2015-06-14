@@ -8,11 +8,11 @@ hasFavs = function() {
 };
 
 isFav = function(line, dir) {
-  return contains(Meteor.user().profile.favs, line + '|' + dir);
+  return contains(Meteor.user().profile.favs, getDirId(line, dir));
 };
 
 toggleFav = function(line, dir, callback) {
-  var id = line + '|' + dir;
+  var id = getDirId(line, dir);
   var alreadyExisted = contains(Meteor.user().profile.favs, id);
 
   function cb(err, num) {
