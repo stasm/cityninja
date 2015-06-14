@@ -33,7 +33,7 @@
       </span>
 
       {{#if isTwitter source}}
-        <span class="title">{{ createdBy }}</span>
+        <span class="title">{{ sourceName }}</span>
         <p><span class="subtitle">{{ name }}</span></p>
       {{else}}
         <span class="title">{{ line }} {{ location }}</span>
@@ -50,6 +50,12 @@
 </template>
 
 <template name="cardactions">
+    {{#if isTwitter source}}
+      <div class="card-action">
+        <a class="waves-effect waves-light btn-flat black-text opentweet">
+          <i class="mdi-action-open-in-new left"></i>Otwórz tweet</a>
+      </div>
+    {{/if}}
     {{#if isAuthor this }}
       <div class="card-action">
         <a class="waves-effect waves-light btn-flat black-text remove">

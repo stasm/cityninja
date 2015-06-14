@@ -50,18 +50,7 @@ function hasKeywords(tweet) {
 Twitter.streamAsync(client, 'statuses/filter', params, function(stream) {
   stream.on('data', Meteor.bindEnvironment(function(tweet) {
     if (isOwn(tweet) && hasKeywords(tweet)) {
-      Reports.insert({
-        source: 'twitter',
-        name: tweet.text,
-        thanks: [],
-        confirms: [],
-        clears: [],
-        createdAt: new Date(),
-        createdBy: tweet.user.name,
-        expired: false,
-        removed: false,
-        weight: 180 // 3h
-      });
+      createReportFromTweet(tweet);
     }
   }));
 
@@ -72,3 +61,24 @@ Twitter.streamAsync(client, 'statuses/filter', params, function(stream) {
     });
   }));
 });
+
+function createReportFromTweet(tweet) {
+  tweet.entities.urls.forEach(function(link) {
+    tweet.text = tweet.text.replace(link.url, link.display_url);
+  });
+  Reports.insert({
+    source: 'twitter',
+    sourceName: tweet.user.name,
+    sourceUser: tweet.user.screen_name,
+    sourceId: tweet.id_str,
+    name: text,
+    thanks: [],
+    confirms: [],
+    clears: [],
+    createdAt: new Date(),
+    createdBy: tweet.user.id_str,
+    expired: false,
+    removed: false,
+    weight: 180 // 3h
+  });
+}

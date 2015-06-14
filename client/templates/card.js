@@ -11,6 +11,10 @@ function relativeTime(time) {
   }
 }
 
+function isTwitter(source) {
+  return source === 'twitter';
+}
+
 var cardHelpers = {
   hasActions: hasActions,
   relativeTime: relativeTime,
@@ -20,9 +24,7 @@ var cardHelpers = {
   numVotes: function(confirms, clears) {
     return numVotes(', ', confirms.length, clears.length);
   },
-  isTwitter: function(source) {
-    return source === 'twitter';
-  }
+  isTwitter: isTwitter,
 };
 
 var cardEvents = {
@@ -38,12 +40,19 @@ Template.feedcard.helpers(cardHelpers);
 Template.feedcard.events(cardEvents);
 
 Template.cardactions.helpers({
+  isTwitter: isTwitter,
   isAuthor: isAuthor,
   canVote: canVote,
   canThank: canThank
 });
 
 Template.cardactions.events({
+  'click .opentweet': function(evt) {
+    evt.stopImmediatePropagation();
+    window.open(
+      'https://twitter.com/' + this.sourceUser + '/status/' +
+        this.sourceId, '_system');
+  },
   'click .upvote': function(evt) {
     evt.stopImmediatePropagation();
     if (canVote(this)) {
