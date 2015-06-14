@@ -59,6 +59,10 @@ div.section:hover #heart {
   -moz-animation: rainbow 10s infinite alternate linear; 
 }
 
+.section label .lever {
+  margin: 0;
+}
+
 .tabs {
   z-index: 10;
   background-color: #7E57C2;
