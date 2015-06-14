@@ -1,33 +1,31 @@
-Session.setDefault('favs', []);
-Session.setDefault('favs count', 0);
+function contains(haystack, needle) {
+  return haystack ?
+    haystack.indexOf(needle) > -1 : false;
+}
 
 hasFavs = function() {
-  return !Session.equals('favs count', 0);
+  return Meteor.user().profile.favs.length > 0;
 };
 
 isFav = function(line, dir) {
-  var favs = Session.get('favs');
-  return favs.indexOf(line + '|' + dir) > -1;
+  return contains(Meteor.user().profile.favs, line + '|' + dir);
 };
 
-toggleFav = function(line, dir) {
-  var favs = Session.get('favs');
-  var count = Session.get('favs count');
-
+toggleFav = function(line, dir, callback) {
   var id = line + '|' + dir;
-  var pos = favs.indexOf(id);
-  var adding = pos === -1;
+  var alreadyExisted = contains(Meteor.user().profile.favs, id);
 
-  if (adding) {
-    favs.push(id);
-    Session.setPersistent('favs count', count + 1);
-  } else {
-    favs.splice(pos, 1);
-    Session.setPersistent('favs count', count - 1);
+  function cb(err, num) {
+    callback(err, num, !alreadyExisted);
   }
 
-  Session.setPersistent('favs', favs);
-  return adding;
+  if (!alreadyExisted) {
+    Meteor.users.update(
+      Meteor.userId(), { $addToSet: { 'profile.favs': id } }, cb);
+  } else {
+    Meteor.users.update(
+      Meteor.userId(), { $pull: { 'profile.favs': id } }, cb);
+  }
 };
 
 viewingFavs = function(state) {
@@ -39,7 +37,7 @@ viewingFavs = function(state) {
 };
 
 getFavs = function() {
-  var favs = Session.get('favs');
+  var favs = Meteor.user().profile.favs;
   var seq = {
     lines: [],
     dirs: []
@@ -53,19 +51,21 @@ getFavs = function() {
 };
 
 isAuthor = function(doc) {
-  return Session.equals(doc + ' created', true);
+  return doc.createdBy === Meteor.userId();
 };
 
 canThank = function(doc) {
-  return !isAuthor(doc) && Session.equals(doc + ' thanked', undefined);
+  return !isAuthor(doc) && !contains(doc.thanks, Meteor.userId());
 };
 
-canUpvote = function(doc) {
-  return doc === undefined ?
-    false : !isAuthor(doc) && Session.equals(doc + ' voted', undefined);
+canVote = function(doc) {
+  var userId = Meteor.userId();
+  return doc === undefined ? false :
+    !isAuthor(doc) && !contains(doc.confirms, userId) &&
+      !contains(doc.clears, userId);
 };
 
 hasActions = function(doc) {
-  return canUpvote(doc) && canThank(doc);
+  return canVote(doc) && canThank(doc);
 };
 

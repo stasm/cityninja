@@ -30,10 +30,15 @@ Template.main.events = {
   'click .fav': function(event) {
     var template = Template.instance();
 
-    if (toggleFav(template.line, template.dir)) {
-      Materialize.toast('Dodano do ulubionych.', 2000);
-    } else {
-      Materialize.toast('Usunięto z ulubionych.', 2000);
+    function callback(err, num, added) {
+      if (err) {
+        Materialize.toast('O nie, wystąpił błąd!', 2000);
+      } else {
+        Materialize.toast(
+          added ? 'Dodano do ulubionych.' : 'Usunięto z ulubionych.', 2000);
+      }
     }
+
+    toggleFav(template.line, template.dir, callback);
   }
 };

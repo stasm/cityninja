@@ -1,6 +1,6 @@
 <template name="reportcard">
   <div class="card">
-    <div class="card-content pointer {{#if hasActions _id}}has-actions{{/if}}">
+    <div class="card-content pointer {{#if hasActions this}}has-actions{{/if}}">
 
       <span class="secondary">
         {{#if numThanks thanks }}
@@ -21,8 +21,8 @@
 </template>
 
 <template name="feedcard">
-  <div id="report-{{_id}}" class="card">
-    <div class="card-content pointer {{#if hasActions _id}}has-actions{{/if}}">
+  <div class="card">
+    <div class="card-content pointer {{#if hasActions this}}has-actions{{/if}}">
 
       <span class="secondary">
         {{#if numThanks thanks }}
@@ -50,21 +50,21 @@
 </template>
 
 <template name="cardactions">
-    {{#if isAuthor _id }}
+    {{#if isAuthor this }}
       <div class="card-action">
         <a class="waves-effect waves-light btn-flat black-text remove">
           <i class="mdi-content-block left"></i>Odwołaj</a>
       </div>
     {{/if}}
 
-    {{#if canThank _id }}
+    {{#if canThank this }}
       <div class="card-action">
         <a class="waves-effect waves-light btn-flat teal-text thank">
           <i class="mdi-action-thumb-up left"></i>Dziękuję</a>
       </div>
     {{/if}}
 
-    {{#if canUpvote _id }}
+    {{#if canVote this }}
       <div class="card-action">
         <a class="waves-effect waves-light btn-flat black-text upvote">
           <i class="mdi-action-done left"></i>Potwierdź</a>

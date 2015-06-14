@@ -39,40 +39,35 @@ Template.feedcard.events(cardEvents);
 
 Template.cardactions.helpers({
   isAuthor: isAuthor,
-  canUpvote: canUpvote,
+  canVote: canVote,
   canThank: canThank
 });
 
 Template.cardactions.events({
   'click .upvote': function(evt) {
     evt.stopImmediatePropagation();
-    if (canUpvote(this._id)) {
-      // Prevent future upvotes
-      Session.setPersistent(this._id + ' voted', 'up');
+    if (canVote(this)) {
       Meteor.call("upvoteReport", this._id, this.createdBy);
       Materialize.toast(pickRandom(toasts.upvoted), 2000);
     }
   },
   'click .downvote': function(evt) {
     evt.stopImmediatePropagation();
-    if (canUpvote(this._id)) {
-      Session.setPersistent(this._id + ' voted', 'down');
+    if (canVote(this)) {
       Meteor.call("downvoteReport", this._id, this.createdBy);
       Materialize.toast(pickRandom(toasts.downvoted), 2000);
     }
   },
   'click .remove': function(evt) {
     evt.stopImmediatePropagation();
-    if (isAuthor(this._id)) {
-      Session.clear(this._id + ' created', true);
+    if (isAuthor(this)) {
       Meteor.call("removeReport", this._id);
       Materialize.toast(pickRandom(toasts.removed), 2000);
     }
   },
   'click .thank': function(evt) {
     evt.stopImmediatePropagation();
-    if (canThank(this._id)) {
-      Session.setPersistent(this._id + ' thanked', true);
+    if (canThank(this)) {
       Meteor.call("thankReport", this._id, this.createdBy);
       Materialize.toast(pickRandom(toasts.thanked), 2000);
     }

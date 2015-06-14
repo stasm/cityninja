@@ -7,32 +7,24 @@
     <div class="section">
       <h4>Twoje zgłoszenia</h4>
 
-      {{#unless Template.subscriptionsReady}}
-
-        <p>Sprawdzam…</p>
-
+      {{#unless all}}
+        <p>
+          Z tego urządzenia nie wysłano jeszcze żadnych zgłoszeń.
+          Oby nie było potrzeby!
+        </p>
       {{else}}
+        <p>
+          Z tego urządzenia wysłano {{ all }} {{ plural 'reports' all }}.
 
-        {{#unless all}}
-          <p>
-            Z tego urządzenia nie wysłano jeszcze żadnych zgłoszeń.
-            Oby nie było potrzeby!
-          </p>
-        {{else}}
-          <p>
-            Z tego urządzenia wysłano {{ all }} {{ plural 'reports' all }}.
+          {{#if thanks }}
+            <strong>{{ thanks }}</strong> {{ plural 'peopleSent' thanks }} Ci podziękowania.
+          {{/if}}
 
-            {{#if thanks }}
-              <strong>{{ thanks }}</strong> {{ plural 'peopleSent' thanks }} Ci podziękowania.
-            {{/if}}
+          {{#if numVotes confirms clears }}
+            Łącznie Twoje zgłoszenia zebrały {{ numVotes confirms clears }}.
+          {{/if}}
 
-            {{#if numVotes confirms clears }}
-              Łącznie Twoje zgłoszenia zebrały {{ numVotes confirms clears }}.
-            {{/if}}
-
-          </p>
-        {{/unless}}
-
+        </p>
       {{/unless}}
 
     </div>
