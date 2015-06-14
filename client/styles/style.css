@@ -66,6 +66,12 @@ div.section:hover #heart {
 
 .tabs .tab a {
   color: #fff;
+  opacity: 0.4;
+  transition: opacity .5s ease;
+}
+
+.tabs .tab a.active {
+  opacity: 1;
 }
 
 .tabs .tab a:hover {
