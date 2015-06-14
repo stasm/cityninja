@@ -1,18 +1,20 @@
 Meteor.publish('currentReports', function () {
   heartbeat(this.userId);
   this.connection.onClose(heartbeat.bind(this, this.userId));
-  return Reports.find({expired: false}, {fields: {
-    removed: 0,
-    weight: 0
-  }});
+  //Meteor._sleepForMs(2000);
+  return Reports.find(
+    {expired: false},
+    {fields: {removed: 0, weight: 0}});
 });
 
-Meteor.publish('userReports', function () {
-  return Reports.find({createdBy: this.userId}, {fields: {
-    thanks: 1,
-    confirms: 1,
-    clears: 1
-  }});
+Meteor.publish('userData', function() {
+  if (this.userId) {
+    return Meteor.users.find(
+      {_id: this.userId},
+      {fields: {incoming: 1, outgoing: 1}});
+  } else {
+    this.ready();
+  }
 });
 
 function heartbeat(userId) {

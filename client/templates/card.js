@@ -49,7 +49,7 @@ Template.cardactions.events({
     if (canUpvote(this._id)) {
       // Prevent future upvotes
       Session.setPersistent(this._id + ' voted', 'up');
-      Meteor.call("upvoteReport", this._id);
+      Meteor.call("upvoteReport", this._id, this.createdBy);
       Materialize.toast(pickRandom(toasts.upvoted), 2000);
     }
   },
@@ -57,7 +57,7 @@ Template.cardactions.events({
     evt.stopImmediatePropagation();
     if (canUpvote(this._id)) {
       Session.setPersistent(this._id + ' voted', 'down');
-      Meteor.call("downvoteReport", this._id);
+      Meteor.call("downvoteReport", this._id, this.createdBy);
       Materialize.toast(pickRandom(toasts.downvoted), 2000);
     }
   },
@@ -73,7 +73,7 @@ Template.cardactions.events({
     evt.stopImmediatePropagation();
     if (canThank(this._id)) {
       Session.setPersistent(this._id + ' thanked', true);
-      Meteor.call("thankReport", this._id);
+      Meteor.call("thankReport", this._id, this.createdBy);
       Materialize.toast(pickRandom(toasts.thanked), 2000);
     }
   },

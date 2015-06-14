@@ -26,7 +26,10 @@
               <strong>{{ thanks }}</strong> {{ plural 'peopleSent' thanks }} Ci podziękowania.
             {{/if}}
 
-            Łącznie Twoje zgłoszenia zebrały {{ numVotes confirms clears }}.
+            {{#if numVotes confirms clears }}
+              Łącznie Twoje zgłoszenia zebrały {{ numVotes confirms clears }}.
+            {{/if}}
+
           </p>
         {{/unless}}
 

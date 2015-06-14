@@ -1,32 +1,16 @@
 Template.profile.onCreated(function() {
-  this.subscribe('userReports');
+  this.subscribe('userData');
 });
 
-function getReports(userId) {
-  return Reports.find({
-    createdBy: userId
-  });
-}
-
-function total(type) {
-  var user = Meteor.userId();
-
-  if (type === 'all') {
-    return getReports(user).count();
-  }
-
-  var runningTotal = 0;
-  getReports(user).forEach(function(doc) {
-    runningTotal += doc[type].length;
-  });
-  return runningTotal;
+function total(dir, type) {
+  return Meteor.user()[dir][type] || 0;
 }
 
 Template.profile.helpers({
-  all: total.bind(null, 'all'),
-  thanks: total.bind(null, 'thanks'),
-  confirms: total.bind(null, 'confirms'),
-  clears: total.bind(null, 'clears'),
+  all: total.bind(null, 'outgoing', 'created'),
+  thanks: total.bind(null, 'incoming', 'thanks'),
+  confirms: total.bind(null, 'incoming', 'confirms'),
+  clears: total.bind(null, 'incoming', 'clears'),
   plural: function(key, num) {
     return translations[key][plural(num)];
   },
