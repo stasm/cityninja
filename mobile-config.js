@@ -1,8 +1,8 @@
 App.info({
   id: 'com.informationisart.warszawskininja',
   name: 'warszawski.ninja',
-  description: 'Problem z kursowaniem metra? Zgłoś go! Nie daj zaskoczyć się opóźnieniom.',
-  version: '0.0.2',
+  description: 'Nie daj zaskoczyć się opóźnieniom komunikacji miejskiej.',
+  version: '0.1.0',
   author: 'Staś Małolepszy',
   email: 'warszawski.ninja@gmail.com',
   website: 'http://warszawski.ninja'
