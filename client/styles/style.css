@@ -548,3 +548,13 @@ div.lines {
   color: #fff;
   text-decoration: underline;
 }
+
+code {
+  font-size: 12px;
+  font-family: monospace;
+  background-color: #333;
+  color: #eee;
+  padding: 2px 3px;
+  border: 1px solid #333;
+  border-radius: 4px;
+}
