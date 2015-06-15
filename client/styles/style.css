@@ -526,22 +526,57 @@ div.lines {
   margin-bottom: 20px;
 }
 
-.landing h1, .landing h2 {
-  font-size: 48px;
-}
-
-.landing h1 {
-  line-height: 96px;
-  height: 96px;
-}
-
 .landing h4 {
   font-weight: 800;
 }
 
-.landing .hl {
-  width: 520px;
-  height: 307px;
+@media (max-width: 992px) {
+  iframe {
+    width: 100%;
+    height: 300px;
+  }
+}
+
+@media (max-width: 600px) {
+  .landing .logo {
+    width: 48px;
+    height: 48px;
+  }
+
+  .landing h1, .landing h2 {
+    font-size: 24px;
+  }
+
+  .landing h1 {
+    line-height: 48px;
+    height: 48px;
+  }
+
+  .landing .hl {
+    width: 100%;
+    height: 100%;
+  }
+
+  iframe {
+    width: 100%;
+    height: 170px;
+  }
+}
+
+@media (min-width: 601px) {
+  .landing h1, .landing h2 {
+    font-size: 48px;
+  }
+
+  .landing h1 {
+    line-height: 96px;
+    height: 96px;
+  }
+
+  .landing .hl {
+    max-width: 520px;
+    max-height: 307px;
+  }
 }
 
 .landing .btn {
