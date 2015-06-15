@@ -54,7 +54,7 @@ nav {
   padding-top: 56px;
 }
 
-div.section:hover #heart {
+div:hover #heart {
   -webkit-animation: rainbow 10s infinite alternate linear; 
   -moz-animation: rainbow 10s infinite alternate linear; 
 }
@@ -522,8 +522,15 @@ div.lines {
   max-width: 900px;
 }
 
+.landing .row .col {
+  margin-bottom: 20px;
+}
+
 .landing h1, .landing h2 {
   font-size: 48px;
+}
+
+.landing h1 {
   line-height: 96px;
   height: 96px;
 }
@@ -535,4 +542,9 @@ div.lines {
 .landing .hl {
   width: 520px;
   height: 307px;
+}
+
+#footer a {
+  color: #fff;
+  text-decoration: underline;
 }
