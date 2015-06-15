@@ -4,7 +4,16 @@ Meteor.startup(function() {
     prettyJson:true
   });
 
-  //GET api/reports
+  var publishedFields = {
+    _id: 0,
+    name: 1,
+    location: 1,
+    line: 1,
+    dir: 1,
+    createdAt: 1
+  };
+
+  //GET api/reports/current
   Restivus.addRoute('reports/current',
     {
       authRequired: false
@@ -14,7 +23,9 @@ Meteor.startup(function() {
         return {
           statusCode:200, 
           body: {
-            data: Reports.find({expired: false}).fetch()
+            data: Reports.find(
+              {expired: false},
+              {fields: publishedFields}).fetch()
           }
         };
       }
