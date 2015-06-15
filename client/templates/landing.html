@@ -1,60 +1,101 @@
 <template name="landing">
 
-  <div id="landing">
-
-    <img id="logo" src="/images/ninja-200x200.png" alt="Logo">
-
-    <h1>warszawski.ninja</h1>
-
-    <div class="container">
-
-      <p>Nie daj zaskoczyć się opóźnieniom komunikacji miejskiej!</p>
-
-      <p>
-        <em>warszawski.ninja</em> jest platformą wymiany informacji o bieżącym 
-        stanie komunikacji miejskiej w Warszawie. Doniesienia o opóźnieniach 
-        i kłopotach na trasie są pojawią się w czasie rzeczywistym na telefonach 
-        wszystkich użytkowników.
-      </p>
-
-      <div class="row">
-        <div class="col s12 m4">
-          <h4>Korzystaj w przeglądarce</h4>
-          <a class="button" href="/live">
-            warszawski.ninja/live
-          </a>
-        </div>
-        <div class="col s12 m4">
-          <h4>Android</h4>
-          <a href="https://play.google.com/store/apps/details?id=com.informationisart.warszawskininja">
-            <img alt="Get it on Google Play"
-            src="https://developer.android.com/images/brand/pl_generic_rgb_wo_60.png" />
-          </a>
-        </div>
-        <div class="col s12 m4">
-          <h4>iOS</h4>
-          Wkrótce…
-        </div>
+  <div class="landing deep-purple white-text">
+    <div class="row container">
+      <div class="col">
+        <img src="/android/xhdpi.png" alt="Logo">
       </div>
-
-
-      <h4>Uwagi? Pomysły?</h4>
-      <p>
-        Daj nam znać:
-        <a href="https://www.facebook.com/warszawski.ninja">facebook</a>, 
-        <a href="https://www.twitter.com/warszawskininja">twitter</a>, 
-        <a href="https://github.com/stasm/warszawski.ninja">github</a>.
-      </p>
-
-      <h4><span id="heart">♥</span> Inspiracja</h4>
-      <p>
-        Konkurs
-        <a href="https://konkurs.danepowarszawsku.pl/">Dane po warszawsku</a> i
-        <a href="http://mbta.ninja">mbta.ninja</a>.
-      </p>
-
+      <div class="col">
+        <h1>warszawski.ninja</h1>
+      </div>
+    </div>
+    <div class="row container">
+      <div class="col s12 l8">
+        <img class="hl" src="/images/cover.png" alt="Screeshot">
+      </div>
+      <div class="col s8 l4">
+        <h4>Czym jest <em>warszawski.ninja</em>?</h4>
+        <p>
+          <em>warszawski.ninja</em> jest platformą wymiany informacji o bieżącym 
+          stanie komunikacji miejskiej w Warszawie. Doniesienia o opóźnieniach 
+          i kłopotach na trasie są pojawią się w czasie rzeczywistym na telefonach 
+          wszystkich użytkowników.
+        </p>
+        <a href="#install" class="waves-effect waves-light btn cta">
+          <i class="mdi-file-cloud left"></i>
+          Pobierz aplikację
+        </a>
+      </div>
+    </div>
   </div>
 
+  <div class="landing amber darken-1 white-text" id="install">
+    <div class="row container">
+      <div class="col">
+        <h2>Nie daj się zaskoczyć!</h2>
+      </div>
+    </div>
+    <div class="row container">
+      <div class="col s12 l4">
+        <img src="/images/browser.png">
+      </div>
+      <div class="col s12 l4">
+        <h4>Korzystaj w przeglądarce</h4>
+        <p>
+          <em>warszawski.ninja</em> działa w każdej nowoczesnej przegląrce.
+          Nie musisz nic instalować.  Po prostu wejdź na <a href="/live" class="pink-text">warszawski.ninja/live</a> i bądź na bierząco.
+        </p>
+          <a href="/live" class="waves-effect waves-light btn pink">
+            <i class="mdi-action-open-in-browser right"></i>
+            Przejdź teraz
+          </a>
+      </div>
+      <div class="col s12 l4">
+        <h4>Aplikacje mobilne</h4>
+        <p>
+          <em>warszawski.ninja</em> dostępny jest także jako aplikacja natywna.
+        </p>
+        <a href="https://play.google.com/store/apps/details?id=com.informationisart.warszawskininja">
+          <img alt="Get it on Google Play"
+          src="https://developer.android.com/images/brand/pl_generic_rgb_wo_60.png" />
+        </a>
+        <p>(Wkrótce także na iOS).</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="landing white black-text">
+    <div class="row container">
+      <div class="col">
+        <h2>Informacje</h2>
+      </div>
+    </div>
+    <div class="row container">
+      <div class="col s12 l4">
+        <h4>Uwagi? Pomysły?</h4>
+        <p>
+          Daj nam znać:
+          <a href="https://www.facebook.com/warszawski.ninja">facebook</a>, 
+          <a href="https://www.twitter.com/warszawskininja">twitter</a>, 
+          <a href="https://github.com/stasm/warszawski.ninja">github</a>.
+        </p>
+      </div>
+      <div class="col s12 l4">
+        <h4>API</h4>
+        <p>
+          Bieżące reporty udostępniamy w formacie JSON pod adresem
+          <a href="/api/reports/current">/api/reports/current</a>.
+        </p>
+      </div>
+      <div class="col s8 l4">
+        <h4><span id="heart">♥</span> Inspiracja</h4>
+        <p>
+          Konkurs
+          <a href="https://konkurs.danepowarszawsku.pl/">Dane po warszawsku</a> i
+          <a href="http://mbta.ninja">mbta.ninja</a>.
+        </p>
+      </div>
+    </div>
   </div>
 
 </template>

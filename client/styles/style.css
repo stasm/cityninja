@@ -513,25 +513,26 @@ div.lines {
   color: #999 !important;
 }
 
-#landing #logo {
-  display: block;
-  width: 100px;
-  height: 100px;
-  margin: 0 auto;
+.landing {
+  padding: 40px 0;
 }
 
-#landing h1 {
-  font-size: 2rem;
-  text-align: center;
+.landing .container {
+  width: auto;
+  max-width: 900px;
 }
 
-#landing .button {
-  display: block;
-  width: 172px;
-  height: 60px;
-  text-align: center;
-  line-height: 60px;
-  background-color: #eee;
-  border: 1px solid #eee;
-  border-radius: 9px;
+.landing h1, .landing h2 {
+  font-size: 48px;
+  line-height: 96px;
+  height: 96px;
+}
+
+.landing h4 {
+  font-weight: 800;
+}
+
+.landing .hl {
+  width: 520px;
+  height: 307px;
 }
