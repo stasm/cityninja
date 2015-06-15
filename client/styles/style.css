@@ -544,6 +544,10 @@ div.lines {
   height: 307px;
 }
 
+.landing .btn {
+  margin-top: 20px;
+}
+
 #footer a {
   color: #fff;
   text-decoration: underline;
