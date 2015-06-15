@@ -551,7 +551,7 @@ div.lines {
 
 code {
   font-size: 12px;
-  font-family: monospace;
+  font-family: "Inconsolata", "Lucida Console", "Monaco", "Andale Mono", "Fixed", monospace;
   background-color: #333;
   color: #eee;
   padding: 2px 3px;
