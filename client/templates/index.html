@@ -18,9 +18,12 @@
     </a>
     <ul>
       {{#each reportTypes}}
-        <li>
-        <a class="btn-floating {{color}}">
+        <li class="quick-type-{{icon}}">
+          <span class="btn-floating amber right">
             <i class="{{icon}}"></i>
+          </span>
+          <a class="quick-text pointer">
+            {{ name }}
           </a>
         </li>
       {{/each}}

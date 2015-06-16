@@ -3,7 +3,7 @@ Template.index.helpers({
     return viewingFavs() && !hasFavs();
   },
   reportTypes: function() {
-    return reportTypes.skm;
+    return reportTypes.common;
   }
 });
 
