@@ -139,9 +139,6 @@ Template.allgood.onRendered(function() {
 });
 
 Template.favinfo.events({
-  'click .cancel': function() {
-    viewingFavs(false);
-  },
   'click .ok': function() {
     viewingFavs(false);
     Session.set('current tab', 'linie');
