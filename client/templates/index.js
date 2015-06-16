@@ -7,6 +7,14 @@ Template.index.helpers({
   }
 });
 
+Template.index.events({
+  'click .btn-floating': function(evt) {
+    evt.currentTarget.parentNode.classList.remove('no-anim');
+    evt.currentTarget.parentNode.classList.toggle('collapsed');
+    evt.currentTarget.parentNode.classList.toggle('expanded');
+  }
+});
+
 Template.tabs.onRendered(function() {
   $('ul.tabs').tabs();
 });

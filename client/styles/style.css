@@ -1,12 +1,23 @@
 /* CSS declarations go here */
 
-@-moz-keyframes spin {
+@-webkit-keyframes rotate {
     0%   { transform: rotateZ(0deg); }
-    100%   { transform: rotateZ(720deg); }
+    100%   { transform: rotateZ(225deg); }
 }
 
-#fab:hover {
-  -moz-animation: spin 1s infinite alternate linear;
+@-moz-keyframes rotate {
+    0%   { transform: rotateZ(0deg); }
+    100%   { transform: rotateZ(225deg); }
+}
+
+@-webkit-keyframes rotate-reverse {
+    0%   { transform: rotateZ(225deg); }
+    100%   { transform: rotateZ(0deg); }
+}
+
+@-moz-keyframes rotate-reverse {
+    0%   { transform: rotateZ(225deg); }
+    100%   { transform: rotateZ(0deg); }
 }
 
 @-webkit-keyframes rainbow {
@@ -605,4 +616,29 @@ code {
   padding: 2px 3px;
   border: 1px solid #333;
   border-radius: 4px;
+}
+
+.fab {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
+
+.fab ul {
+  display: none;
+}
+
+.fab.collapsed .mdi-content-add {
+  -webkit-animation: rotate-reverse .5s 1 ease forwards;
+  -moz-animation: rotate-reverse .5s 1 ease forwards;
+}
+
+.fab.expanded .mdi-content-add {
+  -webkit-animation: rotate .5s 1 ease forwards;
+  -moz-animation: rotate .5s 1 ease forwards;
+}
+
+.fab.no-anim .mdi-content-add {
+  -webkit-animation: none !important;
+  -moz-animation: none !important;
 }
