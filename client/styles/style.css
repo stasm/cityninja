@@ -638,6 +638,18 @@ code {
 
 .fab .btn-floating {
   background-color: #FFC107;
+  width: 56px;
+  height: 56px;
+}
+
+.fab .btn-floating.btn-large i {
+  line-height: 56px;
+  width: 56px;
+}
+
+.fab .btn-floating.right {
+  width: 38px;
+  height: 38px;
 }
 
 .fab .btn-floating i {
