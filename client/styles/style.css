@@ -668,8 +668,8 @@ code {
   background-color: #FFC107;
   transition: all .1s ease;
   position: fixed;
-  right: 49px;
-  bottom: 49px;
+  right: 48px;
+  bottom: 48px;
   width: 0;
   height: 0;
 }
@@ -715,4 +715,8 @@ code {
 .fab.no-anim .mdi-content-add {
   -webkit-animation: none;
   -moz-animation: none;
+}
+
+.quickaddform {
+  height: 100%;
 }

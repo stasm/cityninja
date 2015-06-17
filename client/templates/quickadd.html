@@ -8,11 +8,11 @@
     </a>
     <ul>
       {{#each reportTypes}}
-        <li class="quick-type-{{icon}}">
+        <li class="pointer" data-report-type="{{name}}">
           <span class="btn-floating right">
             <i class="{{icon}}"></i>
           </span>
-          <a class="quick-text pointer">
+          <a class="quick-text">
             {{ name }}
           </a>
         </li>
@@ -20,4 +20,25 @@
     </ul>
   </div>
 
+  <div class="modal bottom-sheet quickaddform">
+
+    {{#if isQuickAdding }}
+      {{> quickadd }}
+    {{/if}}
+
+  </div>
+
+</template>
+
+<template name="quickadd">
+  <nav class="amber">
+    <div class="">
+
+      <a class="left primary close pointer">
+        <i class="mdi-navigation-close"></i>
+      </a>
+
+      <h2>Utwórz nowe zgłoszenie</h2>
+    </div>
+  </nav>
 </template>
