@@ -8,7 +8,7 @@
     </a>
     <ul>
       {{#each reportTypes}}
-        <li class="pointer" data-report-type="{{name}}">
+        <li class="quick-report pointer" data-report-type="{{name}}">
           <span class="btn-floating right">
             <i class="{{icon}}"></i>
           </span>
@@ -32,13 +32,40 @@
 
 <template name="quickadd">
   <nav class="amber">
-    <div class="">
+    <a class="left primary close pointer">
+      <i class="mdi-navigation-close"></i>
+    </a>
 
-      <a class="left primary close pointer">
-        <i class="mdi-navigation-close"></i>
-      </a>
-
-      <h2>Utwórz nowe zgłoszenie</h2>
-    </div>
+    <h2>Utwórz nowe zgłoszenie</h2>
   </nav>
+
+  <ul class="collapsible">
+    {{#each steps }}
+      <li class="line active">
+
+        <div class="collapsible-header pointer">
+          <span class="strong">{{ this }}</span>
+          <span class="secondary-content">
+            <i class="mdi-navigation-expand-more chevron"></i>
+          </span>
+        </div>
+
+        {{# if stepComplete this }}
+
+          <div class="collapsible-body">
+            <ul class="collection">
+              {{#each choices }}
+                <li class="collection-item report avatar pointer">
+                  <i class="{{icon}}"></i>
+                  <span class="title">{{name}}</span>
+                </li>
+              {{/each}}
+            </ul>
+          </div>
+
+        {{/if}}
+
+      </li>
+    {{/each}}
+  </ul>
 </template>

@@ -53,6 +53,10 @@
   cursor: pointer;
 }
 
+.hidden {
+  display: none;
+}
+
 body {
   margin: 0 !important;
   padding: 0 !important;
@@ -689,7 +693,7 @@ code {
 
 .fab li .quick-text {
   background-color: #fff;
-  border-radius: 4px;
+  border-radius: 3px;
   padding: 3px 5px;
   color: #666;
   margin-right: 20px;
@@ -719,4 +723,8 @@ code {
 
 .quickaddform {
   height: 100%;
+}
+
+.quickaddform .collapsible {
+  margin-top: 56px;
 }

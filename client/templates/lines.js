@@ -6,7 +6,7 @@ Template.lines.helpers({
 
     var favs = getFavs();
     return lines[lineType].filter(function(elem) {
-      return favs.lines.indexOf(elem.line) !== -1;
+      return favs.lines.indexOf(elem.name) !== -1;
     });
   },
   viewingAll: function() {
