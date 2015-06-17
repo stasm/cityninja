@@ -1,8 +1,8 @@
 /* CSS declarations go here */
 
 @-webkit-keyframes rotate {
-    0%   { transform: rotateZ(0deg); }
-    100%   { transform: rotateZ(225deg); }
+    0%   { -webkit-transform: rotateZ(0deg); }
+    100%   { -webkit-transform: rotateZ(225deg); }
 }
 
 @-moz-keyframes rotate {
@@ -11,8 +11,8 @@
 }
 
 @-webkit-keyframes rotate-reverse {
-    0%   { transform: rotateZ(225deg); }
-    100%   { transform: rotateZ(0deg); }
+    0%   { -webkit-transform: rotateZ(225deg); }
+    100%   { -webkit-transform: rotateZ(0deg); }
 }
 
 @-moz-keyframes rotate-reverse {
