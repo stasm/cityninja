@@ -49,9 +49,10 @@
           {{#if isStepComplete index}}complete pointer{{/if}}
           {{#if isCurrentStep index}}current{{/if}}"
           data-step-index="{{index}}">
-          <span>{{ name }}</span>
           {{#if isStepComplete index}}
             <span>{{ stepChoice index }}</span>
+          {{else}}
+            <span>{{ name }}</span>
           {{/if}}
         </div>
 

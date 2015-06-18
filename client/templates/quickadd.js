@@ -52,6 +52,13 @@ function getLines(type) {
   return lines.km.map(function(elem) { return elem.line; });
 }
 
+var transportTypes = {
+  'Metro': 'metro',
+  'WKD': 'wkd',
+  'SKM': 'skm',
+  'KM': 'km',
+};
+
 var quickSteps = [
   {
     name: 'Co się dzieje?',
@@ -62,21 +69,27 @@ var quickSteps = [
   {
     name: 'Gdzie?',
     choices: function() {
-      return [
-        { name: 'Metro' },
-        { name: 'WKD' },
-        { name: 'SKM' },
-        { name: 'KM' },
-      ];
+      return Object.keys(transportTypes).map(function(elem) {
+        return { name: elem };
+      });
     }
   },
   {
     name: 'Na której linii?', 
-    choices: function() {},
+    choices: function() {
+      var type = Session.get('quickadd choice 1');
+      return lines[transportTypes[type]];
+    },
   },
   {
     name: 'W którym kierunku?',
-    choices: function() {}
+    choices: function() {
+      var type = Session.get('quickadd choice 1');
+      var line = Session.get('quickadd choice 2');
+      return lines[transportTypes[type]].filter(function(elem) {
+        return elem.name === line;
+      })[0].directions;
+    }
   }
 ];
 
@@ -92,7 +105,7 @@ Template.quickadd.helpers({
   }),
   choices: function() {
     var stepIndex = Session.get('quickadd current step');
-    if (stepIndex > -1) {
+    if (quickSteps[stepIndex]) {
       return quickSteps[stepIndex].choices();
     }
   },
