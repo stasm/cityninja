@@ -625,8 +625,11 @@ code {
 .fab {
   z-index: 100;
   position: fixed;
-  bottom: 20px;
-  right: 20px;
+  bottom: 0;
+  right: 0;
+  width: 96px;
+  height: 96px;
+  padding: 20px;
 }
 
 .fab.collapsed ul {
@@ -669,6 +672,7 @@ code {
 }
 
 .dimmer {
+  z-index: 90;
   background-color: #FFC107;
   transition: all .1s ease;
   position: fixed;
@@ -679,7 +683,7 @@ code {
   overflow: hidden;
 }
 
-.fab.expanded .dimmer {
+.fab.expanded + .dimmer {
   right: 0;
   bottom: 0;
   width: 100%;

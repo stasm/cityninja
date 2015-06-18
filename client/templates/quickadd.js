@@ -25,14 +25,17 @@ Template.fab.helpers({
 });
 
 Template.fab.events({
-  'click .btn-floating': function(evt) {
-    evt.currentTarget.parentNode.classList.remove('no-anim');
-    toggleQuickAddButton(evt.currentTarget.parentNode);
+  'click .fab': function(evt) {
+    evt.stopImmediatePropagation();
+    evt.currentTarget.classList.remove('no-anim');
+    toggleQuickAddButton();
   },
-  'click .dimmer': function() {
+  'click .dimmer': function(evt) {
+    evt.stopImmediatePropagation();
     toggleQuickAddButton();
   },
   'click .quick-report': function(evt) {
+    evt.stopImmediatePropagation();
     var reportCategory = evt.currentTarget.dataset.reportCategory;
     var reportName = evt.currentTarget.dataset.reportName;
     if (reportCategory === 'other') {
@@ -114,20 +117,24 @@ Template.quickadd.helpers({
 });
 
 Template.quickadd.events({
-  'click .close': function() {
+  'click .close': function(evt) {
+    evt.stopImmediatePropagation();
     closeQuickAddForm();
   },
   'click .collapsible-header.complete': function(evt) {
+    evt.stopImmediatePropagation();
     var stepIndex = parseInt(evt.currentTarget.dataset.stepIndex);
     Session.set('quickadd current step', stepIndex);
   },
   'click .collection-item': function(evt) {
+    evt.stopImmediatePropagation();
     var choice = evt.currentTarget.dataset.choice;
     var stepIndex = Session.get('quickadd current step');
     Session.set('quickadd choice ' + stepIndex, choice);
     Session.set('quickadd current step', stepIndex + 1);
   },
-  'click .btn.pointer': function() {
+  'click .btn.pointer': function(evt) {
+    evt.stopImmediatePropagation();
     var report = Session.get('quickadd choice 0');
     var line = Session.get('quickadd choice 2');
     var dir = Session.get('quickadd choice 3');
