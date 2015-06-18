@@ -82,6 +82,13 @@ var quickSteps = [
         return elem.name === line;
       })[0].directions;
     }
+  },
+  {
+    name: 'Na której stacji?',
+    choices: function() {
+      var dir = Session.get('quickadd choice 3');
+      return stations[dir];
+    }
   }
 ];
 
@@ -120,5 +127,13 @@ Template.quickadd.events({
     Session.set('quickadd choice ' + stepIndex, choice);
     Session.set('quickadd current step', stepIndex + 1);
   },
+  'click .btn.pointer': function() {
+    var report = Session.get('quickadd choice 0');
+    var line = Session.get('quickadd choice 2');
+    var dir = Session.get('quickadd choice 3');
+    var location = Session.get('quickadd choice 4');
+    createReport(report, line, dir, location);
+    closeQuickAddForm();
+  }
 });
 

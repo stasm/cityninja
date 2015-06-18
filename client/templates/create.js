@@ -17,27 +17,10 @@ Template.create.events({
     var modal = template.$('#create');
     var location = template.$('#create .station').text();
     var params = Router.current().params;
-    var line = params.line;
-    var dir = params.dir;
 
-    // Does a similar report already exist?
-    var existingReport = Reports.findOne({
-      name: this.name,
-      location: location,
-      line: line,
-      dir: dir
-    });
+    createReport(this.name, params.line, params.dir, location);
 
-    // If so and we can upvote, we do
-    if (existingReport) {
-      if (canVote(existingReport)) {
-        Meteor.call("upvoteReport", existingReport._id);
-      }
-    } else {
-      Meteor.call("saveReport", this.name, location, line, dir);
-    }
     reenableScrolling();
     modal.closeModal();
-    Materialize.toast(pickRandom(toasts.created), 2000);
   }
 });
