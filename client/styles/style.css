@@ -50,7 +50,7 @@
 
 #play-ninja,
 .pointer {
-  cursor: pointer;
+  cursor: pointer !important;
 }
 
 .hidden {
@@ -183,27 +183,27 @@ ul.collapsible {
   margin: 0;
 }
 
-li.line {
+.collapsible-item {
   border-top: 1px solid #fff;
   border-bottom: 1px solid #fff;
 }
 
-li.line.active {
+.collapsible-item.active {
   border-top: 1px solid #E0E0E0;
   border-bottom: 1px solid #E0E0E0;
 }
 
-li.line.active:first-of-type {
+.collapsible-item.active:first-of-type {
   border-top: 1px solid #fff;
   border-bottom: 1px solid #E0E0E0;
 }
 
-li.line.active:last-of-type {
+.collapsible-item.active:last-of-type {
   border-top: 1px solid #E0E0E0;
   border-bottom: 1px solid #fff;
 }
 
-li.line.active + li.line.active {
+.collapsible-item.active + .collapsible-item.active {
   border-top: 1px solid #fff;
 }
 
@@ -727,4 +727,24 @@ code {
 
 .quickaddform .collapsible {
   margin-top: 56px;
+}
+
+.quickaddform .collapsible-header {
+  padding-left: 20px;
+  font-weight: 400;
+  color: #999;
+  cursor: default;
+}
+
+.quickaddform .collapsible-header.current {
+  font-weight: 800;
+  color: #000;
+}
+
+.quickaddform .collapsible-header.complete {
+  color: #000;
+}
+
+.quickaddform .collapsible-body {
+  display: block;
 }

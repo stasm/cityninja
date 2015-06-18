@@ -1,7 +1,7 @@
 openCreateModal = function(loc) {
   var params = Router.current().params;
   var icon = lines[params.type].filter(function(elem) {
-    return elem.line === params.line;
+    return elem.name === params.line;
   })[0].icon;
 
   $('#create .circle').addClass(icon);

@@ -41,21 +41,25 @@
 
   <ul class="collapsible">
     {{#each steps }}
-      <li class="line active">
+      <li class="step collapsible-item {{#if isCurrentStep index}}active{{/if}}">
 
-        <div class="collapsible-header pointer">
-          <span class="strong">{{ this }}</span>
-          <span class="secondary-content">
-            <i class="mdi-navigation-expand-more chevron"></i>
-          </span>
+        <div class="collapsible-header
+          {{#if isStepComplete index}}complete pointer{{/if}}
+          {{#if isCurrentStep index}}current{{/if}}"
+          data-step-index="{{index}}">
+          <span>{{ name }}</span>
+          {{#if isStepComplete index}}
+            <span>{{ stepChoice index }}</span>
+          {{/if}}
         </div>
 
-        {{# if stepComplete this }}
+        {{# if isCurrentStep index }}
 
           <div class="collapsible-body">
             <ul class="collection">
               {{#each choices }}
-                <li class="collection-item report avatar pointer">
+                <li class="collection-item report avatar pointer"
+                 data-choice="{{name}}">
                   <i class="{{icon}}"></i>
                   <span class="title">{{name}}</span>
                 </li>

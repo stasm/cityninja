@@ -5,19 +5,19 @@ function toggleQuickAddButton() {
 }
 
 function openQuickAddForm() {
-  Session.set('quickadding', true);
+  Session.set('quickadd current step', 0);
   $('.quickaddform').openModal();
   toggleQuickAddButton();
 }
 
 function closeQuickAddForm() {
-  Session.set('quickadding', false);
+  Session.set('quickadd current step', -1);
   $('.quickaddform').closeModal();
 }
 
 Template.fab.helpers({
   isQuickAdding: function() {
-    return Session.equals('quickadding', true);
+    return !Session.equals('quickadd current step', -1);
   },
   reportTypes: function() {
     return reportTypes.common;
@@ -45,33 +45,50 @@ function getLines(type) {
   return lines.km.map(function(elem) { return elem.line; });
 }
 
-var quickSteps = {
-  'Co się dzieje?': function() {
-    return allReportTypes.slice(0, -1);
+var quickSteps = [
+  {
+    name: 'Co się dzieje?',
+    choices: function() {
+      return allReportTypes.slice(0, -1);
+    }
   },
-  'Gdzie?': function() {
-    return [
-      { name: 'Metro' },
-      { name: 'WKD' },
-      { name: 'SKM' },
-      { name: 'KM' },
-    ];
+  {
+    name: 'Gdzie?',
+    choices: function() {
+      return [
+        { name: 'Metro' },
+        { name: 'WKD' },
+        { name: 'SKM' },
+        { name: 'KM' },
+      ];
+    }
   },
-  'Na której linii?': function() {
-
+  {
+    name: 'Na której linii?', 
+    choices: function() {},
   },
-  'W którym kierunku?': function() {
-
+  {
+    name: 'W którym kierunku?',
+    choices: function() {}
   }
-};
+];
 
 Template.quickadd.helpers({
-  stepComplete: function(step) {
-    return Sessions.equals('quickadd complete: ' + step, true);
+  isCurrentStep: function(stepIndex) {
+    return Session.equals('quickadd current step', stepIndex);
   },
-  steps: Object.keys(quickSteps),
+  isStepComplete: function(stepIndex) {
+    return Session.get('quickadd current step') > stepIndex;
+  },
+  steps: quickSteps.map(function(step, i) {
+    return { name: step.name, index: i };
+  }),
   choices: function() {
-    return quickSteps['Co się dzieje?']();
+    var stepIndex = Session.get('quickadd current step');
+    return quickSteps[stepIndex].choices();
+  },
+  stepChoice: function(stepIndex) {
+    return Session.get('quickadd choice ' + stepIndex);
   }
 });
 
@@ -79,10 +96,15 @@ Template.quickadd.events({
   'click .close': function() {
     closeQuickAddForm();
   },
-  'click .collapsible-header': function(evt) {
-    var header = evt.currentTarget;
-    header.classList.toggle('active');
-    header.parentNode.classList.toggle('active');
+  'click .collapsible-header.complete': function(evt) {
+    var stepIndex = parseInt(evt.currentTarget.dataset.stepIndex);
+    Session.set('quickadd current step', stepIndex);
+  },
+  'click .collection-item': function(evt) {
+    var choice = evt.currentTarget.dataset.choice;
+    var stepIndex = Session.get('quickadd current step');
+    Session.set('quickadd choice ' + stepIndex, choice);
+    Session.set('quickadd current step', stepIndex + 1);
   },
 });
 
