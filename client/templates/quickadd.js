@@ -44,19 +44,11 @@ Template.fab.events({
   }
 });
 
-function getLines(type) {
-  return lines.km.map(function(elem) { return elem.line; });
-}
-
-function getLines(type) {
-  return lines.km.map(function(elem) { return elem.line; });
-}
-
 var transportTypes = {
-  'Metro': 'metro',
-  'WKD': 'wkd',
-  'SKM': 'skm',
-  'KM': 'km',
+  'Metro': { slug: 'metro', icon: 'mdi-maps-directions-subway' },
+  'WKD': { slug: 'wkd', icon: 'mdi-maps-directions-train' },
+  'SKM': { slug: 'skm', icon: 'mdi-maps-directions-train' },
+  'KM': { slug: 'km', icon: 'mdi-maps-directions-train' },
 };
 
 var quickSteps = [
@@ -70,7 +62,7 @@ var quickSteps = [
     name: 'Gdzie?',
     choices: function() {
       return Object.keys(transportTypes).map(function(elem) {
-        return { name: elem };
+        return { name: elem, icon: transportTypes[elem].icon };
       });
     }
   },
@@ -78,7 +70,7 @@ var quickSteps = [
     name: 'Na której linii?', 
     choices: function() {
       var type = Session.get('quickadd choice 1');
-      return lines[transportTypes[type]];
+      return lines[transportTypes[type].slug];
     },
   },
   {
@@ -86,7 +78,7 @@ var quickSteps = [
     choices: function() {
       var type = Session.get('quickadd choice 1');
       var line = Session.get('quickadd choice 2');
-      return lines[transportTypes[type]].filter(function(elem) {
+      return lines[transportTypes[type].slug].filter(function(elem) {
         return elem.name === line;
       })[0].directions;
     }
