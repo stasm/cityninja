@@ -676,6 +676,7 @@ code {
   bottom: 48px;
   width: 0;
   height: 0;
+  overflow: hidden;
 }
 
 .fab.expanded .dimmer {
