@@ -8,7 +8,9 @@
     </a>
     <ul>
       {{#each reportTypes}}
-        <li class="quick-report pointer" data-report-type="{{name}}">
+        <li class="quick-report pointer"
+          data-report-name="{{name}}"
+          data-report-category="{{category}}">
           <span class="btn-floating right">
             <i class="{{icon}}"></i>
           </span>

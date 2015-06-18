@@ -4,8 +4,8 @@ function toggleQuickAddButton() {
   fab.classList.toggle('expanded');
 }
 
-function openQuickAddForm() {
-  Session.set('quickadd current step', 0);
+function openQuickAddForm(startingStep) {
+  Session.set('quickadd current step', startingStep || 0);
   $('.quickaddform').openModal();
   toggleQuickAddButton();
 }
@@ -32,8 +32,15 @@ Template.fab.events({
   'click .dimmer': function() {
     toggleQuickAddButton();
   },
-  'click .quick-report': function() {
-    openQuickAddForm();
+  'click .quick-report': function(evt) {
+    var reportCategory = evt.currentTarget.dataset.reportCategory;
+    var reportName = evt.currentTarget.dataset.reportName;
+    if (reportCategory === 'other') {
+      openQuickAddForm(0);
+    } else {
+      Session.set('quickadd choice 0', reportName);
+      openQuickAddForm(1);
+    }
   }
 });
 
@@ -85,7 +92,9 @@ Template.quickadd.helpers({
   }),
   choices: function() {
     var stepIndex = Session.get('quickadd current step');
-    return quickSteps[stepIndex].choices();
+    if (stepIndex > -1) {
+      return quickSteps[stepIndex].choices();
+    }
   },
   stepChoice: function(stepIndex) {
     return Session.get('quickadd choice ' + stepIndex);
