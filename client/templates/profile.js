@@ -86,5 +86,6 @@ Template.profile.helpers({
 Template.profile.events({
   'click .collapsible-header': function(evt) {
     evt.currentTarget.classList.toggle('active');
+    evt.currentTarget.parentNode.classList.toggle('active');
   }
 });
