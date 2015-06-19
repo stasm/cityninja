@@ -18,7 +18,7 @@ Template.profile.helpers({
     if (user.profile.favs.length > 0) {
       completed.push({
         name: 'Ulubieniec',
-        icon: 'mdi-action-favorite amber-text',
+        icon: 'mdi-action-favorite yellow-text',
         desc: 'Masz przynajmniej jedną linię w ulubionych.'
       });
     }
@@ -26,7 +26,7 @@ Template.profile.helpers({
     if (user.incoming.thanks >= 1) {
       completed.push({
         name: '1 podziękowanie',
-        icon: 'mdi-action-thumb-up amber-text',
+        icon: 'mdi-action-thumb-up yellow-text',
         desc: 'Twoje zgłoszenia zebrały 1 podziękowanie.'
       });
     }
@@ -42,7 +42,7 @@ Template.profile.helpers({
     if (user.incoming.thanks >= 10) {
       completed.push({
         name: '10 podziękowań',
-        icon: 'mdi-action-thumb-up amber-text',
+        icon: 'mdi-action-thumb-up orange-text',
         desc: 'Twoje zgłoszenia zebrały 10 podziękowań.'
       });
     }
@@ -50,7 +50,7 @@ Template.profile.helpers({
     if (user.incoming.thanks >= 50) {
       completed.push({
         name: '50 podziękowań',
-        icon: 'mdi-action-thumb-up amber-text',
+        icon: 'mdi-action-thumb-up deep-orange-text',
         desc: 'Twoje zgłoszenia zebrały 50 podziękowań.'
       });
     }
@@ -58,7 +58,7 @@ Template.profile.helpers({
     if (user.incoming.confirms >= 1) {
       completed.push({
         name: '1 potwierdzenie',
-        icon: 'mdi-action-grade amber-text',
+        icon: 'mdi-action-grade yellow-text',
         desc: 'Twoje zgłoszenia zostały potwierdzone 1 raz.'
       });
     }
@@ -74,7 +74,7 @@ Template.profile.helpers({
     if (user.incoming.confirms >= 10) {
       completed.push({
         name: '10 potwierdzeń',
-        icon: 'mdi-action-grade amber-text',
+        icon: 'mdi-action-grade orange-text',
         desc: 'Twoje zgłoszenia zostały potwierdzone 10 razy.'
       });
     }
@@ -82,7 +82,7 @@ Template.profile.helpers({
     if (user.incoming.confirms >= 50) {
       completed.push({
         name: '50 potwierdzeń',
-        icon: 'mdi-action-grade amber-text',
+        icon: 'mdi-action-grade deep-orange-text',
         desc: 'Twoje zgłoszenia zostały potwierdzone 50 razy.'
       });
     }
