@@ -140,11 +140,6 @@ Template.quickadd.events({
     var dir = Session.get('quickadd choice 3');
     var location = Session.get('quickadd choice 4');
     createReport(report, line, dir, location);
-    var fab = document.querySelector('.fab');
-    fab.classList.add('raised');
-    window.setTimeout(function() {
-      fab.classList.remove('raised');
-    }, 2000);
     closeQuickAddForm();
   }
 });

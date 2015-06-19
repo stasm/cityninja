@@ -57,28 +57,28 @@ Template.cardactions.events({
     evt.stopImmediatePropagation();
     if (canVote(this)) {
       Meteor.call("upvoteReport", this._id, this.createdBy);
-      Materialize.toast(pickRandom(toasts.upvoted), 2000);
+      toast(pickRandom(toasts.upvoted));
     }
   },
   'click .downvote': function(evt) {
     evt.stopImmediatePropagation();
     if (canVote(this)) {
       Meteor.call("downvoteReport", this._id, this.createdBy);
-      Materialize.toast(pickRandom(toasts.downvoted), 2000);
+      toast(pickRandom(toasts.downvoted));
     }
   },
   'click .remove': function(evt) {
     evt.stopImmediatePropagation();
     if (isAuthor(this)) {
       Meteor.call("removeReport", this._id);
-      Materialize.toast(pickRandom(toasts.removed), 2000);
+      toast(pickRandom(toasts.removed));
     }
   },
   'click .thank': function(evt) {
     evt.stopImmediatePropagation();
     if (canThank(this)) {
       Meteor.call("thankReport", this._id, this.createdBy);
-      Materialize.toast(pickRandom(toasts.thanked), 2000);
+      toast(pickRandom(toasts.thanked));
     }
   },
 });

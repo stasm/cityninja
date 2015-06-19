@@ -32,10 +32,9 @@ Template.main.events = {
 
     function callback(err, num, added) {
       if (err) {
-        Materialize.toast('O nie, wystąpił błąd!', 2000);
+        toast('O nie, wystąpił błąd!');
       } else {
-        Materialize.toast(
-          added ? 'Dodano do ulubionych.' : 'Usunięto z ulubionych.', 2000);
+        toast(added ? 'Dodano do ulubionych.' : 'Usunięto z ulubionych.');
       }
     }
 

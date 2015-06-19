@@ -15,5 +15,16 @@ createReport = function(name, line, dir, location) {
   } else {
     Meteor.call("saveReport", name, location, line, dir);
   }
-  Materialize.toast(pickRandom(toasts.created), 2000);
+  toast(pickRandom(toasts.created));
+};
+
+toast = function(msg) {
+  Materialize.toast(msg, 2000);
+  var fab = document.querySelector('.fab');
+  if (fab) {
+    fab.classList.add('raised');
+    window.setTimeout(function() {
+      fab.classList.remove('raised');
+    }, 2000);
+  }
 };
