@@ -1,6 +1,6 @@
 {
-  "version": "0.2.0-pre",
-  "name": "warszawski.ninja",
+  "version": "1.0.0-alpha",
+  "name": 'α warszawski.ninja',
   "description": "Nie daj zaskoczyć się opóźnieniom komunikacji miejskiej.",
   "launch_path": "/",
   "icons": {

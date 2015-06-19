@@ -2,7 +2,7 @@ App.info({
   id: 'com.informationisart.warszawskininja.alpha',
   name: 'α warszawski.ninja',
   description: 'Nie daj zaskoczyć się opóźnieniom komunikacji miejskiej.',
-  version: '0.2.0-alpha',
+  version: '1.0.0-alpha',
   author: 'Staś Małolepszy',
   email: 'warszawski.ninja@gmail.com',
   website: 'http://warszawski.ninja'
