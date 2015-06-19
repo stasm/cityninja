@@ -106,6 +106,7 @@ Template.quickadd.helpers({
     return { name: step.name, index: i };
   }),
   choices: function() {
+    // spacebars don't accept args in {{#each}} block tag; use a session global
     var stepIndex = Session.get('quickadd current step');
     if (quickSteps[stepIndex]) {
       return quickSteps[stepIndex].choices();
@@ -131,7 +132,13 @@ Template.quickadd.events({
     var choice = evt.currentTarget.dataset.choice;
     var stepIndex = Session.get('quickadd current step');
     Session.set('quickadd choice ' + stepIndex, choice);
-    Session.set('quickadd current step', stepIndex + 1);
+    if (stepIndex === 1 && choice === 'WKD') {
+      // wkd has only one line; take a shortcut
+      Session.set('quickadd choice 2', 'WKD');
+      Session.set('quickadd current step', 3);
+    } else {
+      Session.set('quickadd current step', stepIndex + 1);
+    }
   },
   'click .btn.pointer': function(evt) {
     evt.stopImmediatePropagation();
