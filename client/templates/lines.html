@@ -1,36 +1,36 @@
 <template name="lines">
       
-  {{#if viewingAll }}
-    <div class="subheader">Metro</div>
-  {{/if}}
-  <ul class="collapsible" data-collapsible="expandable">
+  <div class="subheader {{#unless viewingAll}}hidden{{/unless}}">
+    Metro
+  </div>
+  <ul class="collapsible">
     {{#each lines 'metro'}}
       {{> line}} 
     {{/each}}
   </ul>
   
-  {{#if viewingAll }}
-    <div class="subheader">Warszawska Kolej Dojazdowa</div>
-  {{/if}}
-  <ul class="collapsible" data-collapsible="expandable">
+  <div class="subheader {{#unless viewingAll}}hidden{{/unless}}">
+    Warszawska Kolej Dojazdowa
+  </div>
+  <ul class="collapsible">
     {{#each lines 'wkd'}}
       {{> line}} 
     {{/each}}
   </ul>
 
-  {{#if viewingAll }}
-    <div class="subheader">Szybka Kolej Miejska</div>
-  {{/if}}
-  <ul class="collapsible" data-collapsible="expandable">
+  <div class="subheader {{#unless viewingAll}}hidden{{/unless}}">
+    Szybka Kolej Miejska
+  </div>
+  <ul class="collapsible">
     {{#each lines 'skm'}}
       {{> line}} 
     {{/each}}
   </ul>
 
-  {{#if viewingAll }}
-    <div class="subheader">Koleje Mazowieckie</div>
-  {{/if}}
-  <ul class="collapsible" data-collapsible="expandable">
+  <div class="subheader {{#unless viewingAll}}hidden{{/unless}}">
+    Koleje Mazowieckie
+  </div>
+  <ul class="collapsible">
     {{#each lines 'km'}}
       {{> line}} 
     {{/each}}

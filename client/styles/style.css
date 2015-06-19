@@ -1,5 +1,25 @@
 /* CSS declarations go here */
 
+@-webkit-keyframes rotate {
+    0%   { -webkit-transform: rotateZ(0deg); }
+    100%   { -webkit-transform: rotateZ(225deg); }
+}
+
+@-moz-keyframes rotate {
+    0%   { transform: rotateZ(0deg); }
+    100%   { transform: rotateZ(225deg); }
+}
+
+@-webkit-keyframes rotate-reverse {
+    0%   { -webkit-transform: rotateZ(225deg); }
+    100%   { -webkit-transform: rotateZ(0deg); }
+}
+
+@-moz-keyframes rotate-reverse {
+    0%   { transform: rotateZ(225deg); }
+    100%   { transform: rotateZ(0deg); }
+}
+
 @-webkit-keyframes rainbow {
     0%   { color: red; } 
     20%  { color: orange; }
@@ -30,7 +50,11 @@
 
 #play-ninja,
 .pointer {
-  cursor: pointer;
+  cursor: pointer !important;
+}
+
+.hidden {
+  display: none;
 }
 
 body {
@@ -46,7 +70,7 @@ nav {
   height: 56px !important;
   line-height: normal !important;
   position: fixed;
-  z-index: 100;
+  z-index: 20;
   box-shadow: none;
 }
 
@@ -71,6 +95,7 @@ div:hover #heart {
 .tabs .tab a {
   color: #fff;
   opacity: 0.4;
+  -webkit-transition: opacity .5s ease;
   transition: opacity .5s ease;
 }
 
@@ -125,6 +150,7 @@ div:hover #heart {
 }
 
 .ninja.animate {
+  -webkit-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
 }
 
@@ -159,27 +185,27 @@ ul.collapsible {
   margin: 0;
 }
 
-li.line {
+.collapsible-item {
   border-top: 1px solid #fff;
   border-bottom: 1px solid #fff;
 }
 
-li.line.active {
+.collapsible-item.active {
   border-top: 1px solid #E0E0E0;
   border-bottom: 1px solid #E0E0E0;
 }
 
-li.line.active:first-of-type {
+.collapsible-item.active:first-of-type {
   border-top: 1px solid #fff;
   border-bottom: 1px solid #E0E0E0;
 }
 
-li.line.active:last-of-type {
+.collapsible-item.active:last-of-type {
   border-top: 1px solid #E0E0E0;
   border-bottom: 1px solid #fff;
 }
 
-li.line.active + li.line.active {
+.collapsible-item.active + .collapsible-item.active {
   border-top: 1px solid #fff;
 }
 
@@ -317,7 +343,7 @@ img.top-panel-ninja {
   font-size: 1.6rem;
 }
 
-h1 {
+h1, h2 {
   font-size: 18px;
   margin: 0;
   line-height: 56px;
@@ -360,7 +386,7 @@ nav .switch {
 }
 
 #menu {
-  z-index: 20;
+  z-index: 30;
   top: 22px !important;
   left: auto !important;
   right: 15px !important;
@@ -596,4 +622,150 @@ code {
   padding: 2px 3px;
   border: 1px solid #333;
   border-radius: 4px;
+}
+
+.fab {
+  z-index: 100;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 96px;
+  height: 96px;
+  padding: 20px;
+  -webkit-transition: bottom .2s;
+  transition: bottom .2s;
+}
+
+@media (max-width: 600px) {
+  .fab.raised {
+    bottom: 48px;
+  }
+}
+
+.fab.collapsed ul {
+  display: none;
+}
+
+.fab.expanded ul {
+  display: block;
+  position: fixed;
+  bottom: 65px;
+  right: 29px;
+}
+
+.fab .btn-floating {
+  background-color: #FFC107;
+  width: 56px;
+  height: 56px;
+}
+
+.fab .btn-floating.btn-large i {
+  line-height: 56px;
+  width: 56px;
+}
+
+.fab .btn-floating.right {
+  width: 38px;
+  height: 38px;
+}
+
+.fab .btn-floating i {
+  color: #fff;
+}
+
+.fab.expanded .btn-large {
+  background-color: #fff;
+}
+
+.fab.expanded .btn-large i {
+  color: #FFC107;
+}
+
+.dimmer {
+  z-index: 90;
+  background-color: #FFC107;
+  -webkit-transition: all .1s ease;
+  transition: all .1s ease;
+  position: fixed;
+  right: 48px;
+  bottom: 48px;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+.fab.expanded + .dimmer {
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.fab li {
+  height: 50px;
+  text-align: right;
+  line-height: 37px;
+}
+
+.fab li .quick-text {
+  background-color: #fff;
+  border-radius: 3px;
+  padding: 3px 5px;
+  color: #666;
+  margin-right: 20px;
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.5);
+  position: relative;
+}
+
+.fab li .quick-text:hover {
+  top: -1px;
+  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.5);
+}
+
+.fab.collapsed .mdi-content-add {
+  -webkit-animation: rotate-reverse .5s 1 ease forwards;
+  -moz-animation: rotate-reverse .5s 1 ease forwards;
+}
+
+.fab.expanded .mdi-content-add {
+  -webkit-animation: rotate .5s 1 ease forwards;
+  -moz-animation: rotate .5s 1 ease forwards;
+}
+
+.fab.no-anim .mdi-content-add {
+  -webkit-animation: none;
+  -moz-animation: none;
+}
+
+.quickaddform {
+  height: 100%;
+}
+
+.quickaddform .collapsible {
+  margin-top: 56px;
+}
+
+.quickaddform .collapsible-header {
+  padding-left: 20px;
+  font-weight: 400;
+  color: #999;
+  cursor: default;
+}
+
+.quickaddform .collapsible-header.current {
+  font-weight: 800;
+  color: #000;
+}
+
+.quickaddform .collapsible-header.complete {
+  color: #000;
+}
+
+.quickaddform .collapsible-body {
+  display: block;
+}
+
+.quickaddform .container {
+  margin: 20px auto;
+  text-align: center;
 }

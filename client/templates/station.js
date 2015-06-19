@@ -1,7 +1,7 @@
-openModal = function(loc) {
+openCreateModal = function(loc) {
   var params = Router.current().params;
   var icon = lines[params.type].filter(function(elem) {
-    return elem.line === params.line;
+    return elem.name === params.line;
   })[0].icon;
 
   $('#create .circle').addClass(icon);
@@ -13,7 +13,7 @@ openModal = function(loc) {
 
 Template.station.events({
   'click .flag': function() {
-    return openModal(this.name);
+    return openCreateModal(this.name);
   }
 });
 

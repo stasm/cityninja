@@ -1,0 +1,89 @@
+<template name="fab">
+
+  <div class="fab collapsed no-anim">
+    <a class="btn-floating btn-large">
+      <i class="mdi-content-add"></i>
+    </a>
+    <ul>
+      {{#each reportTypes}}
+        <li class="quick-report pointer"
+          data-report-name="{{name}}"
+          data-report-category="{{category}}">
+          <span class="btn-floating right">
+            <i class="{{icon}}"></i>
+          </span>
+          <a class="quick-text">
+            {{ name }}
+          </a>
+        </li>
+      {{/each}}
+    </ul>
+  </div>
+
+  <div class="dimmer">
+    <img class="logo primary" src="/images/white-32x32.png" />
+  </div>
+
+  <div class="modal bottom-sheet quickaddform">
+
+    {{#if isQuickAdding }}
+      {{> quickadd }}
+    {{/if}}
+
+  </div>
+
+</template>
+
+<template name="quickadd">
+  <nav class="amber">
+    <a class="left primary close pointer">
+      <i class="mdi-navigation-close"></i>
+    </a>
+
+    <h2>Utwórz nowe zgłoszenie</h2>
+  </nav>
+
+  <ul class="collapsible">
+    {{#each steps }}
+      <li class="step collapsible-item {{#if isCurrentStep index}}active{{/if}}">
+
+        <div class="collapsible-header
+          {{#if isStepComplete index}}complete pointer{{/if}}
+          {{#if isCurrentStep index}}current{{/if}}"
+          data-step-index="{{index}}">
+          {{#if isStepComplete index}}
+            <span>{{ stepChoice index }}</span>
+          {{else}}
+            <span>{{ name }}</span>
+          {{/if}}
+        </div>
+
+        {{# if isCurrentStep index }}
+
+          <div class="collapsible-body">
+            <ul class="collection">
+              {{#each choices }}
+                <li class="collection-item report avatar pointer"
+                 data-choice="{{name}}">
+                  <i class="{{icon}}"></i>
+                  <span class="title">{{name}}</span>
+                </li>
+              {{/each}}
+            </ul>
+          </div>
+
+        {{/if}}
+
+      </li>
+    {{/each}}
+  </ul>
+
+  <div class="container">
+    <a class="waves-effect waves-light btn
+      {{#if isCurrentStep 5}}amber pointer{{else}}disabled{{/if}}">
+      Prześlij zgłoszenie
+      <i class="mdi-action-open-in-browser right"></i>
+    </a>
+  </div>
+
+</template>

@@ -1,10 +1,10 @@
 <template name="line">
-  <li class="line {{#if viewingFavs}}active{{/if}}">
+  <li class="collapsible-item {{#if viewingFavs}}active{{/if}}">
 
   <div class="collapsible-header pointer {{#if isExpanded line}}active{{/if}}"
-    data-line="{{line}}">
+    data-line="{{name}}">
     <i class="{{icon}} icon"></i>
-    <span class="{{#if hasReports line}}strong{{/if}}">{{line}}</span>
+    <span class="{{#if hasReports name}}strong{{/if}}">{{name}}</span>
     <span class="secondary-content">
       <i class="mdi-navigation-expand-more chevron"></i>
     </span>
@@ -13,13 +13,13 @@
   <div class="collapsible-body">
     <ul class="collection">
       {{#each directions}}
-        <li class="collection-item pointer avatar {{#if isHidden ../line direction}}hidden{{/if}}">
-          <a href="{{pathFor 'dir.show' line=../line type=../type dir=direction}}">
-            {{#if hasReports ../line direction}}
+        <li class="collection-item pointer avatar {{#if isHidden ../name name}}hidden{{/if}}">
+          <a href="{{pathFor 'dir.show' line=../name type=../type dir=name}}">
+            {{#if hasReports ../name name}}
               <i class="icon mdi-alert-warning amber-text"></i>
-              <span class="strong">{{direction}}</span>
+              <span class="strong">{{name}}</span>
             {{else}}
-              <span>{{direction}}</span>
+              <span>{{name}}</span>
             {{/if}}
           </a>
         </li>

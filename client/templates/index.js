@@ -1,7 +1,7 @@
 Template.index.helpers({
   showFavInfo: function() {
     return viewingFavs() && !hasFavs();
-  }
+  },
 });
 
 Template.tabs.onRendered(function() {
