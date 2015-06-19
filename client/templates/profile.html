@@ -29,6 +29,31 @@
 
     </div>
 
+    <div class="section achievements">
+      <h4>Osiągnięcia</h4>
+
+      {{#unless achievements}}
+        <p>
+          Tutaj pojawią się Twoje osiągnięcia, np. za zgłoszenia potwierdzone
+          przez innych użytkowników.  Powodzenia!
+        </p>
+      {{else}}
+        <ul class="collapsible">
+          {{#each achievements}}
+          <li class="collapsible-item">
+            <div class="collapsible-header">
+              <i class="icon mdi-action-grade amber-text"></i>
+              <span class="strong">{{name}}</span>
+            </div>
+            <div class="collapsible-body">
+              <p>{{desc}}</p>
+            </div>
+          </li>
+          {{/each}}
+        </ul>
+      {{/unless}}
+    </div>
+
   </div>
 
 </template>

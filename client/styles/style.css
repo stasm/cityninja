@@ -180,9 +180,13 @@ div:hover #heart {
   margin-right: 20px;
 }
 
-ul.collapsible {
+.collapsible {
   border: none;
   margin: 0;
+}
+
+.achievements .collapsible {
+  margin-top: 20px;
 }
 
 .collapsible-item {
@@ -278,7 +282,6 @@ ul.collapsible {
 .strong {
   font-weight: 800;
 }
-
 
 .chevron {
   color: #ccc;
