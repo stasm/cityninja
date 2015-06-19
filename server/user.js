@@ -1,4 +1,5 @@
 Accounts.onCreateUser(function(options, user) {
+  user.lastSeen = user.createdAt;
   user.incoming = {};
   user.outgoing = {};
   if (options.profile) {

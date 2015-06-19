@@ -8,13 +8,13 @@ Meteor.publish('currentReports', function () {
 });
 
 Meteor.publish('userData', function() {
-  if (this.userId) {
-    return Meteor.users.find(
-      {_id: this.userId},
-      {fields: {incoming: 1, outgoing: 1}});
-  } else {
-    this.ready();
+  if (!this.userId) {
+    return this.ready();
   }
+
+  return Meteor.users.find(
+    {_id: this.userId},
+    {fields: {incoming: 1, outgoing: 1}});
 });
 
 function heartbeat(userId) {
