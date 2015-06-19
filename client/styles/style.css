@@ -636,8 +636,10 @@ code {
   transition: bottom .2s;
 }
 
-.fab.raised {
-  bottom: 48px;
+@media (max-width: 600px) {
+  .fab.raised {
+    bottom: 48px;
+  }
 }
 
 .fab.collapsed ul {
