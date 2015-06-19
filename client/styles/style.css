@@ -95,6 +95,7 @@ div:hover #heart {
 .tabs .tab a {
   color: #fff;
   opacity: 0.4;
+  -webkit-transition: opacity .5s ease;
   transition: opacity .5s ease;
 }
 
@@ -149,6 +150,7 @@ div:hover #heart {
 }
 
 .ninja.animate {
+  -webkit-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
 }
 
@@ -630,6 +632,12 @@ code {
   width: 96px;
   height: 96px;
   padding: 20px;
+  -webkit-transition: bottom .2s;
+  transition: bottom .2s;
+}
+
+.fab.raised {
+  bottom: 48px;
 }
 
 .fab.collapsed ul {
@@ -674,6 +682,7 @@ code {
 .dimmer {
   z-index: 90;
   background-color: #FFC107;
+  -webkit-transition: all .1s ease;
   transition: all .1s ease;
   position: fixed;
   right: 48px;
