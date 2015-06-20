@@ -20,6 +20,7 @@ toggleFav = function(line, dir, callback) {
   }
 
   if (!alreadyExisted) {
+    Meteor.call('achieve', 'fav1');
     Meteor.users.update(
       Meteor.userId(), { $addToSet: { 'profile.favs': id } }, cb);
   } else {

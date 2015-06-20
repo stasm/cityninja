@@ -15,11 +15,11 @@ Template.profile.helpers({
     var completed = [];
     var user = Meteor.user();
 
-    if (user.profile.favs.length > 0) {
+    if (user.achievements.indexOf('fav1') > -1) {
       completed.push({
         name: 'Ulubieniec',
         icon: 'mdi-action-favorite yellow-text',
-        desc: 'Masz przynajmniej jedną linię w ulubionych.'
+        desc: 'Wiesz, jak dodawać linie do ulubionych.'
       });
     }
 

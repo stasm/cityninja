@@ -14,7 +14,7 @@ Meteor.publish('userData', function() {
 
   return Meteor.users.find(
     {_id: this.userId},
-    {fields: {incoming: 1, outgoing: 1}});
+    {fields: {incoming: 1, outgoing: 1, achievements: 1}});
 });
 
 function heartbeat(userId) {
