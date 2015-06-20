@@ -1,4 +1,8 @@
 function toggleQuickAddButton() {
+  var toastContainer = document.querySelector('#toast-container');
+  Array.prototype.forEach.call(
+    toastContainer.querySelectorAll('.toast'),
+    function(toast) { toastContainer.removeChild(toast); });
   var fab = document.querySelector('.fab');
   fab.classList.toggle('collapsed');
   fab.classList.toggle('expanded');

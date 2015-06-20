@@ -646,16 +646,16 @@ code {
 }
 
 @media (max-width: 600px) {
- .fab {
-   position: absolute;
-   top: -86px;
- }
+  .fab {
+    position: absolute;
+    top: -86px;
+  }
 }
 
 @media (min-width: 601px) {
- .fab {
-   position: fixed;
-   bottom: 0px;
+  .fab {
+    position: fixed;
+    bottom: 0px;
   }
 }
 
