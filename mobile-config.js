@@ -16,6 +16,7 @@ App.icons({
 });
 
 App.accessRule('http://analytics.trumba.pl');
+App.accessRule('https://enginex.kadira.io');
 
 App.setPreference('Fullscreen', false);
 App.setPreference('Orientation', 'portrait');
