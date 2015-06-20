@@ -303,6 +303,7 @@ div:hover #heart {
   margin-right: -8px;
   margin-left: 12px;
   color: #999;
+  font-size: 18px;
 }
 
 .fav {
@@ -310,7 +311,7 @@ div:hover #heart {
 }
 
 .collection-item .fav {
-  color: #ccc;
+  color: #ddd;
 }
 
 .fav.active {
@@ -496,6 +497,7 @@ div.lines {
   color: #666;
   background-color: #fff;
   text-align: center;
+  font-size: 18px;
 }
 
 .card {
