@@ -15,6 +15,8 @@ App.icons({
   'android_xhdpi': 'public/android/xhdpi.png',
 });
 
+App.accessRule('http://analytics.trumba.pl');
+
 App.setPreference('Fullscreen', false);
 App.setPreference('Orientation', 'portrait');
 App.setPreference('BackgroundColor', '0xff7E57C2');

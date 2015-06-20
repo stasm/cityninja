@@ -1,0 +1,1 @@
+Template.colophon.onCreated(trackPageView);

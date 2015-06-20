@@ -1,3 +1,4 @@
+Template.index.onCreated(trackPageView);
 Template.index.helpers({
   showFavInfo: function() {
     return viewingFavs() && !hasFavs();
@@ -19,5 +20,6 @@ Template.tabs.events({
     var route = evt.target.dataset.route;
     Session.set('current tab', route);
     window.history.replaceState(route, null, route);
+    trackPageView(route);
   }
 });

@@ -12,3 +12,11 @@ Meteor.startup(function() {
     }, false);
   }
 });
+
+trackPageView = function(url) {
+  _paq.push(['trackPageView', url || Router.current().url]);
+};
+
+trackEvent = function(cat, action, name) {
+  _paq.push(['trackEvent', cat, action, name]);
+};

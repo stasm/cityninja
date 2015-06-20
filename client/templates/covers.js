@@ -20,6 +20,7 @@ function resetTaunts () {
 
 Template.allgood.events({
   'click .cover': function(event, self) {
+    trackEvent('Fun', 'Allgood tap');
     var eggCounter = Session.get('easter egg counter');
     if (eggCounter < 15) {
       Session.set('easter egg counter', eggCounter + 1);

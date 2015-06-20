@@ -30,15 +30,19 @@ Template.fab.helpers({
 
 Template.fab.events({
   'click .fab': function(evt) {
+    trackEvent('Quickadd', evt.currentTarget.classList.contains('expanded') ?
+      'Button tap close' : 'Button tap open');
     evt.stopImmediatePropagation();
     evt.currentTarget.classList.remove('no-anim');
     toggleQuickAddButton();
   },
   'click .dimmer': function(evt) {
+    trackEvent('Quickadd', 'Dimmer tap');
     evt.stopImmediatePropagation();
     toggleQuickAddButton();
   },
   'click .quick-report': function(evt) {
+    trackEvent('Quickadd', 'Report tap');
     evt.stopImmediatePropagation();
     var reportCategory = evt.currentTarget.dataset.reportCategory;
     var reportName = evt.currentTarget.dataset.reportName;
@@ -123,18 +127,21 @@ Template.quickadd.helpers({
 
 Template.quickadd.events({
   'click .close': function(evt) {
+    trackEvent('Quickadd', 'Form close');
     evt.stopImmediatePropagation();
     closeQuickAddForm();
   },
   'click .collapsible-header.complete': function(evt) {
     evt.stopImmediatePropagation();
     var stepIndex = parseInt(evt.currentTarget.dataset.stepIndex);
+    trackEvent('Quickadd', 'Form edit', stepIndex);
     Session.set('quickadd current step', stepIndex);
   },
   'click .collection-item': function(evt) {
     evt.stopImmediatePropagation();
     var choice = evt.currentTarget.dataset.choice;
     var stepIndex = Session.get('quickadd current step');
+    trackEvent('Quickadd', 'Form advance', stepIndex);
     Session.set('quickadd choice ' + stepIndex, choice);
     if (stepIndex === 1 && choice === 'WKD') {
       // wkd has only one line; take a shortcut
@@ -150,6 +157,8 @@ Template.quickadd.events({
     var line = Session.get('quickadd choice 2');
     var dir = Session.get('quickadd choice 3');
     var location = Session.get('quickadd choice 4');
+    trackEvent('Report', 'Created in quickadd');
+    trackEvent('Quickadd', 'Report created');
     createReport(report, line, dir, location);
     closeQuickAddForm();
   }

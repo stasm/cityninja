@@ -1,3 +1,5 @@
+Template.profile.onCreated(trackPageView);
+
 function total(dir, type) {
   return Meteor.user()[dir][type] || 0;
 }

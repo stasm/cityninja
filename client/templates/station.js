@@ -13,6 +13,7 @@ openCreateModal = function(loc) {
 
 Template.station.events({
   'click .flag': function() {
+    trackEvent('Create modal', 'Open');
     return openCreateModal(this.name);
   }
 });

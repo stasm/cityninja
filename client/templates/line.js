@@ -11,6 +11,7 @@ Template.line.events({
   },
   'click .collection-item .fav': function(evt) {
     evt.stopImmediatePropagation();
+    trackEvent('Profile', 'Fav on lines list');
     toggleFav(
       evt.currentTarget.dataset.line,
       evt.currentTarget.dataset.dir);

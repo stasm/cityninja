@@ -49,6 +49,7 @@ Template.cardactions.helpers({
 Template.cardactions.events({
   'click .opentweet': function(evt) {
     evt.stopImmediatePropagation();
+    trackEvent('Report', 'Open tweet', this.sourceId);
     window.open(
       'https://twitter.com/' + this.sourceUser + '/status/' +
         this.sourceId, '_system');
@@ -56,6 +57,7 @@ Template.cardactions.events({
   'click .upvote': function(evt) {
     evt.stopImmediatePropagation();
     if (canVote(this)) {
+      trackEvent('Report', 'Confirm');
       Meteor.call("upvoteReport", this._id, this.createdBy);
       toast(pickRandom(toasts.upvoted));
     }
@@ -63,6 +65,7 @@ Template.cardactions.events({
   'click .downvote': function(evt) {
     evt.stopImmediatePropagation();
     if (canVote(this)) {
+      trackEvent('Report', 'Clear');
       Meteor.call("downvoteReport", this._id, this.createdBy);
       toast(pickRandom(toasts.downvoted));
     }
@@ -70,6 +73,7 @@ Template.cardactions.events({
   'click .remove': function(evt) {
     evt.stopImmediatePropagation();
     if (isAuthor(this)) {
+      trackEvent('Report', 'Remove');
       Meteor.call("removeReport", this._id);
       toast(pickRandom(toasts.removed));
     }
@@ -77,6 +81,7 @@ Template.cardactions.events({
   'click .thank': function(evt) {
     evt.stopImmediatePropagation();
     if (canThank(this)) {
+      trackEvent('Report', 'Thank');
       Meteor.call("thankReport", this._id, this.createdBy);
       toast(pickRandom(toasts.thanked));
     }
