@@ -270,6 +270,10 @@ div:hover #heart {
   color: #009688;
 }
 
+.collapsible-header i {
+  margin-right: 0;
+}
+
 .collapsible .collection {
   margin: 0;
 }
@@ -305,8 +309,8 @@ div:hover #heart {
   overflow: hidden;
 }
 
-.fav:hover {
-  color: #000;
+.collection-item .fav {
+  color: #ccc;
 }
 
 .fav.active {
@@ -627,21 +631,31 @@ code {
   border-radius: 4px;
 }
 
+#toast-container {
+  min-height: 10px;
+}
+
 .fab {
   z-index: 100;
-  position: fixed;
-  bottom: 0;
   right: 0;
   width: 96px;
   height: 96px;
   padding: 20px;
-  -webkit-transition: bottom .2s;
-  transition: bottom .2s;
+  -webkit-transition: top bottom .2s;
+  transition: top bottom .2s;
 }
 
 @media (max-width: 600px) {
-  .fab.raised {
-    bottom: 48px;
+ .fab {
+   position: absolute;
+   top: -86px;
+ }
+}
+
+@media (min-width: 601px) {
+ .fab {
+   position: fixed;
+   bottom: 0px;
   }
 }
 

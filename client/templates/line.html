@@ -1,7 +1,7 @@
 <template name="line">
   <li class="collapsible-item {{#if viewingFavs}}active{{/if}}">
 
-  <div class="collapsible-header pointer {{#if isExpanded line}}active{{/if}}"
+  <div class="collapsible-header pointer {{#if isExpanded name}}active{{/if}}"
     data-line="{{name}}">
     <i class="{{icon}} icon"></i>
     <span class="{{#if hasReports name}}strong{{/if}}">{{name}}</span>
@@ -14,6 +14,12 @@
     <ul class="collection">
       {{#each directions}}
         <li class="collection-item pointer avatar {{#if isHidden ../name name}}hidden{{/if}}">
+          <span class="secondary fav pointer mdi-action-favorite 
+            {{#if isFav ../name name}}active{{/if}}"
+            role="button"
+            aria-label="Oznacz jako ulubiną"
+            data-line="{{../name}}"
+            data-dir="{{name}}"></span>
           <a href="{{pathFor 'dir.show' line=../name type=../type dir=name}}">
             {{#if hasReports ../name name}}
               <i class="icon mdi-alert-warning amber-text"></i>

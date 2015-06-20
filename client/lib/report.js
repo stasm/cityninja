@@ -20,11 +20,4 @@ createReport = function(name, line, dir, location) {
 
 toast = function(msg) {
   Materialize.toast(msg, 2000);
-  var fab = document.querySelector('.fab');
-  if (fab) {
-    fab.classList.add('raised');
-    window.setTimeout(function() {
-      fab.classList.remove('raised');
-    }, 2000);
-  }
 };
