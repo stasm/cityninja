@@ -1,5 +1,6 @@
 Accounts.onCreateUser(function(options, user) {
   user.lastSeen = user.createdAt;
+  user.achievements = [];
   user.incoming = {};
   user.outgoing = {};
   if (options.profile) {
