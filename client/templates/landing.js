@@ -1,5 +1,9 @@
 Template.landing.onCreated(trackPageView);
 
+Template.landing.onRendered(function() {
+  $('.box img').materialbox();
+});
+
 Template.landing.events({
   'click .install-link': function(evt) {
     evt.stopImmediatePropagation();

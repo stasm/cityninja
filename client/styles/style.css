@@ -622,6 +622,10 @@ div.lines {
   margin-top: 20px;
 }
 
+#media .box img {
+  width: 110px;
+}
+
 #footer a {
   color: #fff;
   text-decoration: underline;
