@@ -1,23 +1,22 @@
-html, body {
-  font-family: 'Roboto', 'Helvetica', sans-serif;
-}
 .nj-avatar {
   width: 48px;
   height: 48px;
+  margin-bottom: 24px;
   border-radius: 24px;
 }
+
 .nj-layout .nj-header .mdl-textfield {
   padding-top: 27px;
 }
+
 .nj-layout .mdl-layout__header .mdl-layout__drawer-button {
   color: rgba(0, 0, 0, 0.54);
 }
-.mdl-layout__drawer .avatar {
-  margin-bottom: 16px;
-}
+
 .nj-drawer {
   border: none;
 }
+
 /* iOS Safari specific workaround */
 .nj-drawer .mdl-menu__container {
   z-index: -1;
@@ -26,6 +25,7 @@ html, body {
   z-index: -2;
 }
 /* END iOS Safari specific workaround */
+
 .nj-drawer .mdl-menu .mdl-menu__item {
   display: -webkit-box;
   display: -webkit-flex;
@@ -36,6 +36,7 @@ html, body {
       -ms-flex-align: center;
           align-items: center;
 }
+
 .nj-drawer-header {
   box-sizing: border-box;
   display: -webkit-box;
@@ -54,6 +55,7 @@ html, body {
   padding: 16px;
   height: 151px;
 }
+
 .nj-avatar-dropdown {
   display: -webkit-box;
   display: -webkit-flex;
@@ -78,6 +80,7 @@ html, body {
       -ms-flex-positive: 1;
           flex-grow: 1;
 }
+
 .nj-layout .nj-navigation .mdl-navigation__link {
   display: -webkit-box !important;
   display: -webkit-flex !important;
@@ -95,16 +98,14 @@ html, body {
   color: rgba(255, 255, 255, 0.56);
   font-weight: 500;
 }
+
 .nj-layout .nj-navigation .mdl-navigation__link:hover {
   background-color: #00BCD4;
   color: #37474F;
 }
+
 .nj-navigation .mdl-navigation__link .material-icons {
   font-size: 24px;
   color: rgba(255, 255, 255, 0.56);
   margin-right: 32px;
-}
-
-.nj-content {
-  max-width: 1080px;
 }
