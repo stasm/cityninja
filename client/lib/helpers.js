@@ -12,7 +12,7 @@ isAuthor = function(report) {
 };
 
 getAuthor = function(doc) {
-  return '(' + doc.sourceName + ')';
+  return doc.sourceName + ':';
 };
 
 numThanks = function(doc) {

@@ -64,7 +64,7 @@ Meteor.startup(function() {
         }
 
         const text = msg.trim();
-        const createdBy = from.trim();
+        const createdBy = '+' + from.trim();
         const createdAt = new Date();
 
         const reportId = Reports.insert({
@@ -76,7 +76,7 @@ Meteor.startup(function() {
           downvotes: [],
           createdAt: createdAt,
           createdBy: createdBy,
-          sourceName: createdBy.slice(0, 3) + '******',
+          sourceName: createdBy.slice(0, 6) + '******',
           expired: false,
           removed: false,
           token: Random.id(),
