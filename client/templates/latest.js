@@ -1,0 +1,1 @@
+Template.latest.onCreated(trackPageView);

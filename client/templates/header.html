@@ -1,0 +1,29 @@
+<template name="mainHeader">
+  <header class="nj-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
+    <div class="mdl-layout__header-row">
+      <span class="mdl-layout-title">{{ title }}</span>
+    </div>
+  </header>
+  {{> drawer }}
+</template>
+
+<template name="topHeader">
+  <header class="nj-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
+    <div class="mdl-layout__header-row">
+      <span class="mdl-layout-title">{{ title }}</span>
+    </div>
+  </header>
+  {{> drawer }}
+</template>
+
+<template name="subHeader">
+  <header class="nj-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
+    <div class="mdl-layout__drawer-button">
+      <i class="material-icons">{{ icon }}</i>
+    </div>
+    <div class="mdl-layout__header-row">
+      <span class="mdl-layout-title">{{ title }}</span>
+    </div>
+  </header>
+</template>
+
