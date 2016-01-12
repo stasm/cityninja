@@ -6,32 +6,29 @@ Template.reportDetail.helpers({
 
 function sendComment(evt, template) {
   evt.preventDefault();
-  var input = template.find('#commentText');
+  const input = template.find('#commentText');
+  const text = input.value.trim();
 
-  if (input.value === '') {
+  if (!text) {
     toast(pickRandom(toasts.emptyComment));
     return;
   }
 
-  Meteor.call(
-    'commentReport',
-    template.find('#reportId').value,
-    input.value);
-
-    input.value = '';
-    toast(pickRandom(toasts.commented));
+  Meteor.call('commentReport', template.find('#reportId').value, text);
+  input.value = '';
 }
 
 Template.reportDetail.events({
   'keyup #commentText': function(evt, template) {
-    var input = template.find('.add-comment');
-    var method = input.value === '' ?
-      'add' : 'remove';
-    input.classList[method]('disabled');
+    const input = template.find('#commentText');
+    const button = template.find('.add-comment');
+    const method = input.value.trim() ?
+      'remove' : 'add';
+    button.classList[method]('disabled');
   },
-  'keypress #commentText': function (evt, template) {
+  'keypress #commentText': function(evt, template) {
     if (evt.which === 13) {
-      sendComment(evt, template);
+      return sendComment(evt, template);
     }
   },
   'click .add-comment': sendComment
