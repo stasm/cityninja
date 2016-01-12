@@ -18,7 +18,6 @@ mrt:twit
 hiukim:slack-client
 sergeyt:typeahead
 random
-benan789:materialize-tagsinput
 standard-minifiers
 meteor-base
 mobile-experience
@@ -32,7 +31,7 @@ reload
 ejson
 spacebars
 check
-materialize:materialize
 ecmascript
 es5-shim
 hammer:hammer@=2.0.4_1
+zodiase:mdl
