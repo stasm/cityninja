@@ -26,6 +26,10 @@ bump:
 	sed -i -e 's/"version": ".*"/"version": "$(VERSION)"/' public/manifest.webapp
 	sed -i -e "s/VERSION = '.*';/VERSION = '$(VERSION)';/" lib/meta.js
 
+.PHONY: run-androidstage
+run-android:
+	meteor run android-device
+
 .PHONY: run-android-stage
 run-android-stage:
 	meteor run android-device --mobile-server=$(STAGE_DOMAIN)
