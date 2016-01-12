@@ -1,0 +1,94 @@
+.card {
+  margin: 1rem;
+  z-index: 10;
+}
+
+.card.comment {
+  -webkit-animation: update 3s 1 alternate ease-in;
+  -moz-animation: update 3s 1 alternate ease-in;
+}
+
+.deet .report,
+.deet .tweet,
+.deet .psa {
+  margin: 0;
+  border-radius: 0 0 2px 2px;
+}
+
+.write {
+  margin: 0;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.write input[type="text"] {
+  width: 80%;
+  border: none !important;
+  box-shadow: none !important;
+  margin-bottom: 10px;
+}
+
+.card.write .btn-flat {
+  margin-top: 12px !important;
+}
+
+.card.last-comment {
+  background-color: #ddd;
+  margin: -15px 1.5rem 0;
+  z-index: 0;
+}
+
+.card .card-content {
+  padding: 12px 16px;
+}
+
+.card .dismiss {
+  color: #999;
+  position: relative;
+  top: -5px;
+  right: -10px;
+}
+
+.card .aux {
+  margin-bottom: 5px;
+  color: #999;
+  font-size: 12px;
+}
+
+.card .by {
+  color: #999;
+}
+
+.card .card-action {
+  display: block;
+  font-size: 14px;
+  border: none;
+  padding: 0 16px 16px;
+}
+
+.btn-flat {
+  color: #666 !important;
+}
+
+.container .btn-flat,
+.card .btn-flat {
+  margin: 0 !important;
+  padding: 0;
+  height: auto;
+  line-height: inherit;
+}
+
+.card .btn-flat.downvote {
+  margin: 0 0 0 10px !important;
+}
+
+.clear {
+  clear: both;
+}
+
+.disabled {
+  color: #bbb !important;
+}
+

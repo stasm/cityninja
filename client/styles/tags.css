@@ -1,0 +1,40 @@
+.materialize-tags {
+  padding: 0;
+}
+
+.materialize-tags .tag.badge {
+  font-weight: 400;
+}
+
+.card .materialize-tags {
+  margin-bottom: 0;
+  border-bottom: none;
+  padding: 0;
+  cursor: default;
+}
+
+.card .materialize-tags .tag.badge {
+  background-color: #00aeef;
+}
+
+.settings .materialize-tags .tag.badge,
+.card.fav .materialize-tags .tag.badge {
+  background-color: #ec008c;
+}
+
+
+.tt-hint {
+  visibility: hidden !important;
+}
+
+.tt-menu {
+  position: static !important;
+  width: 87vw !important;
+  max-width: 500px;
+  border-top: 1px solid #eee;
+}
+
+.tt-selectable {
+  padding: 0 5px;
+  line-height: 44px !important;
+}
