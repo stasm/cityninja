@@ -1,0 +1,31 @@
+App.info({
+  id: 'com.piesku.cityninja',
+  name: 'City Ninja',
+  description: 'Nie daj zaskoczyć się opóźnieniom komunikacji miejskiej.',
+  version: '0.0.1',
+  author: 'City Ninja',
+  email: '',
+  website: ''
+});
+
+App.icons({
+  'android_ldpi': 'public/branding/android/36.png',
+  'android_mdpi': 'public/branding/android/48.png',
+  'android_hdpi': 'public/branding/android/72.png',
+  'android_xhdpi': 'public/branding/android/96.png',
+
+  'iphone': 'public/branding/ios/ios_60.png',
+  'iphone_2x': 'public/branding/ios/ios_120.png',
+  'iphone_3x': 'public/branding/ios/ios_180.png',
+  'ipad': 'public/branding/ios/ios_76.png',
+  'ipad_2x': 'public/branding/ios/ios_152.png',
+});
+
+App.setPreference('Fullscreen', false);
+App.setPreference('Orientation', 'portrait');
+App.setPreference('BackgroundColor', '0xff000000');
+App.setPreference('HideKeyboardFormAccessoryBar', true);
+
+App.setPreference('StatusBarOverlaysWebView', false);
+App.setPreference('StatusBarBackgroundColor', '#000000');
+App.setPreference('deployment-target', '7.0');

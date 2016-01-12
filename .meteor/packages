@@ -1,0 +1,38 @@
+# Meteor packages used by this project, one per line.
+# Check this file (and the other files in this directory) into your repository.
+#
+# 'meteor add' and 'meteor remove' will edit this file for you,
+# but you can also edit it by hand.
+
+u2622:persistent-session
+percolate:synced-cron
+iron:router
+nimble:restivus
+hammer:hammer@=2.0.4_1
+remcoder:chronos
+artwells:accounts-guest
+raix:push
+accounts-base
+browser-policy
+mdg:reload-on-resume
+mrt:twit
+hiukim:slack-client
+sergeyt:typeahead
+random
+benan789:materialize-tagsinput
+standard-minifiers
+meteor-base
+mobile-experience
+mongo
+blaze-html-templates
+session
+jquery
+tracker
+logging
+reload
+ejson
+spacebars
+check
+materialize:materialize@=0.97.0
+ecmascript
+es5-shim

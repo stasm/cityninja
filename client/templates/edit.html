@@ -1,0 +1,88 @@
+<template name="editReport"> 
+  <form>
+
+    <nav class="nav-sub">
+      <button class="right btn-flat" type="submit" name="action">
+        Zapisz zmiany
+        {{#unless pushed}} + push{{/unless}}
+      </button>
+
+      {{> logo }}
+      <h1>Przetwarzanie raportu</h1>
+    </nav>
+
+    <div class="wrapper">
+
+      <div class="row container">
+        <div class="col s12">
+          <textarea id="text" class="materialize-textarea validate short"
+            placeholder="Treść zgłoszenia">{{ text }}</textarea>
+        </div>
+      </div>
+
+      <div class="row container">
+        <div class="col s12">
+          <input id="tags" type="text" class="validate" 
+            data-role="materialtags" placeholder="Liniokieruny">
+        </div>
+      </div>
+
+    </div>
+
+  </form>
+</template>
+
+<template name="editAnnouncement">
+  <form>
+
+    <nav class="nav-sub">
+      <button class="right btn-flat" type="submit" name="action">
+        Zapisz zmiany
+      </button>
+
+      {{> logo }}
+      <h1>Nowy komunikat</h1>
+    </nav>
+
+    <div class="wrapper">
+
+      <div class="row container">
+        <div class="col s12">
+          <input id="aux" class="validate" type="text" required
+            value="{{ aux }}"
+            placeholder="Nadgłówek">
+        </div>
+      </div>
+
+      <div class="row container">
+        <div class="col s12">
+          <textarea id="text" class="materialize-textarea validate short"
+            required placeholder="Treść komunikatu">{{ text }}</textarea>
+        </div>
+      </div>
+
+      <div class="row container">
+        <div class="col s12">
+          <input id="dismisslabel" class="validate" type="text"
+            value="{{ dismisslabel }}" required
+            placeholder="Ukryj">
+        </div>
+      </div>
+
+      <div class="row container">
+        <div class="col s6">
+          <input id="ctalabel" class="validate" type="text"
+            value="{{ ctalabel }}"
+            placeholder="CTA">
+        </div>
+        <div class="col s6">
+          <input id="ctaroute" class="validate" type="text"
+            value="{{ ctaroute }}"
+            placeholder="Akcja (np. settings.show)">
+        </div>
+      </div>
+
+    </div>
+
+  </form>
+</template>

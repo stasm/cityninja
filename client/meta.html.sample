@@ -1,0 +1,13 @@
+<head>
+  <title>City Ninja</title>
+
+  <meta property="og:title" content="City Ninja" />
+  <meta property="og:site_name" content="City Ninja" />
+  <meta property="og:image" content="" />
+  <meta property="og:url" content="" />
+  <meta property="og:description"
+    content="Nie daj zaskoczyć się opóźnieniom komunikacji miejskiej!" />
+
+  <meta name="apple-mobile-web-app-title" content="City Ninja">
+  <meta name="application-name" content="City Ninja">
+</head>

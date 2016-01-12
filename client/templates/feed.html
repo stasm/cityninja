@@ -1,0 +1,39 @@
+<template name="feed">
+
+  {{> nav title="Zgłoszenia" }}
+
+  <div class="feed container" id="content">
+
+    {{> ptr }}
+
+    {{#if hasReports }}
+      {{#each pinneditems}}
+        {{> ninjacard }}
+      {{/each}}
+      {{#each otheritems}}
+        {{> feedcard }}
+      {{/each}}
+    {{else}}
+      {{> allgood }}
+    {{/if}}
+
+  </div>
+
+  <div id="toast-container">
+    <div class="fab">
+      <a href="{{ pathFor 'report.add' }}"
+        class="btn-floating btn-large waves-effect waves-light">
+        <i class="material-icons">add</i>
+      </a>
+    </div>
+  </div>
+
+</template>
+
+<template name="ptr">
+    <div id="ptr">
+      <div id="pull">↓ Przeciągnij w dół, aby odświeżyć.</div>
+      <div id="release">↑ Puść, aby odświeżyć.</div>
+      <div id="loading">Sprawdzam…</div>
+    </div>
+</template>

@@ -1,0 +1,26 @@
+<template name="nav">
+  <nav>
+    <a href="#" data-activates="slide-out" class="left pointer menu show-on-large">
+      <i class="material-icons">menu</i>
+    </a>
+    <h1>{{ title }}</h1>
+  </nav>
+
+  <ul id="slide-out" class="side-nav">
+    <li><a href="{{ pathFor 'feed.all' }}">Zgłoszenia</a></li>
+    <li><a href="{{ pathFor 'feed.archive' }}">Archiwum</a></li>
+    <li><a href="{{ pathFor 'profile.show' }}">Twoja aktywność</a></li>
+    <li><a href="{{ pathFor 'settings.show' }}">Ustawienia</a></li>
+    <li><a href="{{ pathFor 'colophon.show' }}">Informacje</a></li>
+    <li><a href="{{ pathFor 'feedback.add' }}">Prześlij uwagi</a></li>
+  </ul>
+</template>
+
+<template name="subnav">
+  <nav class="nav-sub">
+    <a class="left back" href="{{ pathFor 'feed.all' }}">
+      <i class="material-icons">close</i>
+    </a>
+    <h1>{{ title }}</h1>
+  </nav>
+</template>

@@ -1,0 +1,202 @@
+<template name="feedcard">
+  <div class="card pointer {{#if isFav this}}fav{{/if}}">
+    <div class="card-content">
+
+      <a class="btn-flat right dismiss">
+        <i class="material-icons">close</i>
+      </a>
+
+      <div class="aux">
+        {{ relativeTime createdAt }}
+        {{#if isSource this 'user' }}
+          {{ numVotes this }}
+        {{/if}}
+        {{#if isSource this 'sms' }}
+          {{ numVotes this }}
+        {{/if}}
+      </div>
+
+      <p>
+        <span class="by">{{ getAuthor this }}</span>
+        {{ text }}
+      </p>
+
+    </div>
+
+  </div>
+
+  {{#if lastComment}}
+    <div class="card pointer last-comment">
+      <div class="card-content">
+
+        <div class="aux right">
+          {{ relativeTime lastComment.createdAt }}
+        </div>
+
+        <p>
+          <span class="by">{{ getAuthor lastComment }}</span>
+          {{ lastComment.text }}
+        </p>
+
+      </div>
+    </div>
+  {{/if}}
+</template>
+
+<template name="archivecard">
+  <div class="card">
+    <div class="card-content">
+
+      <div class="aux">
+        {{ relativeTime createdAt }}
+        {{#if isSource this 'user' }}
+          {{ numVotes this }}
+        {{/if}}
+        {{#if isSource this 'sms' }}
+          {{ numVotes this }}
+        {{/if}}
+      </div>
+
+      <p>
+        <span class="by">{{ getAuthor this }}</span>
+        {{ text }}
+      </p>
+
+    </div>
+
+  </div>
+</template>
+
+<template name="usercard">
+  <div class="card report {{#if isFav this}}fav{{/if}}">
+    <div class="card-content">
+
+      <div class="aux">
+        {{ relativeTime createdAt }}
+        {{ numVotes this }}
+      </div>
+
+      <p>
+        <span class="by">{{ getAuthor this }}</span>
+        {{ text }}
+      </p>
+
+      {{> taglist }}
+
+    </div>
+
+    <div class="card-action">
+      {{#if isAuthor this }}
+        <span class="left aux">{{ numThanks this }}</span>
+        <a class="btn-flat right remove">Usuń</a>
+      {{else}}
+        {{#if has thanks }}
+          <span class="material-icons left thank">favorite</span>
+        {{else}}
+          <a class="btn-flat left thank pointer">Dziękuję</a>
+        {{/if}}
+
+        {{#unless has upvotes downvotes }}
+          <a class="btn-flat right downvote">Odwołaj</a>
+          <a class="btn-flat right upvote">Potwierdź</a>
+        {{else}}
+          {{#if has downvotes }}
+            <a class="btn-flat right downvote">Odwołane</a>
+          {{/if}}
+
+          {{#if has upvotes }}
+            <a class="btn-flat right upvote">Potwierdzone</a>
+          {{/if}}
+        {{/unless}}
+
+      {{/if}}
+      <br class="clear">
+    </div>
+
+  </div>
+</template>
+
+<template name="tweetcard">
+  <div class="card tweet {{#if isFav this}}fav{{/if}}">
+    <div class="card-content">
+
+      <div class="aux">
+        {{ relativeTime createdAt }}
+      </div>
+
+      <p>
+        <span class="by">{{ getAuthor this }}</span>
+        {{ text }}
+      </p>
+
+      {{> taglist }}
+
+    </div>
+
+    <div class="card-action">
+      {{#if has thanks }}
+        <span class="material-icons left thank">favorite</span>
+      {{else}}
+        <a class="btn-flat left thank pointer">Dziękuję</a>
+      {{/if}}
+
+      <a class="btn-flat right opentweet">Otwórz tweet</a>
+      <br class="clear">
+    </div>
+
+  </div>
+</template>
+
+<template name="ninjacard">
+  <div class="card psa">
+    <div class="card-content">
+
+      <div class="aux">
+        {{ aux }}
+      </div>
+
+      <p>{{ text }}</p>
+
+    </div>
+
+    <div class="card-action">
+      {{#if ctalabel }}
+        <a href="{{ pathFor ctaroute }}" class="btn-flat right dismiss">
+          {{ ctalabel }}
+        </a>
+        <a class="btn-flat left dismiss">{{ dismisslabel }}</a>
+      {{else}}
+        <a class="btn-flat right dismiss">{{ dismisslabel }}</a>
+      {{/if}}
+      <br class="clear">
+    </div>
+
+  </div>
+</template>
+
+<template name="commentcard">
+  <div class="card comment">
+    <div class="card-content">
+
+      <div class="aux right">
+        {{ relativeTime createdAt }}
+      </div>
+
+      <p>
+        <span class="by">{{ getAuthor this }}</span>
+        {{ text }}
+      </p>
+
+    </div>
+  </div>
+</template>
+
+<template name="taglist">
+  {{#if tags}}
+    <div class="materialize-tags">
+      {{#each tags}}
+        <span class="tag badge">{{ getTagName this }}</span>
+      {{/each}}
+    </div>
+  {{/if}}
+</template>

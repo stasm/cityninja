@@ -1,0 +1,17 @@
+{
+    "apn-dev": {
+        "passphrase": "",
+        "key": "ios/DevKey.pem",
+        "cert": "ios/DevCert.pem"
+    },
+    "apn": {
+        "passphrase": "",
+        "key": "ios/ProdKey.pem",
+        "cert": "ios/ProdCert.pem"
+    },
+    "gcm": {
+        "apiKey": "",
+        "projectNumber": 0
+    },
+    "production": false
+}

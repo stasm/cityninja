@@ -1,0 +1,67 @@
+<template name="colophon">
+
+  {{> subnav title="Informacje" }}
+
+  <div class="wrapper">
+
+    <div class="section container">
+      <h4>Nie śledzimy Cię</h4>
+      <p>
+        Ninja dba o Twoją prywatność i nie przechowuje żadnych informacji,
+        które mogłyby posłużyć w zidentyfikowaniu Cię w Internecie.
+      </p>
+      <p>
+        Rozpoznajemy jedynie urządzenie, z którego wysyłasz zgłoszenia.
+        Wykorzystujemy do tego losowy identyfikator, który zapisujemy w pamięci
+        urządzenia.
+      </p>
+      <p>
+        Jeśli odinstalujesz aplikację albo wyczyścisz pamięć przeglądarki, 
+        identyfikator zostanie usunięty i historia Twoich zgłoszeń przepadnie
+        na zawsze.
+      </p>
+    </div>
+
+    <div class="section container">
+      <h4>Wersja {{ ver }}</h4>
+      <p>
+        Bardzo nam miło, że testujesz Warszawskiego Ninję.
+
+        Jesteśmy w fazie <em>beta</em> i zależy nam na Twojej opinii.
+
+        <a href="{{ pathFor 'feedback.add' }}">Prześlij nam uwagi</a> dotyczące
+        dotyczące zarówno funkcjonalności, jak i interfejsu graficznego.
+      </p>
+    </div>
+
+    <div class="section container">
+      <h4><span id="heart">♥</span> Inspiracja</h4>
+      <p>
+        Konkurs
+        <a href="https://konkurs.danepowarszawsku.pl/">Dane po warszawsku</a> i
+        <a href="http://mbta.ninja">mbta.ninja</a>.
+      </p>
+    </div>
+
+    <div class="section container">  
+      <div class="container-game">
+        <canvas id="canvas" class="{{ wonClass }}" width="280" height="280"></canvas>
+      </div>
+
+      <div class="container-game">
+        <button class="waves-effect waves-light btn" data-color="0"></button>
+        <button class="waves-effect waves-light btn" data-color="1"></button>
+        <button class="waves-effect waves-light btn" data-color="2"></button>
+        <button class="waves-effect waves-light btn" data-color="3"></button>
+        <button class="waves-effect waves-light btn" data-color="4"></button>
+        <button class="waves-effect waves-light btn" data-color="5"></button>
+        <button class="waves-effect waves-light btn" data-color="6"></button>
+        <div><p>Ilość ruchów: {{ movesCount }}</p><p>Ilość rozegranych gier: {{ gamesCount }}</p><p>Najlepszy wynik: {{ bestScore }}</p></div>
+      </div>
+    </div>
+
+
+
+  </div>
+
+</template>

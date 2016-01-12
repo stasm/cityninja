@@ -1,0 +1,76 @@
+.container-game{
+  width: 280px;
+  margin: 10px auto;
+  text-align: center;
+
+}
+
+button[data-color] {
+  width: 35px;
+  height: 35px;
+}
+
+button[data-color='0']:hover{
+  background-color: rgb(254,254,254);
+}
+
+button[data-color='0'] {
+  background-color: rgb(255,255,255);
+  padding: 1px;
+}
+
+button[data-color='1']:hover{
+  background-color: rgb(253,201,7);
+}
+
+button[data-color='1'] {
+  background-color: rgb(254,202,8);
+  padding: 1px;
+}
+
+button[data-color='2']:hover{
+  background-color: rgb(247,161,39);
+}
+
+button[data-color='2'] {
+  background-color: rgb(248,162,40);
+  padding: 1px;
+}
+
+button[data-color='3']:hover{
+  background-color: rgb(17,147,222);
+}
+
+button[data-color='3'] {
+  background-color: rgb(18,148,223);
+  padding: 1px;
+}
+
+button[data-color='4']:hover{
+  background-color: rgb(15,128,198);
+}
+
+button[data-color='4'] {
+  background-color: rgb(16,129,199);
+  padding: 1px;
+}
+
+button[data-color='5']:hover{
+  background-color: rgb(233,46,28);
+}
+
+button[data-color='5'] {
+  background-color: rgb(234,47,29);
+  padding: 1px;
+}
+
+button[data-color='6']:hover{
+  background-color: rgb(228,18,24);
+}
+
+button[data-color='6'] {
+  background-color: rgb(229,19,25);
+  padding: 1px;
+
+}
+

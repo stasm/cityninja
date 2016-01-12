@@ -1,0 +1,21 @@
+<template name="archive">
+
+  {{> nav title="Archiwum" }}
+
+  <div class="feed container" id="content">
+
+    {{> ptr}}
+
+    {{#each items}}
+      {{> archivecard }}
+    {{else}}
+      <div class="cover">
+        <div class="container">
+          <p>Nic tu nie ma?</p>
+        </div>
+      </div>
+    {{/each}}
+
+  </div>
+
+</template>

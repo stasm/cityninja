@@ -1,0 +1,31 @@
+<template name="newFeedback">
+  <form>
+
+    <nav class="nav-sub">
+      <a href="{{ pathFor 'feed.all' }}" class="left back pointer">
+        <i class="material-icons">close</i>
+      </a>
+
+      <button class="right btn-flat" type="submit" name="action">
+        Wyślij
+      </button>
+
+      <h2>Uwagi</h2>
+    </nav>
+
+    <div class="wrapper">
+
+      <div class="row container">
+        <div class="col s12">
+          <textarea id="text" class="materialize-textarea validate feedback"
+            maxlength="400" required
+            placeholder="Jak ulepszyć Ninję?"></textarea>
+        </div>
+      </div>
+
+    </div>
+
+  </form>
+
+</template>
+

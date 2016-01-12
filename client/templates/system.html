@@ -1,0 +1,39 @@
+<template name="tokenNotFound">
+
+  <nav class="pink">
+    {{> logo }} 
+    <h1>404</h1>
+  </nav>
+
+  <div class="wrapper">
+    <div class="row container"></div>
+    <div class="row container">
+      <div class="col s12">
+        Nie ma takiego żetonu.
+      </div>
+    </div>
+  </div>
+
+</template>
+
+<template name="loading">
+
+  <div class="cover">
+    <div class="container">
+      <img class="ninja animate spinning"
+        src="/images/ninja-128x128.png"
+        srcset="/images/ninja-128x128.png 1x,
+                /images/ninja-256x256.png 2x,
+                /images/ninja-384x384.png 3x">
+    </div>
+  </div>
+
+</template>
+
+<template name="logo">
+  <img class="logo pointer left"
+    src="/images/ninja-32x32.png"
+    srcset="/images/ninja-32x32.png 1x,
+            /images/ninja-64x64.png 2x,
+            /images/ninja-96x96.png 3x">
+</template>

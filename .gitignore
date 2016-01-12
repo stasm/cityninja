@@ -1,0 +1,6 @@
+.DS_Store
+node_modules
+private
+config.push.json
+mobile-config.js
+client/meta.html

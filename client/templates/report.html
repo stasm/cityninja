@@ -1,0 +1,42 @@
+<template name="reportDetail">
+
+  <nav class="nav-deet">
+    <a class="left back" href="{{ pathFor 'feed.all' }}">
+      <i class="material-icons">close</i>
+    </a>
+    <h1>Szczegóły</h1>
+  </nav>
+
+  <div class="deet container" id="content">
+
+    <div id="ptr"></div>
+
+    {{#if isSource this 'twitter' }}
+      {{> tweetcard }}
+    {{/if}}
+
+    {{#if isSource this 'user' }}
+      {{> usercard }}
+    {{/if}}
+
+    {{#if isSource this 'sms' }}
+      {{> usercard }}
+    {{/if}}
+
+    {{#each comments}}
+      {{> commentcard }}
+    {{/each}}
+
+    <div class="card write">
+      <div class="card-content">
+        <input type="hidden" id="reportId" value="{{ _id }}">
+        <input id="commentText" type="text" class="left validate"
+          maxlength="140" required
+          data-role="materialtags" placeholder="Wpisz komentarz">
+        <a class="btn-flat disabled right add-comment">Wyślij</a>
+      </div>
+    </div>
+
+  </div>
+
+</template>

@@ -1,0 +1,17 @@
+{
+  "version": "2.0.0",
+  "name": "Warszawski Ninja",
+  "description": "Nie daj zaskoczyć się opóźnieniom komunikacji miejskiej.",
+  "launch_path": "/",
+  "icons": {
+    "60": "/branding/fxos/fxos_60.png",
+    "128": "/branding/fxos/fxos_128.png",
+    "512": "/branding/fxos/fxos_512.png"
+  },
+  "developer": {
+    "name": "piesku.com",
+    "url": "http://piesku.com"
+  },
+  "default_locale": "pl",
+  "fullscreen": "false"
+}
