@@ -7,7 +7,8 @@ Template.drawer.onRendered(() => {
 
 Template.drawer.helpers({
   nickname() {
-    return Meteor.user().profile.nickname;
+    const user = Meteor.user();
+    return user && user.profile.nickname;
   }
 });
 
