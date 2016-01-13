@@ -1,21 +1,25 @@
 <template name="archive">
+  <div class="nj-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
 
-  {{> nav title="Archiwum" }}
+    <header class="nj-header nj-header__cyan mdl-layout__header">
+      <div class="mdl-layout__header-row">
+        <span class="mdl-layout-title">Archiwum</span>
+      </div>
+    </header>
 
-  <div class="feed container" id="content">
+    <div class="nj-drawer mdl-layout__drawer">
+      {{> drawer }}
+    </div>
 
-    {{> ptr}}
-
-    {{#each items}}
-      {{> archivecard }}
-    {{else}}
-      <div class="cover">
-        <div class="container">
+    <main class="nj-content mdl-layout__content">
+      {{#each items}}
+        {{> archivecard }}
+      {{else}}
+        <div class="nj-cover">
           <p>Nic tu nie ma?</p>
         </div>
-      </div>
-    {{/each}}
+      {{/each}}
+    </main>
 
   </div>
-
 </template>

@@ -12,3 +12,9 @@
 .nj-header__transparent .mdl-layout__drawer-button i {
     color: #fff;
 }
+
+.nj-header__cyan,
+.nj-header__cyan .mdl-layout__drawer-button i {
+    background-color: #0ff;
+    color: #000;
+}

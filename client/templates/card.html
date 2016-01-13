@@ -1,4 +1,4 @@
-<template name="feedcard"><div>
+<template name="feedcard">
 
   <div class="nj-card nj-card--pointer mdl-card mdl-shadow--8dp">
     <div class="mdl-card__supporting-text">
@@ -28,26 +28,20 @@
     </div>
   {{/if}}
 
-</div></template>
+</template>
 
 <template name="archivecard">
-  <div class="card">
-    <div class="card-content">
-
-      <div class="aux">
+  <div class="nj-card mdl-card mdl-shadow--8dp">
+    <div class="mdl-card__supporting-text">
         {{ relativeTime createdAt }}
         {{#unless isTweet this }}
           {{ numVotes this }}
         {{/unless}}
-      </div>
-
-      <p>
-        <span class="by">{{ getAuthor this }}</span>
-        {{ text }}
-      </p>
-
     </div>
-
+    <p class="nj-card__text">
+      <span class="nj-card__author">{{ getAuthor this }}</span>
+      {{ text }}
+    </p>
   </div>
 </template>
 
