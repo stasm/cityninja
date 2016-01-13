@@ -1,7 +1,13 @@
 html, body {
-  font-family: 'Roboto', 'Helvetica', sans-serif;
+    font-family: 'Roboto', 'Helvetica', sans-serif;
 }
 
 .nj-content {
-  max-width: 1080px;
+    padding: 16px;
+}
+
+.nj-card {
+    width: 90%;
+    max-width: 600px;
+    margin: 16px auto;
 }
