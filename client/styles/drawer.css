@@ -1,7 +1,7 @@
 .nj-avatar {
   width: 48px;
   height: 48px;
-  margin-bottom: 24px;
+  margin: 24px 0;
   border-radius: 24px;
 }
 
@@ -14,7 +14,15 @@
 }
 
 .nj-drawer {
-  border: none;
+    border: none;
+}
+
+.nj-drawer__help {
+    padding-top: 16px;
+}
+
+.nj-drawer__title {
+    margin-top: 0;
 }
 
 /* iOS Safari specific workaround */
@@ -53,7 +61,7 @@
       -ms-flex-pack: end;
           justify-content: flex-end;
   padding: 16px;
-  height: 151px;
+  min-height: 151px;
 }
 
 .nj-avatar-dropdown {

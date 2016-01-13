@@ -2,13 +2,24 @@
 
   <header class="nj-drawer-header">
     <img src="/branding/android/48.png" class="nj-avatar">
-    <div class="nj-avatar-dropdown">
-      <span>{{ nickname }}</span>
-      <div class="mdl-layout-spacer"></div>
-      <button id="accbtn" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-        <i class="material-icons" role="presentation">help</i>
-        <span class="visuallyhidden">Co to za nazwa?</span>
-      </button>
+    <div class="mdl-collapse">
+      <div class="nj-avatar-dropdown">
+        <span>{{ nickname }}</span>
+        <div class="mdl-layout-spacer"></div>
+        <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-collapse__button">
+          <i class="material-icons" role="presentation">help</i>
+        </button>
+      </div>
+      <div class="mdl-collapse__content-wrapper">
+        <div class="nj-drawer__help mdl-collapse__content mdl-animation--default">
+          <h6 class="nj-drawer__title">Co to za nazwa?</h6>
+          <div>
+            W Warszawskim Ninjy użytkownicy pozostają anonimowi. 
+            Aby identyfikować zgłoszenia i komentarze, nadajemy Twojemu
+            urządzeniu wylosowaną nazwę.
+          </div>
+        </div>
+      </div>
     </div>
   </header>
 
