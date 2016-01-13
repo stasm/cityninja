@@ -7,12 +7,10 @@
           {{ numVotes this }}
         {{/unless}}
     </div>
-    <div class="mdl-card__title">
-      <h4 class="mdl-card__title-text">
-        <span class="nj-card__author">{{ getAuthor this }}</span>
-        {{ text }}
-      </h4>
-    </div>
+    <p class="nj-card__text">
+      <span class="nj-card__author">{{ getAuthor this }}</span>
+      {{ text }}
+    </p>
     <div class="mdl-card__menu">
       <button class="nj-card__dismiss mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
         <i class="material-icons">close</i>

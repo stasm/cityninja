@@ -26,6 +26,20 @@ body {
     cursor: pointer;
 }
 
+.nj-card__dismiss .material-icons {
+    color: #888;
+    font-size: 18px;
+}
+
+.nj-card__text {
+    font-size: 16px;
+    margin: 0 16px 16px;
+}
+
+.nj-card__author {
+    color: #888;
+}
+
 .nj-card__last-comment {
     z-index: 20;
     background-color: #ddd;
