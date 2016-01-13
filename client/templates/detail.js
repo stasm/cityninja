@@ -1,7 +1,7 @@
 Template.reportDetail.onCreated(trackPageView);
 
 Template.reportDetail.helpers({
-  isSource: isSource,
+  isTweet: isTweet,
 });
 
 function sendComment(evt, template) {

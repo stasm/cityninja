@@ -11,15 +11,9 @@
 
     <div id="ptr"></div>
 
-    {{#if isSource this 'twitter' }}
+    {{#if isTweet this }}
       {{> tweetcard }}
-    {{/if}}
-
-    {{#if isSource this 'user' }}
-      {{> usercard }}
-    {{/if}}
-
-    {{#if isSource this 'sms' }}
+    {{else}}
       {{> usercard }}
     {{/if}}
 

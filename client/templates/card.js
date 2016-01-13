@@ -25,12 +25,12 @@ Template.feedcard.helpers({
 });
 
 Template.feedcard.events({
-  'click .card': function(evt) {
+  'click .nj-card': function(evt) {
     trackEvent('Report', 'Detail');
     evt.stopImmediatePropagation();
     Router.go('report.detail', { _id: this._id });
   },
-  'click .dismiss': function(evt) {
+  'click .nj-card__dismiss': function(evt) {
     evt.stopImmediatePropagation();
     trackEvent('Report', 'Dismiss');
     Meteor.call('dismissReport', this._id);
@@ -39,7 +39,7 @@ Template.feedcard.events({
 
 Template.archivecard.helpers({
   relativeTime: relativeTime,
-  isSource: isSource,
+  isTweet: isTweet,
   getAuthor: getAuthor,
   numVotes: numVotes,
 });

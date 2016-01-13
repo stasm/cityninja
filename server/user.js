@@ -23,7 +23,7 @@ Accounts.onCreateUser(function(options, user) {
   user.profile['push-report-thanks-enabled'] = true;
   user.profile['push-report-new-enabled'] = true;
   user.profile['push-report-new-anytime'] = false;
-  user.nickname = generateNickname(6);
+  user.profile.nickname = generateNickname(6);
   return user;
 });
 

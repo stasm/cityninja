@@ -2,12 +2,31 @@ html, body {
     font-family: 'Roboto', 'Helvetica', sans-serif;
 }
 
+body {
+    background-image: url('/images/toner.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+}
+
 .nj-content {
     padding: 16px;
 }
 
-.nj-card {
+.nj-card,
+.nj-card__last-comment {
+    z-index: 30;
     width: 90%;
     max-width: 600px;
+    min-height: auto;
     margin: 16px auto;
+}
+
+.nj-card--pointer {
+    cursor: pointer;
+}
+
+.nj-card__last-comment {
+    z-index: 20;
+    background-color: #ddd;
+    margin-top: -18px;
 }
