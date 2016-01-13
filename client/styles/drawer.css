@@ -1,24 +1,22 @@
-.nj-avatar {
+.nj-drawer__avatar {
   width: 48px;
   height: 48px;
   margin: 24px 0;
   border-radius: 24px;
 }
 
-.nj-layout .nj-header .mdl-textfield {
-  padding-top: 27px;
-}
-
-.nj-layout .mdl-layout__header .mdl-layout__drawer-button {
-  color: rgba(0, 0, 0, 0.54);
-}
-
 .nj-drawer {
     border: none;
+    background-color: #323232;
+    color: #fff;
+}
+
+.nj-drawer__nickname {
+    font-size: 16px;
 }
 
 .nj-drawer__help {
-    padding-top: 16px;
+    padding: 16px 4px 0;
 }
 
 .nj-drawer__title {
@@ -29,7 +27,7 @@
 .nj-drawer .mdl-menu__container {
   z-index: -1;
 }
-.nj-drawer .nj-navigation {
+.nj-drawer .mdl-navigation {
   z-index: -2;
 }
 /* END iOS Safari specific workaround */
@@ -45,7 +43,7 @@
           align-items: center;
 }
 
-.nj-drawer-header {
+.nj-drawer__header {
   box-sizing: border-box;
   display: -webkit-box;
   display: -webkit-flex;
@@ -60,11 +58,13 @@
   -webkit-justify-content: flex-end;
       -ms-flex-pack: end;
           justify-content: flex-end;
+
   padding: 16px;
   min-height: 151px;
+  border-bottom: 1px solid #444;
 }
 
-.nj-avatar-dropdown {
+.nj-drawer__dropdown {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -82,14 +82,14 @@
   width: 100%;
 }
 
-.nj-navigation {
+.mdl-navigation {
   -webkit-box-flex: 1;
   -webkit-flex-grow: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
 }
 
-.nj-layout .nj-navigation .mdl-navigation__link {
+.nj-drawer .mdl-navigation .mdl-navigation__link {
   display: -webkit-box !important;
   display: -webkit-flex !important;
   display: -ms-flexbox !important;
@@ -103,17 +103,20 @@
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
-  color: rgba(255, 255, 255, 0.56);
+  color: #fff;
   font-weight: 500;
 }
 
-.nj-layout .nj-navigation .mdl-navigation__link:hover {
-  background-color: #00BCD4;
-  color: #37474F;
+.nj-drawer .mdl-navigation__link {
+  font-size: 16px;
 }
 
-.nj-navigation .mdl-navigation__link .material-icons {
+.nj-drawer .mdl-navigation .mdl-navigation__link:hover {
+  background-color: #0ff;
+  color: #000;
+}
+
+.nj-drawer .mdl-navigation .mdl-navigation__link .material-icons {
   font-size: 24px;
-  color: rgba(255, 255, 255, 0.56);
   margin-right: 32px;
 }

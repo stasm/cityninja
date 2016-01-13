@@ -1,10 +1,10 @@
 <template name="drawer">
 
-  <header class="nj-drawer-header">
-    <img src="/branding/android/48.png" class="nj-avatar">
+  <header class="nj-drawer__header">
+    <img src="/branding/android/48.png" class="nj-drawer__avatar">
     <div class="mdl-collapse">
-      <div class="nj-avatar-dropdown">
-        <span>{{ nickname }}</span>
+      <div class="nj-drawer__dropdown">
+        <span class="nj-drawer__nickname">{{ nickname }}</span>
         <div class="mdl-layout-spacer"></div>
         <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-collapse__button">
           <i class="material-icons" role="presentation">help</i>
@@ -14,7 +14,7 @@
         <div class="nj-drawer__help mdl-collapse__content mdl-animation--default">
           <h6 class="nj-drawer__title">Co to za nazwa?</h6>
           <div>
-            W Warszawskim Ninjy użytkownicy pozostają anonimowi. 
+            W Warszawskim Ninjy użytkownicy są anonimowi.<br>
             Aby identyfikować zgłoszenia i komentarze, nadajemy Twojemu
             urządzeniu wylosowaną nazwę.
           </div>
@@ -23,24 +23,24 @@
     </div>
   </header>
 
-  <nav class="nj-navigation mdl-navigation mdl-color--blue-grey-800">
-    <a class="mdl-navigation__link" href="">
-      <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">view_agenda</i>Zgłoszenia
+  <nav class="mdl-navigation">
+    <a class="mdl-navigation__link" href="{{ pathFor 'feed.all' }}">
+      <i class="material-icons" role="presentation">view_agenda</i>Zgłoszenia
     </a>
-    <a class="mdl-navigation__link" href="">
-      <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">restore</i>Archiwum
+    <a class="mdl-navigation__link" href="{{ pathFor 'feed.archive' }}">
+      <i class="material-icons" role="presentation">restore</i>Archiwum
     </a>
-    <a class="mdl-navigation__link" href="">
-      <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">account_circle</i>Twoja aktywność
+    <a class="mdl-navigation__link" href="{{ pathFor 'profile.show' }}">
+      <i class="material-icons" role="presentation">account_circle</i>Twoja aktywność
     </a>
-    <a class="mdl-navigation__link" href="">
-      <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">settings</i>Ustawienia
+    <a class="mdl-navigation__link" href="{{ pathFor 'settings.show' }}">
+      <i class="material-icons" role="presentation">settings</i>Ustawienia
     </a>
-    <a class="mdl-navigation__link" href="">
-      <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">info</i>Informacje
+    <a class="mdl-navigation__link" href="{{ pathFor 'colophon.show' }}">
+      <i class="material-icons" role="presentation">info</i>Informacje
     </a>
-    <a class="mdl-navigation__link" href="">
-      <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">announcement</i>Prześlij uwagę
+    <a class="mdl-navigation__link" href="{{ pathFor 'feedback.add' }}">
+      <i class="material-icons" role="presentation">announcement</i>Prześlij uwagę
     </a>
   </nav>
 
