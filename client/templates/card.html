@@ -1,47 +1,36 @@
-<template name="feedcard">
-  <div class="card pointer {{#if isFav this}}fav{{/if}}">
-    <div class="card-content">
+<template name="feedcard"><div>
 
-      <a class="btn-flat right dismiss">
-        <i class="material-icons">close</i>
-      </a>
-
-      <div class="aux">
+  <div class="nj-card mdl-card">
+    <div class="mdl-card__title">
+      <h2 class="mdl-card__title-text">
         {{ relativeTime createdAt }}
-        {{#if isSource this 'user' }}
+        {{#unless isTweet this }}
           {{ numVotes this }}
-        {{/if}}
-        {{#if isSource this 'sms' }}
-          {{ numVotes this }}
-        {{/if}}
-      </div>
-
-      <p>
-        <span class="by">{{ getAuthor this }}</span>
-        {{ text }}
-      </p>
-
+        {{/unless}}
+      </h2>
     </div>
-
+    <div class="mdl-card__supporting-text">
+      <span class="nj-card__author">{{ getAuthor this }}</span>
+      {{ text }}
+    </div>
+    <div class="mdl-card__menu">
+      <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+        <i class="material-icons">close</i>
+      </button>
+    </div>
   </div>
 
   {{#if lastComment}}
-    <div class="card pointer last-comment">
-      <div class="card-content">
-
-        <div class="aux right">
-          {{ relativeTime lastComment.createdAt }}
-        </div>
-
-        <p>
-          <span class="by">{{ getAuthor lastComment }}</span>
-          {{ lastComment.text }}
-        </p>
-
+    <div class="nj-card__last-comment mdl-card">
+      <div class="mdl-card__supporting-text">
+        <span class="nj-card__last-activity">{{ relativeTime lastComment.createdAt }}</span>
+        <span class="nj-card__author">{{ getAuthor lastComment }}</span>
+        {{ lastComment.text }}
       </div>
     </div>
   {{/if}}
-</template>
+
+</div></template>
 
 <template name="archivecard">
   <div class="card">

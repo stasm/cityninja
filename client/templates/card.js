@@ -17,7 +17,7 @@ function relativeTime(time) {
 
 Template.feedcard.helpers({
   relativeTime: relativeTime,
-  isSource: isSource,
+  isTweet: isTweet,
   getAuthor: getAuthor,
   isFav: isFav,
   has: has,

@@ -71,7 +71,7 @@ function createPSA(channel, text) {
   Announcements.insert({
     text: text ? text.trim() : '',
     createdAt: new Date(),
-    sourceName: 'ninja',
+    source: 'ninja',
     published: false,
     token: token
   });

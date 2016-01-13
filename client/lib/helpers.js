@@ -3,8 +3,12 @@ function contains(haystack, needle) {
     haystack.indexOf(needle) > -1 : false;
 }
 
-isSource = function(report, source) {
-  return report.source === source;
+isTweet = function(report) {
+  return report.source === 'twitter';
+};
+
+isPSA = function(report) {
+  return report.source === 'ninja';
 };
 
 isAuthor = function(report) {
