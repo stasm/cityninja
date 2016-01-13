@@ -18,7 +18,7 @@ function resetTaunts () {
 }
 
 Template.allgood.events({
-  'click .cover': function(event, self) {
+  'click .nj-cover': function(event, self) {
     trackEvent('Fun', 'Allgood tap');
     var eggCounter = Session.get('easter egg counter');
     if (eggCounter < 15) {
@@ -34,8 +34,7 @@ Template.allgood.onCreated(function() {
 });
 
 Template.allgood.onRendered(function() {
-  var ninja = this.find("#play-ninja");
-  var cover = this.find(".cover");
+  var ninja = this.find('.nj-cover__ninja');
 
   var transform;
   var timer;
@@ -62,7 +61,7 @@ Template.allgood.onRendered(function() {
   });
 
   function resetElement() {
-    ninja.classList.add('animate');
+    ninja.classList.add('nj-cover__ninja--animated');
     transform = {
       translate: { x: 0, y: 0 },
       scale: 1,
@@ -89,7 +88,7 @@ Template.allgood.onRendered(function() {
     ninja.style.transform = value;
   }
 
-  var max = Math.min(cover.offsetWidth / 2, cover.offsetHeight / 2);
+  var max = Math.min(window.innerWidth / 2, window.innerHeight / 2);
 
   function damp(x, max) {
     var abs = max * (1 - Math.exp(-0.005 * Math.abs(x)));
@@ -97,7 +96,7 @@ Template.allgood.onRendered(function() {
   }
 
   function onPan(ev) {
-    ninja.classList.remove('animate');
+    ninja.classList.remove('nj-cover__ninja--animated');
     transform.translate = {
       x: damp(ev.deltaX, max),
       y: damp(ev.deltaY, max)
@@ -115,7 +114,7 @@ Template.allgood.onRendered(function() {
       initScale = transform.scale || 1;
     }
 
-    ninja.classList.remove('animate');
+    ninja.classList.remove('nj-cover__ninja--animated');
     transform.scale = initScale * ev.scale;
 
     window.requestAnimationFrame(updateElementTransform);
@@ -127,7 +126,7 @@ Template.allgood.onRendered(function() {
       initAngle = transform.angle || 0;
     }
 
-    ninja.classList.remove('animate');
+    ninja.classList.remove('nj-cover__ninja--animated');
     transform.rz = 1;
     transform.angle = initAngle + ev.rotation;
 

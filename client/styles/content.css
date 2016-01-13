@@ -21,7 +21,8 @@ body {
     margin: 16px auto;
 }
 
-.nj-card--pointer {
+.nj-card--pointer,
+.nj-cover__ninja--pointer {
     cursor: pointer;
 }
 
@@ -29,4 +30,20 @@ body {
     z-index: 20;
     background-color: #ddd;
     margin-top: -18px;
+}
+
+.nj-cover {
+    color: #fff;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 100%;
+}
+
+.nj-cover__ninja--animated {
+    -webkit-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
 }
