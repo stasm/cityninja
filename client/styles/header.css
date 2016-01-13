@@ -1,0 +1,14 @@
+.nj-header__transparent {
+    background-color: transparent;
+}
+
+.nj-header__transparent .mdl-layout__drawer-button {
+    background-color: #000;
+    border-radius: 0 24px 24px 0;
+    margin-left: 0;
+    width: 52px;
+}
+
+.nj-header__transparent .mdl-layout__drawer-button i {
+    color: #fff;
+}

@@ -15,7 +15,7 @@ body {
 .nj-card,
 .nj-card__last-comment {
     z-index: 30;
-    width: 90%;
+    width: 100%;
     max-width: 600px;
     min-height: auto;
     margin: 16px auto;
