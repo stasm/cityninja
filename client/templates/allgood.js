@@ -18,7 +18,7 @@ function resetTaunts () {
 }
 
 Template.allgood.events({
-  'click .nj-cover': function(event, self) {
+  'click .nj-cover__ninja': function(event, self) {
     trackEvent('Fun', 'Allgood tap');
     var eggCounter = Session.get('easter egg counter');
     if (eggCounter < 15) {
@@ -51,7 +51,6 @@ Template.allgood.onRendered(function() {
   mc.add(new Hammer.Pinch({ threshold: 0 })).recognizeWith([mc.get('pan'), mc.get('rotate')]);
 
   mc.on("panstart panmove", onPan);
-  mc.on("rotatestart rotatemove", onRotate);
   mc.on("pinchstart pinchmove", onPinch);
 
   mc.on("hammer.input", function(ev) {
@@ -67,7 +66,6 @@ Template.allgood.onRendered(function() {
       scale: 1,
       rotateX: 0,
       rotateY: 0,
-      rotateZ: 0,
     };
     window.requestAnimationFrame(updateElementTransform);
   }
@@ -79,7 +77,6 @@ Template.allgood.onRendered(function() {
       'scale(' + transform.scale + ', ' + transform.scale + ')',
       'rotateX('+ transform.rotateX + 'deg)',
       'rotateY('+ transform.rotateY + 'deg)',
-      'rotateZ('+ transform.rotateZ + 'deg)',
     ];
 
     value = value.join(" ");
@@ -116,19 +113,6 @@ Template.allgood.onRendered(function() {
 
     ninja.classList.remove('nj-cover__ninja--animated');
     transform.scale = initScale * ev.scale;
-
-    window.requestAnimationFrame(updateElementTransform);
-  }
-
-  var initAngle = 0;
-  function onRotate(ev) {
-    if(ev.type == 'rotatestart') {
-      initAngle = transform.angle || 0;
-    }
-
-    ninja.classList.remove('nj-cover__ninja--animated');
-    transform.rz = 1;
-    transform.angle = initAngle + ev.rotation;
 
     window.requestAnimationFrame(updateElementTransform);
   }
