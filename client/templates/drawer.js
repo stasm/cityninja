@@ -6,6 +6,10 @@ Template.drawer.onRendered(() => {
 });
 
 Template.drawer.helpers({
+  isActive(route) {
+    return Router.current().route.getName() === route ?
+      'is-active' : null;
+  },
   nickname() {
     const user = Meteor.user();
     return user && user.profile.nickname;

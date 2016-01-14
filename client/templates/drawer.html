@@ -24,22 +24,22 @@
   </header>
 
   <nav class="mdl-navigation">
-    <a class="mdl-navigation__link" href="{{ pathFor 'feed.all' }}">
+    <a class="{{ isActive 'feed.all' }} mdl-navigation__link" href="{{ pathFor 'feed.all' }}">
       <i class="material-icons" role="presentation">view_agenda</i>Zgłoszenia
     </a>
-    <a class="mdl-navigation__link" href="{{ pathFor 'feed.archive' }}">
+    <a class="{{ isActive 'feed.archive' }} mdl-navigation__link" href="{{ pathFor 'feed.archive' }}">
       <i class="material-icons" role="presentation">restore</i>Archiwum
     </a>
-    <a class="mdl-navigation__link" href="{{ pathFor 'profile.show' }}">
+    <a class="{{ isActive 'profile.show' }} mdl-navigation__link" href="{{ pathFor 'profile.show' }}">
       <i class="material-icons" role="presentation">account_circle</i>Twoja aktywność
     </a>
-    <a class="mdl-navigation__link" href="{{ pathFor 'settings.show' }}">
+    <a class="{{ isActive 'settings.show' }} mdl-navigation__link" href="{{ pathFor 'settings.show' }}">
       <i class="material-icons" role="presentation">settings</i>Ustawienia
     </a>
-    <a class="mdl-navigation__link" href="{{ pathFor 'colophon.show' }}">
+    <a class="{{ isActive 'colophon.show' }} mdl-navigation__link" href="{{ pathFor 'colophon.show' }}">
       <i class="material-icons" role="presentation">info</i>Informacje
     </a>
-    <a class="mdl-navigation__link" href="{{ pathFor 'feedback.add' }}">
+    <a class="{{ isActive 'feedback.add' }} mdl-navigation__link" href="{{ pathFor 'feedback.add' }}">
       <i class="material-icons" role="presentation">announcement</i>Prześlij uwagę
     </a>
   </nav>
