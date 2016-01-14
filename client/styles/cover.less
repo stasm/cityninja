@@ -1,0 +1,31 @@
+@import "colors.import.less";
+
+.nj-cover {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 100%;
+}
+
+.nj-cover__ninja--animated {
+    -webkit-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+}
+
+.nj-cover__text {
+    color: #fff;
+    font-size: 16px;
+    margin: 16px;
+}
+
+.nj-archive .nj-cover__text {
+    color: #000;
+}
+
+.nj-loading .nj-cover__ninja {
+    -webkit-animation: 1.5s cubic-bezier(.87,.3,.1,.69) 0s normal none infinite running loading;
+    -moz-animation: 1.5s cubic-bezier(.87,.3,.1,.69) 0s normal none infinite running loading;
+}
