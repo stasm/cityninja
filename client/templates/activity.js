@@ -1,15 +1,9 @@
 Template.activity.onCreated(trackPageView);
 Template.activity.onRendered(() => {
-  $('.mdl-collapse__content').each(function() {
-    const content = $(this);
-    content.css('margin-top', -content.outerHeight(true));
+  $('.nj-achievements .mdl-card__title').each(function() {
+    $(this).css('background-position', rand() + '% ' + rand() + '%');
   })
 });
-
-function total(dir, type) {
-  var user = Meteor.user();
-  return user ? user[dir][type].length : 0;
-}
 
 Template.activity.helpers({
   all: total.bind(null, 'outgoing', 'reports-created'),
@@ -30,10 +24,11 @@ Template.activity.helpers({
   }
 });
 
-Template.activity.events({
-  ['click .mdl-collapse__button'](evt) {
-    $(evt.currentTarget)
-      .parents('.mdl-collapse')
-      .toggleClass('mdl-collapse--opened');
-  }
-});
+function rand() {
+  return Math.random() * 100;
+}
+
+function total(dir, type) {
+  var user = Meteor.user();
+  return user ? user[dir][type].length : 0;
+}

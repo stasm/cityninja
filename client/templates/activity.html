@@ -11,7 +11,7 @@
       {{> drawer }}
     </div>
 
-    <main class="nj-content nj-archive mdl-layout__content">
+    <main class="nj-content nj-activity mdl-layout__content">
       <section>
         <h4>Twoje zgłoszenia</h4>
         {{#unless all}}
@@ -37,29 +37,29 @@
 
       <section>
         <h4>Osiągnięcia</h4>
-        {{#unless achievements}}
-          <p>
-            Tutaj pojawią się Twoje osiągnięcia, np. za zgłoszenia potwierdzone
-            przez innych użytkowników.  Powodzenia!
-          </p>
-        {{else}}
-          <div class="nj-achievements mdl-collapse">
-            {{#each achievements}}
-              <div class="nj-achievements__title mdl-collapse__button">
-                <i class="material-icons mdl-collapse__icon mdl-animation--default">expand_more</i>
-                <i class="material-icons">{{ icon }}</i>
-                {{ name }}
-              </div>
-              <div class="mdl-collapse__content-wrapper">
-                <div class="nj-achievements__desc mdl-collapse__content mdl-animation--default">
-                  {{ desc }}
-                </div>
-              </div>
-            {{/each}}
-          </div>
-        {{/unless}}
+        <div class="nj-achievements">
+          {{#each achievements}}
+            {{> achievementcard this }}
+          {{else}}
+            <p>
+              Tutaj pojawią się Twoje osiągnięcia, np. za zgłoszenia potwierdzone
+              przez innych użytkowników.  Powodzenia!
+            </p>
+          {{/each}}
+        </div>
       </section>
     </main>
 
   </div>
 </div></template>
+
+<template name="achievementcard">
+  <div class="nj-card mdl-shadow--2dp">
+    <div class="mdl-card__title">
+      <h2 class="mdl-card__title-text">{{ name }}</h2>
+    </div>
+    <div class="mdl-card__supporting-text">
+      {{ desc }}
+    </div>
+  </div>
+</template>
