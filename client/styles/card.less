@@ -1,12 +1,18 @@
 @import "colors.import.less";
 
-.nj-card,
-.nj-card__last-comment {
+.nj-card {
     z-index: 30;
     width: 100%;
     max-width: 600px;
     min-height: auto;
     margin: 16px auto;
+}
+
+.nj-card__last-comment {
+    z-index: 20;
+    background-color: #ddd;
+    margin-top: -18px;
+    padding-right: 48px;
 }
 
 .nj-card--pointer,
@@ -26,13 +32,6 @@
 
 .nj-card__author {
     color: @lighter;
-}
-
-.nj-card__last-comment {
-    z-index: 20;
-    background-color: #ddd;
-    margin-top: -18px;
-    padding-right: 48px;
 }
 
 .nj-card__last-activity {
@@ -66,8 +65,14 @@
 
 /* Detail card */
 
-.nj-detail .nj-card {
-    margin-top: 1px;
+.nj-card__report {
+    margin: 1px auto;
+}
+
+.nj-card__comment {
+    width: 95%;
+    margin: 0 auto 8px;
+    padding-right: 48px;
 }
 
 .nj-card .mdl-button {

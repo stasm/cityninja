@@ -1,20 +1,3 @@
-<template name="commentcard">
-  <div class="card comment">
-    <div class="card-content">
-
-      <div class="aux right">
-        {{ relativeTime createdAt }}
-      </div>
-
-      <p>
-        <span class="by">{{ getAuthor this }}</span>
-        {{ text }}
-      </p>
-
-    </div>
-  </div>
-</template>
-
 <template name="taglist">
   {{#if tags}}
     <div class="materialize-tags">

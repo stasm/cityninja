@@ -119,3 +119,13 @@
     </div>
   </div>
 </template>
+
+<template name="commentcard">
+  <div class="nj-card nj-card__comment mdl-card">
+    <div class="mdl-card__supporting-text">
+      <span class="nj-card__last-activity">{{ relativeTime createdAt }}</span>
+      <span class="nj-card__author">{{ getAuthor this }}</span>
+      {{ text }}
+    </div>
+  </div>
+</template>
