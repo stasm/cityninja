@@ -94,6 +94,7 @@ function createReportFromTweet(tweet) {
     text: tweet.text,
     tags: [],
     thanks: [],
+    allthanks: [],
     createdAt: new Date(),
     createdBy: tweet.user.id_str,
     expired: false,

@@ -1,6 +1,6 @@
-Template.reportDetail.onCreated(trackPageView);
+Template.detail.onCreated(trackPageView);
 
-Template.reportDetail.helpers({
+Template.detail.helpers({
   isTweet: isTweet,
 });
 
@@ -18,7 +18,7 @@ function sendComment(evt, template) {
   input.value = '';
 }
 
-Template.reportDetail.events({
+Template.detail.events({
   'keyup #commentText': function(evt, template) {
     const input = template.find('#commentText');
     const button = template.find('.add-comment');

@@ -43,7 +43,7 @@ isFav = function(report) {
 };
 
 toast = function(msg) {
-  Materialize.toast(msg, 3000);
+  //Materialize.toast(msg, 3000);
 };
 
 queuedToasts = [];

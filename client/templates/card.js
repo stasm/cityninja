@@ -52,8 +52,8 @@ Template.tweetcard.helpers({
 });
 
 Template.tweetcard.events({
-  'click .thank.pointer': thankReport,
-  'click .opentweet': function(evt) {
+  'click .nj-card__thank': thankReport,
+  'click .nj-card__open-tweet': function(evt) {
     evt.stopImmediatePropagation();
     trackEvent('Report', 'Open tweet', this.sourceId);
     window.open(
@@ -81,7 +81,7 @@ Template.usercard.helpers({
 });
 
 Template.usercard.events({
-  'click .upvote': function(evt) {
+  'click .nj-card__upvote': function(evt) {
     evt.stopImmediatePropagation();
 
     if (has(this.upvotes)) {
@@ -94,7 +94,7 @@ Template.usercard.events({
       toast(pickRandom(toasts.upvoted));
     }
   },
-  'click .downvote': function(evt) {
+  'click .nj-card__downvote': function(evt) {
     evt.stopImmediatePropagation();
     if (has(this.downvotes)) {
       trackEvent('Report', 'Cancel Downvote');
@@ -106,13 +106,13 @@ Template.usercard.events({
       toast(pickRandom(toasts.downvoted));
     }
   },
-  'click .remove': function(evt) {
+  'click .nj-card__remove': function(evt) {
     evt.stopImmediatePropagation();
     trackEvent('Report', 'Remove');
     Meteor.call('removeReport', this._id);
     toast(pickRandom(toasts.removed));
   },
-  'click .thank.pointer': thankReport
+  'click .nj-card__thank': thankReport
 });
 
 Template.commentcard.helpers({
@@ -129,10 +129,12 @@ Template.taglist.helpers({
 function thankReport(evt) {
   evt.stopImmediatePropagation();
   if (has(this.thanks)) {
-    return;
+    trackEvent('Report', 'Cancel Thanks');
+    Meteor.call('cancelThanks', this._id);
+    toast(pickRandom(toasts.canceled));
+  } else {
+    trackEvent('Report', 'Thank');
+    Meteor.call('thankReport', this._id);
+    toast(pickRandom(toasts.thanked));
   }
-
-  trackEvent('Report', 'Thank');
-  Meteor.call('thankReport', this._id);
-  toast(pickRandom(toasts.thanked));
 }

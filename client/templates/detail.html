@@ -1,36 +1,116 @@
-<template name="reportDetail">
-
-  <nav class="nav-deet">
-    <a class="left back" href="{{ pathFor 'feed.all' }}">
-      <i class="material-icons">close</i>
-    </a>
-    <h1>Szczegóły</h1>
-  </nav>
-
-  <div class="deet container" id="content">
-
-    <div id="ptr"></div>
-
-    {{#if isTweet this }}
-      {{> tweetcard }}
-    {{else}}
-      {{> usercard }}
-    {{/if}}
-
-    {{#each comments}}
-      {{> commentcard }}
-    {{/each}}
-
-    <div class="card write">
-      <div class="card-content">
-        <input type="hidden" id="reportId" value="{{ _id }}">
-        <input id="commentText" type="text" class="left validate"
-          maxlength="140" required
-          data-role="materialtags" placeholder="Wpisz komentarz">
-        <a class="btn-flat disabled right add-comment">Wyślij</a>
+<template name="detail"><div>
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <header class="nj-header nj-header__white mdl-layout__header">
+      <div class="mdl-layout__drawer-button">
+        <a href="{{ pathFor 'feed.all' }}">
+          <i class="material-icons">arrow_back</i>
+        </a>
       </div>
-    </div>
+      <div class="mdl-layout__header-row">
+        <span class="mdl-layout-title">Szczegóły</span>
+      </div>
+    </header>
+    <main class="nj-content nj-detail mdl-layout__content">
 
+      {{#if isTweet this }}
+        {{> tweetcard }}
+      {{else}}
+        {{> usercard }}
+      {{/if}}
+
+      {{#each comments}}
+        {{> commentcard }}
+      {{/each}}
+
+      <div class="card write">
+        <div class="card-content">
+          <input type="hidden" id="reportId" value="{{ _id }}">
+          <input id="commentText" type="text" class="left validate"
+            maxlength="140" required
+            data-role="materialtags" placeholder="Wpisz komentarz">
+          <a class="btn-flat disabled right add-comment">Wyślij</a>
+        </div>
+      </div>
+
+    </main>
   </div>
+</div></template>
 
+<template name="usercard">
+  <div class="nj-card nj-card--pointer mdl-card mdl-shadow--8dp">
+    <div class="mdl-card__supporting-text">
+        {{ relativeTime createdAt }}
+        {{ numVotes this }}
+    </div>
+    <p class="nj-card__text">
+      <span class="nj-card__author">{{ getAuthor this }}</span>
+      {{ text }}
+    </p>
+    <div class="mdl-card__actions">
+      {{#if isAuthor this }}
+        <span class="nj-card__num-thanks">{{ numThanks this }}</span>
+        <button class="nj-card__remove mdl-button mdl-js-button mdl-js-ripple-effect">
+          Usuń
+        </button>
+      {{else}}
+        {{#if has thanks }}
+          <button class="nj-card__thank nj-card__thank--thanked mdl-button mdl-js-button mdl-js-ripple-effect">
+            <i class="material-icons">favorite</i>
+          </button>
+        {{else}}
+          <button class="nj-card__thank mdl-button mdl-js-button mdl-js-ripple-effect">
+            <i class="material-icons">favorite</i>
+          </button>
+        {{/if}}
+
+        {{#unless has upvotes downvotes }}
+          <button class="nj-card__downvote mdl-button mdl-js-button mdl-js-ripple-effect">
+            Odwołaj
+          </button>
+          <button class="nj-card__upvote mdl-button mdl-js-button mdl-js-ripple-effect">
+            Potwierdź
+          </button>
+        {{else}}
+          {{#if has downvotes }}
+            <button class="nj-card__downvote mdl-button mdl-js-button mdl-js-ripple-effect">
+              Odwołane
+            </button>
+          {{/if}}
+          {{#if has upvotes }}
+            <button class="nj-card__upvote mdl-button mdl-js-button mdl-js-ripple-effect">
+              Potwierdzone
+            </button>
+          {{/if}}
+        {{/unless}}
+
+      {{/if}}
+    </div>
+  </div>
+</template>
+
+<template name="tweetcard">
+  <div class="nj-card nj-card--pointer mdl-card mdl-shadow--8dp">
+    <div class="mdl-card__supporting-text">
+        {{ relativeTime createdAt }}
+    </div>
+    <p class="nj-card__text">
+      <span class="nj-card__author">{{ getAuthor this }}</span>
+      {{ text }}
+    </p>
+    <div class="mdl-card__actions">
+      {{#if has thanks }}
+        <button class="nj-card__thank nj-card__thank--thanked mdl-button mdl-js-button mdl-js-ripple-effect">
+          <i class="material-icons">favorite</i>
+        </button>
+      {{else}}
+        <button class="nj-card__thank mdl-button mdl-js-button mdl-js-ripple-effect">
+          <i class="material-icons">favorite</i>
+        </button>
+      {{/if}}
+
+      <button class="nj-card__open-tweet mdl-button mdl-js-button mdl-js-ripple-effect">
+        Otwórz tweet
+      </button>
+    </div>
+  </div>
 </template>

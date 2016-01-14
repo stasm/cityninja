@@ -72,6 +72,7 @@ Meteor.startup(function() {
           text: text,
           tags: [],
           thanks: [],
+          allthanks: [],
           upvotes: [],
           downvotes: [],
           createdAt: createdAt,
