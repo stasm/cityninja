@@ -55,3 +55,28 @@
     </div>
   {{/if}}
 </template>
+
+<template name="ninjacard">
+  <div class="nj-card nj-card--pointer mdl-card mdl-shadow--8dp">
+    <div class="mdl-card__supporting-text">
+        {{ aux }}
+    </div>
+    <p class="nj-card__text">
+      {{ text }}
+    </p>
+    <div class="mdl-card__actions">
+      {{#if ctalabel }}
+        <a href="{{ pathFor ctaroute }}" class="nj-card__action nj-card__cta mdl-button mdl-js-button mdl-js-ripple-effect">
+          {{ ctalabel }}
+        </a>
+        <button class="nj-card__action nj-card__dismiss nj-card__action--left mdl-button mdl-js-button mdl-js-ripple-effect">
+          {{ dismisslabel }}
+        </button>
+      {{else}}
+        <button class="nj-card__action nj-card__dismiss mdl-button mdl-js-button mdl-js-ripple-effect">
+          {{ dismisslabel }}
+        </button>
+      {{/if}}
+    </div>
+  </div>
+</template>

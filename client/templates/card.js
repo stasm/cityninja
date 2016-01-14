@@ -63,7 +63,7 @@ Template.tweetcard.events({
 });
 
 Template.ninjacard.events({
-  'click .dismiss': function(evt) {
+  'click .nj-card__dismiss': function(evt) {
     evt.stopImmediatePropagation();
     trackEvent('Announcement', 'Dismiss');
     Meteor.call('dismissAnnouncement', this._id);

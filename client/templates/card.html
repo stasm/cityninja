@@ -1,30 +1,3 @@
-<template name="ninjacard">
-  <div class="card psa">
-    <div class="card-content">
-
-      <div class="aux">
-        {{ aux }}
-      </div>
-
-      <p>{{ text }}</p>
-
-    </div>
-
-    <div class="card-action">
-      {{#if ctalabel }}
-        <a href="{{ pathFor ctaroute }}" class="btn-flat right dismiss">
-          {{ ctalabel }}
-        </a>
-        <a class="btn-flat left dismiss">{{ dismisslabel }}</a>
-      {{else}}
-        <a class="btn-flat right dismiss">{{ dismisslabel }}</a>
-      {{/if}}
-      <br class="clear">
-    </div>
-
-  </div>
-</template>
-
 <template name="commentcard">
   <div class="card comment">
     <div class="card-content">

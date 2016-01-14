@@ -48,36 +48,36 @@
     </p>
     <div class="mdl-card__actions">
       {{#if isAuthor this }}
-        <span class="nj-card__num-thanks">{{ numThanks this }}</span>
-        <button class="nj-card__remove mdl-button mdl-js-button mdl-js-ripple-effect">
+        <span class="nj-card__action--left nj-card__num-thanks">{{ numThanks this }}</span>
+        <button class="nj-card__action nj-card__remove mdl-button mdl-js-button mdl-js-ripple-effect">
           Usuń
         </button>
       {{else}}
         {{#if has thanks }}
-          <button class="nj-card__thank nj-card__thank--thanked mdl-button mdl-js-button mdl-js-ripple-effect">
+          <button class="nj-card__action nj-card__action--left nj-card__thank nj-card__thank--thanked mdl-button mdl-js-button mdl-js-ripple-effect">
             <i class="material-icons">favorite</i>
           </button>
         {{else}}
-          <button class="nj-card__thank mdl-button mdl-js-button mdl-js-ripple-effect">
+          <button class="nj-card__action nj-card__action--left nj-card__thank mdl-button mdl-js-button mdl-js-ripple-effect">
             <i class="material-icons">favorite</i>
           </button>
         {{/if}}
 
         {{#unless has upvotes downvotes }}
-          <button class="nj-card__downvote mdl-button mdl-js-button mdl-js-ripple-effect">
+          <button class="nj-card__action nj-card__downvote mdl-button mdl-js-button mdl-js-ripple-effect">
             Odwołaj
           </button>
-          <button class="nj-card__upvote mdl-button mdl-js-button mdl-js-ripple-effect">
+          <button class="nj-card__action nj-card__upvote mdl-button mdl-js-button mdl-js-ripple-effect">
             Potwierdź
           </button>
         {{else}}
           {{#if has downvotes }}
-            <button class="nj-card__downvote mdl-button mdl-js-button mdl-js-ripple-effect">
+            <button class="nj-card__action nj-card__downvote mdl-button mdl-js-button mdl-js-ripple-effect">
               Odwołane
             </button>
           {{/if}}
           {{#if has upvotes }}
-            <button class="nj-card__upvote mdl-button mdl-js-button mdl-js-ripple-effect">
+            <button class="nj-card__action nj-card__upvote mdl-button mdl-js-button mdl-js-ripple-effect">
               Potwierdzone
             </button>
           {{/if}}
@@ -99,16 +99,16 @@
     </p>
     <div class="mdl-card__actions">
       {{#if has thanks }}
-        <button class="nj-card__thank nj-card__thank--thanked mdl-button mdl-js-button mdl-js-ripple-effect">
+        <button class="nj-card__action nj-card__action--left nj-card__thank nj-card__thank--thanked mdl-button mdl-js-button mdl-js-ripple-effect">
           <i class="material-icons">favorite</i>
         </button>
       {{else}}
-        <button class="nj-card__thank mdl-button mdl-js-button mdl-js-ripple-effect">
+        <button class="nj-card__action nj-card__action--left nj-card__thank mdl-button mdl-js-button mdl-js-ripple-effect">
           <i class="material-icons">favorite</i>
         </button>
       {{/if}}
 
-      <button class="nj-card__open-tweet mdl-button mdl-js-button mdl-js-ripple-effect">
+      <button class="nj-card__action nj-card__open-tweet mdl-button mdl-js-button mdl-js-ripple-effect">
         Otwórz tweet
       </button>
     </div>
