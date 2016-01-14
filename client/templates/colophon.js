@@ -41,19 +41,19 @@ Session.set('winning', '');
 var checkedSquares = [];
 
 Template.colophon.helpers({
-  ver: function() {
+  ver() {
     return VERSION;
   },
-  movesCount: function() {
+  movesCount() {
     return Session.get('moves count');
   },
-  gamesCount: function() {
+  gamesCount() {
     return Session.get('games count');
   },
-  bestScore: function(){
+  bestScore() {
     return Math.min(Session.get('best score'), Session.get('current count'));
   },
-  wonClass: function(){
+  wonClass() {
     if (Session.get('win condition')) {
       return 'won';
     }
