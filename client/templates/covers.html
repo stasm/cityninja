@@ -1,0 +1,51 @@
+<template name="notFound">
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <header class="nj-header nj-header__transparent mdl-layout__header">
+      <div class="mdl-layout__drawer-button">
+        <a href="{{ pathFor 'feed.all' }}">
+          <i class="material-icons">arrow_back</i>
+        </a>
+      </div>
+    </header>
+    <main class="nj-content nj-notFound mdl-layout__content">
+      {{> sitting }}
+    </main>
+  </div>
+</template>
+
+<template name="loading">
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <main class="nj-content nj-loading mdl-layout__content">
+      <div class="nj-cover">
+        <img class="nj-cover__ninja"
+          src="/images/ninja_skok_1x.png"
+          srcset="/images/ninja_skok_1x.png 1x,
+                  /images/ninja_skok_2x.png 2x,
+                  /images/ninja_skok_3x.png 3x">
+        <p class="nj-cover__text">&nbsp;</p>
+      </div>
+    </main>
+  </div>
+</template>
+
+<template name="allgood">
+  <div class="nj-cover">
+    <img class="nj-cover__ninja nj-cover__ninja--animated nj-cover__ninja--pointer"
+      src="/images/ninja_dobrze_1x.png"
+      srcset="/images/ninja_dobrze_1x.png 1x,
+              /images/ninja_dobrze_2x.png 2x,
+              /images/ninja_dobrze_3x.png 3x">
+    <p class="nj-cover__text">{{status}}</p>
+  </div>
+</template>
+
+<template name="sitting">
+  <div class="nj-cover">
+    <img class="nj-cover__ninja"
+      src="/images/ninja_siedzi_1x.png"
+      srcset="/images/ninja_siedzi_1x.png 1x,
+              /images/ninja_siedzi_2x.png 2x,
+              /images/ninja_siedzi_3x.png 3x">
+    <p class="nj-cover__text">Nic tu nie ma.</p>
+  </div>
+</template>

@@ -21,3 +21,18 @@
 
   </div>
 </template>
+
+<template name="archivecard">
+  <div class="nj-card mdl-card mdl-shadow--2dp">
+    <div class="mdl-card__supporting-text">
+        {{ relativeTime createdAt }}
+        {{#unless isTweet this }}
+          {{ numVotes this }}
+        {{/unless}}
+    </div>
+    <p class="nj-card__text">
+      <span class="nj-card__author">{{ getAuthor this }}</span>
+      {{ text }}
+    </p>
+  </div>
+</template>
