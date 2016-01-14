@@ -8,7 +8,9 @@ html, body {
     padding: 0 16px;
 }
 
-.nj-latest {
+.nj-latest,
+.nj-notFound,
+.nj-loading {
     background-image: url('/images/toner.jpg');
     background-size: cover;
     background-attachment: fixed;
@@ -49,7 +51,6 @@ html, body {
 }
 
 .nj-cover {
-    color: #fff;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -65,6 +66,16 @@ html, body {
 }
 
 .nj-cover__text {
+    color: #fff;
     font-size: 16px;
     margin: 16px;
+}
+
+.nj-archive .nj-cover__text {
+    color: #000;
+}
+
+.nj-loading .nj-cover__ninja {
+    -webkit-animation: 1.5s cubic-bezier(.87,.3,.1,.69) 0s normal none infinite running loading;
+    -moz-animation: 1.5s cubic-bezier(.87,.3,.1,.69) 0s normal none infinite running loading;
 }
