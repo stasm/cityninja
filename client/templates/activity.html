@@ -1,0 +1,65 @@
+<template name="activity"><div>
+  <div class="nj-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+
+    <header class="nj-header nj-header__cyan mdl-layout__header">
+      <div class="mdl-layout__header-row">
+        <span class="mdl-layout-title">Twoja aktywność</span>
+      </div>
+    </header>
+
+    <div class="nj-drawer mdl-layout__drawer">
+      {{> drawer }}
+    </div>
+
+    <main class="nj-content nj-archive mdl-layout__content">
+      <section>
+        <h4>Twoje zgłoszenia</h4>
+        {{#unless all}}
+          <p>
+            Z tego urządzenia nie wysłano jeszcze żadnych zgłoszeń.
+            Oby nie było potrzeby!
+          </p>
+        {{else}}
+          <p>
+            Z tego urządzenia wysłano {{ all }} {{ plural 'reports' all }}.
+
+            {{#if thanks }}
+              <strong>{{ thanks }}</strong> {{ plural 'peopleSent' thanks }} Ci podziękowania.
+            {{/if}}
+
+            {{#if numVotes this }}
+              Łącznie Twoje zgłoszenia zebrały {{ numVotes upvotes downvotes }}.
+            {{/if}}
+
+          </p>
+        {{/unless}}
+      </section>
+
+      <section>
+        <h4>Osiągnięcia</h4>
+        {{#unless achievements}}
+          <p>
+            Tutaj pojawią się Twoje osiągnięcia, np. za zgłoszenia potwierdzone
+            przez innych użytkowników.  Powodzenia!
+          </p>
+        {{else}}
+          <div class="nj-achievements mdl-collapse">
+            {{#each achievements}}
+              <div class="nj-achievements__title mdl-collapse__button">
+                <i class="material-icons mdl-collapse__icon mdl-animation--default">expand_more</i>
+                <i class="material-icons">{{ icon }}</i>
+                {{ name }}
+              </div>
+              <div class="mdl-collapse__content-wrapper">
+                <div class="nj-achievements__desc mdl-collapse__content mdl-animation--default">
+                  {{ desc }}
+                </div>
+              </div>
+            {{/each}}
+          </div>
+        {{/unless}}
+      </section>
+    </main>
+
+  </div>
+</div></template>
