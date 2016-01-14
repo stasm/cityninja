@@ -20,8 +20,8 @@ Accounts.onCreateUser(function(options, user) {
     user.profile = options.profile;
   }
   user.profile.favs = [];
-  user.profile['push-report-new-enabled'] = true;
-  user.profile['push-report-thanks-enabled'] = true;
+  user.profile['push-obs-new-reports'] = true;
+  user.profile['push-thanks'] = true;
   user.profile['push-all-anytime'] = false;
   user.profile.nickname = generateNickname(6);
   return user;

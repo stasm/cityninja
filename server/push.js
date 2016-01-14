@@ -12,7 +12,7 @@ function isRushHour(date) {
 pushReport = function(report) {
   var query = {
     '_id': { $ne: report.createdBy },
-    'profile.push-report-new-enabled': true,
+    'profile.push-obs-new-reports': true,
     'profile.favs': {
       $in: report.tags
     }
@@ -39,7 +39,7 @@ pushReport = function(report) {
 
 pushThanks = function(docId, submitterId) {
   var user = Meteor.users.findOne({_id: submitterId});
-  if (user && user.profile['push-report-thanks-enabled']) {
+  if (user && user.profile['push-thanks']) {
 
     // bail if it isn't rush hour and the user doesn't want the push
     if (!isRushHour(new Date()) && !user.profile['push-all-anytime']) {
