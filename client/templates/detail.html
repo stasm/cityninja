@@ -11,27 +11,32 @@
       </div>
     </header>
     <main class="nj-content nj-detail mdl-layout__content">
-
-      {{#if isTweet this }}
-        {{> tweetcard }}
-      {{else}}
-        {{> usercard }}
-      {{/if}}
-
-      {{#each comments}}
-        {{> commentcard }}
-      {{/each}}
-
-      <div class="card write">
-        <div class="card-content">
-          <input type="hidden" id="reportId" value="{{ _id }}">
-          <input id="commentText" type="text" class="left validate"
-            maxlength="140" required
-            data-role="materialtags" placeholder="Wpisz komentarz">
-          <a class="btn-flat disabled right add-comment">Wyślij</a>
+      <div class="nj-detail__report">
+        {{#if isTweet this }}
+          {{> tweetcard }}
+        {{else}}
+          {{> usercard }}
+        {{/if}}
+      </div>
+      <div class="nj-detail__comments">
+        {{#each comments}}
+          {{> commentcard }}
+        {{/each}}
+      </div>
+      <div class="nj-detail__input">
+        <div action="#" class="nj-card nj-card--pointer mdl-card mdl-shadow--8dp">
+          <form class="mdl-card__actions">
+            <button class="nj-card__action nj-card__send mdl-button mdl-js-button mdl-js-ripple-effect">
+              Wyślij
+            </button>
+            <div class="mdl-textfield mdl-js-textfield">
+              <input type="hidden" id="report-id" value="{{ _id }}">
+              <input class="mdl-textfield__input" type="text" id="comment-text" maxlength="140" required>
+              <label class="mdl-textfield__label" for="comment-text">Wpisz komentarz</label>
+            </div>
+          </form>
         </div>
       </div>
-
     </main>
   </div>
 </div></template>
