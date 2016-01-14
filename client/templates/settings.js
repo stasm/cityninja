@@ -1,5 +1,6 @@
 Template.settings.onCreated(trackPageView);
 Template.settings.onRendered(function() {
+  return;
   var tags = makeTagInput('input#tags');
 
   var user = Meteor.user();
@@ -39,26 +40,21 @@ function showFavToast(msg, err) {
 }
 
 Template.settings.helpers({
-  isChecked: function(name) {
-    var user = Meteor.user();
+  isChecked(name) {
+    const user = Meteor.user();
     return (user && user.profile[name]) ?
       'checked' : null;
   },
-  isDisabled: function() {
-    var user = Meteor.user();
-    return (user && user.profile['push-report-new-enabled']) ?
-      null : 'disabled';
-  }
 });
 
 Template.settings.events({
   'change input': function(evt) {
-    var settingName = evt.currentTarget.dataset.setting;
+    const settingName = evt.currentTarget.getAttribute('id');
     trackEvent('Profile', 'Toggled setting', settingName);
-    var set = {};
-    set['profile.' + settingName] = evt.currentTarget.checked;
     Meteor.users.update(Meteor.userId(), {
-      $set: set
+      $set: {
+        ['profile.' + settingName]: evt.currentTarget.checked,
+      }
     });
   },
 });

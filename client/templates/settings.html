@@ -1,66 +1,54 @@
-<template name="settings">
+<template name="settings"><div>
+  <div class="nj-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
 
-  {{> subnav title="Ustawienia" }}
-
-  <div class="wrapper settings">
-
-    <div class="section container">
-      <h4>Powiadomienia <em>push</em></h4>
-
-      <div>
-        <div class="switch right">
-          <label>
-            <input data-setting="push-report-thanks-enabled" type="checkbox"
-              {{isChecked 'push-report-thanks-enabled'}}>
-            <span class="lever"></span>
-          </label>
-        </div>
-        <p>
-          Podziękowania<br>
-          <small>Podziękowania za Twoje zgłoszenia.</small>
-        </p>
+    <header class="nj-header nj-header__cyan mdl-layout__header">
+      <div class="mdl-layout__header-row">
+        <span class="mdl-layout-title">Archiwum</span>
       </div>
+    </header>
 
-      <div>
-        <div class="switch right">
-          <label>
-            <input data-setting="push-report-new-enabled" type="checkbox"
-              {{isChecked 'push-report-new-enabled'}}>
-            <span class="lever"></span>
-          </label>
-        </div>
-        <p>
-          Nowe zgłoszenia<br>
-          <small>Utrudnienia na Twoich obserwowanych trasach.</small>
-        </p>
-      </div>
-
-      <div class="{{#if isDisabled}}disabled{{/if}}">
-        <div class="switch right">
-          <label>
-            <input data-setting="push-report-new-anytime" type="checkbox"
-              {{isChecked 'push-report-new-anytime'}} {{isDisabled}}>
-            <span class="lever"></span>
-          </label>
-        </div>
-        <p>
-          Wysyłaj o dowolnej porze<br>
-          <small>Powiadomienia także poza godzinami szczytu.</small>
-        </p>
-      </div>
+    <div class="nj-drawer mdl-layout__drawer">
+      {{> drawer }}
     </div>
 
-    <div class="section container">
-      <h4>Obserwowane trasy</h4>
+    <main class="nj-content nj-settings mdl-layout__content">
+      <section>
+        <h4 class="nj-settings__title">Powiadomienia <em>push</em></h4>
 
-      <div class="row">
-        <div class="input-field col s12">
-          <input id="tags" type="text" data-role="materialtags"
-            placeholder="Wpisz nr linii lub kierunek">
+        <label for="push-report-new-enabled" class="nj-settings__toggle mdl-switch mdl-js-switch {{#if isChecked 'push-report-new-enabled'}}is-checked{{/if}}">
+          <span class="mdl-switch__label">Obserwowane linie i przystanki</span>
+          <input type="checkbox" id="push-report-new-enabled" class="mdl-switch__input"
+            {{isChecked 'push-report-new-enabled'}}>
+        </label>
+
+        <label for="push-report-thanks-enabled" class="nj-settings__toggle mdl-switch mdl-js-switch {{#if isChecked 'push-report-thanks-enabled'}}is-checked{{/if}}">
+          <span class="mdl-switch__label">Podziękowania</span>
+          <input type="checkbox" id="push-report-thanks-enabled" class="mdl-switch__input"
+            {{isChecked 'push-report-thanks-enabled'}}>
+        </label>
+
+        <label for="push-all-anytime" class="nj-settings__toggle mdl-switch mdl-js-switch {{#if isChecked 'push-all-anytime'}}is-checked{{/if}}">
+          <span class="mdl-switch__label">Wysyłaj o dowolnej porze</span>
+          <small class="nj-settings__hint">
+            Domyślnie powiadomienia wysyłamy tylko
+            w&nbsp;godzinach szczytu, tj. 7-9 i 14-18
+          </small>
+          <input type="checkbox" id="push-all-anytime" class="mdl-switch__input"
+            {{isChecked 'push-all-anytime'}}>
+        </label>
+      </section>
+
+      <section>
+        <h4 class="nj-settings__title">Obserwowane trasy</h4>
+
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="tags" type="text" data-role="materialtags"
+              placeholder="Wpisz nr linii lub kierunek">
+          </div>
         </div>
-      </div>
-    </div>
+      </section>
+    </main>
 
   </div>
-
-</template>
+</div></template>

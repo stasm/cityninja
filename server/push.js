@@ -20,7 +20,7 @@ pushReport = function(report) {
 
   // if it's not rush hour, include user who want pushes anytime
   if (!isRushHour(new Date())) {
-    query['profile.push-report-new-anytime'] = true;
+    query['profile.push-all-anytime'] = true;
   }
 
   var userIds = Meteor.users.find(
@@ -40,6 +40,12 @@ pushReport = function(report) {
 pushThanks = function(docId, submitterId) {
   var user = Meteor.users.findOne({_id: submitterId});
   if (user && user.profile['push-report-thanks-enabled']) {
+
+    // bail if it isn't rush hour and the user doesn't want the push
+    if (!isRushHour(new Date()) && !user.profile['push-all-anytime']) {
+      return;
+    }
+
     Push.send({
       from: 'push',
       title: 'Dobra robota!',

@@ -20,9 +20,9 @@ Accounts.onCreateUser(function(options, user) {
     user.profile = options.profile;
   }
   user.profile.favs = [];
-  user.profile['push-report-thanks-enabled'] = true;
   user.profile['push-report-new-enabled'] = true;
-  user.profile['push-report-new-anytime'] = false;
+  user.profile['push-report-thanks-enabled'] = true;
+  user.profile['push-all-anytime'] = false;
   user.profile.nickname = generateNickname(6);
   return user;
 });
