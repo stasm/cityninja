@@ -15,25 +15,25 @@
       <section class="nj-section">
         <h4 class="nj-settings__title">Powiadomienia <em>push</em></h4>
 
-        <label for="push-obs-new-reports" class="nj-settings__toggle mdl-switch mdl-js-switch {{#if isChecked 'push-obs-new-reports'}}is-checked{{/if}}">
-          <span class="mdl-switch__label">Obserwowane linie i przystanki</span>
-          <input type="checkbox" id="push-obs-new-reports" class="mdl-switch__input"
+        <label for="push-obs-new-reports" class="nj-settings__toggle mdl-checkbox mdl-js-checkbox {{#if isChecked 'push-obs-new-reports'}}is-checked{{/if}}">
+          <span class="mdl-checkbox__label">Obserwowane linie i przystanki</span>
+          <input type="checkbox" id="push-obs-new-reports" class="mdl-checkbox__input"
             {{isChecked 'push-obs-new-reports'}}>
         </label>
 
-        <label for="push-thanks" class="nj-settings__toggle mdl-switch mdl-js-switch {{#if isChecked 'push-thanks'}}is-checked{{/if}}">
-          <span class="mdl-switch__label">Podziękowania</span>
-          <input type="checkbox" id="push-thanks" class="mdl-switch__input"
+        <label for="push-thanks" class="nj-settings__toggle mdl-checkbox mdl-js-checkbox {{#if isChecked 'push-thanks'}}is-checked{{/if}}">
+          <span class="mdl-checkbox__label">Podziękowania</span>
+          <input type="checkbox" id="push-thanks" class="mdl-checkbox__input"
             {{isChecked 'push-thanks'}}>
         </label>
 
-        <label for="push-all-anytime" class="nj-settings__toggle mdl-switch mdl-js-switch {{#if isChecked 'push-all-anytime'}}is-checked{{/if}}">
-          <span class="mdl-switch__label">Wysyłaj o dowolnej porze</span>
+        <label for="push-all-anytime" class="nj-settings__toggle mdl-checkbox mdl-js-checkbox {{#if isChecked 'push-all-anytime'}}is-checked{{/if}}">
+          <span class="mdl-checkbox__label">Wysyłaj o dowolnej porze</span>
           <small class="nj-settings__hint">
             Domyślnie powiadomienia wysyłamy tylko
             w&nbsp;godzinach szczytu, tj. 7-9 i 14-18
           </small>
-          <input type="checkbox" id="push-all-anytime" class="mdl-switch__input"
+          <input type="checkbox" id="push-all-anytime" class="mdl-checkbox__input"
             {{isChecked 'push-all-anytime'}}>
         </label>
       </section>
