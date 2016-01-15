@@ -35,7 +35,7 @@
 </div></template>
 
 <template name="usercard">
-  <div class="nj-card nj-detail__report nj-card--pointer mdl-card mdl-shadow--8dp">
+  <div class="nj-card nj-detail__report mdl-card mdl-shadow--8dp">
     <div class="mdl-card__supporting-text">
         {{ relativeTime createdAt }}
         {{ numVotes this }}
@@ -87,7 +87,7 @@
 </template>
 
 <template name="tweetcard">
-  <div class="nj-card nj-detail__card nj-card--pointer mdl-card mdl-shadow--8dp">
+  <div class="nj-card nj-detail__card mdl-card mdl-shadow--8dp">
     <div class="mdl-card__supporting-text">
         {{ relativeTime createdAt }}
     </div>
@@ -114,7 +114,7 @@
 </template>
 
 <template name="commentcard">
-  <div class="nj-card nj-detail__comment mdl-card">
+  <div id="{{ ident }}" class="nj-card nj-detail__comment mdl-card">
     <div class="mdl-card__supporting-text">
       <span class="nj-card__last-activity">{{ relativeTime createdAt }}</span>
       <span class="nj-card__author">{{ getAuthor this }}</span>

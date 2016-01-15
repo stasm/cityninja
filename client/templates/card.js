@@ -116,6 +116,9 @@ Template.usercard.events({
 });
 
 Template.commentcard.helpers({
+  ident() {
+    return this.createdAt.valueOf();
+  },
   relativeTime: relativeTime,
   getAuthor: getAuthor
 });

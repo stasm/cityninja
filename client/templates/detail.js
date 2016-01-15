@@ -1,4 +1,20 @@
 Template.detail.onCreated(trackPageView);
+Template.detail.onRendered(observeComments);
+
+function observeComments() {
+  Reports.find(this.data._id).observeChanges({
+    changed(_, fields) {
+      Tracker.afterFlush(() => {
+        const id = fields.lastComment.createdAt.valueOf();
+        const commentCard = document.getElementById(id);
+        commentCard.classList.add('nj-card--new');
+
+        const comments = document.querySelector('.nj-detail__comments');
+        comments.scrollTop = comments.scrollHeight;
+      });
+    }
+  });
+}
 
 Template.detail.helpers({
   isTweet: isTweet,
@@ -26,9 +42,5 @@ Template.detail.events({
     Meteor.call('commentReport', reportId, text);
 
     evt.currentTarget.reset();
-    Meteor.setTimeout(() => {
-      const comments = template.find('.nj-detail__comments');
-      comments.scrollTop = comments.scrollHeight;
-    });
   },
 });
