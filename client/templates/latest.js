@@ -3,15 +3,29 @@ Template.latest.onRendered(flushQueuedToasts);
 Template.latest.onRendered(observeComments);
 
 function observeComments() {
-  Reports.find(buildQuery()).observeChanges({
+  const observer = Reports.find(buildQuery()).observeChanges({
+    added(id) {
+      if (!observer) {
+        return;
+      }
+
+      Tracker.afterFlush(() => {
+        const card = document.getElementById(id);
+        card.classList.add('nj-card--new');
+      });
+    },
     changed(_, fields) {
       Tracker.afterFlush(() => {
+        if (!observer || !fields.lastComment) {
+          return;
+        }
+
         const id = fields.lastComment.createdAt.valueOf();
-        const commentCard = document.getElementById(id);
-        commentCard.classList.remove('nj-card--new');
+        const card = document.getElementById(id);
+        card.classList.remove('nj-card--new');
         // trigger reflow to be able to add the 'new' class
-        commentCard.offsetWidth = commentCard.offsetWidth;
-        commentCard.classList.add('nj-card--new');
+        card.offsetWidth = card.offsetWidth;
+        card.classList.add('nj-card--new');
       });
     }
   });

@@ -27,7 +27,7 @@
 </div></template>
 
 <template name="feedcard">
-  <div class="nj-card nj-card--pointer mdl-card mdl-shadow--8dp">
+  <div id="{{ _id }}" class="nj-card nj-card--pointer mdl-card mdl-shadow--8dp">
     <div class="mdl-card__supporting-text">
         {{ relativeTime createdAt }}
         {{#unless isTweet this }}

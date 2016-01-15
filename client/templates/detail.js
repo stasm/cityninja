@@ -5,6 +5,10 @@ function observeComments() {
   Reports.find(this.data._id).observeChanges({
     changed(_, fields) {
       Tracker.afterFlush(() => {
+        if (!fields.lastComment) {
+          return;
+        }
+
         const id = fields.lastComment.createdAt.valueOf();
         const commentCard = document.getElementById(id);
         commentCard.classList.add('nj-card--new');
