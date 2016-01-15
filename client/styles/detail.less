@@ -32,9 +32,10 @@
     padding-right: 48px;
 }
 
-/* Text input */
+/* Comment input */
 
-.nj-detail__input {
+.nj-detail__write {
+    position: relative;
     border-radius: 2px 2px 0 0;
     overflow: visible;
     z-index: 40;
@@ -43,17 +44,18 @@
     box-shadow: 0px -8px 10px 1px rgba(0, 0, 0, 0.14), 0px -3px 14px 2px rgba(0, 0, 0, 0.12), 0px -5px 5px -3px rgba(0, 0, 0, 0.2)
 }
 
-.nj-detail__input .mdl-textfield {
-    width: 240px;
-    padding: 0;
+.nj-detail__input {
+    border: 0;
     height: 36px;
     line-height: 36px;
+    width: 100%;
+    padding-right: 100px;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
 }
 
-.nj-detail__input .mdl-textfield__input {
-    border: 0;
-}
-
-.nj-detail__input .mdl-textfield__label {
-    top: 4px;
+.nj-card__send {
+    position: absolute;
+    top: 9px;
+    right: 8px;
 }

@@ -21,16 +21,13 @@
           {{> commentcard }}
         {{/each}}
       </div>
-      <div action="#" class="nj-detail__input nj-card mdl-card">
-        <form class="mdl-card__actions">
+      <div action="#" class="nj-detail__write nj-card mdl-card">
+        <form class="mdl-card__actions" autocomplete="off">
           <button class="nj-card__action nj-card__send mdl-button mdl-js-button mdl-js-ripple-effect">
             Wyślij
           </button>
-          <div class="mdl-textfield mdl-js-textfield">
-            <input type="hidden" id="report-id" value="{{ _id }}">
-            <input class="mdl-textfield__input" type="text" id="comment-text" maxlength="140" required>
-            <label class="mdl-textfield__label" for="comment-text">Wpisz komentarz</label>
-          </div>
+          <input type="hidden" id="report-id" value="{{ _id }}">
+          <input class="nj-detail__input" type="text" id="comment-text" maxlength="140" required placeholder="Wpisz komentarz">
         </form>
       </div>
     </main>
