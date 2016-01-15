@@ -11,13 +11,11 @@
       </div>
     </header>
     <main class="nj-content nj-detail mdl-layout__content">
-      <div class="nj-detail__report">
-        {{#if isTweet this }}
-          {{> tweetcard }}
-        {{else}}
-          {{> usercard }}
-        {{/if}}
-      </div>
+      {{#if isTweet this }}
+        {{> tweetcard }}
+      {{else}}
+        {{> usercard }}
+      {{/if}}
       <div class="nj-detail__comments">
         {{#each comments}}
           {{> commentcard }}
@@ -42,7 +40,7 @@
 </div></template>
 
 <template name="usercard">
-  <div class="nj-card nj-card--pointer mdl-card mdl-shadow--8dp">
+  <div class="nj-card nj-detail__report nj-card--pointer mdl-card mdl-shadow--8dp">
     <div class="mdl-card__supporting-text">
         {{ relativeTime createdAt }}
         {{ numVotes this }}
@@ -121,7 +119,7 @@
 </template>
 
 <template name="commentcard">
-  <div class="nj-card nj-card__comment mdl-card">
+  <div class="nj-card nj-detail__comment mdl-card">
     <div class="mdl-card__supporting-text">
       <span class="nj-card__last-activity">{{ relativeTime createdAt }}</span>
       <span class="nj-card__author">{{ getAuthor this }}</span>
