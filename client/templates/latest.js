@@ -1,11 +1,15 @@
 Template.latest.onCreated(trackPageView);
 Template.latest.onRendered(flushQueuedToasts);
 Template.latest.onRendered(observeComments);
+Template.latest.onDestroyed(function() {
+  this.observer.stop();
+});
 
 function observeComments() {
-  const observer = Reports.find(buildQuery()).observeChanges({
-    added(id) {
-      if (!observer) {
+  this.observer = Reports.find(buildQuery()).observeChanges({
+    added: (id) => {
+      console.log(id, this.observer);
+      if (!this.observer) {
         return;
       }
 
@@ -14,9 +18,9 @@ function observeComments() {
         card.classList.add('nj-card--new');
       });
     },
-    changed(_, fields) {
+    changed: (_, fields) => {
       Tracker.afterFlush(() => {
-        if (!observer || !fields.lastComment) {
+        if (!this.observer || !fields.lastComment) {
           return;
         }
 
@@ -29,6 +33,10 @@ function observeComments() {
       });
     }
   });
+}
+
+function unobserveComments() {
+  this.observer.stop();
 }
 
 function buildQuery() {
