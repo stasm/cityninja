@@ -40,9 +40,9 @@
         {{ relativeTime createdAt }}
         {{ numVotes this }}
     </div>
-    <p class="nj-card__text">
+    <p class="nj-card__content">
       <span class="nj-card__author">{{ getAuthor this }}</span>
-      {{ text }}
+      <span class="nj-card__text">{{ text }}</span>
     </p>
     <div class="mdl-card__actions">
       {{#if isAuthor this }}
@@ -91,9 +91,9 @@
     <div class="mdl-card__supporting-text">
         {{ relativeTime createdAt }}
     </div>
-    <p class="nj-card__text">
+    <p class="nj-card__content">
       <span class="nj-card__author">{{ getAuthor this }}</span>
-      {{ text }}
+      <span class="nj-card__text">{{ text }}</span>
     </p>
     <div class="mdl-card__actions">
       {{#if has thanks }}
@@ -118,7 +118,7 @@
     <div class="mdl-card__supporting-text">
       <span class="nj-card__last-activity">{{ relativeTime createdAt }}</span>
       <span class="nj-card__author">{{ getAuthor this }}</span>
-      {{ text }}
+      <span class="nj-card__text">{{ text }}</span>
     </div>
   </div>
 </template>

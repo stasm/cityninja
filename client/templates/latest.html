@@ -39,9 +39,9 @@
           {{ numVotes this }}
         {{/unless}}
     </div>
-    <p class="nj-card__text">
+    <p class="nj-card__content">
       <span class="nj-card__author">{{ getAuthor this }}</span>
-      {{ text }}
+      <span class="nj-card__text">{{ text }}</span>
     </p>
     <div class="mdl-card__menu">
       <button class="nj-card__dismiss mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
@@ -55,7 +55,7 @@
       <div class="mdl-card__supporting-text">
         <span class="nj-card__last-activity">{{ relativeTime lastComment.createdAt }}</span>
         <span class="nj-card__author">{{ getAuthor lastComment }}</span>
-        {{ lastComment.text }}
+        <span class="nj-card__text">{{ lastComment.text }}</span>
       </div>
     </div>
   {{/if}}
@@ -66,8 +66,8 @@
     <div class="mdl-card__supporting-text">
         {{ aux }}
     </div>
-    <p class="nj-card__text">
-      {{ text }}
+    <p class="nj-card__content">
+      <span class="nj-card__text">{{ text }}</span>
     </p>
     <div class="mdl-card__actions">
       {{#if ctalabel }}
