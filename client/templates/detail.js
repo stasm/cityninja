@@ -12,9 +12,9 @@ Template.detail.events({
       'remove' : 'add';
     button.classList[method]('disabled');
   },
-  'submit form': function(evt) {
+  'submit form': function(evt, template) {
     evt.preventDefault();
-    const input = evt.currentTarget.querySelector('#comment-text');
+    const input = template.find('#comment-text');
     const text = input.value.trim();
 
     if (!text) {
@@ -22,8 +22,13 @@ Template.detail.events({
       return;
     }
 
-    const reportId = evt.currentTarget.querySelector('#report-id').value;
+    const reportId = template.find('#report-id').value;
     Meteor.call('commentReport', reportId, text);
+
     evt.currentTarget.reset();
+    Meteor.setTimeout(() => {
+      const comments = template.find('.nj-detail__comments');
+      comments.scrollTop = comments.scrollHeight;
+    });
   },
 });
