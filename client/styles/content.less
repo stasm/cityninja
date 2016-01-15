@@ -8,7 +8,7 @@ html, body {
     padding: 0 16px;
 }
 
-.nj-content section {
+.nj-section {
     margin: 0 auto;
     max-width: 768px;
 }
@@ -22,7 +22,8 @@ html, body {
 .nj-archive,
 .nj-activity,
 .nj-settings,
-.nj-colophon {
+.nj-colophon,
+.nj-new-report {
     background-color: #fff;
 }
 
@@ -56,4 +57,14 @@ html, body {
 
 .mdl-layout--fixed-drawer.is-upgraded:not(.is-small-screen) > .mdl-layout__header.nj-header--below {
     margin-left: 0;
+}
+
+.nj-fab,
+.nj-fab:hover,
+.nj-fab:active {
+    position: absolute;
+    bottom: 24px;
+    right: 24px;
+    background-color: @yellow;
+    color: #000;
 }

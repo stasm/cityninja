@@ -1,0 +1,46 @@
+<template name="newReport"><div>
+  <form class="nj-layout mdl-layout mdl-js-layout mdl-layout--fixed-header">
+
+    <header class="nj-header nj-header--yellow mdl-layout__header">
+      <div class="mdl-layout__drawer-button">
+        <a href="{{ pathFor 'feed.all' }}">
+          <i class="material-icons">close</i>
+        </a>
+      </div>
+      <div class="mdl-layout__header-row">
+        <span class="mdl-layout-title">Nowe zgłoszenie</span>
+        <div class="mdl-layout-spacer"></div>
+        <button type="submit" class="mdl-button mdl-js-button mdl-js-ripple-effect">
+          Wyślij
+        </button>
+      </div>
+    </header>
+
+    <main class="nj-content nj-new-report mdl-layout__content">
+      {{#unless seenHint }}
+        <section class="nj-section nj-new-report__hint">
+          <p>
+            Opisz, co się stało, lub o co chcesz zapytać,
+            np. “Tramwaj linii 17 zderzył się z
+            samochodem” lub “Gdzie w okolicy najlepiej
+            pójść na kawę?”
+          </p>
+        </section>
+        <section class="nj-section nj-new-report__hint-action">
+          <div class="mdl-layout-spacer"></div>
+          <button class="nj-new-report__understood mdl-button mdl-js-button mdl-js-ripple-effect">
+            Ok, rozumiem
+          </button>
+        </section>
+      {{/unless}}
+
+      <div class="mdl-textfield mdl-js-textfield">
+        <input class="mdl-textfield__input" type="text" id="new-report-text" maxlength="140" required>
+        <label class="mdl-textfield__label" for="new-report-text">
+          Opisz problem lub zadaj pytanie
+        </label>
+      </div>
+    </main>
+
+  </form>
+</div></template>
