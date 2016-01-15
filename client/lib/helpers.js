@@ -16,7 +16,8 @@ isAuthor = function(report) {
 };
 
 getAuthor = function(doc) {
-  return doc.sourceName + ':';
+  return doc.source === 'sms' ?
+    doc.sourceName + '…' : doc.sourceName + ':';
 };
 
 numThanks = function(doc) {
