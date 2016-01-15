@@ -13,9 +13,14 @@
     cursor: pointer;
 }
 
-.nj-card--new {
-    -webkit-animation: 2s linear 0s normal none 1 running hilite;
-    -moz-animation: 2s linear 0s normal none 1 running hilite;
+.nj-latest__last-comment.nj-card--new {
+    -webkit-animation: 2s linear 0s normal none 1 running fade-to-grey;
+    -moz-animation: 2s linear 0s normal none 1 running fade-to-grey;
+}
+
+.nj-detail__comment.nj-card--new {
+    -webkit-animation: 2s linear 0s normal none 1 running fade-to-white;
+    -moz-animation: 2s linear 0s normal none 1 running fade-to-white;
 }
 
 .nj-card__dismiss .material-icons {

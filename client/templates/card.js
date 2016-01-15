@@ -22,6 +22,9 @@ Template.feedcard.helpers({
   isFav: isFav,
   has: has,
   numVotes: numVotes,
+  ident() {
+    return this.lastComment.createdAt.valueOf();
+  },
 });
 
 Template.feedcard.events({
