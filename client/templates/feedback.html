@@ -1,31 +1,40 @@
-<template name="newFeedback">
-  <form>
+<template name="newFeedback"><div>
+  <form class="nj-layout mdl-layout mdl-js-layout mdl-layout--fixed-header">
 
-    <nav class="nav-sub">
-      <a href="{{ pathFor 'feed.all' }}" class="left back pointer">
-        <i class="material-icons">close</i>
-      </a>
-
-      <button class="right btn-flat" type="submit" name="action">
-        Wyślij
-      </button>
-
-      <h2>Uwagi</h2>
-    </nav>
-
-    <div class="wrapper">
-
-      <div class="row container">
-        <div class="col s12">
-          <textarea id="text" class="materialize-textarea validate feedback"
-            maxlength="400" required
-            placeholder="Jak ulepszyć Ninję?"></textarea>
-        </div>
+    <header class="nj-header nj-header--cyan mdl-layout__header">
+      <div class="mdl-layout__drawer-button">
+        <a href="{{ pathFor 'feed.all' }}">
+          <i class="material-icons">close</i>
+        </a>
       </div>
+      <div class="mdl-layout__header-row">
+        <span class="mdl-layout-title">Prześlij uwagę</span>
+        <div class="mdl-layout-spacer"></div>
+        <button class="mdl-button mdl-js-button mdl-js-ripple-effect">
+          Wyślij
+        </button>
+      </div>
+    </header>
 
-    </div>
+    <main class="nj-content nj-new-feedback mdl-layout__content">
+        <section class="nj-section">
+          <p>
+            Coś nie działa? W aplikacji jest błąd?  Uważasz, że brakuje jakiejś 
+            funkcji?
+          </p>
+          <p>
+            Zamiast wystawiać negatywną ocenę, zgłoś zespołowi Warszawskiego 
+            Ninjy uwagę! Może będziemy mogli w łatwy sposób na nią zaradzić.
+          </p>
+        </section>
+
+      <div class="mdl-textfield mdl-js-textfield">
+        <textarea class="mdl-textfield__input" type="text" rows= "2" id="new-feedback-text" maxlength="500" required></textarea>
+        <label class="mdl-textfield__label" for="new-feedback-text">
+          Wpisz uwagę
+        </label>
+      </div>
+    </main>
 
   </form>
-
-</template>
-
+</div></template>

@@ -4,7 +4,7 @@ Template.newFeedback.events({
     evt.preventDefault();
     Meteor.call(
       'createFeedback',
-      evt.target.text.value);
+      evt.target['new-feedback-text'].value);
     queuedToasts.push(pickRandom(toasts.feedback));
     Router.go('feed.all');
   },
