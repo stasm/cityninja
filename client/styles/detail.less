@@ -1,0 +1,59 @@
+.nj-detail {
+    padding: 0;
+}
+
+.nj-detail {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Focused report */
+
+.nj-detail__report {
+    z-index: 40;
+    flex: 0 0 auto;
+    margin: -1px auto 0;
+
+    @media (min-width: 769px) {
+        margin-top: 16px;
+    }
+}
+
+/* Comments */
+
+.nj-detail__comments {
+    flex: 1 1 auto;
+    overflow-y: auto;
+    padding: 8px;
+}
+
+.nj-detail__comment {
+    margin: 0 auto 8px;
+    padding-right: 48px;
+}
+
+/* Text input */
+
+.nj-detail__input {
+    border-radius: 2px 2px 0 0;
+    overflow: visible;
+    z-index: 40;
+    flex: 0 1 auto;
+    margin: 0 auto;
+    box-shadow: 0px -8px 10px 1px rgba(0, 0, 0, 0.14), 0px -3px 14px 2px rgba(0, 0, 0, 0.12), 0px -5px 5px -3px rgba(0, 0, 0, 0.2)
+}
+
+.nj-detail__input .mdl-textfield {
+    width: 240px;
+    padding: 0;
+    height: 36px;
+    line-height: 36px;
+}
+
+.nj-detail__input .mdl-textfield__input {
+    border: 0;
+}
+
+.nj-detail__input .mdl-textfield__label {
+    top: 4px;
+}
