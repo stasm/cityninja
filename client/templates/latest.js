@@ -8,7 +8,6 @@ Template.latest.onDestroyed(function() {
 function observeComments() {
   this.observer = Reports.find(buildQuery()).observeChanges({
     added: (id) => {
-      console.log(id, this.observer);
       if (!this.observer) {
         return;
       }
