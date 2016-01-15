@@ -13,18 +13,47 @@ html, body {
     max-width: 768px;
 }
 
-.nj-latest,
-.nj-detail,
-.nj-notFound,
-.nj-loading {
+.mdl-layout {
     background-image: url('/images/darkmap.jpg');
     background-size: cover;
     background-attachment: fixed;
 }
 
+.nj-archive,
+.nj-activity,
+.nj-settings,
+.nj-colophon {
+    background-color: #fff;
+}
+
 .nj-latest__last-comment {
-    z-index: 20;
     background-color: #ddd;
     margin-top: -18px;
     padding-right: 48px;
+}
+
+.nj-latest {
+    padding-top: 56px;
+}
+
+.nj-latest__header {
+    position: fixed;
+    top: 0;
+    padding-left: 72px - 16px;
+
+    @media screen and (min-width: 1025px) {
+        padding-left: 40px - 16px;
+    }
+}
+
+.nj-latest__title {
+    color: #fff;
+}
+
+.nj-header--below {
+    position: absolute;
+}
+
+.mdl-layout--fixed-drawer.is-upgraded:not(.is-small-screen) > .mdl-layout__header.nj-header--below {
+    margin-left: 0;
 }

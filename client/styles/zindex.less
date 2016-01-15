@@ -1,0 +1,27 @@
+.nj-latest__last-comment,
+.nj-detail__report {
+    z-index: 20;
+}
+
+.nj-latest__report,
+.nj-detail__write {
+    z-index: 30;
+}
+
+.nj-header--below .mdl-layout__drawer-button {
+    z-index: 60;
+}
+
+.nj-drawer {
+    z-index: 100;
+}
+
+
+/* iOS Safari specific workaround */
+.nj-drawer .mdl-menu__container {
+  z-index: -1;
+}
+.nj-drawer .mdl-navigation {
+  z-index: -2;
+}
+/* END iOS Safari specific workaround */

@@ -1,10 +1,7 @@
 <template name="latest"><div>
   <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
 
-    <header class="nj-header nj-header__transparent mdl-layout__header">
-      <div class="mdl-layout__header-row">
-        <span class="mdl-layout-title">Zgłoszenia</span>
-      </div>
+    <header class="nj-header nj-header--below nj-header--transparent mdl-layout__header">
     </header>
 
     <div class="nj-drawer mdl-layout__drawer">
@@ -12,6 +9,10 @@
     </div>
 
     <main class="nj-content nj-latest mdl-layout__content">
+      <div class="nj-latest__header mdl-layout__header-row">
+        <span class="nj-latest__title mdl-layout-title">Zgłoszenia</span>
+      </div>
+
       {{#each items}}
         {{#if isPSA this}}
           {{> ninjacard }}
@@ -27,7 +28,7 @@
 </div></template>
 
 <template name="feedcard">
-  <div id="{{ _id }}" class="nj-card nj-card--pointer mdl-card mdl-shadow--8dp">
+  <div id="{{ _id }}" class="nj-card nj-latest__report nj-card--pointer mdl-card mdl-shadow--8dp">
     <div class="mdl-card__supporting-text">
         {{ relativeTime createdAt }}
         {{#unless isTweet this }}
