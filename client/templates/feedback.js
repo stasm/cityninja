@@ -1,5 +1,8 @@
 Template.newFeedback.onCreated(trackPageView);
 Template.newFeedback.events({
+  'keyup [type="text"]': function(_, template) {
+    checkValid(template.find('form'));
+  },
   'submit form': function(evt) {
     evt.preventDefault();
     Meteor.call(

@@ -14,6 +14,9 @@ Template.newReport.events({
     evt.preventDefault();
     Session.setPersistent('user has seen the new report hint', true);
   },
+  'keyup [type="text"]': function(_, template) {
+    checkValid(template.find('form'));
+  },
   'submit form': function(evt) {
     evt.preventDefault();
     Meteor.call(

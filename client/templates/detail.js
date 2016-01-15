@@ -25,22 +25,13 @@ Template.detail.helpers({
 });
 
 Template.detail.events({
-  'keyup #comment-text': function(evt, template) {
-    const input = template.find('#comment-text');
-    const button = template.find('.nj-card__send');
-    const method = input.value.trim() ?
-      button.removeAttribute('disabled') :
-      button.setAttribute('disabled', 'disabled');
+  'keyup [type="text"]': function(_, template) {
+    checkValid(template.find('form'));
   },
   'submit form': function(evt, template) {
     evt.preventDefault();
     const input = template.find('#comment-text');
     const text = input.value.trim();
-
-    if (!text) {
-      toast(pickRandom(toasts.emptyComment));
-      return;
-    }
 
     const reportId = template.find('#report-id').value;
     Meteor.call('commentReport', reportId, text);
