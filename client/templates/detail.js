@@ -25,12 +25,12 @@ Template.detail.helpers({
 });
 
 Template.detail.events({
-  'keyup #commentText': function(evt, template) {
-    const input = template.find('#commentText');
-    const button = template.find('.add-comment');
+  'keyup #comment-text': function(evt, template) {
+    const input = template.find('#comment-text');
+    const button = template.find('.nj-card__send');
     const method = input.value.trim() ?
-      'remove' : 'add';
-    button.classList[method]('disabled');
+      button.removeAttribute('disabled') :
+      button.setAttribute('disabled', 'disabled');
   },
   'submit form': function(evt, template) {
     evt.preventDefault();
