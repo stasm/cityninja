@@ -34,5 +34,5 @@ check
 ecmascript
 es5-shim
 hammer:hammer@=2.0.4_1
-zodiase:mdl
 less
+zodiase:mdl
