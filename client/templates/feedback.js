@@ -1,4 +1,5 @@
 Template.newFeedback.onCreated(trackPageView);
+Template.newFeedback.onRendered(autofocus);
 Template.newFeedback.events({
   'keyup [type="text"]': function(_, template) {
     checkValid(template.find('form'));

@@ -98,3 +98,10 @@ makeTagInput = function(sel) {
 
   return el;
 };
+
+autofocus = function() {
+  Array.prototype.forEach.call(
+    document.querySelectorAll('[autofocus]'),
+    field => field.focus()
+  );
+}

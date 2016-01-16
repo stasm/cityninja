@@ -1,4 +1,5 @@
 Template.detail.onCreated(trackPageView);
+Template.detail.onRendered(autofocus);
 Template.detail.onRendered(observeComments);
 
 function observeComments() {
