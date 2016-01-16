@@ -43,14 +43,19 @@ isFav = function(report) {
   });
 };
 
-toast = function(msg) {
-  //Materialize.toast(msg, 3000);
+toast = function(message, actionHandler, timeout = 3500) {
+  const notification = document.querySelector('.nj-snackbar');
+  Meteor.setTimeout(() =>
+    notification.MaterialSnackbar.showSnackbar(
+      {message, actionHandler, timeout, actionText: 'Cofnij'}
+    ), 500
+  );
 };
 
 queuedToasts = [];
 
 flushQueuedToasts = function() {
-  queuedToasts.forEach(toast);
+  queuedToasts.forEach(([msg, fn]) => toast(msg, fn));
   queuedToasts = [];
 };
 

@@ -37,6 +37,10 @@ Template.feedcard.events({
     evt.stopImmediatePropagation();
     trackEvent('Report', 'Dismiss');
     Meteor.call('dismissReport', this._id);
+    toast(pickRandom(toasts.archived), () => {
+      trackEvent('Report', 'Cancel Dismiss');
+      Meteor.call('cancelDismiss', this._id);
+    });
   },
 });
 
@@ -90,11 +94,9 @@ Template.usercard.events({
     if (has(this.upvotes)) {
       trackEvent('Report', 'Cancel Upvote');
       Meteor.call('cancelUpvote', this._id);
-      toast(pickRandom(toasts.canceled));
     } else {
       trackEvent('Report', 'Upvote');
       Meteor.call('upvoteReport', this._id);
-      toast(pickRandom(toasts.upvoted));
     }
   },
   'click .nj-card__downvote': function(evt) {
@@ -102,18 +104,23 @@ Template.usercard.events({
     if (has(this.downvotes)) {
       trackEvent('Report', 'Cancel Downvote');
       Meteor.call('cancelDownvote', this._id);
-      toast(pickRandom(toasts.canceled));
     } else {
       trackEvent('Report', 'Downvote');
       Meteor.call('downvoteReport', this._id);
-      toast(pickRandom(toasts.downvoted));
     }
   },
   'click .nj-card__remove': function(evt) {
     evt.stopImmediatePropagation();
     trackEvent('Report', 'Remove');
     Meteor.call('removeReport', this._id);
-    toast(pickRandom(toasts.removed));
+    const cancel = () => {
+      trackEvent('Report', 'Cancel Remove');
+      Meteor.call('cancelRemove', this._id);
+    };
+    queuedToasts.push(
+      [pickRandom(toasts.removed), cancel]
+    );
+    Router.go('feed.all');
   },
   'click .nj-card__thank': thankReport
 });
@@ -137,10 +144,8 @@ function thankReport(evt) {
   if (has(this.thanks)) {
     trackEvent('Report', 'Cancel Thanks');
     Meteor.call('cancelThanks', this._id);
-    toast(pickRandom(toasts.canceled));
   } else {
     trackEvent('Report', 'Thank');
     Meteor.call('thankReport', this._id);
-    toast(pickRandom(toasts.thanked));
   }
 }

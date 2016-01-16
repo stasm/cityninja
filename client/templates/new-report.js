@@ -23,7 +23,7 @@ Template.newReport.events({
       'createReport',
       evt.target['new-report-text'].value);
       // evt.target['new-report-tags'].value.split(',').filter(nonEmpty));
-    queuedToasts.push(pickRandom(toasts.created));
+    queuedToasts.push([pickRandom(toasts.created)]);
     Router.go('feed.all');
   },
 });
