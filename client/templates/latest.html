@@ -54,6 +54,8 @@
         <i class="material-icons">close</i>
       </button>
     </div>
+
+    {{> taglist }}
   </div>
 
   {{#if lastComment}}
@@ -90,4 +92,14 @@
       {{/if}}
     </div>
   </div>
+</template>
+
+<template name="taglist">
+  {{#if tags}}
+    <div class="nj-card__taglist">
+      {{#each tag in tags}}
+        <span class="nj-card__tag  {{ fav tag }}">{{ getName tag }}</span>
+      {{/each}}
+    </div>
+  {{/if}}
 </template>

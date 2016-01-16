@@ -134,8 +134,13 @@ Template.commentcard.helpers({
 });
 
 Template.taglist.helpers({
-  getTagName: function(tag) {
+  getName: function(tag) {
     return ztm[tag].name;
+  },
+  fav: function(tag) {
+    const favs = Meteor.user() && Meteor.user().profile.favs;
+    return contains(favs, tag) ?
+      'nj-card__tag--fav' : null;
   }
 });
 

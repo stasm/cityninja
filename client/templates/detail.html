@@ -44,6 +44,9 @@
       <span class="nj-card__author">{{ getAuthor this }}</span>
       <span class="nj-card__text">{{ text }}</span>
     </p>
+
+    {{> taglist }}
+
     <div class="mdl-card__actions">
       {{#if isAuthor this }}
         <span class="nj-card__action--left nj-card__num-thanks">{{ numThanks this }}</span>
@@ -95,6 +98,9 @@
       <span class="nj-card__author">{{ getAuthor this }}</span>
       <span class="nj-card__text">{{ text }}</span>
     </p>
+
+    {{> taglist }}
+
     <div class="mdl-card__actions">
       {{#if has thanks }}
         <button class="nj-card__action nj-card__action--left nj-card__thank nj-card__thank--thanked mdl-button mdl-js-button mdl-js-ripple-effect">

@@ -1,4 +1,4 @@
-function contains(haystack, needle) {
+contains = function(haystack, needle) {
   return haystack ?
     haystack.indexOf(needle) > -1 : false;
 }
