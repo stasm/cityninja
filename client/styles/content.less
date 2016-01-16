@@ -2,6 +2,9 @@
 
 html, body {
     font-family: 'Roboto', 'Helvetica', sans-serif;
+    background-image: url('/images/darkmap.jpg');
+    background-size: cover;
+    background-attachment: fixed;
 }
 
 .nj-content {
@@ -13,19 +16,12 @@ html, body {
     max-width: 768px;
 }
 
-.mdl-layout {
-    background-image: url('/images/darkmap.jpg');
-    background-size: cover;
-    background-attachment: fixed;
+.nj-layout {
+    background-color: #fff;
 }
 
-.nj-archive,
-.nj-activity,
-.nj-settings,
-.nj-colophon,
-.nj-new-report,
-.nj-new-feedback {
-    background-color: #fff;
+.nj-layout--transparent {
+    background-color: transparent;
 }
 
 .nj-latest__last-comment {
@@ -68,6 +64,10 @@ html, body {
     right: 24px;
     background-color: @yellow;
     color: #000;
+}
+
+.mdl-textfield {
+    width: 100%;
 }
 
 .mdl-textfield.is-invalid .mdl-textfield__input {
