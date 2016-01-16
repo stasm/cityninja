@@ -17,7 +17,7 @@ Template.drawer.helpers({
 });
 
 Template.drawer.events({
-  ['click .mdl-collapse__button'](evt) {
+  ['click .mdl-collapse__trigger'](evt) {
     $(evt.currentTarget)
       .parents('.mdl-collapse')
       .toggleClass('mdl-collapse--opened');
