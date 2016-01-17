@@ -1,36 +1,36 @@
-<template name="editReport"> 
-  <form>
+<template name="editReport"><div>
+  <form class="nj-layout mdl-layout mdl-js-layout mdl-layout--fixed-header" autocomplete="off">
 
-    <nav class="nav-sub">
-      <button class="right btn-flat" type="submit" name="action">
-        Zapisz zmiany
-        {{#unless pushed}} + push{{/unless}}
-      </button>
-
-      {{> logo }}
-      <h1>Przetwarzanie raportu</h1>
-    </nav>
-
-    <div class="wrapper">
-
-      <div class="row container">
-        <div class="col s12">
-          <textarea id="text" class="materialize-textarea validate short"
-            placeholder="Treść zgłoszenia">{{ text }}</textarea>
-        </div>
+    <header class="nj-header nj-header--yellow mdl-layout__header">
+      <div class="mdl-layout__drawer-button">
+        <a href="{{ pathFor 'feed.all' }}">
+          <i class="material-icons">close</i>
+        </a>
       </div>
-
-      <div class="row container">
-        <div class="col s12">
-          <input id="tags" type="text" class="validate" 
-            data-role="materialtags" placeholder="Liniokieruny">
-        </div>
+      <div class="mdl-layout__header-row">
+        <span class="mdl-layout-title">Moderacja</span>
+        <div class="mdl-layout-spacer"></div>
+        <button class="mdl-button mdl-js-button mdl-js-ripple-effect">
+          Zapisz zmiany {{#unless pushed}} + push{{/unless}}
+        </button>
       </div>
+    </header>
 
-    </div>
-
+    <main class="nj-content nj-new-report mdl-layout__content">
+      <section class="nj-section">
+        <div class="mdl-textfield mdl-js-textfield">
+          <textarea class="mdl-textfield__input" type="text" id="edit-report-text" required autofocus>{{ text }}</textarea>
+          <label class="mdl-textfield__label" for="edit-report-text">
+            Opisz problem lub zadaj pytanie
+          </label>
+        </div>
+        <div class="nj-tagsinput">
+          <input type="text" id="edit-report-tags" placeholder="Na jakiej linii i przystanku?">
+        </div>
+      </section>
+    </main>
   </form>
-</template>
+</div></template>
 
 <template name="editAnnouncement">
   <form>

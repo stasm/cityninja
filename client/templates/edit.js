@@ -1,10 +1,10 @@
 Template.editReport.onCreated(trackPageView);
 Template.editReport.onRendered(function() {
-  var tags = makeTagInput('input#tags');
-  this.data.tags.forEach(function(tag) {
+  var tags = makeTagInput('#edit-report-tags');
+  this.data.tags.forEach(function(key) {
     tags.materialtags('add', {
-      id: tag,
-      name: ztm[tag].name
+      id: key,
+      name: Tags.findOne({key}).name
     });
   });
 });
@@ -12,12 +12,10 @@ Template.editReport.onRendered(function() {
 Template.editReport.events({
   'submit form': function(evt) {
     evt.preventDefault();
-    Meteor.call(
-      'updateReport', this._id, Router.current().params.token, {
-        text: evt.target.text.value,
-        tags: evt.target.tags.value.split(',').filter(nonEmpty)
-      });
-    toast(pickRandom(toasts.created));
+    Meteor.call('updateReport', this._id, Router.current().params.token, {
+      text: evt.target['edit-report-text'].value,
+      tags: evt.target['edit-report-tags'].value.split(',').filter(nonEmpty)
+    });
   },
 });
 
