@@ -19,7 +19,6 @@ Template.feedcard.helpers({
   relativeTime: relativeTime,
   isTweet: isTweet,
   getAuthor: getAuthor,
-  isFav: isFav,
   has: has,
   numVotes: numVotes,
   ident() {
@@ -54,7 +53,6 @@ Template.archivecard.helpers({
 Template.tweetcard.helpers({
   relativeTime: relativeTime,
   getAuthor: getAuthor,
-  isFav: isFav,
   has: has,
 });
 
@@ -81,7 +79,6 @@ Template.usercard.helpers({
   relativeTime: relativeTime,
   getAuthor: getAuthor,
   isAuthor: isAuthor,
-  isFav: isFav,
   has: has,
   numThanks: numThanks,
   numVotes: numVotes,
