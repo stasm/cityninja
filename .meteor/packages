@@ -10,7 +10,6 @@ iron:router
 nimble:restivus
 remcoder:chronos
 artwells:accounts-guest
-raix:push
 accounts-base
 browser-policy
 mdg:reload-on-resume
@@ -36,3 +35,4 @@ es5-shim
 hammer:hammer@=2.0.4_1
 less
 zodiase:mdl
+raix:push
