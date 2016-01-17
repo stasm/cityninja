@@ -51,20 +51,24 @@
         </p>
       </section>
 
-      <section class="nj-section">
-        <div class="container-game">
-          <canvas id="canvas" class="{{ wonClass }}" width="280" height="280"></canvas>
+      <section class="nj-section nj-game__row">
+
+        <canvas id="canvas" class="nj-game__row {{ wonClass }}" width="280" height="280"></canvas>
+
+        <div class="nj-game__row">
+          <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" data-color="0"></button>
+          <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" data-color="1"></button>
+          <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" data-color="2"></button>
+          <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" data-color="3"></button>
+          <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" data-color="4"></button>
+          <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" data-color="5"></button>
+          <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" data-color="6"></button>
         </div>
 
-        <div class="container-game">
-          <button class="waves-effect waves-light btn" data-color="0"></button>
-          <button class="waves-effect waves-light btn" data-color="1"></button>
-          <button class="waves-effect waves-light btn" data-color="2"></button>
-          <button class="waves-effect waves-light btn" data-color="3"></button>
-          <button class="waves-effect waves-light btn" data-color="4"></button>
-          <button class="waves-effect waves-light btn" data-color="5"></button>
-          <button class="waves-effect waves-light btn" data-color="6"></button>
-          <div><p>Ilość ruchów: {{ movesCount }}</p><p>Ilość rozegranych gier: {{ gamesCount }}</p><p>Najlepszy wynik: {{ bestScore }}</p></div>
+        <div class="nj-game__row">
+          <p>Ilość ruchów: {{ movesCount }}</p>
+          <p>Ilość rozegranych gier: {{ gamesCount }}</p>
+          <p>Najlepszy wynik: {{ bestScore }}</p>
         </div>
       </section>
     </main>
