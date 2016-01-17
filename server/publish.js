@@ -63,6 +63,13 @@ Meteor.publish('queuedAnnouncement', function(token) {
   });
 });
 
+Meteor.publish('tagLabels', function() {
+  return Tags.find({
+  }, {
+    fields: {key: 1, name: 1}
+  });
+});
+
 Meteor.publish('userData', function() {
   return Meteor.users.find(
     {_id: this.userId},

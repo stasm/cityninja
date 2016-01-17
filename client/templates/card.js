@@ -134,8 +134,8 @@ Template.commentcard.helpers({
 });
 
 Template.taglist.helpers({
-  getName: function(tag) {
-    return ztm[tag].name;
+  getName: function(key) {
+    return Tags.findOne({key}).name;
   },
   fav: function(tag) {
     const favs = Meteor.user() && Meteor.user().profile.favs;
