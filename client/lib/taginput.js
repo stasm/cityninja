@@ -1,6 +1,6 @@
 makeTagInput = function(sel) {
   var tags = new Bloodhound({
-    datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
+    datumTokenizer: Bloodhound.tokenizers.obj.nonword('name'),
     queryTokenizer: Bloodhound.tokenizers.whitespace,
     limit: Infinity,
     local: function() {
