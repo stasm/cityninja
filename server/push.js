@@ -37,22 +37,27 @@ pushReport = function(report) {
   });
 };
 
-pushThanks = function(docId, submitterId) {
+pushThanks = function(docId, submitterId, thankerId) {
+  var updated = Reports.update({
+    _id: docId,
+  }, {
+    $addToSet: {
+      allthanks: thankerId
+    }
+  });
+
   var user = Meteor.users.findOne({_id: submitterId});
   if (user && user.profile['push-thanks']) {
 
-    // bail if it isn't rush hour and the user doesn't want the push
-    if (!isRushHour(new Date()) && !user.profile['push-all-anytime']) {
-      return;
+    if (isRushHour(new Date()) || user.profile['push-all-anytime']) {
+      Push.send({
+        from: 'push',
+        title: 'Dobra robota!',
+        text: 'Ktoś podziękował Ci za zgłoszenie.',
+        query: {
+          userId: submitterId
+        }
+      });
     }
-
-    Push.send({
-      from: 'push',
-      title: 'Dobra robota!',
-      text: 'Ktoś podziękował Ci za zgłoszenie.',
-      query: {
-        userId: submitterId
-      }
-    });
   }
 };
