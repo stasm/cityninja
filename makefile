@@ -1,3 +1,4 @@
+# Define ROOT_URL, OBJDIR and other variables in private/makefile
 include private/makefile
 
 .PHONY: build
