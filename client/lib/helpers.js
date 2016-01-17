@@ -52,46 +52,6 @@ flushQueuedToasts = function() {
   queuedToasts = [];
 };
 
-makeTagInput = function(sel) {
-  var directions = new Bloodhound({
-    datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
-    queryTokenizer: Bloodhound.tokenizers.whitespace,
-    limit: Infinity,
-    local: function() {
-      return Object.keys(ztm).map(function(key) {
-        return { id: key, name: ztm[key].name };
-      });
-    },
-  });
-
-  directions.initialize();
-
-  var el = $(sel);
-
-  function removeSelected(selected, tag) {
-    return selected.indexOf(tag.id) === -1;
-  }
-
-  el.materialtags({
-    itemValue: 'id',
-    itemText: 'name',
-    typeaheadjs: {
-      name: 'dirs',
-      displayKey: 'name',
-      source: function(query, callback) {
-        directions.search(query, function(suggestions) {
-          var selected = el.val();
-          callback(
-            suggestions.filter(
-              removeSelected.bind(null, selected)).slice(0, 5));
-        });
-      },
-    }
-  });
-
-  return el;
-};
-
 autofocus = function() {
   Array.prototype.forEach.call(
     document.querySelectorAll('[autofocus]'),

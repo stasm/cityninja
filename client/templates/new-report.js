@@ -1,7 +1,7 @@
 Template.newReport.onCreated(trackPageView);
 Template.newReport.onRendered(autofocus);
 Template.newReport.onRendered(function() {
-  // makeTagInput('input#stop');
+  makeTagInput('#new-report-tags');
 });
 
 Template.newReport.helpers({
@@ -22,8 +22,8 @@ Template.newReport.events({
     evt.preventDefault();
     Meteor.call(
       'createReport',
-      evt.target['new-report-text'].value);
-      // evt.target['new-report-tags'].value.split(',').filter(nonEmpty));
+      evt.target['new-report-text'].value,
+      evt.target['new-report-tags'].value.split(',').filter(nonEmpty));
     queuedToasts.push([pickRandom(toasts.created)]);
     Router.go('feed.all');
   },

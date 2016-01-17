@@ -1,0 +1,72 @@
+@import 'colors.import.less';
+@import 'card.less';
+
+.nj-tagsinput {
+    position: relative;
+}
+
+.nj-tagsinput .twitter-typeahead {
+    display: block !important;
+}
+
+.nj-tagsinput .chip {
+    .nj-card__tag;
+}
+
+.nj-tagsinput .chip i {
+    font-size: 18px;
+    position: relative;
+    top: 3px;
+    left: 3px;
+}
+
+.nj-tagsinput .tt-input {
+    border: none;
+    border-bottom: 1px solid @lightgrey;
+    font-size: 16px;
+    margin: 0px;
+    padding: 4px 0px;
+    width: 100%;
+    background: transparent none repeat scroll 0px 0px;
+    text-align: left;
+    color: inherit;
+}
+
+.nj-tagsinput .tt-hint {
+    visibility: hidden !important;
+}
+
+::-webkit-input-placeholder {
+    color: @lightgrey !important;
+    font-family: 'Roboto', Helvetica, sans-serif;
+}
+
+:-ms-input-placeholder {
+    color: @lightgrey;
+    font-family: 'Roboto', Helvetica, sans-serif;
+}
+
+:-moz-placeholder {
+    color: @lightgrey;
+    font-family: 'Roboto', Helvetica, sans-serif;
+}
+
+::-moz-placeholder {
+    color: @lightgrey;
+    font-family: 'Roboto', Helvetica, sans-serif;
+}
+
+:focus {
+    outline: none;
+}
+
+.nj-tagsinput .tt-menu {
+    position: static !important;
+    width: 100vw !important;
+}
+
+.nj-tagsinput .tt-selectable {
+    color: @lightgrey;
+    padding: 0 5px;
+    line-height: 44px !important;
+}
