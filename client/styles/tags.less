@@ -1,5 +1,4 @@
 @import 'colors.import.less';
-@import 'card.less';
 
 .nj-tagsinput {
     position: relative;
@@ -9,8 +8,14 @@
     display: block !important;
 }
 
+.nj-card__tag,
 .nj-tagsinput .chip {
-    .nj-card__tag;
+    font-size: 14px;
+    background-color: @cyan;
+    color: #fff;
+    padding: 4px 8px;
+    line-height: 28px;
+    white-space: nowrap;
 }
 
 .nj-tagsinput .chip i {
