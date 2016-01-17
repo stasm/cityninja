@@ -3,7 +3,7 @@ Template.editReport.onRendered(function() {
   var tags = makeTagInput('#edit-report-tags');
   this.data.tags.forEach(function(key) {
     tags.materialtags('add', {
-      id: key,
+      key: key,
       name: Tags.findOne({key}).name
     });
   });

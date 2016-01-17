@@ -1,43 +1,34 @@
 Template.settings.onCreated(trackPageView);
 Template.settings.onRendered(function() {
-  return;
-  var tags = makeTagInput('input#tags');
+  var tags = makeTagInput('#observed-tags');
 
   var user = Meteor.user();
   if (!user) {
     return;
   }
 
-  user.profile.favs.forEach(function(fav) {
+  user.profile.favs.forEach(function(key) {
     tags.materialtags('add', {
-      id: fav,
-      name: ztm[fav].name
+      key: key,
+      name: Tags.findOne({key}).name
     });
   });
 
-  tags.on('itemAdded', function(event) {
-    trackEvent('Profile', 'Added a fav', event.item.id);
+  tags.on('itemAdded', function(evt) {
+    trackEvent('Profile', 'Added a fav', evt.item.key);
     Meteor.call('achieve', 'fav1');
     Meteor.users.update(Meteor.userId(), {
-      $addToSet: { 'profile.favs': event.item.id }
-    }, showFavToast.bind(null, 'Dodano do obserwowanych'));
+      $addToSet: { 'profile.favs': evt.item.key }
+    }, (msg = 'Dodano do obserwowanych') => console.log(msg));
   });
 
-  tags.on('itemRemoved', function(event) {
-    trackEvent('Profile', 'Removed a fav', event.item.id);
+  tags.on('itemRemoved', function(evt) {
+    trackEvent('Profile', 'Removed a fav', evt.item.key);
     Meteor.users.update(Meteor.userId(), {
-      $pull: { 'profile.favs': event.item.id }
-    }, showFavToast.bind(null, 'Usunięto z obserwowanych'));
+      $pull: { 'profile.favs': evt.item.key }
+    }, (msg = 'Usunięto z obserwowanych') => console.log(msg));
   });
 });
-
-function showFavToast(msg, err) {
-  if (err) {
-    toast('O nie, wystąpił błąd!');
-  } else {
-    toast(msg);
-  }
-}
 
 Template.settings.helpers({
   isChecked(name) {
