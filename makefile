@@ -25,7 +25,7 @@ run:
 bump:
 	sed -i -e "s/version: '.*'/version: '$(VERSION)'/" mobile-config.js
 	sed -i -e 's/"version": ".*"/"version": "$(VERSION)"/' public/manifest.webapp
-	sed -i -e "s/VERSION = '.*';/VERSION = '$(VERSION)';/" lib/meta.js
+	sed -i -e "s/VERSION = '.*';/VERSION = '$(VERSION)';/" lib/config.js
 
 .PHONY: run-androidstage
 run-android:
