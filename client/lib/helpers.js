@@ -36,6 +36,11 @@ has = function() {
   });
 };
 
+isFav = function(key) {
+  const favs = Meteor.user() && Meteor.user().profile.favs;
+  return contains(favs, key);
+}
+
 toast = function(message, actionHandler, timeout = 3500) {
   const notification = document.querySelector('.nj-snackbar');
   Meteor.setTimeout(() =>
