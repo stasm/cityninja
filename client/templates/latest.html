@@ -39,7 +39,7 @@
 
 <template name="feedcard">
   <div id="{{ _id }}" class="nj-card nj-latest__report nj-card--pointer mdl-card mdl-shadow--8dp">
-    <div class="mdl-card__supporting-text">
+    <div class="nj-card__time mdl-card__supporting-text">
         {{ relativeTime createdAt }}
         {{#unless isTweet this }}
           {{ numVotes this }}
@@ -71,7 +71,7 @@
 
 <template name="ninjacard">
   <div class="nj-card nj-card--pointer mdl-card mdl-shadow--8dp">
-    <div class="mdl-card__supporting-text">
+    <div class="nj-card__time mdl-card__supporting-text">
         {{ aux }}
     </div>
     <p class="nj-card__content">
