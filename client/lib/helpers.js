@@ -52,9 +52,9 @@ flushQueuedToasts = function() {
   queuedToasts = [];
 };
 
-autofocus = function() {
+autofocus = function(sel = '[autofocus]') {
   Array.prototype.forEach.call(
-    document.querySelectorAll('[autofocus]'),
+    document.querySelectorAll(sel),
     field => field.focus()
   );
 }

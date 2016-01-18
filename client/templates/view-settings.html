@@ -41,8 +41,39 @@
 
       <section class="nj-section">
         <h4 class="nj-settings__title">Obserwowane linie i przystanki</h4>
+        <div class="nj-tagsinput nj-tagsinput--trigger">
+          <input class="nj-tagsinput__raw" type="text" id="observed-tags-view" placeholder="Wpisz przystanek lub numer linii">
+        </div>
+      </section>
+    </main>
+
+    {{> settingsObserved }}
+
+  </div>
+</div></template>
+
+<template name="settingsObserved"><div class="nj-modal">
+  <div class="nj-layout mdl-layout mdl-js-layout mdl-layout--fixed-header">
+
+    <header class="nj-header nj-header--magenta mdl-layout__header">
+      <div class="mdl-layout__drawer-button">
+        <a class="nj-settings-obs__back" href="{{ pathFor 'settings.show' }}">
+          <i class="material-icons">close</i>
+        </a>
+      </div>
+      <div class="mdl-layout__header-row">
+        <span class="mdl-layout-title">Obserwowane</span>
+        <div class="mdl-layout-spacer"></div>
+        <button class="nj-settings-obs__done mdl-button mdl-js-button mdl-js-ripple-effect">
+          Gotowe
+        </button>
+      </div>
+    </header>
+
+    <main class="nj-content nj-settings-obs mdl-layout__content">
+      <section class="nj-section">
         <div class="nj-tagsinput">
-          <input type="text" id="observed-tags" placeholder="Wpisz przystanek lub numer linii">
+          <input class="nj-tagsinput__raw" type="text" id="observed-tags-edit" placeholder="Wpisz przystanek lub numer linii">
         </div>
       </section>
     </main>
