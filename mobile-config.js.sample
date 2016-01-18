@@ -26,6 +26,7 @@ App.setPreference('Orientation', 'portrait');
 App.setPreference('BackgroundColor', '0xff000000');
 App.setPreference('HideKeyboardFormAccessoryBar', true);
 
-App.setPreference('StatusBarOverlaysWebView', false);
+App.setPreference('StatusBarOverlaysWebView', true);
 App.setPreference('StatusBarBackgroundColor', '#000000');
+App.setPreference('StatusBarStyle', 'blacktranslucent');
 App.setPreference('deployment-target', '7.0');
