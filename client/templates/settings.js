@@ -21,7 +21,7 @@ Template.settings.helpers({
 });
 
 Template.settings.events({
-  'click .nj-tagsinput--trigger': function(evt) {
+  'click .nj-tagsinput--fake': function(evt) {
     evt.stopImmediatePropagation();
     evt.preventDefault();
 
@@ -29,7 +29,7 @@ Template.settings.events({
     updateTagInputs();
     $('.nj-settings-obs .tt-input').focus();
   },
-  'change input': function(evt) {
+  'change input[type="checkbox"]': function(evt) {
     const settingName = evt.currentTarget.getAttribute('id');
     trackEvent('Profile', 'Toggled setting', settingName);
     Meteor.users.update(Meteor.userId(), {
