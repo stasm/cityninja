@@ -4,5 +4,5 @@ private
 config.push.json
 mobile-config.js
 client/meta.html
-client/templates/eula.html
+client/templates/view-eula.html
 public/branding/ninja.png

@@ -36,3 +36,25 @@ makeTagInput = function(sel) {
   }
 };
 
+updateTagInputs = function() {
+  const user = Meteor.user();
+  if (!user) {
+    return;
+  }
+
+  const taginputs = [
+    ...document.querySelectorAll('.nj-tagsinput__raw')
+  ].map(
+    input => $(input)
+  );
+
+  taginputs.forEach(taginput => {
+    taginput.materialtags('removeAll');
+    user.profile.favs.forEach(key => {
+      taginput.materialtags('add', {
+        key: key,
+        name: Tags.findOne({key}).name
+      })
+    });
+  });
+}

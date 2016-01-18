@@ -18,7 +18,8 @@
     white-space: nowrap;
 }
 
-.nj-settings .nj-tagsinput .chip {
+.nj-settings .nj-tagsinput .chip,
+.nj-settings-obs .nj-tagsinput .chip {
     background-color: @magenta;
 }
 
@@ -79,4 +80,20 @@
     color: @lightgrey;
     padding: 0 5px;
     line-height: 44px !important;
+}
+
+/* Fake input */
+
+.nj-tagsinput--fake input {
+    display: none;
+}
+
+.nj-tagsinput__label {
+    display: block;
+    cursor: text;
+    color: @lightgrey;
+    border-bottom: 1px solid @lightgrey;
+    font-size: 16px;
+    margin-top: 16px;
+    padding-bottom: 4px;
 }

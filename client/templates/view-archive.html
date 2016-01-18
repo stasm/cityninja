@@ -25,7 +25,7 @@
 
 <template name="archivecard">
   <div class="nj-card mdl-card mdl-shadow--2dp">
-    <div class="mdl-card__supporting-text">
+    <div class="nj-card__time mdl-card__supporting-text">
         {{ relativeTime createdAt }}
         {{#unless isTweet this }}
           {{ numVotes this }}

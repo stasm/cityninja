@@ -11,7 +11,8 @@ html, body {
     user-select: none;
 }
 
-.nj-transition {
+.nj-transition,
+.nj-modal {
     animation: .2s fade-in;
 }
 
@@ -31,6 +32,22 @@ html, body {
 .nj-layout--transparent {
     background-color: transparent;
 }
+
+.nj-modal {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.nj-modal--open {
+    display: block;
+}
+
+
+/* MDL fixes */
 
 .mdl-layout--fixed-drawer.is-upgraded:not(.is-small-screen) > .mdl-layout__header.nj-header--below {
     margin-left: 0;
