@@ -50,7 +50,9 @@
       </section>
     </main>
 
-    {{> settingsObserved }}
+    {{#if get 'modal-obs-active' }}
+      {{> settingsObserved }}
+    {{/if}}
 
   </div>
 </div></template>

@@ -1,15 +1,14 @@
 Template.settings.onCreated(trackPageView);
 Template.settings.onRendered(function() {
-  var tags = makeTagInput('#observed-tags-view');
-
-  Tracker.autorun(updateTagInputs);
-
+  const tags = makeTagInput('#observed-tags-view');
   tags.on('itemRemoved', function(evt) {
     trackEvent('Profile', 'Removed a fav', evt.item.key);
     Meteor.users.update(Meteor.userId(), {
       $pull: { 'profile.favs': evt.item.key }
     });
   });
+
+  Tracker.autorun(updateTagInputs);
 });
 
 Template.settings.helpers({
@@ -21,14 +20,6 @@ Template.settings.helpers({
 });
 
 Template.settings.events({
-  'click .nj-tagsinput--fake': function(evt) {
-    evt.stopImmediatePropagation();
-    evt.preventDefault();
-
-    openModal('.nj-modal');
-    updateTagInputs();
-    $('.nj-settings-obs .tt-input').focus();
-  },
   'change input[type="checkbox"]': function(evt) {
     const settingName = evt.currentTarget.getAttribute('id');
     trackEvent('Profile', 'Toggled setting', settingName);
@@ -38,11 +29,16 @@ Template.settings.events({
       }
     });
   },
+  'click .nj-tagsinput--fake': function(evt) {
+    Router.current().state.set('modal-obs-active', true);
+  },
 });
 
-Template.settingsObserved.onRendered(function() {
-  var tags = makeTagInput('#observed-tags-edit');
+/* Observed modal */
 
+Template.settingsObserved.onRendered(function() {
+  const tags = makeTagInput('#observed-tags-edit');
+  $('.nj-settings-obs .tt-input').focus();
   tags.on('itemAdded', function(evt) {
     trackEvent('Profile', 'Added a fav', evt.item.key);
   });
@@ -50,14 +46,15 @@ Template.settingsObserved.onRendered(function() {
   tags.on('itemRemoved', function(evt) {
     trackEvent('Profile', 'Removed a fav', evt.item.key);
   });
+
+  Tracker.autorun(updateTagInputs);
 });
 
 Template.settingsObserved.events({
   'click .nj-settings-obs__back': function(evt, template) {
-    closeModal('.nj-modal');
+    Router.current().state.set('modal-obs-active', false);
   },
   'click .nj-settings-obs__done': function(evt, template) {
-    closeModal('.nj-modal');
     const tagsinput = $(template.find('#observed-tags-edit'));
     const keys = tagsinput.materialtags('items').map(
       tag => tag.key);
@@ -67,5 +64,6 @@ Template.settingsObserved.events({
     Meteor.users.update(Meteor.userId(), {
       $set: { 'profile.favs': keys }
     });
+    Router.current().state.set('modal-obs-active', false);
   },
 });

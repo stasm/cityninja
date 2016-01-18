@@ -134,9 +134,8 @@ Template.taglist.helpers({
   getName: function(key) {
     return Tags.findOne({key}).name;
   },
-  fav: function(tag) {
-    const favs = Meteor.user() && Meteor.user().profile.favs;
-    return contains(favs, tag) ?
+  fav: function(key) {
+    return isFav(key) ?
       'nj-card__tag--fav' : null;
   }
 });
