@@ -1,5 +1,4 @@
 Template.newReport.onCreated(trackPageView);
-Template.newReport.onRendered(autofocus);
 Template.newReport.onRendered(function() {
   makeTagInput('#new-report-tags');
 });
