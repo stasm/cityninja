@@ -1,0 +1,30 @@
+<template name="eula"><div>
+  <div class="nj-layout mdl-layout mdl-js-layout mdl-layout--fixed-header">
+
+    <header class="nj-header nj-header--cyan mdl-layout__header">
+      <div class="mdl-layout__drawer-button">
+        <a href="{{ pathFor 'feed.all' }}">
+          <i class="material-icons">arrow_back</i>
+        </a>
+      </div>
+      <div class="mdl-layout__header-row">
+        <span class="mdl-layout-title">Regulamin</span>
+      </div>
+    </header>
+
+    <main class="nj-content nj-colophon mdl-layout__content">
+
+      <section class="nj-section">
+        <h4>Informacje ogólne</h4>
+
+        <p>
+          Aplikacja City Ninja (dalej: „City Ninja”) jest źródłem informacji 
+          o problemach na trasach komunikacji miejskiej w Warszawie.
+          Zgłoszenia są zamieszczane przez użytkowników.
+        </p>
+
+      </section>
+
+    </main>
+  </div>
+</div></template>
