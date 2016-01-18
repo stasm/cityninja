@@ -5,9 +5,9 @@
     100% { -webkit-transform: rotateZ(-360deg); }
 }
 
-@-moz-keyframes loading {
-    0%   { -moz-transform: rotateZ(0); }
-    100% { -moz-transform: rotateZ(-360deg); }
+@keyframes loading {
+    0%   { transform: rotateZ(0); }
+    100% { transform: rotateZ(-360deg); }
 }
 
 @-webkit-keyframes fade-to-white {
@@ -15,7 +15,7 @@
     100% { background-color: #fff; }
 }
 
-@-moz-keyframes fade-to-white {
+@keyframes fade-to-white {
     0%   { background-color: @yellow; }
     100% { background-color: #fff; }
 }
@@ -25,7 +25,17 @@
     100% { background-color: #ddd; }
 }
 
-@-moz-keyframes fade-to-grey {
+@keyframes fade-to-grey {
     0%   { background-color: @yellow; }
     100% { background-color: #ddd; }
+}
+
+@-webkit-keyframes fade-in {
+    0%   { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes fade-in {
+    0%   { opacity: 0; }
+    100% { opacity: 1; }
 }
