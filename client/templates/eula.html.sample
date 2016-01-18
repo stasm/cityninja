@@ -3,7 +3,7 @@
 
     <header class="nj-header nj-header--cyan mdl-layout__header">
       <div class="mdl-layout__drawer-button">
-        <a href="{{ pathFor 'feed.all' }}">
+        <a href="{{ pathFor 'colophon.show' }}">
           <i class="material-icons">arrow_back</i>
         </a>
       </div>
@@ -12,7 +12,7 @@
       </div>
     </header>
 
-    <main class="nj-content nj-colophon mdl-layout__content">
+    <main class="nj-content nj-eula mdl-layout__content">
 
       <section class="nj-section">
         <h4>Informacje ogólne</h4>
