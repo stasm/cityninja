@@ -36,7 +36,7 @@
 
 <template name="usercard">
   <div class="nj-card nj-detail__report mdl-card mdl-shadow--8dp">
-    <div class="mdl-card__supporting-text">
+    <div class="nj-card__time mdl-card__supporting-text">
         {{ relativeTime createdAt }}
         {{ numVotes this }}
     </div>
@@ -47,7 +47,7 @@
 
     {{> taglist }}
 
-    <div class="mdl-card__actions">
+    <div class="nj-card__actions mdl-card__actions">
       {{#if isAuthor this }}
         <span class="nj-card__action--left nj-card__num-thanks">{{ numThanks this }}</span>
         <button class="nj-card__action nj-card__remove mdl-button mdl-js-button mdl-js-ripple-effect">
@@ -91,7 +91,7 @@
 
 <template name="tweetcard">
   <div class="nj-card nj-detail__report mdl-card mdl-shadow--8dp">
-    <div class="mdl-card__supporting-text">
+    <div class="nj-card__time mdl-card__supporting-text">
         {{ relativeTime createdAt }}
     </div>
     <p class="nj-card__content">
@@ -101,7 +101,7 @@
 
     {{> taglist }}
 
-    <div class="mdl-card__actions">
+    <div class="nj-card__actions mdl-card__actions">
       {{#if has thanks }}
         <button class="nj-card__action nj-card__action--left nj-card__thank nj-card__thank--thanked mdl-button mdl-js-button mdl-js-ripple-effect">
           <i class="material-icons">favorite</i>
