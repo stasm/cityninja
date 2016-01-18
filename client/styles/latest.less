@@ -1,0 +1,39 @@
+@import "colors.import.less";
+
+.nj-latest__last-comment {
+    background-color: #ddd;
+    margin-top: -18px;
+    padding-right: 48px;
+}
+
+.nj-latest {
+    padding-top: 56px;
+}
+
+.nj-latest__report:last-child {
+    margin-bottom: 56px;
+}
+
+.nj-latest__header-row {
+    position: fixed;
+    top: 0;
+    padding-left: 72px - 16px;
+
+    @media screen and (min-width: 1025px) {
+        padding-left: 40px - 16px;
+    }
+}
+
+.nj-latest__title {
+    color: #fff;
+}
+
+.nj-fab,
+.nj-fab:hover,
+.nj-fab:active {
+    position: absolute;
+    top: -68px;
+    right: 16px;
+    background-color: @yellow;
+    color: #000;
+}
