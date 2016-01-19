@@ -3,10 +3,17 @@ Meteor.startup(function() {
 
   if (Meteor.isCordova) {
     document.addEventListener("backbutton", function() {
-      if (window.location.pathname === '/live') {
+      if (window.location.pathname === '/') {
         window.plugins.Suspend.suspendApp();
       } else {
         window.history.back();
+      }
+    }, false);
+
+    document.addEventListener('deviceready', function() {
+      if (device.platform === 'iOS' && parseFloat(device.version) >= 7.0) {
+        $(document.body).css('margin-top', '20px');
+        $('.nj-latest__header-row').css('top', '20px');
       }
     }, false);
   }
