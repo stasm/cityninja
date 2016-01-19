@@ -1,10 +1,3 @@
-Template.drawer.onRendered(() => {
-  $('.mdl-collapse__content').each(function() {
-    const content = $(this);
-    content.css('margin-top', -content.outerHeight(true));
-  })
-});
-
 Template.drawer.helpers({
   isActive(route) {
     return Router.current().route.getName() === route ?
