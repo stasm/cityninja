@@ -136,7 +136,7 @@ Template.taglist.helpers({
   },
   fav: function(key) {
     return isFav(key) ?
-      'nj-card__tag--fav' : null;
+      'nj-tag--fav' : null;
   }
 });
 

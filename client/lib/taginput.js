@@ -1,11 +1,11 @@
-makeTagInput = function(sel) {
+makeTagInput = function(sel, query = {}) {
   var tags = new Bloodhound({
     datumTokenizer: Bloodhound.tokenizers.obj.nonword('name'),
     queryTokenizer: Bloodhound.tokenizers.nonword,
     identify: function(tag) { return tag.key; },
     limit: Infinity,
     local: function() {
-      return Tags.find().fetch();
+      return Tags.find(query).fetch();
     },
   });
 
@@ -15,7 +15,7 @@ makeTagInput = function(sel) {
     itemValue: 'key',
     itemText: 'name',
     tagClass: tag =>
-      isFav(tag.key) ? 'chip chip--fav' : 'chip',
+      isFav(tag.key) ? 'chip nj-tag nj-tag--fav' : 'chip nj-tag',
     typeaheadjs: [
       {
         hint: false,
@@ -61,5 +61,18 @@ updateTagInputs = function() {
         name: Tags.findOne({key}).name
       })
     });
+  });
+}
+
+updateSelectedStopInput = function(taginput) {
+  const [key] = Router.current().state.get('new-report-stops');
+  if (!key) {
+    return;
+  }
+
+  taginput.materialtags('removeAll');
+  taginput.materialtags('add', {
+    key,
+    name: Tags.findOne({key}).name
   });
 }

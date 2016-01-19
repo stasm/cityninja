@@ -1,3 +1,66 @@
+@import 'colors.import.less';
+
+.nj-new-report .nj-card__taglist {
+    margin: 0 0 16px;
+}
+
+.nj-new-report-lines__title {
+    font-weight: bold;
+    font-size: 14px;
+    color: @lighter;
+}
+
 .nj-new-report__hint-action {
     display: flex;
+}
+
+.nj-new-report-lines {
+    padding: 0px;
+}
+
+.nj-new-report-lines .nj-new-report-lines__title,
+.nj-new-report-lines .nj-new-report-lines__dest {
+    padding: 0 8px;
+}
+
+.nj-new-report-lines__dest-list {
+    padding: 8px;
+    box-shadow: inset 0px -105px 5px -100px rgba(0, 0, 0, 0.20), 
+                inset 0px 105px 5px -100px rgba(0, 0, 0, 0.20);
+}
+
+.nj-new-report-lines__dest {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+       -ms-flex-align: center;
+          align-items: center;
+}
+
+.mdl-button.nj-new-report-lines__dir,
+.nj-tag.nj-new-report-lines__dir {
+    color: #fff;
+    background-color: @darkgrey;
+    cursor: pointer;
+}
+
+.nj-tag.nj-new-report-lines__dir--selected {
+    background-color: @cyan
+}
+
+.nj-tag.nj-tag--fav.nj-new-report-lines__dir--selected {
+    background-color: @magenta
+}
+
+.nj-new-report-lines__type {
+    margin-left: 4px;
 }

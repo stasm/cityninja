@@ -41,10 +41,121 @@
             Opisz problem lub zadaj pytanie
           </label>
         </div>
+        <div class="nj-tagsinput nj-tagsinput--fake">
+          <input class="nj-tagsinput__raw" type="text" id="new-report-stop-view" placeholder="Na jakim przystanku?">
+          {{#unless isStopSelected}}
+            <label class="nj-new-report__select-stop nj-tagsinput__label">Na jakim przystanku?</label>
+          {{/unless}}
+        </div>
+      </section>
+
+      {{#if isStopSelected}}
+        <section class="nj-section">
+          <h4 class="nj-new-report-lines__title">
+            Linie, których dotyczy to zgłoszenie:
+          </h4>
+
+          {{> taglist get 'new-report-lines'}}
+
+          <button class="nj-new-report__select-lines nj-new-report-lines__dir mdl-button mdl-js-button mdl-js-ripple-effect" type="button">
+            Wybierz linie i kierunki
+          </button>
+        </section>
+      {{/if}}
+    </main>
+
+    {{#if get 'modal-stop-active' }}
+      {{> newReportStop }}
+    {{/if}}
+
+    {{#if get 'modal-lines-active' }}
+      {{> newReportLines getStopData}}
+    {{/if}}
+
+  </form>
+</div></template>
+
+<template name="newReportStop"><div class="nj-modal">
+  <div class="nj-layout mdl-layout mdl-js-layout mdl-layout--fixed-header">
+
+    <header class="nj-header nj-header--yellow mdl-layout__header">
+      <div class="mdl-layout__drawer-button">
+        <a class="nj-new-report-stop__back" href="{{ pathFor 'report.add' }}">
+          <i class="material-icons">arrow_back</i>
+        </a>
+      </div>
+      <div class="mdl-layout__header-row">
+        <span class="mdl-layout-title">Oznacz przystanek</span>
+      </div>
+    </header>
+
+    <main class="nj-content nj-new-report-stop mdl-layout__content">
+      <section class="nj-section">
         <div class="nj-tagsinput">
-          <input type="text" id="new-report-tags" placeholder="Na jakiej linii i przystanku?">
+          <input class="nj-tagsinput__raw" type="text" id="new-report-stop-edit" placeholder="Na jakim przystanku?">
         </div>
       </section>
     </main>
-  </form>
+
+  </div>
+</div></template>
+
+<template name="newReportLines"><div class="nj-modal">
+  <div class="nj-layout mdl-layout mdl-js-layout mdl-layout--fixed-header">
+
+    <header class="nj-header nj-header--yellow mdl-layout__header">
+      <div class="mdl-layout__drawer-button">
+        <a class="nj-new-report-lines__back" href="{{ pathFor 'report.add' }}">
+          <i class="material-icons">arrow_back</i>
+        </a>
+      </div>
+      <div class="mdl-layout__header-row">
+        <span class="mdl-layout-title">Linie i kierunki</span>
+        <div class="mdl-layout-spacer"></div>
+        <button class="nj-new-report-lines__done mdl-button mdl-js-button mdl-js-ripple-effect" type="button">
+          Gotowe
+        </button>
+      </div>
+    </header>
+
+    {{#if Template.subscriptionsReady}}
+      {{#with stop}}
+
+    <main class="nj-content nj-new-report-lines mdl-layout__content">
+      <section class="nj-section">
+        <h4 class="nj-new-report-lines__title">
+          Kierunki dla przystanku {{ name }}
+        </h4>
+
+        {{#each routes}}
+
+          <div class="mdl-collapse">
+            <div class="nj-new-report-lines__dest mdl-collapse__trigger">
+              <span class="nj-drawer__nickname">{{ name }}</span>
+              <div class="mdl-layout-spacer"></div>
+              {{#each type in types}}
+                <img class="nj-new-report-lines__type" src="/images/ico_{{ type }}.png">
+              {{/each}}
+              <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-collapse__icon" type="button">
+                <i class="material-icons" role="presentation">expand_more</i>
+              </button>
+            </div>
+            <div class="mdl-collapse__content-wrapper">
+              <div class="nj-new-report-lines__dest-list mdl-collapse__content mdl-animation--default">
+                {{#each dir in dirs}}
+                  <span class="nj-tag nj-new-report-lines__dir {{ fav dir }} {{ selected dir }}" data-dir="{{dir}}">{{ getDirName dir }}</span>
+                {{/each}}
+              </div>
+            </div>
+          </div>
+
+        {{/each}}
+
+      </section>
+    </main>
+
+      {{/with}}
+    {{/if}}
+
+  </div>
 </div></template>
