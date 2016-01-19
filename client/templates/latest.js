@@ -6,7 +6,11 @@ Template.latest.onDestroyed(function() {
 });
 
 function observeComments() {
-  this.observer = Reports.find(buildQuery()).observeChanges({
+  this.observer = Reports.find({
+    expired: {$ne: true},
+    removed: {$ne: true},
+    dismissedBy: {$ne: Meteor.user()}
+  }).observeChanges({
     added: (id) => {
       if (!this.observer) {
         return;
@@ -38,21 +42,17 @@ function unobserveComments() {
   this.observer.stop();
 }
 
-function buildQuery() {
-  return {
-    expired: {$ne: true},
-    removed: {$ne: true},
-    dismissedBy: {$ne: Meteor.user()}
-  };
-}
-
 Template.latest.helpers({
   isPSA: isPSA,
-  items: () => {
-    const query = buildQuery();
-    return [
-      ...Announcements.find(query).fetch(),
-      ...Reports.find(query, {sort: {createdAt: -1}}).fetch()
-    ];
-  }
+  items: () => [
+    ...Announcements.find({
+      published: true,
+      _id: {$nin: Meteor.user().profile.ignored.announcements},
+    }).fetch(),
+    ...Reports.find({
+      expired: {$ne: true},
+      removed: {$ne: true},
+      dismissedBy: {$ne: Meteor.user()},
+    }, {sort: {createdAt: -1}}).fetch()
+  ],
 });

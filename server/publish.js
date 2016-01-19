@@ -49,9 +49,11 @@ Meteor.publish('queuedReport', function(token) {
 });
 
 Meteor.publish('currentAnnouncements', function() {
+  const ignored = Meteor.users.findOne(this.userId)
+    .profile.ignored.announcements;
   return Announcements.find({
     published: true,
-    dismissedBy: { $ne: this.userId },
+    _id: { $nin: ignored },
   }, {
     fields: {token: 0}
   });
@@ -70,7 +72,7 @@ Meteor.publish('tagLabels', function() {
   });
 });
 
-Meteor.publish('userData', function() {
+Meteor.publish('userActivity', function() {
   return Meteor.users.find(
     {_id: this.userId},
     {fields: {incoming: 1, outgoing: 1, achievements: 1}});
