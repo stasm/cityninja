@@ -1,5 +1,5 @@
 App.info({
-  id: 'com.piesku.cityninja',
+  id: '',
   name: 'City Ninja',
   description: 'Nie daj zaskoczyć się opóźnieniom komunikacji miejskiej.',
   version: '0.0.1',
@@ -30,3 +30,5 @@ App.setPreference('StatusBarOverlaysWebView', true);
 App.setPreference('StatusBarBackgroundColor', '#000000');
 App.setPreference('StatusBarStyle', 'blacktranslucent');
 App.setPreference('deployment-target', '7.0');
+App.setPreference('android-targetSdkVersion', '22');
+App.setPreference('android-minSdkVersion', '19');
