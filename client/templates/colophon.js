@@ -174,3 +174,9 @@ function updateElement(x, y, color) {
   board[y][x] = color;
 }
 
+Template.eula.events({
+  ['click section a'](evt) {
+    evt.preventDefault();
+    evt.stopImmediatePropagation();
+  }
+});
