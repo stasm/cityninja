@@ -14,8 +14,11 @@ Template.editReport.events({
     evt.preventDefault();
     Meteor.call('updateReport', this._id, Router.current().params.token, {
       text: evt.target['edit-report-text'].value,
-      tags: evt.target['edit-report-tags'].value.split(',').filter(nonEmpty)
+      tags: $('#edit-report-tags').materialtags('items').map(
+        tag => tag.key)
     });
+    queuedToasts.push([pickRandom(toasts.created)]);
+    Router.go('feed.all');
   },
 });
 
@@ -30,6 +33,7 @@ Template.editAnnouncement.events({
         ctalabel: evt.target.ctalabel.value,
         ctaroute: evt.target.ctaroute.value,
       });
-    toast(pickRandom(toasts.created));
+    queuedToasts.push([pickRandom(toasts.created)]);
+    Router.go('feed.all');
   },
 });

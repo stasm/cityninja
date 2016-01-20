@@ -46,10 +46,6 @@ Template.newReport.events({
   },
 });
 
-nonEmpty = function(tag) {
-  return tag.length !== 0;
-};
-
 
 /* Select stop modal */
 
