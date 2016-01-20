@@ -1,9 +1,10 @@
+const ws = /[\s.-]+/;
+
 makeTagInput = function(sel, query = {}) {
-  var tags = new Bloodhound({
-    datumTokenizer: Bloodhound.tokenizers.obj.nonword('name'),
-    queryTokenizer: Bloodhound.tokenizers.nonword,
+  const tags = new Bloodhound({
+    datumTokenizer: datum => datum.name.split(ws),
+    queryTokenizer: query => query.split(ws),
     identify: function(tag) { return tag.key; },
-    limit: Infinity,
     local: function() {
       return Tags.find(query).fetch();
     },
@@ -24,7 +25,7 @@ makeTagInput = function(sel, query = {}) {
       {
         name: 'tags',
         displayKey: 'name',
-        limit: Infinity,
+        limit: 100,
         notFound: 'Brak pasujących wyników',
         source: function(query, callback) {
           tags.search(query, function(suggestions) {
