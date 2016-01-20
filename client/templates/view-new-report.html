@@ -118,10 +118,11 @@
       </div>
     </header>
 
+    <main class="nj-content nj-new-report-lines mdl-layout__content">
+
     {{#if Template.subscriptionsReady}}
       {{#with stop}}
 
-    <main class="nj-content nj-new-report-lines mdl-layout__content">
       <section class="nj-section">
         <h4 class="nj-new-report-lines__title">
           Kierunki dla przystanku {{ name }}
@@ -152,10 +153,18 @@
         {{/each}}
 
       </section>
-    </main>
 
       {{/with}}
+
+    {{else}}
+      <section class="nj-section">
+        <h4 class="nj-new-report-lines__title">
+          Wyszukiwanie linii…
+        </h4>
+      </section>
     {{/if}}
+
+    </main>
 
   </div>
 </div></template>
