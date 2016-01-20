@@ -47,11 +47,8 @@ Template.allgood.onRendered(function() {
 
   mc.add(new Hammer.Pan({ threshold: 0, pointers: 0 }));
   mc.add(new Hammer.Swipe()).recognizeWith(mc.get('pan'));
-  mc.add(new Hammer.Rotate({ threshold: 0 })).recognizeWith(mc.get('pan'));
-  mc.add(new Hammer.Pinch({ threshold: 0 })).recognizeWith([mc.get('pan'), mc.get('rotate')]);
 
   mc.on("panstart panmove", onPan);
-  mc.on("pinchstart pinchmove", onPinch);
 
   mc.on("hammer.input", function(ev) {
     if (ev.isFinal) {
@@ -63,9 +60,6 @@ Template.allgood.onRendered(function() {
     ninja.classList.add('nj-cover__ninja--animated');
     transform = {
       translate: { x: 0, y: 0 },
-      scale: 1,
-      rotateX: 0,
-      rotateY: 0,
     };
     window.requestAnimationFrame(updateElementTransform);
   }
@@ -74,9 +68,6 @@ Template.allgood.onRendered(function() {
     var value = [
       'translate3d(' + transform.translate.x + 'px, ' +
         transform.translate.y + 'px, 0)',
-      'scale(' + transform.scale + ', ' + transform.scale + ')',
-      'rotateX('+ transform.rotateX + 'deg)',
-      'rotateY('+ transform.rotateY + 'deg)',
     ];
 
     value = value.join(" ");
@@ -98,21 +89,6 @@ Template.allgood.onRendered(function() {
       x: damp(ev.deltaX, max),
       y: damp(ev.deltaY, max)
     };
-
-    transform.rotateX = - damp(ev.deltaY, 90);
-    transform.rotateY = damp(ev.deltaX, 90);
-
-    window.requestAnimationFrame(updateElementTransform);
-  }
-
-  var initScale = 1;
-  function onPinch(ev) {
-    if(ev.type == 'pinchstart') {
-      initScale = transform.scale || 1;
-    }
-
-    ninja.classList.remove('nj-cover__ninja--animated');
-    transform.scale = initScale * ev.scale;
 
     window.requestAnimationFrame(updateElementTransform);
   }
