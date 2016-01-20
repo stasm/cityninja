@@ -10,6 +10,9 @@ Template.editReport.onRendered(function() {
 });
 
 Template.editReport.events({
+  'keyup [type="text"]': function(_, template) {
+    checkValid(template.find('form'));
+  },
   'submit form': function(evt) {
     evt.preventDefault();
     Meteor.call('updateReport', this._id, Router.current().params.token, {
