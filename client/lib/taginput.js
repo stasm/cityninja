@@ -1,8 +1,33 @@
 const ws = /[\s.-]+/;
+const testDiacritics = /([ĄĆĘŁŃÓŚŹŻ])/;
+const replDiacritics = /([ĄĆĘŁŃÓŚŹŻ])/g;
+const letters = {
+  'Ą': 'A',
+  'Ć': 'C',
+  'Ę': 'E',
+  'Ł': 'L',
+  'Ń': 'N',
+  'Ó': 'O',
+  'Ś': 'S',
+  'Ź': 'Z',
+  'Ż': 'Z',
+};
+
+function withLatin(words) {
+  const withDia = words.filter(
+    word => testDiacritics.test(word)
+  );
+  return [
+    ...words,
+    ...withDia.map(
+      word => word.replace(replDiacritics, match => letters[match])
+    )
+  ];
+}
 
 makeTagInput = function(sel, query = {}) {
   const tags = new Bloodhound({
-    datumTokenizer: datum => datum.name.split(ws),
+    datumTokenizer: datum => withLatin(datum.name.split(ws)),
     queryTokenizer: query => query.split(ws),
     identify: function(tag) { return tag.key; },
     local: function() {
