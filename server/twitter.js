@@ -17,7 +17,7 @@ var client = new TwitMaker({
 
 var ACCOUNTS = [
   1707334088, // @ztm_warszawa
-  1143227575, // @PruszkowWawa
+  // 1143227575, // @PruszkowWawa
 ];
 
 var KEYWORDS = [
