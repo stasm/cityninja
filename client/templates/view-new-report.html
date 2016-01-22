@@ -55,11 +55,13 @@
             Linie, których dotyczy to zgłoszenie:
           </h4>
 
-          {{> taglist get 'new-report-lines'}}
-
-          <button class="nj-new-report__select-lines nj-new-report-lines__dir mdl-button mdl-js-button mdl-js-ripple-effect" type="button">
-            Wybierz linie i kierunki
-          </button>
+          <div class="nj-new-report__lines">
+            {{#each tag in get 'new-report-lines'}}
+              <span class="nj-tag {{ fav tag }}" data-dir="{{tag}}">{{ getTagName tag }}
+                <i class="nj-tag__remove material-icons">close</i></span>
+            {{/each}}
+            <span class="nj-tag nj-new-report__select-lines">Wybierz linie i kierunki</span>
+          </div>
         </section>
       {{/if}}
     </main>

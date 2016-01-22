@@ -16,7 +16,14 @@ Template.newReport.helpers({
   },
   isStopSelected() {
      return Router.current().state.get('new-report-stops').length;
-  }
+  },
+  getTagName: function(key) {
+    return Tags.findOne({key}).name;
+  },
+  fav: function(key) {
+    return isFav(key) ?
+      'nj-tag--fav' : null;
+  },
 });
 
 Template.newReport.events({
@@ -32,6 +39,14 @@ Template.newReport.events({
   },
   'click .nj-new-report__select-lines': function(evt) {
     Router.current().state.set('modal-lines-active', true);
+  },
+  'click .nj-new-report__lines .nj-tag__remove': function(evt) {
+    const dir = evt.currentTarget.parentNode.dataset.dir;
+    const state = Router.current().state;
+    const lines = state.get('new-report-lines');
+    const pos = lines.indexOf(dir);
+    Router.current().state.set('new-report-lines',
+      [...lines.slice(0, pos), ...lines.slice(pos + 1)]);
   },
   'submit form': function(evt) {
     evt.preventDefault();
@@ -74,9 +89,10 @@ Template.newReportStop.events({
 Template.newReportLines.onCreated(function() {
   const [stopKey] = Router.current().state.get('new-report-stops');
   this.subscribe('stopData', stopKey);
-});
 
-Template.newReportLines.onRendered(function() {
+  const state = Router.current().state;
+  state.set('new-report-lines-selecting',
+    state.get('new-report-lines'));
 });
 
 Template.newReportLines.helpers({
