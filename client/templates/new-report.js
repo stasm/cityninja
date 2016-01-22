@@ -16,7 +16,14 @@ Template.newReport.helpers({
   },
   isStopSelected() {
      return Router.current().state.get('new-report-stops').length;
-  }
+  },
+  getTagName: function(key) {
+    return Tags.findOne({key}).name;
+  },
+  fav: function(key) {
+    return isFav(key) ?
+      'nj-tag--fav' : null;
+  },
 });
 
 Template.newReport.events({
