@@ -40,6 +40,14 @@ Template.newReport.events({
   'click .nj-new-report__select-lines': function(evt) {
     Router.current().state.set('modal-lines-active', true);
   },
+  'click .nj-new-report__lines .nj-tag__remove': function(evt) {
+    const dir = evt.currentTarget.parentNode.dataset.dir;
+    const state = Router.current().state;
+    const lines = state.get('new-report-lines');
+    const pos = lines.indexOf(dir);
+    Router.current().state.set('new-report-lines',
+      [...lines.slice(0, pos), ...lines.slice(pos + 1)]);
+  },
   'submit form': function(evt) {
     evt.preventDefault();
     const state = Router.current().state;

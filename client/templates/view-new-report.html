@@ -55,9 +55,10 @@
             Linie, których dotyczy to zgłoszenie:
           </h4>
 
-          <div>
+          <div class="nj-new-report__lines">
             {{#each tag in get 'new-report-lines'}}
-              <span class="nj-tag  {{ fav tag }}">{{ getTagName tag }}</span>
+              <span class="nj-tag {{ fav tag }}" data-dir="{{tag}}">{{ getTagName tag }}
+                <i class="nj-tag__remove material-icons">close</i></span>
             {{/each}}
             <span class="nj-tag nj-new-report__select-lines">Wybierz linie i kierunki</span>
           </div>
