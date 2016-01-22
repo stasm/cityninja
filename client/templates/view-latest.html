@@ -55,7 +55,7 @@
       </button>
     </div>
 
-    {{> taglist }}
+    {{> taglist tags }}
   </div>
 
   {{#if lastComment}}
@@ -95,10 +95,10 @@
 </template>
 
 <template name="taglist">
-  {{#if tags}}
+  {{#if this}}
     <div class="nj-card__taglist">
-      {{#each tag in tags}}
-        <span class="nj-card__tag  {{ fav tag }}">{{ getName tag }}</span>
+      {{#each tag in this}}
+        <span class="nj-tag  {{ fav tag }}">{{ getName tag }}</span>
       {{/each}}
     </div>
   {{/if}}

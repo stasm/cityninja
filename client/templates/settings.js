@@ -29,7 +29,7 @@ Template.settings.events({
       }
     });
   },
-  'click .nj-tagsinput--fake': function(evt) {
+  'click .nj-tagsinput--fake .nj-tagsinput__label': function(evt) {
     Router.current().state.set('modal-obs-active', true);
   },
 });

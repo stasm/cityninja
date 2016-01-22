@@ -72,6 +72,19 @@ Meteor.publish('tagLabels', function() {
   });
 });
 
+Meteor.publish('tagLabelsWithTypes', function() {
+  return Tags.find({
+  }, {
+    fields: {type: 1, key: 1, name: 1}
+  });
+});
+
+Meteor.publish('stopData', function(key) {
+  return Tags.find({key});
+  }, {
+    fields: {key: 1, name: 1, routes: 1}
+});
+
 Meteor.publish('userActivity', function() {
   return Meteor.users.find(
     {_id: this.userId},

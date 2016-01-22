@@ -8,8 +8,7 @@
     display: block !important;
 }
 
-.nj-card__tag,
-.nj-tagsinput .chip {
+.nj-tag {
     font-size: 14px;
     background-color: @cyan;
     color: #fff;
@@ -18,13 +17,12 @@
     white-space: nowrap;
 }
 
-.nj-tagsinput .chip.chip--fav,
-.nj-settings .nj-tagsinput .chip,
-.nj-settings-obs .nj-tagsinput .chip {
+.nj-tag.nj-tag--fav,
+.nj-settings-obs .nj-tag {
     background-color: @magenta;
 }
 
-.nj-tagsinput .chip i {
+.nj-tag i {
     font-size: 18px;
     position: relative;
     top: 3px;
@@ -85,6 +83,10 @@
 
 /* Fake input */
 
+.nj-tagsinput--fake {
+    border-bottom: 1px solid @lightgrey;
+}
+
 .nj-tagsinput--fake input {
     display: none;
 }
@@ -92,8 +94,7 @@
 .nj-tagsinput__label {
     display: block;
     cursor: text;
-    color: @lightgrey;
-    border-bottom: 1px solid @lightgrey;
+    color: #bbb;
     font-size: 16px;
     margin-top: 16px;
     padding-bottom: 4px;
