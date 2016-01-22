@@ -23,6 +23,9 @@ Accounts.onCreateUser(function(options, user) {
   user.profile['push-obs-new-reports'] = true;
   user.profile['push-thanks'] = true;
   user.profile['push-all-anytime'] = false;
+  user.profile.ignored = {
+    'announcements': [],
+  };
   user.profile.nickname = generateNickname(6);
   return user;
 });
