@@ -81,9 +81,10 @@ Template.newReportStop.events({
 Template.newReportLines.onCreated(function() {
   const [stopKey] = Router.current().state.get('new-report-stops');
   this.subscribe('stopData', stopKey);
-});
 
-Template.newReportLines.onRendered(function() {
+  const state = Router.current().state;
+  state.set('new-report-lines-selecting',
+    state.get('new-report-lines'));
 });
 
 Template.newReportLines.helpers({
