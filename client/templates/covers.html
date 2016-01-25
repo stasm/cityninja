@@ -13,6 +13,35 @@
   </div>
 </div></template>
 
+<template name="live"><div class="nj-transition">
+  <div class="nj-layout nj-layout--transparent mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <header class="nj-header nj-header--transparent mdl-layout__header">
+      <div class="mdl-layout__drawer-button">
+        <a href="{{ pathFor 'feed.all' }}">
+          <i class="material-icons">arrow_back</i>
+        </a>
+      </div>
+    </header>
+    <main class="nj-content nj-live mdl-layout__content">
+      <div class="nj-cover">
+        <img class="nj-cover__ninja"
+          src="/images/ninja_dobrze_1x.png"
+          srcset="/images/ninja_dobrze_1x.png 1x,
+                  /images/ninja_dobrze_2x.png 2x,
+                  /images/ninja_dobrze_3x.png 3x">
+        <p class="nj-cover__text">
+          Witaj w nowej wersji Warszawskiego Ninjy!
+        </p>
+        <p class="nj-cover__text">
+          <a href="{{ pathFor 'feed.all' }}" class="nj-cover__button mdl-button mdl-js-button mdl-js-ripple-effect">
+            Zacznij korzystać
+          </a>
+        </p>
+      </div>
+    </main>
+  </div>
+</div></template>
+
 <template name="loading"><div class="nj-transition">
   <div class="nj-layout nj-layout--transparent mdl-layout mdl-js-layout mdl-layout--fixed-header">
     <main class="nj-content nj-loading mdl-layout__content">
