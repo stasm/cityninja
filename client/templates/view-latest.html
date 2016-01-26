@@ -98,7 +98,7 @@
   {{#if this}}
     <div class="nj-card__taglist">
       {{#each tag in this}}
-        <span class="nj-tag  {{ fav tag }}">{{ getName tag }}</span>
+        <span class="nj-tag  {{ fav tag.key }}">{{ tag.name }}</span>
       {{/each}}
     </div>
   {{/if}}

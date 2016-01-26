@@ -1,9 +1,7 @@
 Template.latest.onCreated(trackPageView);
 Template.latest.onRendered(flushQueuedToasts);
 Template.latest.onRendered(observeComments);
-Template.latest.onDestroyed(function() {
-  this.observer.stop();
-});
+Template.latest.onDestroyed(unobserveComments);
 
 function observeComments() {
   this.observer = Reports.find({

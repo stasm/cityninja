@@ -131,9 +131,6 @@ Template.commentcard.helpers({
 });
 
 Template.taglist.helpers({
-  getName: function(key) {
-    return Tags.findOne({key}).name;
-  },
   fav: function(key) {
     return isFav(key) ?
       'nj-tag--fav' : null;
