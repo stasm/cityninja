@@ -9,7 +9,7 @@ function observeComments() {
   this.observer = Reports.find({
     expired: {$ne: true},
     removed: {$ne: true},
-    dismissedBy: {$ne: Meteor.user()}
+    dismissedBy: {$ne: Meteor.userId()}
   }).observeChanges({
     added: (id) => {
       if (!this.observer) {
@@ -52,7 +52,7 @@ Template.latest.helpers({
     ...Reports.find({
       expired: {$ne: true},
       removed: {$ne: true},
-      dismissedBy: {$ne: Meteor.user()},
+      dismissedBy: {$ne: Meteor.userId()},
     }, {sort: {createdAt: -1}}).fetch()
   ],
 });
