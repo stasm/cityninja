@@ -23,12 +23,11 @@ App.icons({
 
 App.setPreference('Fullscreen', false);
 App.setPreference('Orientation', 'portrait');
-App.setPreference('BackgroundColor', '0xff000000');
 App.setPreference('HideKeyboardFormAccessoryBar', true);
 
 App.setPreference('StatusBarOverlaysWebView', true);
 App.setPreference('StatusBarBackgroundColor', '#000000');
 App.setPreference('StatusBarStyle', 'blacktranslucent');
-App.setPreference('deployment-target', '7.0');
+App.setPreference('deployment-target', '8.0');
 App.setPreference('android-targetSdkVersion', '22');
-App.setPreference('android-minSdkVersion', '19');
+App.setPreference('android-minSdkVersion', '14');

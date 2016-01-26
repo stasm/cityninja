@@ -1,9 +1,11 @@
+SHELL := /bin/bash
+
 # Define ROOT_URL, OBJDIR and other variables in private/makefile
 include private/makefile
 
 .PHONY: build
 build: clean
-	ROOT_URL=$(ROOT_URL) meteor build $(OBJDIR) --server=$(ROOT_URL) --directory	
+	ROOT_URL=$(ROOT_URL) meteor build $(OBJDIR) --server=$(ROOT_URL) --directory
 
 .PHONY: clean
 clean:
@@ -46,22 +48,24 @@ deploy-stage:
 
 .PHONY: sign-prod
 sign-prod:
-	cd $(OBJDIR)/android; \
-	jarsigner \
-	  -digestalg SHA1 -sigalg SHA1withRSA \
-	  -keystore $(ANDROID_KEYSTORE) \
-	  $(RAW_APK) $(ANDROID_KEYNAME) && \
-	$(ANDROID_HOME)/build-tools/*/zipalign 4 $(RAW_APK) $(PROD_APK)
+	cd $(OBJDIR)/android/project/build/outputs/apk; \
+	for apk in $$(ls -1 *.apk); do \
+	  jarsigner \
+	    -verbose -digestalg SHA1 -sigalg SHA1withRSA \
+	    -keystore $(ANDROID_KEYSTORE) \
+	    $${apk} $(ANDROID_KEYNAME) && \
+	  $(ANDROID_HOME)/build-tools/*/zipalign 4 \
+	    $${apk} ../../../../$${apk/release-unsigned/release-signed}; \
+	done
 
 .PHONY: sign-debug
 sign-debug:
-	cd $(OBJDIR)/android; \
-	jarsigner \
-	  -verbose -digestalg SHA1 -sigalg SHA1withRSA \
-	  -keystore ~/.android/debug.keystore \
-	  $(RAW_APK) androiddebugkey && \
-	$(ANDROID_HOME)/build-tools/*/zipalign 4 $(RAW_APK) $(DEBUG_APK)
-
-.PHONY: install
-install:
-	adb install -r $(OBJDIR)/android/*ninja-*.apk
+	cd $(OBJDIR)/android/project/build/outputs/apk; \
+	for apk in $$(ls -1 *.apk); do \
+	  jarsigner \
+	    -verbose -digestalg SHA1 -sigalg SHA1withRSA \
+	    -keystore ~/.android/debug.keystore \
+	    $${apk} androiddebugkey && \
+	  $(ANDROID_HOME)/build-tools/*/zipalign 4 \
+	    $${apk} ../../../../$${apk/release-unsigned/debug-signed}; \
+	done
