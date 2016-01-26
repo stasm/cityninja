@@ -99,5 +99,9 @@ function heartbeat(userId) {
   });
 }
 
-Meteor.users._ensureIndex(
-  {'lastSeen': 1}, {expireAfterSeconds: 15552000}); // 180 days
+Meteor.startup(function() {
+  Tags._ensureIndex({key: 1});
+  Meteor.users._ensureIndex(
+    {'lastSeen': 1}, {expireAfterSeconds: 15552000} // 180 days
+  );
+});
