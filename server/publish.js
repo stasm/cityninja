@@ -8,7 +8,7 @@ Meteor.publish('currentReports', function() {
     removed: { $ne: true },
     dismissedBy: { $ne: this.userId },
   }, {
-    fields: {removed: 0, weight: 0, token: 0, comments: 0, createdByNumber: 0}
+    fields: {removed: 0, weight: 0, token: 0, createdByNumber: 0, comments: 0}
   });
 });
 
@@ -23,7 +23,7 @@ Meteor.publish('archivedReports', function() {
       {dismissedBy: this.userId}
     ]
   }, {
-    fields: {removed: 0, weight: 0, token: 0, comments: 0, createdByNumber: 0}
+    fields: {removed: 0, weight: 0, token: 0, createdByNumber: 0, comments: 0}
   });
 });
 
