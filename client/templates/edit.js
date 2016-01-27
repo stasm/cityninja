@@ -14,7 +14,9 @@ Template.editReport.events({
     evt.preventDefault();
     Meteor.call('updateReport', this._id, Router.current().params.token, {
       text: evt.target['edit-report-text'].value,
-      tags: $('#edit-report-tags').materialtags('items'),
+      tags: $('#edit-report-tags').materialtags('items').map(
+        tag => ({key: tag.key, name: tag.name})
+      ),
     });
     queuedToasts.push([pickRandom(toasts.created)]);
     Router.go('feed.all');
