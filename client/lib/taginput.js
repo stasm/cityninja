@@ -29,9 +29,11 @@ makeTagInput = function(sel, query = {}) {
   const tags = new Bloodhound({
     datumTokenizer: datum => withLatin(datum.name.split(ws)),
     queryTokenizer: query => query.split(ws),
-    identify: function(tag) { return tag.key; },
+    identify: tag => tag.key,
     local: function() {
-      return Tags.find(query).fetch();
+      return Tags.find(query).map(
+        tag => ({key: tag.key, name: tag.name})
+      );
     },
   });
 
