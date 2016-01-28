@@ -29,10 +29,21 @@ makeTagInput = function(sel, query = {}) {
   const tags = new Bloodhound({
     datumTokenizer: datum => withLatin(datum.name.split(ws)),
     queryTokenizer: query => query.split(ws),
-    identify: function(tag) { return tag.key; },
-    local: function() {
-      return Tags.find(query).fetch();
-    },
+    identify: tag => tag.key,
+    local: () => Tags.find(query).fetch(),
+    sorter: (a, b) => {
+      if (a.type !== b.type) {
+        return a.type.localeCompare(b.type);
+      }
+
+      if (a.type === 'stop') {
+        return a.name.localeCompare(b.name);
+      }
+
+      return ('0000' + a.key).slice(-5, -1).localeCompare(
+        ('0000' + b.key).slice(-5, -1)
+      );
+    }
   });
 
   const tagsinput = $(sel);
