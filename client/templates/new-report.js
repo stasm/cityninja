@@ -8,6 +8,8 @@ Template.newReport.onRendered(function() {
     Router.current().state.set('new-report-lines', []);
   });
   this.autorun(() => updateSelectedStopInput(taginput));
+
+  Cache.subscribe('tagLabelsWithTypes');
 });
 
 Template.newReport.helpers({
