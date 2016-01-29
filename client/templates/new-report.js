@@ -9,7 +9,7 @@ Template.newReport.onRendered(function() {
   });
   this.autorun(() => updateSelectedStopInput(taginput));
 
-  Cache.subscribe('tagLabelsWithTypes');
+  TagSubs.subscribe('tagLabelsWithTypes');
 });
 
 Template.newReport.helpers({
