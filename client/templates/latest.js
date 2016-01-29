@@ -15,6 +15,8 @@ function observeComments() {
         return;
       }
 
+      DetailSubs.subscribe('reportDetail', id)
+
       Tracker.afterFlush(() => {
         const card = document.getElementById(id);
         card.classList.add('nj-card--new');
