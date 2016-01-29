@@ -1,6 +1,7 @@
 Template.latest.onCreated(trackPageView);
 Template.latest.onRendered(flushQueuedToasts);
 Template.latest.onRendered(observeComments);
+Template.latest.onRendered(prefetchDetails);
 Template.latest.onDestroyed(unobserveComments);
 
 function observeComments() {
@@ -38,6 +39,16 @@ function observeComments() {
 
 function unobserveComments() {
   this.observer.stop();
+}
+
+function prefetchDetails() {
+  Reports.find({
+    expired: {$ne: true},
+    removed: {$ne: true},
+    dismissedBy: {$ne: Meteor.userId()},
+  }).map(
+    report => DetailSubs.subscribe('reportDetail', report._id)
+  );
 }
 
 Template.latest.helpers({
