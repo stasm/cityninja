@@ -14,7 +14,7 @@ Template.newReport.onRendered(function() {
 
 Template.newReport.helpers({
   seenHint() {
-    return Session.get('user has seen the new report hint');
+    return Meteor.user().profile['seen-new-report-hint-1'];
   },
   isStopSelected() {
      return Router.current().state.get('new-report-stops').length;
@@ -31,7 +31,11 @@ Template.newReport.helpers({
 Template.newReport.events({
   'click .nj-new-report__understood': function(evt) {
     evt.preventDefault();
-    Session.setPersistent('user has seen the new report hint', true);
+    Meteor.users.update(Meteor.userId(), {
+      $set: {
+        'profile.seen-new-report-hint-1': true
+      }
+    });
   },
   'keyup [type="text"]': function(_, template) {
     checkValid(template.find('form'));
