@@ -21,13 +21,19 @@ App.icons({
   'ipad_2x': 'public/branding/ios/ios_152.png',
 });
 
-App.setPreference('Fullscreen', false);
-App.setPreference('Orientation', 'portrait');
-App.setPreference('HideKeyboardFormAccessoryBar', true);
+// Compatibility
+App.setPreference('android-minSdkVersion', '14');
+App.setPreference('android-targetSdkVersion', '22');
+App.setPreference('deployment-target', '8.0');
 
-App.setPreference('StatusBarOverlaysWebView', true);
+// Global
+App.setPreference('Fullscreen', false);
+App.setPreference('DisallowOverscroll', true);
+
+// iOS
+App.setPreference('StatusBarOverlaysWebView', false);
 App.setPreference('StatusBarBackgroundColor', '#000000');
 App.setPreference('StatusBarStyle', 'blacktranslucent');
-App.setPreference('deployment-target', '8.0');
-App.setPreference('android-targetSdkVersion', '22');
-App.setPreference('android-minSdkVersion', '14');
+App.setPreference('StatusBarStyle', 'lightcontent');
+App.setPreference('HideKeyboardFormAccessoryBar', true);
+App.setPreference('KeyboardShrinksView', true);
