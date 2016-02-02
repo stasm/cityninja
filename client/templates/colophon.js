@@ -1,4 +1,43 @@
 Template.colophon.onCreated(trackPageView);
+Template.colophon.onRendered(draw);
+
+Template.colophon.events({
+  'click button': pickColor,
+  'click .won': resetGame,
+  'click [target="_system"]': openExternal
+});
+
+Template.colophon.helpers({
+  ver() {
+    return VERSION;
+  },
+  movesCount() {
+    return Session.get('moves count');
+  },
+  gamesCount() {
+    return Session.get('games count');
+  },
+  bestScore() {
+    return Math.min(Session.get('best score'), Session.get('current count'));
+  },
+  wonClass() {
+    if (Session.get('win condition')) {
+      return 'won';
+    }
+  },
+});
+
+Template.eula.onCreated(trackPageView);
+Template.eula.events({
+  'click [target="_system"]': openExternal
+});
+
+function openExternal(evt) {
+  evt.stopImmediatePropagation();
+  evt.preventDefault();
+  window.open(evt.currentTarget.getAttribute('href'), '_system');
+}
+
 
 var defaultBoard = [
   [1,3,0,2,1,0,0,0],
@@ -40,27 +79,6 @@ Session.set('win condition', false);
 Session.set('winning', '');
 var checkedSquares = [];
 
-Template.colophon.helpers({
-  ver() {
-    return VERSION;
-  },
-  movesCount() {
-    return Session.get('moves count');
-  },
-  gamesCount() {
-    return Session.get('games count');
-  },
-  bestScore() {
-    return Math.min(Session.get('best score'), Session.get('current count'));
-  },
-  wonClass() {
-    if (Session.get('win condition')) {
-      return 'won';
-    }
-  },
-
-});
-
 function draw(){
 
   var canvas = document.getElementById('canvas');
@@ -90,13 +108,6 @@ function drawDefault(){
     }
   }
 }
-
-Template.colophon.onRendered(draw);
-
-Template.colophon.events({
-  'click button': pickColor,
-  'click .won': resetGame,
-});
 
 function resetGame(evt){
   var winning = Session.get('win condition');
