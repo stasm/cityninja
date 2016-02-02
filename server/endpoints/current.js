@@ -2,13 +2,16 @@ const publishedFields = {
   _id: 0,
   text: 1,
   tags: 1,
-  createdAt: 1
+  createdAt: 1,
+  source: 1,
+  sourceName: 1,
+  tags: 1,
 };
 
 reportsCurrentEndpoint = {
   get: function() {
     return {
-      statusCode:200, 
+      statusCode: 200,
       body: {
         status: 'ok',
         data: Reports.find({
