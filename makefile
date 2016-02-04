@@ -46,10 +46,10 @@ deploy-prod:
 deploy-stage:
 	meteor deploy $(STAGE_DOMAIN) --settings=private/stage.json
 
-.PHONY: sign-prod
-sign-prod:
+.PHONY: sign-release
+sign-release:
 	cd $(OBJDIR)/android/project/build/outputs/apk; \
-	for apk in $$(ls -1 *.apk); do \
+	for apk in $$(ls -1 *release*.apk); do \
 	  jarsigner \
 	    -verbose -digestalg SHA1 -sigalg SHA1withRSA \
 	    -keystore $(ANDROID_KEYSTORE) \
@@ -61,7 +61,7 @@ sign-prod:
 .PHONY: sign-debug
 sign-debug:
 	cd $(OBJDIR)/android/project/build/outputs/apk; \
-	for apk in $$(ls -1 *.apk); do \
+	for apk in $$(ls -1 *release*.apk); do \
 	  jarsigner \
 	    -verbose -digestalg SHA1 -sigalg SHA1withRSA \
 	    -keystore ~/.android/debug.keystore \
@@ -69,3 +69,7 @@ sign-debug:
 	  $(ANDROID_HOME)/build-tools/*/zipalign 4 \
 	    $${apk} ../../../../$${apk/release-unsigned/debug-signed}; \
 	done
+
+.PHONY: install-debug
+install-debug:
+	adb install -r $(OBJDIR)/android/project/build/outputs/apk/android-armv7-debug.apk
