@@ -14,7 +14,9 @@ pushReport = function(report) {
     '_id': { $ne: report.createdBy },
     'profile.push-obs-new-reports': true,
     'profile.favs': {
-      $in: report.tags
+      $in: report.tags.map(
+        tag => tag.key
+      )
     }
   };
 
