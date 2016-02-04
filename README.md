@@ -114,7 +114,7 @@ Przykład zwróconych danych:
           "text": "Utrudnienia w kursowaniu autobusów linii 136 ",
           "tags": [],
           "createdAt": "2016-02-04T16:48:06.455Z"
-        },
+        }
       ]
     }
 
