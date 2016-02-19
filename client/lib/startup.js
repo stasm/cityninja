@@ -12,8 +12,11 @@ Meteor.startup(function() {
   }
 });
 
-trackPageView = function(url) {
-  _paq.push(['trackPageView', url || Router.current().url]);
+trackPageView = function() {
+  // XXX work around https://github.com/iron-meteor/iron-router/issues/1152
+  const base = Meteor.absoluteUrl().slice(0, -1);
+  const path = Router.current().url.replace(base, '');
+  _paq.push(['trackPageView', base + path]);
 };
 
 trackEvent = function(cat, action, name) {
