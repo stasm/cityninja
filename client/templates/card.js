@@ -28,7 +28,6 @@ Template.feedcard.helpers({
 
 Template.feedcard.events({
   'click .nj-card': function(evt) {
-    trackEvent('Report', 'Detail');
     evt.stopImmediatePropagation();
     Router.go('report.detail', { _id: this._id });
   },
