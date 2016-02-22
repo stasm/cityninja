@@ -33,16 +33,13 @@ makeTagInput = function(sel, query = {}) {
     local: () => Tags.find(query).fetch(),
     sorter: (a, b) => {
       if (a.type !== b.type) {
+        // lines should come before stops
         return a.type.localeCompare(b.type);
       }
 
-      if (a.type === 'stop') {
-        return a.name.localeCompare(b.name);
-      }
-
-      return ('0000' + a.key).slice(-5, -1).localeCompare(
-        ('0000' + b.key).slice(-5, -1)
-      );
+      return a.type === 'stop' ?
+        compareStops(a, b) :
+        compareLines(a, b);
     }
   });
 
