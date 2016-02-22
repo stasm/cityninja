@@ -2,6 +2,19 @@ Template.latest.onCreated(trackPageView);
 Template.latest.onRendered(flushQueuedToasts);
 Template.latest.onRendered(observeComments);
 Template.latest.onRendered(prefetchDetails);
+
+Template.latest.onRendered(function() {
+  const offset = Session.get('latest feed scroll offset');
+  // XXX Tracker.afterFlush doesn't work here
+  Meteor.setTimeout(
+    () => $('.nj-content').scrollTop(offset)
+  );
+});
+
+Template.latest.onDestroyed(function() {
+  const offset = $('.nj-content').scrollTop();
+  Session.set('latest feed scroll offset', offset);
+});
 Template.latest.onDestroyed(unobserveComments);
 
 function observeComments() {
