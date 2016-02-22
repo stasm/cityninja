@@ -2,7 +2,7 @@ Template.settings.onCreated(trackPageView);
 Template.settings.onRendered(function() {
   const tags = makeTagInput('#observed-tags-view');
   tags.on('itemRemoved', function(evt) {
-    trackEvent('Profile', 'Removed a fav', evt.item.key);
+    trackEvent('Profile', 'Settings: Removed a fav', evt.item.key);
     Meteor.users.update(Meteor.userId(), {
       $pull: { 'profile.favs': evt.item.key }
     });
@@ -22,7 +22,7 @@ Template.settings.helpers({
 Template.settings.events({
   'change input[type="checkbox"]': function(evt) {
     const settingName = evt.currentTarget.getAttribute('id');
-    trackEvent('Profile', 'Toggled setting', settingName);
+    trackEvent('Profile', 'Settings: Toggled setting', settingName);
     Meteor.users.update(Meteor.userId(), {
       $set: {
         ['profile.' + settingName]: evt.currentTarget.checked,
@@ -40,11 +40,11 @@ Template.settingsObserved.onRendered(function() {
   const tags = makeTagInput('#observed-tags-edit');
   $('.nj-settings-obs .tt-input').focus();
   tags.on('itemAdded', function(evt) {
-    trackEvent('Profile', 'Added a fav', evt.item.key);
+    trackEvent('Profile', 'Settings: Added a fav', evt.item.key);
   });
 
   tags.on('itemRemoved', function(evt) {
-    trackEvent('Profile', 'Removed a fav', evt.item.key);
+    trackEvent('Profile', 'Settings: Removed a fav', evt.item.key);
   });
 
   Tracker.autorun(updateTagInputs);

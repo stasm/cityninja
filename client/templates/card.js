@@ -33,10 +33,10 @@ Template.feedcard.events({
   },
   'click .nj-card__dismiss': function(evt) {
     evt.stopImmediatePropagation();
-    trackEvent('Report', 'Dismiss');
+    trackEvent('Report', 'Latest: Dismiss report');
     Meteor.call('dismissReport', this._id);
     toast(pickRandom(toasts.archived), () => {
-      trackEvent('Report', 'Cancel Dismiss');
+      trackEvent('Report', 'Latest: Undo dismiss report');
       Meteor.call('cancelDismiss', this._id);
     });
   },
@@ -59,7 +59,7 @@ Template.tweetcard.events({
   'click .nj-card__thank': thankReport,
   'click .nj-card__open-tweet': function(evt) {
     evt.stopImmediatePropagation();
-    trackEvent('Report', 'Open tweet', this.sourceId);
+    trackEvent('Report', 'Detail: Open tweet', this.sourceId);
     window.open(
       'https://twitter.com/' + this.sourceUser + '/status/' +
         this.sourceId, '_system');
@@ -69,7 +69,7 @@ Template.tweetcard.events({
 Template.ninjacard.events({
   'click .nj-card__dismiss': function(evt) {
     evt.stopImmediatePropagation();
-    trackEvent('Announcement', 'Dismiss');
+    trackEvent('Announcement', 'Latest: Dismiss announcement');
     Meteor.call('dismissAnnouncement', this._id);
   },
 });
@@ -88,29 +88,29 @@ Template.usercard.events({
     evt.stopImmediatePropagation();
 
     if (has(this.upvotes)) {
-      trackEvent('Report', 'Cancel Upvote');
+      trackEvent('Report', 'Detail: Cancel Upvote');
       Meteor.call('cancelUpvote', this._id);
     } else {
-      trackEvent('Report', 'Upvote');
+      trackEvent('Report', 'Detail: Upvote');
       Meteor.call('upvoteReport', this._id);
     }
   },
   'click .nj-card__downvote': function(evt) {
     evt.stopImmediatePropagation();
     if (has(this.downvotes)) {
-      trackEvent('Report', 'Cancel Downvote');
+      trackEvent('Report', 'Detail: Cancel Downvote');
       Meteor.call('cancelDownvote', this._id);
     } else {
-      trackEvent('Report', 'Downvote');
+      trackEvent('Report', 'Detail: Downvote');
       Meteor.call('downvoteReport', this._id);
     }
   },
   'click .nj-card__remove': function(evt) {
     evt.stopImmediatePropagation();
-    trackEvent('Report', 'Remove');
+    trackEvent('Report', 'Detail: Remove');
     Meteor.call('removeReport', this._id);
     const cancel = () => {
-      trackEvent('Report', 'Cancel Remove');
+      trackEvent('Report', 'Detail: Undo Remove');
       Meteor.call('cancelRemove', this._id);
     };
     queuedToasts.push(
@@ -139,10 +139,10 @@ Template.taglist.helpers({
 function thankReport(evt) {
   evt.stopImmediatePropagation();
   if (has(this.thanks)) {
-    trackEvent('Report', 'Cancel Thanks');
+    trackEvent('Report', 'Detail: Cancel Thanks');
     Meteor.call('cancelThanks', this._id);
   } else {
-    trackEvent('Report', 'Thank');
+    trackEvent('Report', 'Detail: Thank');
     Meteor.call('thankReport', this._id);
   }
 }

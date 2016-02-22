@@ -4,6 +4,7 @@ Template.newReport.onRendered(function() {
     type: 'stop'
   });
   taginput.on('itemRemoved', function(evt) {
+    trackEvent('New Report', 'New Report: Remove stop in main', evt.item.key);
     Router.current().state.set('new-report-stops', []);
     Router.current().state.set('new-report-lines', []);
   });
@@ -31,6 +32,7 @@ Template.newReport.helpers({
 Template.newReport.events({
   'click .nj-new-report__understood': function(evt) {
     evt.preventDefault();
+    trackEvent('New Report', 'New Report: Dismiss hint');
     Meteor.users.update(Meteor.userId(), {
       $set: {
         'profile.seen-new-report-hint-1': true
@@ -41,13 +43,16 @@ Template.newReport.events({
     checkValid(template.find('form'));
   },
   'click .nj-new-report__select-stop': function(evt) {
+    trackEvent('New Report', 'New Report: Open select stop modal');
     Router.current().state.set('modal-stop-active', true);
   },
   'click .nj-new-report__select-lines': function(evt) {
+    trackEvent('New Report', 'New Report: Open select lines modal');
     Router.current().state.set('modal-lines-active', true);
   },
   'click .nj-new-report__lines .nj-tag__remove': function(evt) {
     const dir = evt.currentTarget.parentNode.dataset.dir;
+    trackEvent('New Report', 'New Report: Remove line in main', dir);
     const state = Router.current().state;
     const lines = state.get('new-report-lines');
     const pos = lines.indexOf(dir);
@@ -56,6 +61,7 @@ Template.newReport.events({
   },
   'submit form': function(evt) {
     evt.preventDefault();
+    trackEvent('New Report', 'New Report: Submit');
     const state = Router.current().state;
     Meteor.call(
       'createReport',
@@ -76,6 +82,7 @@ Template.newReportStop.onRendered(function() {
   });
   $('.nj-new-report-stop .tt-input').focus();
   taginput.on('itemAdded', function(evt) {
+    trackEvent('New Report', 'New Report: Add stop in modal', evt.item.key);
     Router.current().state.set('new-report-stops', [evt.item.key]);
     Router.current().state.set('modal-stop-active', false);
   });
@@ -85,6 +92,7 @@ Template.newReportStop.onRendered(function() {
 
 Template.newReportStop.events({
   'click .nj-new-report-stop__back': function(evt, template) {
+    trackEvent('New Report', 'New Report: Cancel select stop modal');
     Router.current().state.set('modal-stop-active', false);
   },
 });
@@ -123,11 +131,13 @@ Template.newReportLines.helpers({
 
 Template.newReportLines.events({
   'click .nj-new-report-lines__back': function(evt, template) {
+    trackEvent('New Report', 'New Report: Cancel select lines modal');
     const state = Router.current().state;
     state.set('new-report-lines-selecting', []);
     state.set('modal-lines-active', false);
   },
   'click .nj-new-report-lines__done': function(evt, template) {
+    trackEvent('New Report', 'New Report: Confirm select lines modal');
     const state = Router.current().state;
     state.set('new-report-lines', state.get('new-report-lines-selecting'));
     state.set('new-report-lines-selecting', []);
@@ -138,14 +148,17 @@ Template.newReportLines.events({
     const key = evt.currentTarget.dataset.dir;
     const prev = state.get('new-report-lines-selecting');
     if (contains(prev, key)) {
+      trackEvent('New Report', 'New Report: Add line in modal', key);
       const pos = prev.indexOf(key);
       state.set('new-report-lines-selecting',
         [...prev.slice(0, pos), ...prev.slice(pos + 1)]);
     } else {
+      trackEvent('New Report', 'New Report: Remove line in modal', key);
       state.set('new-report-lines-selecting', [...prev, key]);
     }
   },
   ['click .mdl-collapse__trigger'](evt) {
+    trackEvent('New Report', 'New Report: Toggle line group');
     $(evt.currentTarget)
       .parents('.mdl-collapse')
       .toggleClass('mdl-collapse--opened');

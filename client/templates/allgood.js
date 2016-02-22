@@ -19,7 +19,7 @@ function resetTaunts () {
 
 Template.allgood.events({
   'click .nj-cover__ninja': function(event, self) {
-    trackEvent('Fun', 'Allgood tap');
+    trackEvent('Fun', 'Latest: Allgood tap');
     var eggCounter = Session.get('easter egg counter');
     if (eggCounter < 15) {
       Session.set('easter egg counter', eggCounter + 1);

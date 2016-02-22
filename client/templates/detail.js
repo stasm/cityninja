@@ -34,6 +34,7 @@ Template.detail.events({
     const text = input.value.trim();
 
     const reportId = template.find('#report-id').value;
+    trackEvent('Report', 'Detail: Add comment');
     Meteor.call('commentReport', reportId, text);
 
     evt.currentTarget.reset();

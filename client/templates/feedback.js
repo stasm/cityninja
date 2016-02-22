@@ -6,6 +6,7 @@ Template.newFeedback.events({
   },
   'submit form': function(evt) {
     evt.preventDefault();
+    trackEvent('New Feedback', 'New Feedback: Submit');
     Meteor.call(
       'createFeedback',
       evt.target['new-feedback-text'].value);
