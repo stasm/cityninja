@@ -1,6 +1,6 @@
 function isRushHour(date) {
-  var rushDays = [1, 2, 3, 4, 5];
-  var rushHours = [7, 8, 16, 17];
+  const rushDays = [1, 2, 3, 4, 5];
+  const rushHours = [7, 8, 16, 17];
 
   if (rushDays.indexOf(date.getUTCDay()) === -1) {
     return false;
@@ -10,7 +10,7 @@ function isRushHour(date) {
 }
 
 pushReport = function(report) {
-  var query = {
+  const query = {
     '_id': { $ne: report.createdBy },
     'profile.push-obs-new-reports': true,
     'profile.favs': {
@@ -20,27 +20,83 @@ pushReport = function(report) {
     }
   };
 
-  // if it's not rush hour, include user who want pushes anytime
+  // if it's not rush hour, include users who want pushes anytime
   if (!isRushHour(new Date())) {
     query['profile.push-all-anytime'] = true;
   }
 
-  var userIds = Meteor.users.find(
-    query, { fields: { _id: 1 } }).map(
-    function(user) { return user._id; });
+  const userIds = Meteor.users.find(
+    query, { fields: { _id: 1 } }
+  ).map(
+    user => user._id
+  );
 
   Push.send({
     from: 'push',
-    title: 'Utrudnienia na Twojej trasie',
-    text: report.text,
+    title: 'Warszawski Ninja',
+    text: 'Nowe zgłoszenie na Twoich obserwowanych: ' + report.text,
     query: {
       userId: { $in: userIds }
     }
   });
 };
 
+pushComment = function(report, text) {
+  const reporter = report.createdBy;
+  const participants = report.comments ?
+    report.comments.map(
+      comment => comment.createdBy
+    ).concat(reporter) : [reporter]
+
+  const muted = report.dismissedBy ?
+    report.dismissedBy.concat(this.userId) : [this.userId];
+
+  const query = {
+    '_id': {
+      $in: participants,
+      $nin: muted,
+    },
+    'profile.push-comments': true,
+  };
+
+  // if it's not rush hour, include users who want pushes anytime
+  if (!isRushHour(new Date())) {
+    query['profile.push-all-anytime'] = true;
+  }
+
+  const receipients = Meteor.users.find(
+    query, { fields: { _id: 1 } }
+  ).map(
+    user => user._id
+  );
+
+  if (-1 < receipients.indexOf(reporter)) {
+    Push.send({
+      from: 'push',
+      title: 'Warszawski Ninja',
+      text: 'Ktoś odpowiedział na Twoje zgłoszenie: ' + text,
+      query: {
+        userId: reporter,
+      }
+    });
+  }
+
+  Push.send({
+    from: 'push',
+    title: 'Warszawski Ninja',
+    text: 'Ktoś odpowiedział na Twój komentarz: ' + text,
+    query: {
+      userId: {
+        $in: receipients,
+        $ne: reporter,
+      }
+    }
+  });
+};
+
+
 pushThanks = function(docId, submitterId, thankerId) {
-  var updated = Reports.update({
+  const updated = Reports.update({
     _id: docId,
   }, {
     $addToSet: {
@@ -48,7 +104,7 @@ pushThanks = function(docId, submitterId, thankerId) {
     }
   });
 
-  var user = Meteor.users.findOne({_id: submitterId});
+  const user = Meteor.users.findOne({_id: submitterId});
   if (user && user.profile['push-thanks']) {
 
     if (isRushHour(new Date()) || user.profile['push-all-anytime']) {

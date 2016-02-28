@@ -22,6 +22,7 @@ Accounts.onCreateUser(function(options, user) {
   user.profile.favs = [];
   user.profile['push-obs-new-reports'] = true;
   user.profile['push-thanks'] = true;
+  user.profile['push-comments'] = true;
   user.profile['push-all-anytime'] = false;
   user.profile.ignored = {
     'announcements': [],

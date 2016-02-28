@@ -22,6 +22,12 @@
             {{isChecked 'push-obs-new-reports'}}>
         </label>
 
+        <label for="push-comments" class="nj-settings__toggle mdl-checkbox mdl-js-checkbox {{#if isChecked 'push-comments'}}is-checked{{/if}}">
+          <span class="mdl-checkbox__label">Komentarze</span>
+          <input type="checkbox" id="push-comments" class="mdl-checkbox__input"
+            {{isChecked 'push-comments'}}>
+        </label>
+
         <label for="push-thanks" class="nj-settings__toggle mdl-checkbox mdl-js-checkbox {{#if isChecked 'push-thanks'}}is-checked{{/if}}">
           <span class="mdl-checkbox__label">Podziękowania</span>
           <input type="checkbox" id="push-thanks" class="mdl-checkbox__input"
@@ -32,7 +38,7 @@
           <span class="mdl-checkbox__label">Wysyłaj o dowolnej porze</span>
           <small class="nj-settings__hint">
             Domyślnie powiadomienia wysyłamy tylko
-            w&nbsp;godzinach szczytu, tj. 7-9 i 14-18
+            w&nbsp;godzinach szczytu, tj. 7-9 i 16-18
           </small>
           <input type="checkbox" id="push-all-anytime" class="mdl-checkbox__input"
             {{isChecked 'push-all-anytime'}}>
