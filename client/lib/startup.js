@@ -3,7 +3,7 @@ Meteor.startup(function() {
 
   if (Meteor.isCordova) {
     document.addEventListener("backbutton", function() {
-      if (window.location.pathname === '/') {
+      if (window.location.pathname === Router.path('feed.all')) {
         window.plugins.Suspend.suspendApp();
       } else {
         window.history.back();
