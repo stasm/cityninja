@@ -1,4 +1,5 @@
 Template.archive.onCreated(trackPageView);
+Template.archive.onCreated(colorStatusBar);
 Template.archive.onRendered(function() {
   $('img, div.fab').on('dragstart', function(event) {
     event.preventDefault();

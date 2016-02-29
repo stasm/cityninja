@@ -1,4 +1,5 @@
 Template.latest.onCreated(trackPageView);
+Template.latest.onCreated(colorStatusBar);
 Template.latest.onRendered(flushQueuedToasts);
 Template.latest.onRendered(observeComments);
 Template.latest.onRendered(prefetchDetails);

@@ -1,4 +1,5 @@
 Template.colophon.onCreated(trackPageView);
+Template.colophon.onCreated(colorStatusBar);
 Template.colophon.onRendered(draw);
 
 Template.colophon.events({
@@ -28,6 +29,7 @@ Template.colophon.helpers({
 });
 
 Template.eula.onCreated(trackPageView);
+Template.eula.onCreated(colorStatusBar);
 Template.eula.events({
   'click [target="_system"]': openExternal
 });
