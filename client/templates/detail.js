@@ -1,5 +1,5 @@
 Template.detail.onCreated(trackPageView);
-Template.detail.onCreated(colorStatusBar);
+Template.detail.onRendered(colorStatusBar);
 Template.detail.onRendered(observeComments);
 
 function observeComments() {

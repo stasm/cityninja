@@ -1,5 +1,5 @@
 Template.activity.onCreated(trackPageView);
-Template.activity.onCreated(colorStatusBar);
+Template.activity.onRendered(colorStatusBar);
 Template.activity.onRendered(() => {
   $('.nj-achievements .mdl-card__title').each(function() {
     $(this).css('background-position', rand() + '% ' + rand() + '%');

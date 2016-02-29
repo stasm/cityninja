@@ -1,5 +1,5 @@
 Template.settings.onCreated(trackPageView);
-Template.settings.onCreated(colorStatusBar);
+Template.settings.onRendered(colorStatusBar);
 Template.settings.onRendered(function() {
   const tags = makeTagInput('#observed-tags-view');
   tags.on('itemRemoved', function(evt) {

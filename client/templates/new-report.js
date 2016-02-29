@@ -1,5 +1,5 @@
 Template.newReport.onCreated(trackPageView);
-Template.newReport.onCreated(colorStatusBar);
+Template.newReport.onRendered(colorStatusBar);
 Template.newReport.onRendered(function() {
   const taginput = makeTagInput('#new-report-stop-view', {
     type: 'stop'

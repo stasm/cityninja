@@ -1,5 +1,5 @@
 Template.newFeedback.onCreated(trackPageView);
-Template.newFeedback.onCreated(colorStatusBar);
+Template.newFeedback.onRendered(colorStatusBar);
 Template.newFeedback.onRendered(autofocus);
 Template.newFeedback.events({
   'keyup [type="text"]': function(_, template) {

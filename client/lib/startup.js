@@ -46,7 +46,7 @@ colorStatusBar = function() {
       break;
     case 'feed.all':
     default:
-      matchStatusBarColor('white');
+      matchStatusBarColor('black');
   }
 }
 
@@ -73,7 +73,7 @@ function matchStatusBarColor(color) {
       default:
         StatusBar.backgroundColorByHexString("#000000");
     }
-  } else if (Meteor.debug === true) {
+  } else {
     switch (color) {
       case 'cyan':
         StatusBar.styleLightContent();
@@ -90,6 +90,7 @@ function matchStatusBarColor(color) {
       case 'white':
         StatusBar.styleDefault();
         StatusBar.backgroundColorByHexString("#ffffff");
+        break;
       case 'black':
       default:
         StatusBar.styleLightContent();
