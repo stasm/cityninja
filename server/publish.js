@@ -50,11 +50,8 @@ Meteor.publish('queuedReport', function(token) {
 
 Meteor.publish('currentAnnouncements', function() {
   const user = Meteor.users.findOne(this.userId);
-  if (!user) {
-    return;
-  }
-
-  const ignored = user.profile.ignored.announcements;
+  const ignored = user ?
+    user.profile.ignored.announcements : [];
   return Announcements.find({
     published: true,
     _id: { $nin: ignored },
