@@ -7,6 +7,10 @@ include private/makefile
 build: clean
 	ROOT_URL=$(ROOT_URL) meteor build $(OBJDIR) --server=$(ROOT_URL) --directory
 
+.PHONY: build-debug
+build-debug: clean
+	ROOT_URL=$(ROOT_URL) meteor build $(OBJDIR) --server=$(ROOT_URL) --directory --debug
+
 .PHONY: clean
 clean:
 	rm -rf $(OBJDIR)/*
@@ -33,21 +37,13 @@ bump:
 run-android:
 	meteor run android-device
 
-.PHONY: run-android-stage
-run-android-stage:
-	meteor run android-device --mobile-server=$(STAGE_DOMAIN)
-
 .PHONY: deploy-prod
 deploy-prod:
 	rsync -avz --delete $(OBJDIR)/bundle $(PROD_PATH)
 	rsync -avz --delete private/branding $(PROD_PATH)/public
 
-.PHONY: deploy-stage
-deploy-stage:
-	meteor deploy $(STAGE_DOMAIN) --settings=private/stage.json
-
-.PHONY: sign-release
-sign-release:
+.PHONY: sign-with-release-key
+sign-with-release-key:
 	cd $(OBJDIR)/android/project/build/outputs/apk; \
 	for apk in $$(ls -1 *release*.apk); do \
 	  jarsigner \
@@ -58,8 +54,8 @@ sign-release:
 	    $${apk} ../../../../$${apk/release-unsigned/release-signed}; \
 	done
 
-.PHONY: sign-debug
-sign-debug:
+.PHONY: sign-with-debug-key
+sign-with-debug-key:
 	cd $(OBJDIR)/android/project/build/outputs/apk; \
 	for apk in $$(ls -1 *release*.apk); do \
 	  jarsigner \
