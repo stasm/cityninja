@@ -35,9 +35,18 @@ Instalacja
 
         git clone https://github.com/stasm/cityninja.git
 
-  - Uruchom lokalny serwer:
+  - Przejdź do nowo utworzonego katalogu:
 
         cd cityninja
+
+  - Skopiuj i wyedytuj następujące pliki:
+
+        cp mobile-config.js.sample mobile-config.js
+        cp client/meta.html.sample client/meta.html
+        cp client/tempates/view-eula.html.sample client/templates/view-eula.html
+
+  - Uruchom lokalny serwer:
+
         meteor run
 
 [instrukcji]: https://www.meteor.com/install
