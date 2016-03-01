@@ -16,7 +16,7 @@ clean:
 	rm -rf $(OBJDIR)/*
 
 .PHONY: really-clean
-really-clean:
+really-clean: clean
 	rm -rf .meteor/local/cordova-build
 
 .PHONY: reset
@@ -32,10 +32,6 @@ bump:
 	sed -i -e "s/version: '.*'/version: '$(VERSION)'/" mobile-config.js
 	sed -i -e 's/"version": ".*"/"version": "$(VERSION)"/' public/manifest.webapp
 	sed -i -e "s/VERSION = '.*';/VERSION = '$(VERSION)';/" lib/config.js
-
-.PHONY: run-androidstage
-run-android:
-	meteor run android-device
 
 .PHONY: deploy-prod
 deploy-prod:
