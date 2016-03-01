@@ -13,5 +13,9 @@
         "apiKey": "",
         "projectNumber": 0
     },
-    "production": false
+    "production": false,
+
+    // cordova-build-override/platforms/android/res/drawable/pushicon.png
+    "icon": "pushicon",
+    "iconColor": "#000000"
 }

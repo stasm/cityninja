@@ -3,6 +3,7 @@ node_modules
 private
 config.push.json
 mobile-config.js
+cordova-build-override
 client/meta.html
 client/templates/view-eula.html
 public/branding/ninja.png
