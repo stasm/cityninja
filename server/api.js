@@ -11,18 +11,4 @@ Meteor.startup(function() {
     },
     reportsCurrentEndpoint
   );
-
-  API.addRoute('sms/receive',
-    {
-      authRequired: false
-    },
-    smsReceiveEndpoint
-  );
-
-  API.addRoute('reports',
-    {
-      authRequired: false
-    },
-    reportsEndpoint
-  );
 });
