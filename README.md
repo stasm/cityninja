@@ -43,6 +43,7 @@ Instalacja
 
         cp mobile-config.js.sample mobile-config.js
         cp client/meta.html.sample client/meta.html
+        cp client/lib/custom.js.sample client/lib/custom.js
         cp client/tempates/view-eula.html.sample client/templates/view-eula.html
 
   - Uruchom lokalny serwer:

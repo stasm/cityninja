@@ -1,0 +1,7 @@
+trackPageView = function() {
+  // called on every page view
+};
+
+trackEvent = function(cat, action, name) {
+  // called on user actions
+};
