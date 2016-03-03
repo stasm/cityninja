@@ -15,6 +15,11 @@
     },
     "production": false,
 
+    "badge": true,
+    "sound": true,
+    "alert": true,
+    "vibrate": true,
+
     // cordova-build-override/platforms/android/res/drawable/pushicon.png
     "icon": "pushicon",
     "iconColor": "#000000"
