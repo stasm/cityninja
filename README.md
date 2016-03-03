@@ -41,6 +41,7 @@ Instalacja
 
   - Skopiuj i wyedytuj następujące pliki:
 
+        cp config.push.json.sample config.push.json
         cp mobile-config.js.sample mobile-config.js
         cp client/meta.html.sample client/meta.html
         cp client/lib/custom.js.sample client/lib/custom.js

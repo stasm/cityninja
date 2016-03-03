@@ -3,7 +3,6 @@ node_modules
 private
 config.push.json
 mobile-config.js
-cordova-build-override
 client/meta.html
 client/lib/custom.js
 client/templates/view-eula.html
